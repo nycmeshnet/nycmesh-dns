@@ -2,6 +2,14 @@
 
 # Designed firstly for nycmesh-375p-dns1, need to make more portable for other nodes
 
+NEWCOMMIT=`git rev-parse HEAD`
+OLDCOMMIT=`cat /var/lib/knot/commit`
+
+if [ "$NEWCOMMIT" == "$OLDCOMMIT" ]
+then
+  exit 0
+fi
+
 cd /root/nycmesh-dns
 python makereverse.py
 cp kresd.conf /etc/knot-resolver/kresd.conf
@@ -13,3 +21,5 @@ systemctl stop kresd.service
 sleep 2
 systemctl start kresd.socket
 systemctl start kresd.socket
+
+git rev-parse HEAD > /var/lib/knot/commit
