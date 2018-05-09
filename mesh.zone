@@ -65,6 +65,8 @@ intpeer.nycmesh-375p-dns1.n227 A 10.70.252.9
 
 ; N363
 nycmesh-n363-rtr1.n363 A 10.70.132.1
+intpeer.nycmesh-n363-rtr1.n363 A 10.70.135.248
+intpeer.nycmesh-n363-rtr2.n363 A 10.70.135.249
 
 
 ; N570
