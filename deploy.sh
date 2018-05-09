@@ -11,6 +11,7 @@ then
 fi
 
 cd /root/nycmesh-dns
+git pull
 python makereverse.py
 cp kresd.conf /etc/knot-resolver/kresd.conf
 cp knot.conf /etc/knot/knot.conf
