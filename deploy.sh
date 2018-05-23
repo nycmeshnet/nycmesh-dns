@@ -2,6 +2,9 @@
 
 # Designed firstly for nycmesh-375p-dns1, need to make more portable for other nodes
 
+cd /root/nycmesh-dns
+git pull
+
 NEWCOMMIT=`git rev-parse HEAD`
 OLDCOMMIT=`cat /var/lib/knot/commit`
 
@@ -10,8 +13,6 @@ then
   exit 0
 fi
 
-cd /root/nycmesh-dns
-git pull
 python makereverse.py
 cp kresd.conf /etc/knot-resolver/kresd.conf
 cp knot.conf /etc/knot/knot.conf
