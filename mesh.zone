@@ -8,6 +8,7 @@ $TTL 3600
 dns   A     10.10.10.10
 ns    A     10.10.10.11
 ebook A     10.70.129.51
+gitlab A    10.70.123.5
 something A 1.1.1.1
 
 
