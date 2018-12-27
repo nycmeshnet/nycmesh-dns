@@ -37,8 +37,8 @@ for f in files:
   with open('mesh.zone') as f:
     for l in f:
       j = l.strip().split()
-      if len(j) == 2 and j[0] == "$ORIGIN":
-          domain = j[1]
+      if len(j) == 3 and j[0] == ';' and j[1] == "$ORIGIN":
+          domain = j[2]
       if len(j) == 3 and j[1] == "A":
         a = swapip(j[2])
         b = 'PTR'
@@ -46,6 +46,8 @@ for f in files:
         wr = whichreversedomain(a)
         if wr is not None:
           a = chopname(a,wr)
+          if wr == '59.167.199':
+            c = c + 'nycmesh.net.'
           if not [ x for x in output[wr] if x[0] == a ]:
             output[wr].append([a,b,c])
 
