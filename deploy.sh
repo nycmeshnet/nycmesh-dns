@@ -23,5 +23,6 @@ systemctl stop kresd.service
 sleep 2
 systemctl start kresd.socket
 systemctl start kresd.socket
+systemctl restart system-kresd.slice
 
 git rev-parse HEAD > /var/lib/knot/commit
