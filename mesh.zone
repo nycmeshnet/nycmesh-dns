@@ -4,6 +4,9 @@ $TTL 3600
 @  NS    ns
 @  A     10.10.10.11             ; IPv4 address for example.com
 
+@ MX 10.70.140.70
+
+
 ; Allocated domains
 dns   A     10.10.10.10
 ns    A     10.10.10.11
