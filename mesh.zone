@@ -8,12 +8,15 @@ $TTL 3600
 dns   A     10.10.10.10
 ns    A     10.10.10.11
 ebook A     10.70.129.51
-gitlab A    10.70.123.5
 something A 1.1.1.1
 unms	A 10.70.76.21
 jimsblog A 10.70.140.70
 jim	A 10.70.140.70
 mail	A 10.70.140.70
+
+; Emerson
+gitlab A    10.70.123.5
+em	NS	10.70.90.174
 
 
 ; Reserved as services are made
@@ -96,6 +99,7 @@ nycmesh-n363-rtr1.ether5.n363 A 10.70.135.128
 nycmesh-n363-exit.ether22.n363 A 10.70.135.129
 nycmesh-n363-rtr1.ether4.n363 A 10.70.135.130
 nycmesh-n363-ulwesta.ether1.n363 A 10.70.135.131
+zrg NS 10.70.132.1
 
 ; N570
 n570ton227.nycmesh-supernode2-rtr1.n570 A 10.70.70.2
