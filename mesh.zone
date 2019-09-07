@@ -19,7 +19,7 @@ mail	A 10.70.140.70
 
 ; Emerson
 gitlab A    10.70.123.5
-em	NS	10.70.90.174
+em	NS	em-router.members.sn3
 
 
 ; Reserved as services are made
@@ -41,59 +41,61 @@ nycmesh-n3-rtr.v46.n3 A 10.70.74.7
 l2tpvpn.sn1 A 199.167.59.6
 wgvpn.sn1 A 199.167.59.4
 
-nycmesh-375p.router1.oob.n227 A 10.42.43.1
-nycmesh-375p-ep1.oob.n227 A 10.42.43.2
-nycmesh-375p-routera.oob.n227 A 10.42.43.3
-nycmesh-375p-cisco1.oob.n227 A 10.42.43.9
-nycmesh-375p-a1s1.oob.n227 A 10.42.43.11
-nycmesh-375p-a1s2.oob.n227 A 10.42.43.12
-nycmesh-375p-a1s3.oob.n227 A 10.42.43.13
-nycmesh-375p-a3.oob.n227 A 10.42.43.14
-nycmesh-375p-a4.oob.n227 A 10.42.43.15
-nycmesh-375p-a2a1.oob.n227 A 10.42.43.21
-nycmesh-375p-af24-firehouse.oob.n227 A 10.42.43.25
-nycmesh-375p-esxi1.oob.n227 A 10.42.43.31
-nycmesh-375p-core1.oob.n227 A 10.42.43.41
-nycmesh-375p-vpn1.oob.n227 A 10.42.43.42
-nycmesh-375p-dns1.oob.n227 A 10.42.43.43
-nycmesh-375p-border2.oob.n227 A 10.42.43.44
-nycmesh-375p-speed1.oob.n227 A 10.42.43.45
-nycmesh-375p-vpn2.oob.n227 A 10.42.43.46
+nycmesh-375p.router1.oob.sn1 A 10.42.43.1
+nycmesh-375p-ep1.oob.sn1 A 10.42.43.2
+nycmesh-375p-routera.oob.sn1 A 10.42.43.3
+nycmesh-375p-cisco1.oob.sn1 A 10.42.43.9
+nycmesh-375p-a1s1.oob.sn1 A 10.42.43.11
+nycmesh-375p-a1s2.oob.sn1 A 10.42.43.12
+nycmesh-375p-a1s3.oob.sn1 A 10.42.43.13
+nycmesh-375p-a3.oob.sn1 A 10.42.43.14
+nycmesh-375p-a4.oob.sn1 A 10.42.43.15
+nycmesh-375p-a2a1.oob.sn1 A 10.42.43.21
+nycmesh-375p-af24-firehouse.oob.sn1 A 10.42.43.25
+nycmesh-375p-esxi1.oob.sn1 A 10.42.43.31
+nycmesh-375p-core1.oob.sn1 A 10.42.43.41
+nycmesh-375p-vpn1.oob.sn1 A 10.42.43.42
+nycmesh-375p-dns1.oob.sn1 A 10.42.43.43
+nycmesh-375p-border2.oob.sn1 A 10.42.43.44
+nycmesh-375p-speed1.oob.sn1 A 10.42.43.45
+nycmesh-375p-vpn2.oob.sn1 A 10.42.43.46
 
-n227ton570.nycmesh-375p-core1.n227 A 10.70.70.1
-nycmesh-375p-core1.v46.n227 A 10.70.74.1
+sn1ton570.nycmesh-375p-core1.sn1 A 10.70.70.1
+nycmesh-375p-core1.v46.sn1 A 10.70.74.1
 
-nycmesh-375p-core1.internalpeer.n227 A 10.70.71.129
-nycmesh-375p-core2.internalpeer.n227 A 10.70.71.130
-nycmesh-375p-vpn1.internalpeer.n227 A 10.70.71.131
-nycmesh-375p-vpn2.internalpeer.n227 A 10.70.71.132
-nycmesh-375p-dns1.internalpeer.n227 A 10.70.71.133
-; nycmesh-375p-dns2.internalpeer.n227 A 10.70.71.134
-nycmesh-375p-svc1.internalpeer.n227 A 10.70.71.135
-; nycmesh-375p-svc2.internalpeer.n227 A 10.70.71.136
-nycmesh-375p-maint1.internalpeer.n227 A 10.70.71.158
+nycmesh-375p-core1.internalpeer.sn1 A 10.70.71.129
+nycmesh-375p-core2.internalpeer.sn1 A 10.70.71.130
+nycmesh-375p-vpn1.internalpeer.sn1 A 10.70.71.131
+nycmesh-375p-vpn2.internalpeer.sn1 A 10.70.71.132
+nycmesh-375p-dns1.internalpeer.sn1 A 10.70.71.133
+; nycmesh-375p-dns2.internalpeer.sn1 A 10.70.71.134
+nycmesh-375p-svc1.internalpeer.sn1 A 10.70.71.135
+; nycmesh-375p-svc2.internalpeer.sn1 A 10.70.71.136
+nycmesh-375p-maint1.internalpeer.sn1 A 10.70.71.158
 
-nycmesh-375p-core2.ipsec.n227 A 10.70.72.1
-nycmesh-n3-sxtsq-n3.ipsec.n227 A 10.70.72.130
+nycmesh-375p-core2.ipsec.sn1 A 10.70.72.1
+nycmesh-n3-sxtsq-n3.ipsec.sn1 A 10.70.72.130
 
+nycmesh-375p-core1.lo.sn1 A 10.70.254.1
+nycmesh-375p-vpn1.lo.sn1 A 10.70.254.7
+nycmesh-375p-dns1.lo.sn1 A 10.70.254.9
 
-nycmesh-375p-core1.lo.n227 A 10.70.254.1
-nycmesh-375p-vpn1.lo.n227 A 10.70.254.7
-nycmesh-375p-dns1.lo.n227 A 10.70.254.9
+nycmesh-375p-routera.public.sn1 A 199.167.59.1
+nycmesh-375p-oob-router1.public.sn1 A 199.167.59.2
+nycmesh-375p-core1.public.sn1 A 199.167.59.3
+nycmesh-375p-vpn1.public.sn1 A 199.167.59.4
+nycmesh-375p-border2.public.sn1 A 199.167.59.5
+nycmesh-375p-vpn2.public.sn1 A 199.167.59.6
+nycmesh-375p-dns1.public.sn1 A 199.167.59.10
 
-nycmesh-375p-routera.public.n227 A 199.167.59.1
-nycmesh-375p-oob-router1.public.n227 A 199.167.59.2
-nycmesh-375p-core1.public.n227 A 199.167.59.3
-nycmesh-375p-vpn1.public.n227 A 199.167.59.4
-nycmesh-375p-border2.public.n227 A 199.167.59.5
-nycmesh-375p-vpn2.public.n227 A 199.167.59.6
-nycmesh-375p-dns1.public.n227 A 199.167.59.10
+gnycmesh-375p-core1.intpeer.sn1 A 10.70.252.1
+gnycmesh-375p-routera.intpeer.sn1 A 10.70.252.3
+gnycmesh-375p-vpn1.intpeer.sn1 A 10.70.252.7
+gnycmesh-375p-vpn2.intpeer.sn1 A 10.70.252.8
+gnycmesh-375p-dns1.intpeer.sn1 A 10.70.252.9
 
-gnycmesh-375p-core1.intpeer.n227 A 10.70.252.1
-gnycmesh-375p-routera.intpeer.n227 A 10.70.252.3
-gnycmesh-375p-vpn1.intpeer.n227 A 10.70.252.7
-gnycmesh-375p-vpn2.intpeer.n227 A 10.70.252.8
-gnycmesh-375p-dns1.intpeer.n227 A 10.70.252.9
+; Supernode 3
+em-router.members.sn3 A 10.70.90.174
 
 ; N363
 nycmesh-n363-rtr1.zach.n363 A 10.70.132.1
@@ -105,7 +107,7 @@ nycmesh-n363-ulwesta.ether1.n363 A 10.70.135.131
 zrg NS 10.70.132.1
 
 ; N570
-n570ton227.nycmesh-supernode2-rtr1.n570 A 10.70.70.2
+n570tosn1.nycmesh-supernode2-rtr1.n570 A 10.70.70.2
 nycmesh-n570-rtr1.lo.n570 A 10.70.254.10
 unknown.nycmesh-n570.n570 A 199.167.59.11
 
