@@ -26,7 +26,9 @@ em-router.members.sn3 A 10.70.90.174
 ; Zach
 search A 10.70.132.57
 docs A 10.70.132.58
-zrg NS nycmesh-363-rtr
+zrg NS nycmesh-363-exit
+n363 NS nycmesh-363-exit
+nycmesh-363-exit A 10.70.132.1
 
 
 ; Reserved as services are made
