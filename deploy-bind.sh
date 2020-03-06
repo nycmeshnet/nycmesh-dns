@@ -13,13 +13,13 @@ then
   exit 0
 fi
 
+cp mesh.zone mesh.zone.original
+python nodensrecords.py >> mesh.zone
+
 python makereverse.py
 cp -f *.zone /etc/bind/
 
-cp mesh.zone mesh-active.zone
-python nodensrecords.py >> mesh-active.zone
-cp mesh-active.zone /etc/bind/mesh.zone
-rm mesh-active.zone
+mv mesh.zone.original mesh.zone
 
 systemctl restart bind9
 
