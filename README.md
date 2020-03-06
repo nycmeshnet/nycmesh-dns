@@ -1,14 +1,23 @@
-# NYC Mesh DNS
+NYC Mesh DNS
+---
 
 Edit the mesh.zone file to add a record, please format appropriately and place under the proper heading. 
 
 Please fork and make a pull request, don't push directly ( unless you have to )
 
-# REQUIREMENTS
+## Requirements
 
+Either:
 * At least Knot 3.2 ( this is a new requirement for this repo, mainly because of ffi )
+* Bind9, Debian preferred as it is scripted this way
 
-# Install
+## Use
+
+There are serveral python scripts and shell scripts. The python scripts generate secondary files, such as reverse zones, and auto-generated records.  
+`deploy.sh` is the original one for knot resolver  
+`deploy-bind.sh` is the newer one as we move to bind. The name is different so older servers dont break as part of the change.
+
+## Install
 
 ### Install Knot Pieces:
 See Knot Resolver website.
@@ -21,6 +30,10 @@ apt-get update
 apt-get install knot-resolver knot
 
 ```
+
+### Install Bind9:
+Use NYC Mesh Ansible set up (no link yet), which will clone and setup this repo  
+Alternately, just install bind9, clone this repo and run `./deploy-bind.sh`.
 
 ### Add to cron:
 ```
