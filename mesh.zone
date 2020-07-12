@@ -40,6 +40,11 @@ wiki A 10.10.10.254
 nms A 10.70.118.10
 scuttle A 10.70.73.4
 
+
+; Supernode3
+l2tpvpn.sn3 A 199.170.132.6
+
+
 ; Supernode1
 l2tpvpn.sn1 A 199.167.59.6
 wgvpn.sn1 A 199.167.59.4
