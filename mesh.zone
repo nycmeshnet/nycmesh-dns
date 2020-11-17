@@ -18,6 +18,7 @@ jim	A 10.70.140.70
 mail	A 10.70.140.70
 donuts A 10.70.73.29
 unifi A 10.70.95.63
+netbox A 10.70.95.135
 
 ; Emerson
 gitlab A    10.70.123.5
