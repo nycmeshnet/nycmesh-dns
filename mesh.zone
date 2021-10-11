@@ -33,6 +33,11 @@ zrg NS nycmesh-363-exit
 n363 NS nycmesh-363-exit
 nycmesh-363-exit A 10.70.132.1
 
+; micro
+crichton A 10.70.90.87
+
+; myf
+petra A 10.70.90.86
 
 ; Reserved as services are made
 null A 10.10.10.254
