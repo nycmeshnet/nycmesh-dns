@@ -110,6 +110,6 @@ gnycmesh-375p-vpn2.intpeer.sn1 A 10.70.252.8
 gnycmesh-375p-dns1.intpeer.sn1 A 10.70.252.9
 
 
-; PTR records
-10.70.253.12 PTR grang32-lhg60
-10.70.253.13 PTR grand33-lhg60
+; records for traceroute within Mesh
+grang32-lhg60 A 10.70.253.12
+grand33-lhg60 A 10.70.253.13
