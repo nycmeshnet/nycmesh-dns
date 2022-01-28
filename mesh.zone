@@ -113,11 +113,13 @@ gnycmesh-375p-dns1.intpeer.sn1 A 10.70.252.9
 ; records for rDNS
 sn1.af24 A 10.70.253.0
 grand32.af24 A 10.70.253.1
-vernon A 10.70.253.2
+vernon.east A 10.70.253.2
 jefferson.lbe A 10.70.253.3
 sn3.af60lr A 10.70.253.4
 vernon.af60lr-3 A 10.70.253.5
-ph A 10.70.253.8
+ph.northwest	A	10.70.253.6
+spencer.lbelr	A	10.70.253.7
+ph.southeast A 10.70.253.8
 brownsville.lbelr A 10.70.253.9
 ph.af60lr A 10.70.253.10
 nostrand.af60lr A 10.70.253.11
@@ -130,7 +132,7 @@ rivington.lgh60 A 10.70.253.17
 rivington.gbep A 10.70.253.18
 100ava.gbep A 10.70.253.19
 twobridge.lbe A 10.70.253.20
-sn1 A 10.70.253.21
+sn1.prism2 A 10.70.253.21
 saratoga.af24 A 10.70.253.22
 softsurplus.af24 A 10.70.253.23
 vernon.af60lr-1 A 10.70.253.26
@@ -141,7 +143,7 @@ vernon.af60lr-2 A 10.70.253.30
 ph.af60lr A 10.70.253.31
 grand33.lbelr A 10.70.253.32
 parallel.lbelr A 10.70.253.33
-elliott A 10.70.253.34
-ccny.lbelr A 10.70.253.35
+elliott.lbe A 10.70.253.34
+ccny.lbe A 10.70.253.35
 grand33.af60lr A 10.70.253.36
 navyyard.af60lr A 10.70.253.37
