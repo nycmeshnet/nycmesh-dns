@@ -20,6 +20,7 @@ mail	A 10.70.140.70
 donuts A 10.70.73.29
 unifi A 10.70.95.63
 netbox A 10.70.90.135
+tv A 10.97.227.112
 
 ; Emerson
 gitlab A    10.70.123.5
