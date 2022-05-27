@@ -161,5 +161,7 @@ grand34.af60lr A 10.70.251.13
 vernon.af60lr A 10.70.251.14
 sn1.af24 A 10.70.251.17
 grand34.af24 A 10.70.251.18
-SN10-edge2.internal-ptp A 10.70.102.2
-SN3.vpn A 10.70.253.43
+sn10edge2-sn10core1.internal A 10.70.102.1
+sn10core1-sn10edge2.internal A 10.70.102.2
+sn10.vpn A 10.70.253.42
+sn3.vpn A 10.70.253.43
