@@ -126,7 +126,7 @@ ph.af60lr A 10.70.253.10
 nostrand.af60lr A 10.70.253.11
 grand32.lhg60-1 A 10.70.253.12
 grand33.lhg60 A 10.70.253.13
-guernsey.lbelr A 10.70.253.14
+; guernsey.lbelr A 10.70.253.14
 grand32.lbelr A 10.70.253.15
 ; grand32.lhg60-2 A 10.70.253.16
 ; rivington.lgh60 A 10.70.253.17
@@ -165,3 +165,5 @@ sn10edge2-sn10core1.internal A 10.70.102.1
 sn10core1-sn10edge2.internal A 10.70.102.2
 sn10.vpn A 10.70.253.42
 sn3.vpn A 10.70.253.43
+rivington.lbe A 10.70.253.44  Rivington 2463 (44) <> Guernsey 2090 (45)
+guernsey.lbe A 10.70.253.45
