@@ -6,7 +6,6 @@ $TTL 3600
 
 @ MX 10 mail
 
-
 ; Allocated domains
 dns   A     10.10.10.10
 ns    A     10.10.10.11
@@ -49,10 +48,8 @@ wiki A 10.10.10.254
 nms A 10.70.118.10
 scuttle A 10.70.73.4
 
-
 ; Supernode3
 l2tpvpn.sn3 A 199.170.132.6
-
 
 ; Supernode1
 l2tpvpn.sn1 A 199.167.59.6
@@ -110,7 +107,6 @@ gnycmesh-375p-vpn1.intpeer.sn1 A 10.70.252.7
 gnycmesh-375p-vpn2.intpeer.sn1 A 10.70.252.8
 gnycmesh-375p-dns1.intpeer.sn1 A 10.70.252.9
 
-
 ; records for rDNS
 ; sn1.af24 A 10.70.253.0
 ; grand32.af24 A 10.70.253.1
@@ -146,7 +142,7 @@ ph.af60lr A 10.70.253.31
 ; parallel.af60lr A 10.70.253.33
 saratoga.lbe A 10.70.253.34
 cypress.lbe A 10.70.253.35
-; grand33.af60lr-2 A 10.70.253.36 
+; grand33.af60lr-2 A 10.70.253.36
 ; navyyard.af60lr A 10.70.253.37
 sn10.fiber A 10.70.253.38
 grand34.fiber A 10.70.253.39
