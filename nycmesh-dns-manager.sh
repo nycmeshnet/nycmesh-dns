@@ -30,26 +30,26 @@ system-information
 # Pre-Checks system requirements
 function installing-system-requirements() {
     if { [ "${CURRENT_DISTRO}" == "ubuntu" ] || [ "${CURRENT_DISTRO}" == "debian" ] || [ "${CURRENT_DISTRO}" == "raspbian" ] || [ "${CURRENT_DISTRO}" == "pop" ] || [ "${CURRENT_DISTRO}" == "kali" ] || [ "${CURRENT_DISTRO}" == "linuxmint" ] || [ "${CURRENT_DISTRO}" == "neon" ] || [ "${CURRENT_DISTRO}" == "fedora" ] || [ "${CURRENT_DISTRO}" == "centos" ] || [ "${CURRENT_DISTRO}" == "rhel" ] || [ "${CURRENT_DISTRO}" == "almalinux" ] || [ "${CURRENT_DISTRO}" == "rocky" ] || [ "${CURRENT_DISTRO}" == "arch" ] || [ "${CURRENT_DISTRO}" == "archarm" ] || [ "${CURRENT_DISTRO}" == "manjaro" ] || [ "${CURRENT_DISTRO}" == "alpine" ] || [ "${CURRENT_DISTRO}" == "freebsd" ] || [ "${CURRENT_DISTRO}" == "ol" ]; }; then
-        if { [ ! -x "$(command -v curl)" ] || [ ! -x "$(command -v cut)" ] || [ ! -x "$(command -v ps)" ] }} [ ! -x "$(command -v cron)" ]; }; then
+        if { [ ! -x "$(command -v curl)" ] || [ ! -x "$(command -v cut)" ] || [ ! -x "$(command -v ps)" ] || [ ! -x "$(command -v cron)" ] || [ ! -x "$(command -v openssl)" ]; }; then
             if { [ "${CURRENT_DISTRO}" == "ubuntu" ] || [ "${CURRENT_DISTRO}" == "debian" ] || [ "${CURRENT_DISTRO}" == "raspbian" ] || [ "${CURRENT_DISTRO}" == "pop" ] || [ "${CURRENT_DISTRO}" == "kali" ] || [ "${CURRENT_DISTRO}" == "linuxmint" ] || [ "${CURRENT_DISTRO}" == "neon" ]; }; then
                 apt-get update
-                apt-get install curl coreutils procps procps-ng cron -y
+                apt-get install curl coreutils procps procps-ng cron openssl -y
             elif { [ "${CURRENT_DISTRO}" == "fedora" ] || [ "${CURRENT_DISTRO}" == "centos" ] || [ "${CURRENT_DISTRO}" == "rhel" ] || [ "${CURRENT_DISTRO}" == "almalinux" ] || [ "${CURRENT_DISTRO}" == "rocky" ]; }; then
                 yum check-update
                 yum install epel-release -y
-                yum install curl coreutils procps-ng cronie -y
+                yum install curl coreutils procps-ng cronie openssl -y
             elif { [ "${CURRENT_DISTRO}" == "arch" ] || [ "${CURRENT_DISTRO}" == "archarm" ] || [ "${CURRENT_DISTRO}" == "manjaro" ]; }; then
                 pacman -Sy
-                pacman -S --noconfirm --needed curl coreutils procps-ng cronie
+                pacman -S --noconfirm --needed curl coreutils procps-ng cronie openssl
             elif [ "${CURRENT_DISTRO}" == "alpine" ]; then
                 apk update
-                apk add curl coreutils procps cronie
+                apk add curl coreutils procps cronie openssl
             elif [ "${CURRENT_DISTRO}" == "freebsd" ]; then
                 pkg update
-                pkg install curl coreutils procps-ng cronie
+                pkg install curl coreutils procps-ng cronie openssl
             elif [ "${CURRENT_DISTRO}" == "ol" ]; then
                 yum check-update
-                yum install curl coreutils procps-ng cronie -y
+                yum install curl coreutils procps-ng cronie openssl -y
             fi
         fi
     else
