@@ -136,6 +136,8 @@ function install-knot-server() {
         apt-get update
         curl "https://secure.nic.cz/files/knot-resolver/knot-resolver-release.deb" -o "knot-resolver-release.deb"
         dpkg -i knot-resolver-release.deb
+        # Note: Make sure the installation has completed properly.
+        rm -f knot-resolver-release.deb
         apt-get update
         apt-get install knot-resolver -y
     elif { [ "${CURRENT_DISTRO}" == "fedora" ] || [ "${CURRENT_DISTRO}" == "centos" ] || [ "${CURRENT_DISTRO}" == "rhel" ] || [ "${CURRENT_DISTRO}" == "almalinux" ] || [ "${CURRENT_DISTRO}" == "rocky" ]; }; then
