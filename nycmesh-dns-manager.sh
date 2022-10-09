@@ -61,6 +61,21 @@ function installing-system-requirements() {
 # check for requirements
 installing-system-requirements
 
+# Checking For Virtualization
+function virt-check() {
+  CURRENT_SYSTEM_VIRTUALIZATION=$(systemd-detect-virt)
+  case ${CURRENT_SYSTEM_VIRTUALIZATION} in
+  "kvm" | "none" | "qemu" | "lxc" | "microsoft" | "vmware" | "xen" | "amazon") ;;
+  *)
+    echo "${CURRENT_SYSTEM_VIRTUALIZATION} virtualization is not supported (yet)."
+    exit
+    ;;
+  esac
+}
+
+# Virtualization Check
+virt-check
+
 # Only allow certain init systems
 function check-current-init-system() {
     CURRENT_INIT_SYSTEM=$(ps --no-headers -o comm 1)
