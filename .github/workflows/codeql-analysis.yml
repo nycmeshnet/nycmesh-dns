@@ -1,0 +1,19 @@
+name: "CodeQL"
+on:
+  schedule:
+    - cron: "0 0 * * *"
+jobs:
+  analyse:
+    name: Analyse
+    runs-on: windows-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v1
+      with:
+        languages: go
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v1
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v1
