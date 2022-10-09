@@ -38,3 +38,16 @@ bash /usr/local/bin/nycmesh-dns-manager.sh
 | Neon            |:heavy_check_mark:  |:heavy_check_mark:  |:heavy_check_mark:  |:heavy_check_mark:  |
 | Rocky           |:heavy_check_mark:  |:heavy_check_mark:  |:heavy_check_mark:  |:heavy_check_mark:  |
 | Oracle          |:heavy_check_mark:  |:heavy_check_mark:  |:heavy_check_mark:  |:heavy_check_mark:  |
+
+### Compatibility with Virtualization
+| Virtualization  | Supported          |
+| --------------  | ------------------ |
+| KVM             |:heavy_check_mark:  |
+| None            |:heavy_check_mark:  |
+| Qemu            |:heavy_check_mark:  |
+| LXC             |:heavy_check_mark:  |
+| Microsoft       |:heavy_check_mark:  |
+| Vmware          |:heavy_check_mark:  |
+| OpenVZ          |:heavy_check_mark:  |
+| Docker          |:heavy_check_mark:  |
+| Wsl             |:heavy_check_mark:  |
