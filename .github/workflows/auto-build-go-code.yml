@@ -5,27 +5,19 @@ on:
       - "**.go"
 jobs:
   build:
-    runs-on: ubuntu-latest
+    name: Build
+    runs-on: windows-latest
     steps:
-      - name: Check out code into the directory
+      - name: Check out code into the Go module directory
         uses: actions/checkout@v3
-      - name: Get the system requirements.
-        run: sudo apt-get install coreutils -y
       - name: Get the current version of Go from project.
-        run: cat Go/go.mod | head -3 | tail -1 | echo "GO_VERSION_FROM_PROJECT=$(cut -d' ' -f2)" >>${GITHUB_ENV}
+        run: type go.mod | select -first 3 | select -last 1 | %{ 'GO_VERSION_FROM_PROJECT={1}' -f ($_ -split ' ') } >>$env:GITHUB_ENV
       - name: Set up Go version "${{ env.GO_VERSION_FROM_PROJECT }}"
-        uses: actions/setup-go@v3
+        uses: actions/setup-go@v2
         with:
           go-version: "${{ env.GO_VERSION_FROM_PROJECT }}"
         id: go
-      - name: Run the code
-        run: |
-          ALL_FILES_IN_DIRECTORY=$(find Go/ -type f -name "*.go")
-          for CURRENT_FILE_IN_DIRECTORY in ${ALL_FILES_IN_DIRECTORY}; do
-            ALL_FILES_LIST[${ADD_CONTENT}]=${CURRENT_FILE_IN_DIRECTORY}
-            ADD_CONTENT=$(("${ADD_CONTENT}" + 1))
-          done
-          for FILE_LIST in "${ALL_FILES_LIST[@]}"; do
-            echo ${FILE_LIST}
-            go run ${FILE_LIST}
-          done
+      - name: Get dependencies
+        run: go get .
+      - name: Build Test
+        run: go build .
