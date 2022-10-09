@@ -2,9 +2,10 @@ package main
 
 import (
 	"fmt"
-	"golang.org/x/crypto/sha3"
 	"log"
 	"os"
+
+	"golang.org/x/crypto/sha3"
 )
 
 func main() {
