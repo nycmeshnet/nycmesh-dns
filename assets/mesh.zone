@@ -33,6 +33,9 @@ zrg NS nycmesh-363-exit
 n363 NS nycmesh-363-exit
 nycmesh-363-exit A 10.70.132.1
 
+; Dan
+n265 A 10.69.2.65
+
 ; micro
 crichton A 10.70.90.87
 
