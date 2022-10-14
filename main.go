@@ -10,23 +10,18 @@ import (
 )
 
 var (
-	knotConfigPath = "assets/knot.conf"
-	kresdConfigPath = "assets/kresd.conf"
+	meshConfigPath = "assets/mesh.zone"
 )
 
 func init() {
 	// Check all the required files are present.
-	if !fileExists(knotConfigPath) {
-		log.Fatalln("The file does not exist.")
-	}
-	if !fileExists(kresdConfigPath) {
-		log.Fatalln("The file does not exist.")
+	if !fileExists(meshConfigPath) {
+		log.Fatalln("mesh.zone file is missing")
 	}
 }
 
 func main() {
 	// Time to process the provided data.
-	
 }
 
 // Check if the file exists and return a bool.
