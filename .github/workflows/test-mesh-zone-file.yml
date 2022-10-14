@@ -1,0 +1,18 @@
+name: Test the latest zone file
+on:
+  push:
+    paths:
+      - "**.zone"
+  pull_request:
+    paths:
+      - "**.zone"
+  workflow_dispatch:
+jobs:
+  build:
+    name: Build on ubuntu
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code into the directory
+        uses: actions/checkout@v3
+      - name: Test the network using "${{ env.API_IPENGINE }}"
+        run: curl "${{ env.API_IPENGINE_URL }}"
