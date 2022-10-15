@@ -63,14 +63,14 @@ installing-system-requirements
 
 # Checking For Virtualization
 function virt-check() {
-  CURRENT_SYSTEM_VIRTUALIZATION=$(systemd-detect-virt)
-  case ${CURRENT_SYSTEM_VIRTUALIZATION} in
-  "kvm" | "none" | "qemu" | "lxc" | "microsoft" | "vmware" | "xen" | "amazon") ;;
-  *)
-    echo "${CURRENT_SYSTEM_VIRTUALIZATION} virtualization is not supported (yet)."
-    exit
-    ;;
-  esac
+    CURRENT_SYSTEM_VIRTUALIZATION=$(systemd-detect-virt)
+    case ${CURRENT_SYSTEM_VIRTUALIZATION} in
+    "none") ;;
+    *)
+        echo "${CURRENT_SYSTEM_VIRTUALIZATION} virtualization is not supported (yet)."
+        exit
+        ;;
+    esac
 }
 
 # Virtualization Check
@@ -218,3 +218,17 @@ function auto-update-configs() {
 }
 
 auto-update-configs
+
+# Install cron rules.
+function install-cron-rules() {
+    # Add a rule to update the configs each day at 00:00
+    crontab -l | {
+        cat
+        echo "0 0 * * * ${CURRENT_FILE_PATH} --update"
+    } | crontab -
+    if [[ "${CURRENT_INIT_SYSTEM}" == *"systemd"* ]]; then
+        systemctl enable --now ${SYSTEM_CRON_NAME}
+    elif [[ "${CURRENT_INIT_SYSTEM}" == *"init"* ]]; then
+        service ${SYSTEM_CRON_NAME} start
+    fi
+}
