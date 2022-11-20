@@ -38,10 +38,11 @@ nycmesh-363-exit A 10.70.132.1
 n265 A 10.69.2.65
 
 ; micro
-crichton A 10.70.90.87
+crichton A 10.70.90.86
 
-; myf
-petra A 10.70.90.86
+; myf, oliver
+petra A 10.70.90.87
+ipmi.petra A 10.70.90.89
 
 ; Reserved as services are made
 null A 10.10.10.254
