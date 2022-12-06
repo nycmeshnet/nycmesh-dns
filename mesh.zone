@@ -171,3 +171,11 @@ sn10.vpn A 10.70.253.42
 sn3.vpn A 10.70.253.43
 rivington.lbe A 10.70.253.44
 guernsey.lbe A 10.70.253.45
+sn10.vpn1.sn3 A 10.70.253.46
+sn3.vpn1.sn10 A 10.70.253.47
+Robj135.WG A 10.70.253.48
+sn3.Robj135.WG A 10.70.253.49
+100ava.nsl.731 A 10.70.253.50
+7thstreet.nsl.2274 A 10.70.253.51
+sn3.af24.2282 A 10.70.253.52
+degraw.af24.sn3 10.70.253.53
