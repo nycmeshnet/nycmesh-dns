@@ -128,8 +128,10 @@ ph.southeast A 10.70.253.8
 brownsville.lbelr A 10.70.253.9
 ph.af60lr A 10.70.253.10
 nostrand.af60lr A 10.70.253.11
-grand32.lhg60-1 A 10.70.253.12
-grand33.lhg60 A 10.70.253.13
+; grand32.lhg60-1 A 10.70.253.12
+vernon.sector A 10.70.253.12
+; grand33.lhg60 A 10.70.253.13
+nn265.lbe2 A 10.70.253.13
 ; guernsey.lbelr A 10.70.253.14
 grand32.lbelr A 10.70.253.15
 ; grand32.lhg60-2 A 10.70.253.16
