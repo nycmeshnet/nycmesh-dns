@@ -116,8 +116,8 @@ gnycmesh-375p-dns1.intpeer.sn1 A 10.70.252.9
 
 
 ; records for rDNS
-; sn1.af24 A 10.70.253.0
-; grand32.af24 A 10.70.253.1
+sn3.af24-ph A 10.70.253.0
+ph.af24-sn3 A 10.70.253.1
 vernon.east A 10.70.253.2
 jefferson.lbe A 10.70.253.3
 sn3.af60xr A 10.70.253.4
