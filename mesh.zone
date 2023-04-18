@@ -192,5 +192,5 @@ guernsey.lblr.grand34 A 10.70.251.46
 ; record for rDNS others
 sn10edge2-sn10core1.internal A 10.70.102.1
 sn10core1-sn10edge2.internal A 10.70.102.2
-
-
+nycmesh-10-nat A 10.70.102.6
+nycmesh-sn10-edge1-temp A 10.70.102.132
