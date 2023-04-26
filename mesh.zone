@@ -152,8 +152,8 @@ sn3.vpn-nn136 A 10.70.253.28
 svpn-nn136.sn3 A 10.70.253.29
 vernon.af60lr.ph A 10.70.253.30
 ph.af60lr.vernon A 10.70.253.31
-;        grand33.af60lr-1 A 10.70.253.32
-;        parallel.af60lr A 10.70.253.33
+Vernon.sector A 10.70.253.32
+1779.lbe.Vernon A 10.70.253.33
 saratoga.lbe A 10.70.253.34
 cypress.lbe A 10.70.253.35
 ;        grand33.af60lr-2 A 10.70.253.36 
