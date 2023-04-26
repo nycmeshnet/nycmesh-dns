@@ -45,6 +45,10 @@ crichton A 10.70.90.86
 petra A 10.70.90.87
 ipmi.petra A 10.70.90.89
 
+; Andrew
+andrew-vpn-endpoint-router A 10.70.178.38
+andrew NS andrew-vpn-endpoint-router
+
 ; Reserved as services are made
 null A 10.10.10.254
 vpn A 10.10.10.254
