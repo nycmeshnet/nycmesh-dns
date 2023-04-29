@@ -46,7 +46,7 @@ petra A 10.70.90.87
 ipmi.petra A 10.70.90.89
 
 ; Andrew
-andrew-vpn-endpoint-router A 10.70.178.38
+andrew-vpn-endpoint-router A 54.161.165.190
 andrew NS andrew-vpn-endpoint-router
 
 ; Reserved as services are made
