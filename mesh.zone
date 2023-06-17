@@ -156,8 +156,8 @@ Vernon.sector A 10.70.253.32
 1779.lbe.Vernon A 10.70.253.33
 saratoga.lbe A 10.70.253.34
 cypress.lbe A 10.70.253.35
-;        grand33.af60lr-2 A 10.70.253.36 
-;        navyyard.af60lr A 10.70.253.37
+Vernon.sector A 10.70.253.36 
+nn436.lbe A 10.70.253.37
 sn10.fiber A 10.70.253.38
 grand34.fiber A 10.70.253.39
 ph.sector A 10.70.253.40
@@ -178,6 +178,13 @@ nn219.lbe.ph A 10.70.253.54
 ph.lbe.nn219 A 10.70.253.55
 vlado.lbelr.ph-sector A 10.70.253.56
 ph-sector.lbelr.vlado A 10.70.253.57
+Thames.lbe A 10.70.253.58
+Softsurplus.sector A 10.70.253.59
+nn4126.Lbe A 10.70.253.60 
+Vernon.sector A 10.70.253.61
+FLo.lbe2 A 10.70.253.62 
+Vernon.sector A 10.70.253.63
+
 
 ; records for rDNS 10.70.251.0/24  (./30)
 grand34.af60lr.prallel A 10.70.251.1
