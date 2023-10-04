@@ -49,6 +49,9 @@ ipmi.petra A 10.70.90.89
 andrew-vpn-endpoint-router A 54.161.165.190
 andrew NS andrew-vpn-endpoint-router
 
+; Willard
+zabbix A 10.70.90.40
+
 ; Reserved as services are made
 null A 10.10.10.254
 vpn A 10.10.10.254
