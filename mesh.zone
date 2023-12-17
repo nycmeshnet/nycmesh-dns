@@ -39,7 +39,8 @@ nycmesh-363-exit A 10.70.132.1
 n265 A 10.69.2.65
 
 ; Daniel
-daniel NS 10.70.90.50
+daniel-pallas A 10.70.90.50
+daniel NS daniel-pallas
 
 ; micro
 crichton A 10.70.90.86
