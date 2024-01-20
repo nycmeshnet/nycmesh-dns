@@ -58,6 +58,7 @@ andrew NS andrew-vpn-endpoint-router
 zabbix A 10.70.90.40
 status A 164.92.117.225
 meshsvc-grand A 10.70.188.196
+*.meshsvc-grand CNAME meshsvc-grand
 
 ; Reserved as services are made
 null A 10.10.10.254
