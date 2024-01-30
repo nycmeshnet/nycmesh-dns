@@ -57,8 +57,8 @@ andrew NS andrew-vpn-endpoint-router
 ; Willard
 zabbix A 10.70.90.40
 status A 164.92.117.225
-meshsvc-grand A 10.70.188.196
-*.meshsvc-grand CNAME meshsvc-grand
+grandbox A 10.69.19.233
+*.grandbox CNAME grandbox
 grandsvc A 199.167.59.101
 *.grandsvc CNAME grandsvc
 
