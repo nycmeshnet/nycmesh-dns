@@ -98,6 +98,12 @@ function configure-bind-server() {
     # Check if the bind server is installed
     if [ -x "$(command -v named)" ]; then
     # Download the latest version of the config from the server.
+    curl https://raw.githubusercontent.com/nycmeshnet/nycmesh-dns/main/named.conf -o /etc/bind/named.conf
+    # Restart the bind server
+    if [[ "${CURRENT_INIT_SYSTEM}" == *"systemd"* ]]; then
+        systemctl restart bind
+    elif [[ "${CURRENT_INIT_SYSTEM}" == *"init"* ]]; then
+        service bind restart
     fi
 }
 
