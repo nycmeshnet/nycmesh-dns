@@ -94,6 +94,7 @@ install-bind-server
 function configure-bind-server() {
     # Check if the bind server is installed
     if [ -x "$(command -v named)" ]; then
+    # Download the latest version of the config from the server.
     fi
 }
 
@@ -129,6 +130,7 @@ install-knot-resolver
 function configure-knot-resolver() {
     # Check if the knot-resolver is installed
     if [ -x "$(command -v kresd)" ]; then
+    # Download the latest version of the config from the server.
     fi
 }
 
