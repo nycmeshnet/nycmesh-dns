@@ -89,3 +89,28 @@ function install-bind-server() {
 
 # Call the function to install bind server
 install-bind-server
+
+# Function to install knot-resolver on the system
+function install-knot-resolver() {
+    if [ ! -x "$(command -v kresd)" ]; then
+        if { [ "${CURRENT_DISTRO}" == "ubuntu" ] || [ "${CURRENT_DISTRO}" == "debian" ] || [ "${CURRENT_DISTRO}" == "raspbian" ] || [ "${CURRENT_DISTRO}" == "pop" ] || [ "${CURRENT_DISTRO}" == "kali" ] || [ "${CURRENT_DISTRO}" == "linuxmint" ] || [ "${CURRENT_DISTRO}" == "neon" ]; }; then
+            apt-get update
+            apt-get install knot-resolver -y
+        elif { [ "${CURRENT_DISTRO}" == "fedora" ] || [ "${CURRENT_DISTRO}" == "centos" ] || [ "${CURRENT_DISTRO}" == "rhel" ] || [ "${CURRENT_DISTRO}" == "almalinux" ] || [ "${CURRENT_DISTRO}" == "rocky" ] || [ "${CURRENT_DISTRO}" == "ol" ]; }; then
+            yum check-update
+            yum install knot-resolver -y
+        elif { [ "${CURRENT_DISTRO}" == "arch" ] || [ "${CURRENT_DISTRO}" == "archarm" ] || [ "${CURRENT_DISTRO}" == "manjaro" ]; }; then
+            pacman -Sy --noconfirm archlinux-keyring
+            pacman -Su --noconfirm --needed knot-resolver
+        elif [ "${CURRENT_DISTRO}" == "alpine" ]; then
+            apk update
+            apk add knot-resolver
+        elif [ "${CURRENT_DISTRO}" == "freebsd" ]; then
+            pkg update
+            pkg install knot-resolver
+        fi
+    fi
+}
+
+# Call the function to install knot-resolver
+install-knot-resolver
