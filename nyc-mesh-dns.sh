@@ -34,26 +34,26 @@ function installing-system-requirements() {
     # Check if the current Linux distribution is supported
     if { [ "${CURRENT_DISTRO}" == "ubuntu" ] || [ "${CURRENT_DISTRO}" == "debian" ] || [ "${CURRENT_DISTRO}" == "raspbian" ] || [ "${CURRENT_DISTRO}" == "pop" ] || [ "${CURRENT_DISTRO}" == "kali" ] || [ "${CURRENT_DISTRO}" == "linuxmint" ] || [ "${CURRENT_DISTRO}" == "neon" ] || [ "${CURRENT_DISTRO}" == "fedora" ] || [ "${CURRENT_DISTRO}" == "centos" ] || [ "${CURRENT_DISTRO}" == "rhel" ] || [ "${CURRENT_DISTRO}" == "almalinux" ] || [ "${CURRENT_DISTRO}" == "rocky" ] || [ "${CURRENT_DISTRO}" == "arch" ] || [ "${CURRENT_DISTRO}" == "archarm" ] || [ "${CURRENT_DISTRO}" == "manjaro" ] || [ "${CURRENT_DISTRO}" == "alpine" ] || [ "${CURRENT_DISTRO}" == "freebsd" ] || [ "${CURRENT_DISTRO}" == "ol" ]; }; then
         # Check if required packages are already installed
-        if { [ ! -x "$(command -v curl)" ] || [ ! -x "$(command -v cut)" ]; }; then
+        if { [ ! -x "$(command -v curl)" ] || [ ! -x "$(command -v cut)" ] ||  ! -x "$(command -v cron)" ]; }; then
             # Install required packages depending on the Linux distribution
             if { [ "${CURRENT_DISTRO}" == "ubuntu" ] || [ "${CURRENT_DISTRO}" == "debian" ] || [ "${CURRENT_DISTRO}" == "raspbian" ] || [ "${CURRENT_DISTRO}" == "pop" ] || [ "${CURRENT_DISTRO}" == "kali" ] || [ "${CURRENT_DISTRO}" == "linuxmint" ] || [ "${CURRENT_DISTRO}" == "neon" ]; }; then
                 apt-get update
-                apt-get install curl coreutils -y
+                apt-get install curl coreutils cron -y
             elif { [ "${CURRENT_DISTRO}" == "fedora" ] || [ "${CURRENT_DISTRO}" == "centos" ] || [ "${CURRENT_DISTRO}" == "rhel" ] || [ "${CURRENT_DISTRO}" == "almalinux" ] || [ "${CURRENT_DISTRO}" == "rocky" ]; }; then
                 yum check-update
-                yum install curl coreutils -y
+                yum install curl coreutils cronie -y
             elif { [ "${CURRENT_DISTRO}" == "arch" ] || [ "${CURRENT_DISTRO}" == "archarm" ] || [ "${CURRENT_DISTRO}" == "manjaro" ]; }; then
                 pacman -Sy --noconfirm archlinux-keyring
-                pacman -Su --noconfirm --needed curl coreutils
+                pacman -Su --noconfirm --needed curl coreutils cronie
             elif [ "${CURRENT_DISTRO}" == "alpine" ]; then
                 apk update
                 apk add curl coreutils
             elif [ "${CURRENT_DISTRO}" == "freebsd" ]; then
                 pkg update
-                pkg install curl coreutils
+                pkg install curl coreutils cronie
             elif [ "${CURRENT_DISTRO}" == "ol" ]; then
                 yum check-update
-                yum install curl coreutils -y
+                yum install curl coreutils cronie -y
             fi
         fi
     else
@@ -95,19 +95,19 @@ function install-knot-resolver() {
     if [ ! -x "$(command -v kresd)" ]; then
         if { [ "${CURRENT_DISTRO}" == "ubuntu" ] || [ "${CURRENT_DISTRO}" == "debian" ] || [ "${CURRENT_DISTRO}" == "raspbian" ] || [ "${CURRENT_DISTRO}" == "pop" ] || [ "${CURRENT_DISTRO}" == "kali" ] || [ "${CURRENT_DISTRO}" == "linuxmint" ] || [ "${CURRENT_DISTRO}" == "neon" ]; }; then
             apt-get update
-            apt-get install knot-resolver -y
+            apt-get install knot-resolver knot -y
         elif { [ "${CURRENT_DISTRO}" == "fedora" ] || [ "${CURRENT_DISTRO}" == "centos" ] || [ "${CURRENT_DISTRO}" == "rhel" ] || [ "${CURRENT_DISTRO}" == "almalinux" ] || [ "${CURRENT_DISTRO}" == "rocky" ] || [ "${CURRENT_DISTRO}" == "ol" ]; }; then
             yum check-update
-            yum install knot-resolver -y
+            yum install knot-resolver knot -y
         elif { [ "${CURRENT_DISTRO}" == "arch" ] || [ "${CURRENT_DISTRO}" == "archarm" ] || [ "${CURRENT_DISTRO}" == "manjaro" ]; }; then
             pacman -Sy --noconfirm archlinux-keyring
-            pacman -Su --noconfirm --needed knot-resolver
+            pacman -Su --noconfirm --needed knot-resolver knot
         elif [ "${CURRENT_DISTRO}" == "alpine" ]; then
             apk update
-            apk add knot-resolver
+            apk add knot-resolver knot
         elif [ "${CURRENT_DISTRO}" == "freebsd" ]; then
             pkg update
-            pkg install knot-resolver
+            pkg install knot-resolver knot
         fi
     fi
 }
