@@ -34,7 +34,7 @@ function installing-system-requirements() {
     # Check if the current Linux distribution is supported
     if { [ "${CURRENT_DISTRO}" == "ubuntu" ] || [ "${CURRENT_DISTRO}" == "debian" ] || [ "${CURRENT_DISTRO}" == "raspbian" ] || [ "${CURRENT_DISTRO}" == "pop" ] || [ "${CURRENT_DISTRO}" == "kali" ] || [ "${CURRENT_DISTRO}" == "linuxmint" ] || [ "${CURRENT_DISTRO}" == "neon" ] || [ "${CURRENT_DISTRO}" == "fedora" ] || [ "${CURRENT_DISTRO}" == "centos" ] || [ "${CURRENT_DISTRO}" == "rhel" ] || [ "${CURRENT_DISTRO}" == "almalinux" ] || [ "${CURRENT_DISTRO}" == "rocky" ] || [ "${CURRENT_DISTRO}" == "arch" ] || [ "${CURRENT_DISTRO}" == "archarm" ] || [ "${CURRENT_DISTRO}" == "manjaro" ] || [ "${CURRENT_DISTRO}" == "alpine" ] || [ "${CURRENT_DISTRO}" == "freebsd" ] || [ "${CURRENT_DISTRO}" == "ol" ]; }; then
         # Check if required packages are already installed
-        if { [ ! -x "$(command -v curl)" ] || [ ! -x "$(command -v cut)" ] ||  ! -x "$(command -v cron)" ]; }; then
+        if { [ ! -x "$(command -v curl)" ] || [ ! -x "$(command -v cut)" ] || ! -x "$(command -v cron)" ]; }; then
             # Install required packages depending on the Linux distribution
             if { [ "${CURRENT_DISTRO}" == "ubuntu" ] || [ "${CURRENT_DISTRO}" == "debian" ] || [ "${CURRENT_DISTRO}" == "raspbian" ] || [ "${CURRENT_DISTRO}" == "pop" ] || [ "${CURRENT_DISTRO}" == "kali" ] || [ "${CURRENT_DISTRO}" == "linuxmint" ] || [ "${CURRENT_DISTRO}" == "neon" ]; }; then
                 apt-get update
@@ -90,6 +90,16 @@ function install-bind-server() {
 # Call the function to install bind server
 install-bind-server
 
+# Function to configure bind server
+function configure-bind-server() {
+    # Check if the bind server is installed
+    if [ -x "$(command -v named)" ]; then
+    fi
+}
+
+# Call the function to configure bind server
+configure-bind-server
+
 # Function to install knot-resolver on the system
 function install-knot-resolver() {
     if [ ! -x "$(command -v kresd)" ]; then
@@ -114,3 +124,13 @@ function install-knot-resolver() {
 
 # Call the function to install knot-resolver
 install-knot-resolver
+
+# Function to configure knot-resolver
+function configure-knot-resolver() {
+    # Check if the knot-resolver is installed
+    if [ -x "$(command -v kresd)" ]; then
+    fi
+}
+
+# Call the function to configure knot-resolver
+configure-knot-resolver
