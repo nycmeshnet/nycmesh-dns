@@ -34,26 +34,26 @@ function installing-system-requirements() {
     # Check if the current Linux distribution is supported
     if { [ "${CURRENT_DISTRO}" == "ubuntu" ] || [ "${CURRENT_DISTRO}" == "debian" ] || [ "${CURRENT_DISTRO}" == "raspbian" ] || [ "${CURRENT_DISTRO}" == "pop" ] || [ "${CURRENT_DISTRO}" == "kali" ] || [ "${CURRENT_DISTRO}" == "linuxmint" ] || [ "${CURRENT_DISTRO}" == "neon" ] || [ "${CURRENT_DISTRO}" == "fedora" ] || [ "${CURRENT_DISTRO}" == "centos" ] || [ "${CURRENT_DISTRO}" == "rhel" ] || [ "${CURRENT_DISTRO}" == "almalinux" ] || [ "${CURRENT_DISTRO}" == "rocky" ] || [ "${CURRENT_DISTRO}" == "arch" ] || [ "${CURRENT_DISTRO}" == "archarm" ] || [ "${CURRENT_DISTRO}" == "manjaro" ] || [ "${CURRENT_DISTRO}" == "alpine" ] || [ "${CURRENT_DISTRO}" == "freebsd" ] || [ "${CURRENT_DISTRO}" == "ol" ]; }; then
         # Check if required packages are already installed
-        if { [ ! -x "$(command -v curl)" ] || [ ! -x "$(command -v cut)" ] || ! -x "$(command -v cron)" ]; }; then
+        if { [ ! -x "$(command -v curl)" ] || [ ! -x "$(command -v cut)" ] || ! -x "$(command -v cron)" ] || ! -x "$(command -v ps)" ]; }; then
             # Install required packages depending on the Linux distribution
             if { [ "${CURRENT_DISTRO}" == "ubuntu" ] || [ "${CURRENT_DISTRO}" == "debian" ] || [ "${CURRENT_DISTRO}" == "raspbian" ] || [ "${CURRENT_DISTRO}" == "pop" ] || [ "${CURRENT_DISTRO}" == "kali" ] || [ "${CURRENT_DISTRO}" == "linuxmint" ] || [ "${CURRENT_DISTRO}" == "neon" ]; }; then
                 apt-get update
-                apt-get install curl coreutils cron -y
+                apt-get install curl coreutils cron procps -y
             elif { [ "${CURRENT_DISTRO}" == "fedora" ] || [ "${CURRENT_DISTRO}" == "centos" ] || [ "${CURRENT_DISTRO}" == "rhel" ] || [ "${CURRENT_DISTRO}" == "almalinux" ] || [ "${CURRENT_DISTRO}" == "rocky" ]; }; then
                 yum check-update
                 yum install curl coreutils cronie -y
             elif { [ "${CURRENT_DISTRO}" == "arch" ] || [ "${CURRENT_DISTRO}" == "archarm" ] || [ "${CURRENT_DISTRO}" == "manjaro" ]; }; then
                 pacman -Sy --noconfirm archlinux-keyring
-                pacman -Su --noconfirm --needed curl coreutils cronie
+                pacman -Su --noconfirm --needed curl coreutils cronie procps-ng
             elif [ "${CURRENT_DISTRO}" == "alpine" ]; then
                 apk update
-                apk add curl coreutils
+                apk add curl coreutils cronie procps
             elif [ "${CURRENT_DISTRO}" == "freebsd" ]; then
                 pkg update
-                pkg install curl coreutils cronie
+                pkg install curl coreutils cronie procps
             elif [ "${CURRENT_DISTRO}" == "ol" ]; then
                 yum check-update
-                yum install curl coreutils cronie -y
+                yum install curl coreutils cronie procps-ng -y
             fi
         fi
     else
@@ -64,6 +64,9 @@ function installing-system-requirements() {
 
 # Call the function to check for system requirements and install necessary packages if needed
 installing-system-requirements
+
+### Global Variables
+CURRENT_INIT_SYSTEM=$(ps --no-headers -o comm 1) # CURRENT_INIT_SYSTEM holds the name of the init system (e.g., "systemd" or "init")
 
 # Install bind on the system if bind is not found.
 function install-bind-server() {
@@ -130,7 +133,14 @@ install-knot-resolver
 function configure-knot-resolver() {
     # Check if the knot-resolver is installed
     if [ -x "$(command -v kresd)" ]; then
-    # Download the latest version of the config from the server.
+        # Download the latest version of the config from the server.
+        curl https://raw.githubusercontent.com/nycmeshnet/nycmesh-dns/main/kresd.conf -o /etc/knot-resolver/kresd.conf
+        # Restart the knot-resolver service
+        if [[ "${CURRENT_INIT_SYSTEM}" == *"systemd"* ]]; then
+            systemctl restart kresd
+        elif [[ "${CURRENT_INIT_SYSTEM}" == *"init"* ]]; then
+            service kresd restart
+        fi
     fi
 }
 
