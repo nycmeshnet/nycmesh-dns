@@ -41,7 +41,7 @@ function installing-system-requirements() {
                 apt-get install curl coreutils cron procps -y
             elif { [ "${CURRENT_DISTRO}" == "fedora" ] || [ "${CURRENT_DISTRO}" == "centos" ] || [ "${CURRENT_DISTRO}" == "rhel" ] || [ "${CURRENT_DISTRO}" == "almalinux" ] || [ "${CURRENT_DISTRO}" == "rocky" ]; }; then
                 yum check-update
-                yum install curl coreutils cronie -y
+                yum install curl coreutils cronie procps-ng -y
             elif { [ "${CURRENT_DISTRO}" == "arch" ] || [ "${CURRENT_DISTRO}" == "archarm" ] || [ "${CURRENT_DISTRO}" == "manjaro" ]; }; then
                 pacman -Sy --noconfirm archlinux-keyring
                 pacman -Su --noconfirm --needed curl coreutils cronie procps-ng
