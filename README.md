@@ -1,43 +1,27 @@
-NYC Mesh DNS
----
+# NYC-Mesh DNS
 
-Edit the mesh.zone file to add a record, please format appropriately and place under the proper heading. 
+## Description
 
-Please fork and make a pull request, don't push directly ( unless you have to )
+This is a simple DNS server that resolves all requests to the IP address of the server. It is intended to be used in a local network to provide a simple way to access services running on a server without having to remember the IP address.
 
-## Requirements
+## Installation
 
-Either:
-* At least Knot 3.2 ( this is a new requirement for this repo, mainly because of ffi )
-* Bind9, Debian preferred as it is scripted this way
+Provide step by step series of examples and explanations about how to get a development environment running.
 
-## Use
-
-There are serveral python scripts and shell scripts. The python scripts generate secondary files, such as reverse zones, and auto-generated records.  
-`deploy.sh` is the original one for knot resolver  
-`deploy-bind.sh` is the newer one as we move to bind. The name is different so older servers dont break as part of the change.
-
-## Install
-
-### Install Knot Pieces:
-See Knot Resolver website.
-Then, on debian for example. something like:
-```
-echo 'deb http://download.opensuse.org/repositories/home:/CZ-NIC:/knot-resolver-latest/Debian_9.0/ /' > /etc/apt/sources.list.d/home:CZ-NIC:knot-resolver-latest.list
-wget -nv https://download.opensuse.org/repositories/home:CZ-NIC:knot-resolver-latest/Debian_9.0/Release.key -O Release.key
-apt-key add - < Release.key
-apt-get update
-apt-get install knot-resolver knot
-
+```bash
+git clone https://github.com/nycmeshnet/nycmesh-dns
+cd nycmesh-dns/
 ```
 
-### Install Bind9:
-Use NYC Mesh Ansible set up (no link yet), which will clone and setup this repo  
-Alternately, just install bind9, clone this repo and run `./deploy-bind.sh`.
+## Usage
+Provide instructions and examples for use.
 
-### Add to cron:
-```
-*/10 * * * *   root    cd /root/nycmesh-dns && /root/nycmesh-dns/deploy.sh 2>&1 > /dev/null
+```bash
+bash nyc-mesh-dns.sh
 ```
 
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
+## License
+MIT
