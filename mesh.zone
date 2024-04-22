@@ -23,6 +23,7 @@ netbox A 10.70.90.135
 tv A 10.70.90.30
 wiki A 18.213.129.204
 mastodon A 199.170.132.101
+display A 10.70.185.250
 
 ; Emerson
 gitlab A    10.70.123.5
