@@ -63,6 +63,10 @@ grandbox A 10.69.19.233
 grandsvc A 199.167.59.101
 *.grandsvc CNAME grandsvc
 
+; James
+wazuh A 10.70.90.75
+jamesprojects A 10.70.90.75
+
 ; Reserved as services are made
 null A 10.10.10.254
 vpn A 10.10.10.254
