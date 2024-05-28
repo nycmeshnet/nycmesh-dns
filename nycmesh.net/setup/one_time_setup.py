@@ -10,9 +10,6 @@ OUTPUT_TF = "../records.tf"
 OUTPUT_SH = "import.sh"
 
 class OneTimeSetup:
-    def __init__(self):
-        pass
-
     def get_records(self, domain_name):
         ret = []
         per_page = 1000
