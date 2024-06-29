@@ -1,1 +1,7 @@
 *.arpa.zone
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+.terraform.lock.hcl
+nycmesh.net/setup/import.sh
+nycmesh.net/setup/venv/

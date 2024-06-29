@@ -1,6 +1,10 @@
 NYC Mesh DNS
 ---
 
+This repository manages the DNS zones for the `nycmesh.net` and `mesh.nycmesh.net` domains.
+
+# mesh.nycmesh.net
+
 Edit the mesh.zone file to add a record, please format appropriately and place under the proper heading. 
 
 Please fork and make a pull request, don't push directly ( unless you have to )
@@ -39,5 +43,8 @@ Alternately, just install bind9, clone this repo and run `./deploy-bind.sh`.
 ```
 */10 * * * *   root    cd /root/nycmesh-dns && /root/nycmesh-dns/deploy.sh 2>&1 > /dev/null
 ```
+# nycmesh.net
 
+Uses [lexfrei/namedotcom](https://registry.terraform.io/providers/lexfrei/namedotcom/latest/docs) to manage the DNS zone for the `nycmesh.net` domain.
 
+See [nycmesh.net/README.md](./nycmesh.net/README.md) for more information.
