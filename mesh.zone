@@ -23,7 +23,7 @@ netbox A 10.70.90.135
 tv A 10.70.90.30
 wiki A 18.213.129.204
 mastodon A 199.170.132.101
-display A 10.70.185.250
+gsg-displays A 199.170.132.101
 
 ; Emerson
 gitlab A    10.70.123.5
@@ -74,7 +74,6 @@ core A 10.10.10.254
 user A 10.10.10.254
 nms A 10.70.118.10
 scuttle A 10.70.73.4
-gsg-displays A 10.70.185.250
 
 ; Supernode3
 l2tpvpn.sn3 A 199.170.132.6
