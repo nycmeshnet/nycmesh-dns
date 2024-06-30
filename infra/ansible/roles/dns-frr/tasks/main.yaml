@@ -1,0 +1,88 @@
+- name: Install deps
+  ansible.builtin.apt:
+    update_cache: true
+    pkg:
+      - iptables-persistent
+      - frr
+  become: true
+
+- name: dummy0 interface
+  ansible.builtin.template:
+    src: ../templates/netplan_dummy0.yaml.j2
+    dest: /etc/netplan/dummy0.yaml
+    mode: "640"
+  become: true
+
+- name: dummy1 interface
+  ansible.builtin.template:
+    src: ../templates/netplan_dummy1.yaml.j2
+    dest: /etc/netplan/dummy1.yaml
+    mode: "640"
+  become: true
+  when: EXTERNAL_LISTEN_IP != ""
+
+- name: eth0 interface
+  ansible.builtin.template:
+    src: ../templates/netplan_50_cloud_init.yaml.j2
+    dest: /etc/netplan/50-cloud-init.yaml
+    mode: "640"
+  become: true
+
+- name: Enable ospfd
+  ansible.builtin.lineinfile:
+    path: /etc/frr/daemons
+    search_string: ospfd=no
+    line: "ospfd=yes"
+  become: true
+
+- name: Config template frr
+  ansible.builtin.template:
+    src: ../templates/frr.conf.j2
+    dest: /etc/frr/frr.conf
+  become: true
+
+- name: Iptables rules
+  ansible.builtin.template:
+    src: ../templates/iptables.j2
+    dest: /etc/iptables/rules.v4
+  become: true
+
+- name: Restore iptables rules
+  ansible.builtin.command:
+    cmd: "bash -c '/sbin/iptables-restore < /etc/iptables/rules.v4 && touch /tmp/firewall_set'"
+    creates: /tmp/firewall_set
+  become: true
+
+- name: Restore iptables rules
+  ansible.builtin.command:
+    cmd: "bash -c 'netplan apply && touch /tmp/netplan_applied'"
+    creates: /tmp/netplan_applied
+  become: true
+
+- name: Restart and enable iptables service
+  ansible.builtin.service:
+    name: netfilter-persistent
+    state: restarted
+    enabled: true
+  become: true
+
+- name: net.ipv4.ip_forward
+  ansible.posix.sysctl:
+    name: net.ipv4.ip_forward
+    value: '1'
+    sysctl_set: true
+    state: present
+    reload: true
+  become: true
+
+- name: Restart and enable frr service
+  ansible.builtin.service:
+    name: frr
+    state: restarted
+    enabled: true
+  become: true
+
+- name: apply net.ipv4.ip_forward
+  ansible.builtin.command:
+    cmd: sysctl -w net.ipv4.ip_forward=1
+  become: true

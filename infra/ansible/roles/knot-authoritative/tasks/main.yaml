@@ -1,0 +1,72 @@
+- name: Install deps
+  ansible.builtin.apt:
+    update_cache: true
+    pkg:
+      - apt-transport-https
+      - ca-certificates
+      - git
+      - cron
+      - python3-pip
+      - python3.11-venv
+      - dnsutils
+      - knot
+  become: true
+
+- name: Knot DNS Config
+  ansible.builtin.template:
+    src: ../templates/knot.conf.j2
+    dest: /etc/knot/knot.conf
+  become: true
+
+- name: Make sure file does not exist
+  ansible.builtin.file:
+    path: /var/lib/knot/zones
+    state: absent
+  become: true
+
+- name: Create a directory if it does not exist
+  ansible.builtin.file:
+    path: /var/lib/knot/zones
+    state: directory
+  become: true
+
+- name: Install knot-exporter python package
+  ansible.builtin.pip:
+    name: knot-exporter
+    virtualenv: /root/knot_exporter_venv
+    virtualenv_command: python3 -m venv
+  become: true
+
+- name: Git checkout
+  ansible.builtin.git:
+    repo: "https://github.com/james-otten/nycmesh-dns.git"
+    dest: /root/nycmesh-dns
+    version: james/infra
+  become: true
+
+- name: Run deploy script
+  ansible.builtin.command:
+    cmd: bash /root/nycmesh-dns/deploy_gordian_knot.sh
+    creates: /var/lib/knot/commit
+  become: true
+
+- name: Restart and enable knot service
+  ansible.builtin.service:
+    name: knot
+    state: restarted
+    enabled: true
+  become: true
+
+- name: Crontab
+  ansible.builtin.lineinfile:
+    path: /etc/cron.d/knot_zone_update
+    line: "*/10 * * * *   root    cd /root/nycmesh-dns && /root/nycmesh-dns/../jank_deploy.sh 2>&1 > /dev/null"
+    create: true
+  become: true
+
+- name: Restart and enable cron service
+  ansible.builtin.service:
+    name: cron
+    state: restarted
+    enabled: true
+  become: true
