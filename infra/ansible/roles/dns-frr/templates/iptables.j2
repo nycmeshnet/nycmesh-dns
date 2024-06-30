@@ -1,0 +1,27 @@
+*filter
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+-A INPUT -s 10.70.90.53/32 -d {{ INTERNAL_MGT_IP }}/32 -j ACCEPT
+{% if INTERNAL_LISTEN_IP != "" %}
+-A INPUT -d {{ INTERNAL_LISTEN_IP }}/32 -p tcp -m tcp --dport 53 -j ACCEPT
+-A INPUT -d {{ INTERNAL_LISTEN_IP }}/32 -p udp -m udp --dport 53 -j ACCEPT
+-A INPUT -d {{ INTERNAL_LISTEN_IP }}/32 -j DROP
+{% endif %}
+{% if EXTERNAL_LISTEN_IP != "" %}
+-A INPUT -d {{ EXTERNAL_LISTEN_IP }}/32 -p tcp -m tcp --dport 53 -j ACCEPT
+-A INPUT -d {{ EXTERNAL_LISTEN_IP }}/32 -p udp -m udp --dport 53 -j ACCEPT
+-A INPUT -d {{ EXTERNAL_LISTEN_IP }}/32 -j DROP
+{% endif %}
+-A FORWARD -s 10.70.90.53/32 -d {{ INTERNAL_MGT_IP }}/32 -j ACCEPT
+{% if INTERNAL_LISTEN_IP != "" %}
+-A FORWARD -d {{ INTERNAL_LISTEN_IP }}/32 -p tcp -m tcp --dport 53 -j ACCEPT
+-A FORWARD -d {{ INTERNAL_LISTEN_IP }}/32 -p udp -m udp --dport 53 -j ACCEPT
+-A FORWARD -d {{ INTERNAL_LISTEN_IP }}/32 -j DROP
+{% endif %}
+{% if EXTERNAL_LISTEN_IP != "" %}
+-A FORWARD -d {{ EXTERNAL_LISTEN_IP }}/32 -p tcp -m tcp --dport 53 -j ACCEPT
+-A FORWARD -d {{ EXTERNAL_LISTEN_IP }}/32 -p udp -m udp --dport 53 -j ACCEPT
+-A FORWARD -d {{ EXTERNAL_LISTEN_IP }}/32 -j DROP
+{% endif %}
+COMMIT

@@ -1,0 +1,25 @@
+
+server:
+{% if INTERNAL_LISTEN_IP != "" %}    listen: {{ INTERNAL_LISTEN_IP }}@53{% endif %}
+{% if EXTERNAL_LISTEN_IP != "" %}    listen: {{ EXTERNAL_LISTEN_IP }}@53{% endif %}
+
+log:
+  - target: syslog
+    any: info
+
+mod-rrl:
+ - id: default
+   rate-limit: 200
+   slip: 2
+
+template:
+  - id: default
+    global-module: mod-rrl/default
+    storage: /var/lib/knot/zones
+
+zone:
+  - domain: mesh
+  - domain: mesh.nycmesh.net
+    file: mesh.zone
+  - domain: 10.in-addr.arpa
+  - domain: 59.167.199.in-addr.arpa

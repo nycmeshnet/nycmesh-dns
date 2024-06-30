@@ -1,0 +1,53 @@
+- name: Install deps
+  ansible.builtin.apt:
+    update_cache: true
+    pkg:
+      - apt-transport-https
+      - ca-certificates
+      - dnsutils
+  become: true
+
+- name: Download gpg key
+  ansible.builtin.get_url:
+    url: https://pkg.labs.nic.cz/gpg
+    dest: /usr/share/keyrings/cznic-labs-pkg.gpg
+  become: true
+
+- name: Add package source
+  ansible.builtin.lineinfile:
+    path: /etc/apt/sources.list.d/cznic-labs-knot-dns.list
+    line: "deb [signed-by=/usr/share/keyrings/cznic-labs-pkg.gpg] https://pkg.labs.nic.cz/knot-dns bookworm main"
+    create: true
+  become: true
+
+- name: Add knot-resolver-release
+  ansible.builtin.get_url:
+    url: https://secure.nic.cz/files/knot-resolver/knot-resolver-release.deb
+    dest: /root/knot-resolver-release.deb
+  become: true
+
+- name: Install knot-resolver-release
+  ansible.builtin.apt:
+    deb: /root/knot-resolver-release.deb
+  become: true
+
+- name: Install knot
+  ansible.builtin.apt:
+    update_cache: true
+    pkg:
+      - knot-resolver
+      - knot-dnsutils
+  become: true
+
+- name: Knot Resolver Config
+  ansible.builtin.template:
+    src: ../templates/kresd.conf.j2
+    dest: /etc/knot-resolver/kresd.conf
+  become: true
+
+- name: Restart and enable knot-resolver service
+  ansible.builtin.service:
+    name: kresd@1
+    state: restarted
+    enabled: true
+  become: true
