@@ -1,7 +1,9 @@
 
 server:
-{% if INTERNAL_LISTEN_IP != "" %}    listen: {{ INTERNAL_LISTEN_IP }}@53{% endif %}
-{% if EXTERNAL_LISTEN_IP != "" %}    listen: {{ EXTERNAL_LISTEN_IP }}@53{% endif %}
+{% if INTERNAL_LISTEN_IP != "" %}    listen: {{ INTERNAL_LISTEN_IP }}@53
+{% endif %}
+{% if EXTERNAL_LISTEN_IP != "" %}    listen: {{ EXTERNAL_LISTEN_IP }}@53
+{% endif %}
 
 log:
   - target: syslog
