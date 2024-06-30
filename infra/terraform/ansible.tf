@@ -1,16 +1,18 @@
 resource "ansible_group" "knot-recursive" {
   name = "knot-recursive"
   variables = {
-    ansible_user            = var.dns_local_user
-    ansible_ssh_common_args = "-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
+    ansible_user                 = var.dns_local_user
+    ansible_ssh_private_key_file = "../terraform/${dns_ssh_key_name}"
+    ansible_ssh_common_args      = "-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
   }
 }
 
 resource "ansible_group" "knot-authoritative" {
   name = "knot-authoritative"
   variables = {
-    ansible_user            = var.dns_local_user
-    ansible_ssh_common_args = "-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
+    ansible_user                 = var.dns_local_user
+    ansible_ssh_private_key_file = "../terraform/${dns_ssh_key_name}"
+    ansible_ssh_common_args      = "-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
   }
 }
 
