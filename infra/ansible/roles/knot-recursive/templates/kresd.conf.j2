@@ -6,9 +6,19 @@
 net.listen('127.0.0.1', 53, { kind = 'dns' })
 net.listen('127.0.0.1', 853, { kind = 'tls' })
 --net.listen('127.0.0.1', 443, { kind = 'doh2' })
-net.listen('::1', 53, { kind = 'dns', freebind = true })
-net.listen('::1', 853, { kind = 'tls', freebind = true })
+--net.listen('::1', 53, { kind = 'dns', freebind = true })
+--net.listen('::1', 853, { kind = 'tls', freebind = true })
 --net.listen('::1', 443, { kind = 'doh2' })
+
+-- INTERNAL_LISTEN_IP
+net.listen('{{ INTERNAL_LISTEN_IP }}', 53, { kind = 'dns' })
+net.listen('{{ INTERNAL_LISTEN_IP }}', 443, { kind = 'doh2' })
+
+{% if EXTERNAL_LISTEN_IP != "" %}
+-- EXTERNAL_LISTEN_IP
+net.listen('{{ EXTERNAL_LISTEN_IP }}', 53, { kind = 'dns' })
+net.listen('{{ EXTERNAL_LISTEN_IP }}', 443, { kind = 'doh2' })
+{% endif %}
 
 -- Load useful modules
 modules = {
