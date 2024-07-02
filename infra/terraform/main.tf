@@ -1,10 +1,8 @@
 terraform {
-  #backend "s3" {
-  #  # Chang to the path to use within your bucket
-  #  key = "terraform/state/dns.tfstate"
-  #  # Change to your region
-  #  region = "us-east-2"
-  #}
+  backend "s3" {
+    key = "terraform/state/dns.tfstate"
+    region = "us-east-2"
+  }
   required_providers {
     ansible = {
       source  = "ansible/ansible"

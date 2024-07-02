@@ -49,8 +49,7 @@
 
 - name: Restore iptables rules
   ansible.builtin.command:
-    cmd: "bash -c '/sbin/iptables-restore < /etc/iptables/rules.v4 && touch /tmp/firewall_set'"
-    creates: /tmp/firewall_set
+    cmd: "bash -c '/sbin/iptables-restore < /etc/iptables/rules.v4'"
   become: true
 
 - name: Restore iptables rules
