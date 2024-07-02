@@ -24,6 +24,12 @@
     state: absent
   become: true
 
+- name: Make sure commit file does not exist
+  ansible.builtin.file:
+    path: /var/lib/knot/commit
+    state: absent
+  become: true
+
 - name: Create a directory if it does not exist
   ansible.builtin.file:
     path: /var/lib/knot/zones
@@ -46,8 +52,7 @@
 
 - name: Run deploy script
   ansible.builtin.command:
-    cmd: bash /root/nycmesh-dns/deploy_gordian_knot.sh
-    creates: /var/lib/knot/commit
+    cmd: bash -c "cd /root/nycmesh-dns/ && bash /root/nycmesh-dns/deploy_gordian_knot.sh"
   become: true
 
 - name: Restart and enable knot service
