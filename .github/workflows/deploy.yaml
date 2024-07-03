@@ -106,7 +106,10 @@ jobs:
       
       - name: Terraform Apply
         if: github.ref == 'refs/heads/james/infra2' && github.event_name == 'push'
-        run: terraform apply -auto-approve -var-file=jon.tfvars -input=false
+        run: |
+          echo "$TF_VAR_MESH_DNS_SSH_KEY" > ${TF_VAR_dns_ssh_key_name}
+          echo "$TF_VAR_MESH_DNS_PUB_KEY" > ${TF_VAR_dns_ssh_key_name}.pub
+          terraform apply -auto-approve -var-file=jon.tfvars -input=false
         working-directory: ./infra/terraform/
       
       - name: Run playbook
