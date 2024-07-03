@@ -115,4 +115,4 @@ jobs:
       - name: Run playbook
         if: github.ref == 'refs/heads/james/infra2' && github.event_name == 'push'
         run: sleep 45 && export PATH="$HOME/.local/bin:$PATH" && ansible-playbook -i inventory.yaml dns_server.yaml
-        working-directory: ./github_runner/ansible/
+        working-directory: ./infra/ansible/
