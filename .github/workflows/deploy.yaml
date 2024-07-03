@@ -105,11 +105,11 @@ jobs:
         run: exit 1
       
       - name: Terraform Apply
-        if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/james/infra2' && github.event_name == 'push'
         run: terraform apply -auto-approve -input=false
         working-directory: ./infra/terraform/
       
       - name: Run playbook
-        if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/james/infra2' && github.event_name == 'push'
         run: sleep 45 && export PATH="$HOME/.local/bin:$PATH" && ansible-playbook -i inventory.yaml dns_server.yaml
         working-directory: ./github_runner/ansible/
