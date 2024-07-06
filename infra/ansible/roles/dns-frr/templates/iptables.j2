@@ -4,6 +4,7 @@
 :OUTPUT ACCEPT [0:0]
 
 -A INPUT -s 10.70.90.53/32 -d {{ INTERNAL_MGT_IP }}/32 -j ACCEPT
+-A INPUT -s 10.70.73.66/32 -d {{ INTERNAL_MGT_IP }}/32 -j ACCEPT
 
 # DROP Bogons but not 10.0.0.0/8
 -A INPUT -s 0.0.0.0/8 -j DROP
