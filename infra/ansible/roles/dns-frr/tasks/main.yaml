@@ -52,7 +52,7 @@
     cmd: "bash -c '/sbin/iptables-restore < /etc/iptables/rules.v4'"
   become: true
 
-- name: Restore iptables rules
+- name: Netplan apply
   ansible.builtin.command:
     cmd: "bash -c 'netplan apply && touch /tmp/netplan_applied'"
     creates: /tmp/netplan_applied
