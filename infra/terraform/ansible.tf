@@ -27,6 +27,7 @@ resource "ansible_host" "rec-dns-mgt" {
     INTERNAL_NETWORK_HOST_IDENTIFIER = var.dns_mgt_network_host_identifier
     INTERNAL_LISTEN_IP               = var.dns_rec_internal_ip[count.index]
     INTERNAL_MGT_IP                  = var.dns_rec_mgt_ip[count.index]
+    INTERNAL_MGT_DG                  = var.dns_mgt_gateway
   }
 }
 
@@ -41,5 +42,6 @@ resource "ansible_host" "auth-dns-mgt" {
     INTERNAL_NETWORK_HOST_IDENTIFIER = var.dns_mgt_network_host_identifier
     INTERNAL_LISTEN_IP               = var.dns_auth_internal_ip[count.index]
     INTERNAL_MGT_IP                  = var.dns_auth_mgt_ip[count.index]
+    INTERNAL_MGT_DG                  = var.dns_mgt_gateway
   }
 }
