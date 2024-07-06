@@ -107,8 +107,8 @@ jobs:
       - name: Terraform Apply
         if: github.ref == 'refs/heads/james/infra2' && github.event_name == 'push'
         run: |
-          echo "$TF_VAR_MESH_DNS_SSH_KEY" > dns_ed25519
-          echo "$TF_VAR_MESH_DNS_PUB_KEY" > dns_ed25519.pub
+          echo "${{ secrets.TF_VAR_MESH_DNS_SSH_KEY }}" > dns_ed25519
+          echo "${{ secrets.TF_VAR_MESH_DNS_PUB_KEY }}" > dns_ed25519.pub
           chmod 600 dns_ed25519
           chmod 600 dns_ed25519.pub
           terraform apply -auto-approve -var-file=jon.tfvars -input=false
