@@ -1,3 +1,10 @@
+- name: Install gnupg2
+  ansible.builtin.apt:
+    update_cache: true
+    pkg:
+      - gnupg2
+  become: true
+
 - name: Download influx gpg key
   ansible.builtin.get_url:
     url: https://repos.influxdata.com/influxdata-archive_compat.key
