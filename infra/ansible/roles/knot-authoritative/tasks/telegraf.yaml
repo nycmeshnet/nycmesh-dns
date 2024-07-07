@@ -1,0 +1,19 @@
+- name: Download influx gpg key
+  ansible.builtin.get_url:
+    url: https://repos.influxdata.com/influxdata-archive_compat.key
+    dest: /etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg
+  become: true
+
+- name: Add package source for influxdata
+  ansible.builtin.lineinfile:
+    path: /etc/apt/sources.list.d/influxdata.list
+    line: "deb [signed-by=/etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg] https://repos.influxdata.com/debian stable main"
+    create: true
+  become: true
+
+- name: Install telegraf
+  ansible.builtin.apt:
+    update_cache: true
+    pkg:
+      - telegraf
+  become: true

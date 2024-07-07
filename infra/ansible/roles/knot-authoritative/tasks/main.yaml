@@ -36,6 +36,10 @@
     state: directory
   become: true
 
+- name: Include telegraf
+  ansible.builtin.include_tasks: telegraf.yaml
+  become: true
+
 - name: Install knot-exporter python package
   ansible.builtin.pip:
     name: knot-exporter
