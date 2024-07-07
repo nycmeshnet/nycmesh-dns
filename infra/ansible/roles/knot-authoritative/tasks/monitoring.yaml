@@ -1,0 +1,11 @@
+- name: Install knot-exporter python package
+  ansible.builtin.pip:
+    name: knot-exporter
+    virtualenv: /root/knot_exporter_venv
+    virtualenv_command: python3 -m venv
+  become: true
+
+- name: Install node exporter
+  prometheus.prometheus.node_exporter:
+    node_exporter_web_listen_address: "127.0.0.1:9100"
+  become: true
