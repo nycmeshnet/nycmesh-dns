@@ -93,3 +93,9 @@ variable "dns_ssh_key_name" {
   type        = string
   description = "ssh key name"
 }
+
+variable "INFLUX_DB_TOKEN" {
+  type        = string
+  description = "token for influx db"
+  sensitive   = true
+}

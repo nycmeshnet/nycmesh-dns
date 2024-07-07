@@ -36,15 +36,11 @@
     state: directory
   become: true
 
+- name: Include monitoring
+  ansible.builtin.include_tasks: monitoring.yaml
+
 - name: Include telegraf
   ansible.builtin.include_tasks: telegraf.yaml
-
-- name: Install knot-exporter python package
-  ansible.builtin.pip:
-    name: knot-exporter
-    virtualenv: /root/knot_exporter_venv
-    virtualenv_command: python3 -m venv
-  become: true
 
 - name: Git checkout
   ansible.builtin.git:
