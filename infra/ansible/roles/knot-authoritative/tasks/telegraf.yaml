@@ -23,3 +23,16 @@
     pkg:
       - telegraf
   become: true
+
+- name: Telegraf Config
+  ansible.builtin.template:
+    src: ../templates/telegraf.conf.j2
+    dest: /etc/telegraf/telegraf.conf
+  become: true
+
+- name: Restart and enable telegraf service
+  ansible.builtin.service:
+    name: telegraf
+    state: restarted
+    enabled: true
+  become: true
