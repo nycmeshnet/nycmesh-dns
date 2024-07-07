@@ -6,7 +6,7 @@
 
 - name: Add influx gpg key
   ansible.builtin.command:
-    cmd: bash -c "cd /root && echo '393e8779c89ac8d958f81f942f9ad7fb82a25e133faddaf92e15b16e6ac9ce4c influxdata-archive_compat.key' | sha256sum -c && cat influxdata-archive_compat.key | gpg --dearmor | tee /etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg > /dev/null"
+    cmd: bash -c "cd /root && echo '393e8779c89ac8d958f81f942f9ad7fb82a25e133faddaf92e15b16e6ac9ce4c influxdata-archive_compat.key' | sha256sum -c && cat influxdata-archive_compat.key | gpg --dearmor > tee /etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg"
     creates: /etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg 
   become: true
 
