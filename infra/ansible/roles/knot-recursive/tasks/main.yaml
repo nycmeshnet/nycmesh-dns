@@ -7,6 +7,9 @@
       - dnsutils
   become: true
 
+- name: Include telegraf
+  ansible.builtin.include_tasks: telegraf.yaml
+
 - name: Download gpg key
   ansible.builtin.get_url:
     url: https://pkg.labs.nic.cz/gpg

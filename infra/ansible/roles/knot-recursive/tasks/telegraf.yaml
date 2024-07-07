@@ -1,0 +1,38 @@
+- name: Download influx gpg key
+  ansible.builtin.get_url:
+    url: https://repos.influxdata.com/influxdata-archive_compat.key
+    dest: /root/influxdata-archive_compat.key
+  become: true
+
+- name: Add influx gpg key
+  ansible.builtin.command:
+    cmd: bash -c "cd /root && echo '393e8779c89ac8d958f81f942f9ad7fb82a25e133faddaf92e15b16e6ac9ce4c influxdata-archive_compat.key' | sha256sum -c && cat influxdata-archive_compat.key | gpg --dearmor > /etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg"
+    creates: /etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg
+  become: true
+
+- name: Add package source for influxdata
+  ansible.builtin.lineinfile:
+    path: /etc/apt/sources.list.d/influxdata.list
+    line: "deb [signed-by=/etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg] https://repos.influxdata.com/debian stable main"
+    create: true
+  become: true
+
+- name: Install telegraf
+  ansible.builtin.apt:
+    update_cache: true
+    pkg:
+      - telegraf
+  become: true
+
+- name: Telegraf Config
+  ansible.builtin.template:
+    src: ../templates/telegraf.conf.j2
+    dest: /etc/telegraf/telegraf.conf
+  become: true
+
+- name: Restart and enable telegraf service
+  ansible.builtin.service:
+    name: telegraf
+    state: restarted
+    enabled: true
+  become: true

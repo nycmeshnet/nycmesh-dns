@@ -35,7 +35,7 @@ jobs:
           python-version: '3.11'
       
       - name: Setup ansible
-        run: pip install ansible && export PATH="$HOME/.local/bin:$PATH" && ansible-galaxy collection install cloud.terraform && ansible-galaxy collection install prometheus.prometheus
+        run: pip install ansible && export PATH="$HOME/.local/bin:$PATH" && ansible-galaxy collection install cloud.terraform
 
       - name: Setup Terraform with specified version on the runner
         uses: hashicorp/setup-terraform@651471c36a6092792c552e8b1bef71e592b462d8 # @v3
