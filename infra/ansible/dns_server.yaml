@@ -1,15 +1,9 @@
 - hosts: knot-authoritative
   roles:
     - role: dns-frr
-    - role: prometheus.prometheus.node_exporter
     - role: knot-authoritative
-  vars:
-    node_exporter_web_listen_address: "127.0.0.1:9100"
 
 - hosts: knot-recursive
   roles:
     - role: dns-frr
-    - role: prometheus.prometheus.node_exporter
     - role: knot-recursive
-  vars:
-    node_exporter_web_listen_address: "127.0.0.1:9100"
