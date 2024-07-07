@@ -1,7 +1,13 @@
 - name: Download influx gpg key
   ansible.builtin.get_url:
     url: https://repos.influxdata.com/influxdata-archive_compat.key
-    dest: /etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg
+    dest: /root/influxdata-archive_compat.gpg
+  become: true
+
+- name: Add influx gpg key
+  ansible.builtin.command:
+    cmd: bash -c "cd /root && echo '393e8779c89ac8d958f81f942f9ad7fb82a25e133faddaf92e15b16e6ac9ce4c influxdata-archive_compat.key' | sha256sum -c &&  gpg --dearmor | tee /etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg > /dev/null"
+    creates: /etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg 
   become: true
 
 - name: Add package source for influxdata
