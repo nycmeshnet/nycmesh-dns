@@ -138,6 +138,14 @@
 [[inputs.processes]]
 [[inputs.kernel]]
 
+{% if dns_monitor_domain != "" and INTERNAL_LISTEN_IP != "" }
+[[inputs.dns_query]]
+  servers = ["{{ INTERNAL_LISTEN_IP }}"]
+  domains = ["{{ dns_monitor_domain }}"]
+  record_type = "A"
+  timeout = "2s"
+{% endif %}
+
 ###############################################################################
 #                                  OUTPUTS                                    #
 ###############################################################################
