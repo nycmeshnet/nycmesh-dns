@@ -26,6 +26,7 @@
 
 - name: Install telegraf
   ansible.builtin.apt:
+    lock_timeout: 120
     update_cache: true
     pkg:
       - telegraf

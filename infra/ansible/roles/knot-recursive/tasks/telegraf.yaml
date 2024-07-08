@@ -1,5 +1,6 @@
 - name: Install gnupg2
   ansible.builtin.apt:
+    lock_timeout: 120
     update_cache: true
     pkg:
       - gnupg2
@@ -33,6 +34,7 @@
 
 - name: Install telegraf
   ansible.builtin.apt:
+    lock_timeout: 120
     update_cache: true
     pkg:
       - telegraf

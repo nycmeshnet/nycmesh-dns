@@ -1,5 +1,6 @@
 - name: Install deps
   ansible.builtin.apt:
+    lock_timeout: 120
     update_cache: true
     pkg:
       - apt-transport-https
@@ -31,11 +32,13 @@
 
 - name: Install knot-resolver-release
   ansible.builtin.apt:
+    lock_timeout: 120
     deb: /root/knot-resolver-release.deb
   become: true
 
 - name: Install knot
   ansible.builtin.apt:
+    lock_timeout: 120
     update_cache: true
     pkg:
       - knot-resolver
