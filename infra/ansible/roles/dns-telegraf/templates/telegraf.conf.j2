@@ -138,7 +138,7 @@
 [[inputs.processes]]
 [[inputs.kernel]]
 
-{% if dns_monitor_domain != "" and INTERNAL_LISTEN_IP != "" }
+{% if dns_monitor_domain != "" and INTERNAL_LISTEN_IP != "" %}
 [[inputs.dns_query]]
   servers = ["{{ INTERNAL_LISTEN_IP }}"]
   domains = ["{{ dns_monitor_domain }}"]
