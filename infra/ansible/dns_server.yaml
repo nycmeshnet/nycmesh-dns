@@ -1,9 +1,11 @@
 - hosts: knot-authoritative
   roles:
     - role: dns-frr
+    - role: dns-telegraf
     - role: knot-authoritative
 
 - hosts: knot-recursive
   roles:
     - role: dns-frr
+    - role: dns-telegraf
     - role: knot-recursive
