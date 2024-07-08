@@ -1,5 +1,6 @@
 - name: Install deps
   ansible.builtin.apt:
+    lock_timeout: 240
     update_cache: true
     pkg:
       - apt-transport-https
