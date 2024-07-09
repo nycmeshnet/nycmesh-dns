@@ -1,4 +1,4 @@
-module "mesh_dns_servers" {
+module "jon_mesh_dns_servers" {
   source = "./mesh_dns_servers"
 
   MESH_DNS_LOCAL_PASSWORD  = var.MESH_DNS_LOCAL_PASSWORD
@@ -29,4 +29,12 @@ module "mesh_dns_servers" {
   dns_mgt_network_host_identifier = "24"
   dns_mgt_gateway                 = "10.70.90.1"
   dns_ssh_key_name                = "dns_ed25519"
+}
+
+output "jon_dns_auth_instance_id" {
+  value = module.jon_mesh_dns_servers.authoritative_instance_id
+}
+
+output "jon_dns_rec_instance_id" {
+  value = module.jon_mesh_dns_servers.recursive_instance_id
 }
