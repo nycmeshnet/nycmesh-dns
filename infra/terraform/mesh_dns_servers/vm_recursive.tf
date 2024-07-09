@@ -1,6 +1,6 @@
-resource "proxmox_vm_qemu" "authoritative_dns_vm" {
+resource "proxmox_vm_qemu" "recursive_dns_vm" {
   count       = 1
-  name        = "gordian-knot-auth-${count.index}"
+  name        = "gordian-knot-rec-${count.index}"
   desc        = "authoritative knot on jon ${count.index}"
   target_node = var.proxmox_node
 
@@ -34,12 +34,12 @@ resource "proxmox_vm_qemu" "authoritative_dns_vm" {
     model  = "virtio"
   }
 
-  ipconfig0 = "ip=${var.dns_auth_mgt_ip[count.index]}/${var.dns_mgt_network_host_identifier},gw=${var.dns_mgt_gateway}"
+  ipconfig0 = "ip=${var.dns_rec_mgt_ip[count.index]}/${var.dns_mgt_network_host_identifier},gw=${var.dns_mgt_gateway}"
 
   ssh_user        = "root"
-  ssh_private_key = file("${path.module}/${var.dns_ssh_key_name}")
+  ssh_private_key = file("${path.module}/../${var.dns_ssh_key_name}")
 
-  sshkeys = file("${path.module}/${var.dns_ssh_key_name}.pub")
+  sshkeys = file("${path.module}/../${var.dns_ssh_key_name}.pub")
 
   serial {
     id   = 0
