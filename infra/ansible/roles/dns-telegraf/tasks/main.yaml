@@ -21,7 +21,7 @@
 - name: Add influx gpg key
   ansible.builtin.command:
     chdir: /root
-    cmd: bash -c "cat influxdata-archive_compat.key | gpg --dearmor > /etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg"
+    cmd: bash -c 'cat influxdata-archive_compat.key | gpg --dearmor > /etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg'
     creates: /etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg
   become: true
 
