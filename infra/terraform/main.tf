@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    key    = "terraform/state/dns.tfstate"
+    key    = "terraform/state/dns3.tfstate"
     region = "us-east-2"
   }
   required_providers {
