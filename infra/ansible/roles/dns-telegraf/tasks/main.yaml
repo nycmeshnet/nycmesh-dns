@@ -1,3 +1,11 @@
+- name: Install deps
+  ansible.builtin.apt:
+    lock_timeout: 120
+    update_cache: true
+    pkg:
+      - gpg
+  become: true
+
 - name: Download influx gpg key
   ansible.builtin.get_url:
     url: https://repos.influxdata.com/influxdata-archive_compat.key
