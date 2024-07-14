@@ -65,8 +65,10 @@ grandsvc A 199.167.59.101
 *.grandsvc CNAME grandsvc
 
 ; James
+devdb A 199.170.132.46
+scan A 10.70.90.120
 wazuh A 10.70.90.75
-jamesprojects A 10.70.90.75
+jamesprojects A 10.70.90.53
 
 ; Reserved as services are made
 null A 10.10.10.254
