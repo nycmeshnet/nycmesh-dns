@@ -6,9 +6,9 @@ resource "proxmox_vm_qemu" "authoritative_dns_vm" {
 
   clone = var.proxmox_template_image
 
-  cores                   = 2
-  sockets                 = 1
-  memory                  = 2560
+  cores                   = var.authoritative_cores
+  sockets                 = var.authoritative_sockets
+  memory                  = var.authoritative_memory
   os_type                 = "cloud-init"
   agent                   = 1
   cloudinit_cdrom_storage = var.proxmox_storage_location
