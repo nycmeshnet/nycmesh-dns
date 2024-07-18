@@ -83,3 +83,56 @@ variable "INFLUX_DB_TOKEN" {
   description = "token for influx db"
   sensitive   = true
 }
+
+variable "vm_nic" {
+  type        = string
+  description = "nic for the vms"
+  default     = "vmbr0"
+}
+
+variable "hostname_prefix" {
+  type = string
+  description = "previous dns hosts (this + index)"
+  default = 0
+}
+
+variable "hostname_count_offset" {
+  type = number
+  description = "prefix for the VM hostnames"
+  default = 0
+}
+
+variable "recursive_cores" {
+  type = string
+  description = "cpu core count"
+  default = 2
+}
+variable "recursive_sockets" {
+  type = string
+  description = "socket count"
+  default = 1
+}
+
+variable "recursive_memory" {
+  type = string
+  description = "RAM MB count"
+  default = 2560
+}
+
+variable "authoritative_cores" {
+  type = string
+  description = "cpu core count"
+  default = 2
+}
+
+variable "authoritative_sockets" {
+  type = string
+  description = "socket count"
+  default = 1
+}
+
+variable "authoritative_memory" {
+  type = string
+  description = "RAM MB count"
+  default = 2560
+}
