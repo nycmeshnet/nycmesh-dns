@@ -1,7 +1,7 @@
 resource "proxmox_vm_qemu" "authoritative_dns_vm" {
   count       = 1
-  name        = "gordian-knot-auth-${count.index}"
-  desc        = "authoritative knot on jon ${count.index}"
+  name        = "${var.hostname_prefix}-dns-auth-${sum([1, count.index, var.hostname_count_offset])}"
+  desc        = "authoritative knot ${count.index}"
   target_node = var.proxmox_node
 
   clone = var.proxmox_template_image
@@ -30,7 +30,7 @@ resource "proxmox_vm_qemu" "authoritative_dns_vm" {
   }
 
   network {
-    bridge = "vmbr0"
+    bridge = var.vm_nic
     model  = "virtio"
   }
 

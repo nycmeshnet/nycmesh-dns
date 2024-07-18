@@ -23,7 +23,7 @@ resource "ansible_host" "rec-dns-mgt" {
   name   = var.dns_rec_mgt_ip[count.index]
   groups = [ansible_group.knot-recursive.name]
   variables = {
-    SERVER_HOSTNAME                  = "gordian-knot-rec-${count.index}"
+    SERVER_HOSTNAME                  = "${var.hostname_prefix}-dns-rec-${sum([1, count.index, var.hostname_count_offset])}"
     EXTERNAL_LISTEN_IP               = var.dns_rec_external_ip[count.index]
     INTERNAL_NETWORK_RANGE           = format("%s/%s", var.dns_mgt_network_prefix, var.dns_mgt_network_host_identifier)
     INTERNAL_NETWORK_HOST_IDENTIFIER = var.dns_mgt_network_host_identifier
@@ -39,7 +39,7 @@ resource "ansible_host" "auth-dns-mgt" {
   name   = var.dns_auth_mgt_ip[count.index]
   groups = [ansible_group.knot-authoritative.name]
   variables = {
-    SERVER_HOSTNAME                  = "gordian-knot-auth-${count.index}"
+    SERVER_HOSTNAME                  = "${var.hostname_prefix}-dns-auth-${sum([1, count.index, var.hostname_count_offset])}"
     EXTERNAL_LISTEN_IP               = var.dns_auth_external_ip[count.index]
     INTERNAL_NETWORK_RANGE           = format("%s/%s", var.dns_mgt_network_prefix, var.dns_mgt_network_host_identifier)
     INTERNAL_NETWORK_HOST_IDENTIFIER = var.dns_mgt_network_host_identifier

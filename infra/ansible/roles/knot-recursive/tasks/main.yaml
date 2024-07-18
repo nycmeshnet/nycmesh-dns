@@ -48,9 +48,10 @@
     dest: /etc/knot-resolver/kresd.conf
   become: true
 
-- name: Restart and enable knot-resolver service
+- name: Restart and enable knot-resolver service, $CPU_CORES - 1
   ansible.builtin.service:
-    name: kresd@1
+    name: kresd@{{ item }}
     state: restarted
     enabled: true
+  loop: "{{ range(1, ansible_processor_cores) | list}}"
   become: true

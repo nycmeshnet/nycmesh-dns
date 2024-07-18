@@ -1,14 +1,14 @@
 resource "proxmox_vm_qemu" "recursive_dns_vm" {
   count       = 1
-  name        = "gordian-knot-rec-${count.index}"
-  desc        = "authoritative knot on jon ${count.index}"
+  name        = "${var.hostname_prefix}-dns-rec-${sum([1, count.index, var.hostname_count_offset])}"
+  desc        = "authoritative knot ${count.index}"
   target_node = var.proxmox_node
 
   clone = var.proxmox_template_image
 
-  cores                   = 2
-  sockets                 = 1
-  memory                  = 2560
+  cores                   = var.recursive_cores
+  sockets                 = var.recursive_sockets
+  memory                  = var.recursive_memory
   os_type                 = "cloud-init"
   agent                   = 1
   cloudinit_cdrom_storage = var.proxmox_storage_location
@@ -30,7 +30,7 @@ resource "proxmox_vm_qemu" "recursive_dns_vm" {
   }
 
   network {
-    bridge = "vmbr0"
+    bridge = var.vm_nic
     model  = "virtio"
   }
 
