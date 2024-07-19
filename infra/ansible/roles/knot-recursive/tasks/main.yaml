@@ -40,6 +40,7 @@
     pkg:
       - knot-resolver
       - knot-dnsutils
+      - knot-resolver-module-http
   become: true
 
 - name: Knot Resolver Config

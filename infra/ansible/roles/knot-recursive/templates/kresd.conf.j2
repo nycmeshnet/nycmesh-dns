@@ -9,6 +9,7 @@ net.listen('127.0.0.1', 853, { kind = 'tls' })
 --net.listen('::1', 53, { kind = 'dns', freebind = true })
 --net.listen('::1', 853, { kind = 'tls', freebind = true })
 --net.listen('::1', 443, { kind = 'doh2' })
+net.listen('127.0.0.1', 9100, {kind = 'webmgmt'})
 
 -- INTERNAL_LISTEN_IP
 net.listen('{{ INTERNAL_LISTEN_IP }}', 53, { kind = 'dns' })
@@ -20,11 +21,15 @@ net.listen('{{ EXTERNAL_LISTEN_IP }}', 53, { kind = 'dns' })
 net.listen('{{ EXTERNAL_LISTEN_IP }}', 443, { kind = 'doh2' })
 {% endif %}
 
+-- Mesh
+policy.add(policy.suffix(policy.STUB('10.10.10.11'), policy.todnames({'mesh.', 'mesh.nycmesh.net.'})))
+
 -- Load useful modules
 modules = {
         'hints > iterate',  -- Allow loading /etc/hosts or custom root hints
         'stats',            -- Track internal statistics
         'predict',          -- Prefetch expiring/frequent records
+        'http',             -- stats in metrics format
 }
 
 -- Cache size

@@ -5,6 +5,8 @@ resource "ansible_group" "knot-recursive" {
     ansible_ssh_private_key_file = "../terraform/${var.dns_ssh_key_name}"
     ansible_ssh_common_args      = "-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
     dns_monitor_domain           = "nycmesh.net"
+    telegraf_knot                = ""
+    telegraf_kresd               = "enable"
   }
 }
 
@@ -15,6 +17,8 @@ resource "ansible_group" "knot-authoritative" {
     ansible_ssh_private_key_file = "../terraform/${var.dns_ssh_key_name}"
     ansible_ssh_common_args      = "-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
     dns_monitor_domain           = "wiki.mesh.nycmesh.net"
+    telegraf_knot                = "enable"
+    telegraf_kresd               = ""
   }
 }
 

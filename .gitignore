@@ -3,3 +3,4 @@
 *_ed25519.pub
 infra/terraform/.terraform/*
 infra/terraform/.terraform.lock.hcl
+.venv/
