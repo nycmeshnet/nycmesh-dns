@@ -146,6 +146,22 @@
   timeout = "2s"
 {% endif %}
 
+{% if telegraf_knot != "" %}
+#[[inputs.exec]]
+#  command = "sh /opt/telegraf/telegraf-knot.sh -s /run/knot/knot.sock"
+#  data_format = "influx"
+
+#  interval = "10s"
+{% endif %}
+
+{% if telegraf_kresd != "" %}
+[[inputs.prometheus]]
+  urls = ["http://127.0.0.1:9100/metrics"]
+  metric_version = 2
+
+  interval = "10s"
+{% endif %}
+
 ###############################################################################
 #                                  OUTPUTS                                    #
 ###############################################################################

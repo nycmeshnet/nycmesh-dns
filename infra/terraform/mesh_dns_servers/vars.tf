@@ -91,48 +91,48 @@ variable "vm_nic" {
 }
 
 variable "hostname_prefix" {
-  type = string
+  type        = string
   description = "previous dns hosts (this + index)"
-  default = 0
+  default     = 0
 }
 
 variable "hostname_count_offset" {
-  type = number
+  type        = number
   description = "prefix for the VM hostnames"
-  default = 0
+  default     = 0
 }
 
 variable "recursive_cores" {
-  type = string
+  type        = string
   description = "cpu core count"
-  default = 2
+  default     = 2
 }
 variable "recursive_sockets" {
-  type = string
+  type        = string
   description = "socket count"
-  default = 1
+  default     = 1
 }
 
 variable "recursive_memory" {
-  type = string
+  type        = string
   description = "RAM MB count"
-  default = 2560
+  default     = 2560
 }
 
 variable "authoritative_cores" {
-  type = string
+  type        = string
   description = "cpu core count"
-  default = 2
+  default     = 2
 }
 
 variable "authoritative_sockets" {
-  type = string
+  type        = string
   description = "socket count"
-  default = 1
+  default     = 1
 }
 
 variable "authoritative_memory" {
-  type = string
+  type        = string
   description = "RAM MB count"
-  default = 2560
+  default     = 2560
 }
