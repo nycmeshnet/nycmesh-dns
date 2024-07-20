@@ -1,6 +1,0 @@
-- name: Install knot-exporter python package
-  ansible.builtin.pip:
-    name: knot-exporter
-    virtualenv: /root/knot_exporter_venv
-    virtualenv_command: python3 -m venv
-  become: true

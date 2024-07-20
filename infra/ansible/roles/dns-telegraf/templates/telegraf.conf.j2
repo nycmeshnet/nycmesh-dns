@@ -138,20 +138,12 @@
 [[inputs.processes]]
 [[inputs.kernel]]
 
-{% if dns_monitor_domain != "" and INTERNAL_LISTEN_IP != "" %}
-[[inputs.dns_query]]
-  servers = ["{{ INTERNAL_LISTEN_IP }}"]
-  domains = ["{{ dns_monitor_domain }}"]
-  record_type = "A"
-  timeout = "2s"
-{% endif %}
-
 {% if telegraf_knot != "" %}
-#[[inputs.exec]]
-#  command = "sh /opt/telegraf/telegraf-knot.sh -s /run/knot/knot.sock"
-#  data_format = "influx"
+[[inputs.exec]]
+  command = "sh /usr/bin/telegraf-knot.sh -s /run/knot/knot.sock"
+  data_format = "influx"
 
-#  interval = "10s"
+  interval = "10s"
 {% endif %}
 
 {% if telegraf_kresd != "" %}

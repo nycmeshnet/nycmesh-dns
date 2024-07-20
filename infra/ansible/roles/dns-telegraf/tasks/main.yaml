@@ -40,6 +40,11 @@
       - telegraf
   become: true
 
+- name: Telegraf knot
+  ansible.builtin.include_tasks:
+    file: telegraf_knot.yaml
+  when: telegraf_knot != ""
+
 - name: Telegraf Config
   ansible.builtin.template:
     src: ../templates/telegraf.conf.j2
