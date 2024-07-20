@@ -8,6 +8,17 @@
       - dnsutils
   become: true
 
+- name: Mount knot cache as tmpfs
+  ansible.posix.mount:
+    path: /var/cache/knot-resolver-cache
+    src: tmpfs
+    fstype: tmpfs
+    opts: rw,size=2G,uid=knot-resolver,gid=knot-resolver,nosuid,nodev,noexec,mode=0700
+    dump: 0
+    passno: 0
+    state: mounted
+  become: true
+
 - name: Download gpg key
   ansible.builtin.get_url:
     url: https://pkg.labs.nic.cz/gpg
@@ -55,4 +66,6 @@
     state: restarted
     enabled: true
   loop: "{{ range(1, ansible_processor_cores) | list}}"
+  loop_control:
+    pause: 5
   become: true

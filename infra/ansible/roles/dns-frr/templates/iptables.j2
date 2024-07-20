@@ -42,12 +42,18 @@
 {% if INTERNAL_LISTEN_IP != "" %}
 -A INPUT -d {{ INTERNAL_LISTEN_IP }}/32 -p tcp -m tcp --dport 53 -j ACCEPT
 -A INPUT -d {{ INTERNAL_LISTEN_IP }}/32 -p udp -m udp --dport 53 -j ACCEPT
+{% if DOH_SERVER != "" %}
+-A INPUT -d {{ INTERNAL_LISTEN_IP }}/32 -p tcp -m tcp --dport 443 -j ACCEPT
+{% endif %}
 -A INPUT -d {{ INTERNAL_LISTEN_IP }}/32 -j DROP
 {% endif %}
 
 {% if EXTERNAL_LISTEN_IP != "" %}
 -A INPUT -d {{ EXTERNAL_LISTEN_IP }}/32 -p tcp -m tcp --dport 53 -j ACCEPT
 -A INPUT -d {{ EXTERNAL_LISTEN_IP }}/32 -p udp -m udp --dport 53 -j ACCEPT
+{% if DOH_SERVER != "" %}
+-A INPUT -d {{ EXTERNAL_LISTEN_IP }}/32 -p tcp -m tcp --dport 443 -j ACCEPT
+{% endif %}
 -A INPUT -d {{ EXTERNAL_LISTEN_IP }}/32 -j DROP
 {% endif %}
 
@@ -56,12 +62,18 @@
 {% if INTERNAL_LISTEN_IP != "" %}
 -A FORWARD -d {{ INTERNAL_LISTEN_IP }}/32 -p tcp -m tcp --dport 53 -j ACCEPT
 -A FORWARD -d {{ INTERNAL_LISTEN_IP }}/32 -p udp -m udp --dport 53 -j ACCEPT
+{% if DOH_SERVER != "" %}
+-A INPUT -d {{ INTERNAL_LISTEN_IP }}/32 -p tcp -m tcp --dport 443 -j ACCEPT
+{% endif %}
 -A FORWARD -d {{ INTERNAL_LISTEN_IP }}/32 -j DROP
 {% endif %}
 
 {% if EXTERNAL_LISTEN_IP != "" %}
 -A FORWARD -d {{ EXTERNAL_LISTEN_IP }}/32 -p tcp -m tcp --dport 53 -j ACCEPT
 -A FORWARD -d {{ EXTERNAL_LISTEN_IP }}/32 -p udp -m udp --dport 53 -j ACCEPT
+{% if DOH_SERVER != "" %}
+-A INPUT -d {{ EXTERNAL_LISTEN_IP }}/32 -p tcp -m tcp --dport 443 -j ACCEPT
+{% endif %}
 -A FORWARD -d {{ EXTERNAL_LISTEN_IP }}/32 -j DROP
 {% endif %}
 

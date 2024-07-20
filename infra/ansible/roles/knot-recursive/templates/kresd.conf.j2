@@ -28,9 +28,9 @@ policy.add(policy.suffix(policy.STUB('10.10.10.11'), policy.todnames({'mesh.', '
 modules = {
         'hints > iterate',  -- Allow loading /etc/hosts or custom root hints
         'stats',            -- Track internal statistics
-        'predict',          -- Prefetch expiring/frequent records
         'http',             -- stats in metrics format
 }
 
 -- Cache size
-cache.size = 100 * MB
+cache.storage = 'lmdb:///var/cache/knot-resolver-cache'
+cache.size = cache.fssize() - 10*MB
