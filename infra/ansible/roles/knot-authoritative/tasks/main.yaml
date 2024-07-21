@@ -49,6 +49,18 @@
     cmd: bash -c "cd /root/nycmesh-dns/ && bash /root/nycmesh-dns/deploy_gordian_knot.sh"
   become: true
 
+- name: Allow restarting of knot
+  ansible.builtin.lineinfile:
+    path: /lib/systemd/system/knot.service
+    search_string: Restart=
+    line: "Restart=always"
+  become: true
+
+- name: Systemd daemon reload
+  ansible.builtin.command:
+    cmd: systemctl daemon-reload
+  become: true
+
 - name: Restart and enable knot service
   ansible.builtin.service:
     name: knot

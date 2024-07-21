@@ -60,6 +60,18 @@
     dest: /etc/knot-resolver/kresd.conf
   become: true
 
+- name: Enable ospfd
+  ansible.builtin.lineinfile:
+    path: /lib/systemd/system/kresd@.service
+    search_string: Restart=
+    line: "Restart=always"
+  become: true
+
+- name: Systemd daemon reload
+  ansible.builtin.command:
+    cmd: systemctl daemon-reload
+  become: true
+
 - name: Restart and enable knot-resolver service, $CPU_CORES - 1
   ansible.builtin.service:
     name: kresd@{{ item }}
