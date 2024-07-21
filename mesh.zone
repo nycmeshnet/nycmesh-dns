@@ -66,6 +66,7 @@ grandsvc A 199.167.59.101
 
 ; James
 devdb A 199.170.132.46
+db A 199.170.132.45
 scan A 10.70.90.120
 wazuh A 10.70.90.75
 jamesprojects A 10.70.90.53
