@@ -51,6 +51,18 @@
     dest: /etc/telegraf/telegraf.conf
   become: true
 
+- name: Allow restarting of telegraf
+  ansible.builtin.lineinfile:
+    path: /lib/systemd/system/telegraf.service
+    search_string: Restart=
+    line: "Restart=always"
+  become: true
+
+- name: Systemd daemon reload
+  ansible.builtin.command:
+    cmd: systemctl daemon-reload
+  become: true
+
 - name: Restart and enable telegraf service
   ansible.builtin.service:
     name: telegraf
