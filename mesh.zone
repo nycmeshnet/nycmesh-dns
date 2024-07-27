@@ -63,6 +63,7 @@ grandbox A 10.69.19.233
 *.grandbox CNAME grandbox
 grandsvc A 199.167.59.101
 *.grandsvc CNAME grandsvc
+grafana A 10.70.90.82
 
 ; James
 devdb A 199.170.132.46
