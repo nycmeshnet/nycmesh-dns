@@ -25,6 +25,7 @@ wiki A 18.213.129.204
 mastodon A 199.170.132.101
 gsg-displays A 199.170.132.101
 building A 10.70.187.216
+grafana A 10.70.90.82
 
 ; Emerson
 gitlab A    10.70.123.5
@@ -63,7 +64,6 @@ grandbox A 10.69.19.233
 *.grandbox CNAME grandbox
 grandsvc A 199.167.59.101
 *.grandsvc CNAME grandsvc
-grafana A 10.70.90.82
 
 ; James
 devdb A 199.170.132.46
