@@ -33,4 +33,4 @@ modules = {
 
 -- Cache size
 cache.storage = 'lmdb:///var/cache/knot-resolver-cache'
-cache.size = cache.fssize() - 10*MB
+cache.size = cache.fssize() - 1000*MB - 10*MB
