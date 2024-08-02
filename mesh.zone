@@ -65,9 +65,16 @@ grandbox A 10.69.19.233
 grandsvc A 199.167.59.101
 *.grandsvc CNAME grandsvc
 
-; James
-devdb A 199.170.132.46
+; k8s-infra
 db A 199.170.132.45
+*.db CNAME db
+
+devdb A 199.170.132.46
+*.devdb CNAME devdb
+*.dev CNAME devdb
+devforms CNAME devdb
+
+; James
 scan A 10.70.90.120
 wazuh A 10.70.90.75
 jamesprojects A 10.70.90.53
