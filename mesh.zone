@@ -68,6 +68,7 @@ grandsvc A 199.167.59.101
 ; k8s-infra
 db A 199.170.132.45
 *.db CNAME db
+forms CNAME db
 
 devdb A 199.170.132.46
 *.devdb CNAME devdb
