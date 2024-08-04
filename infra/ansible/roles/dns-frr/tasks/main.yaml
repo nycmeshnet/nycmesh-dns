@@ -87,6 +87,20 @@
     cmd: systemctl daemon-reload
   become: true
 
+- name: Crontab
+  ansible.builtin.lineinfile:
+    path: /etc/cron.d/frr_reload
+    line: "5 */6 * * *   root    service frr restart"
+    create: true
+  become: true
+
+- name: Restart and enable cron service
+  ansible.builtin.service:
+    name: cron
+    state: restarted
+    enabled: true
+  become: true
+
 - name: Restart and enable frr service
   ansible.builtin.service:
     name: frr
