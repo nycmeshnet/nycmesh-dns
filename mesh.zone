@@ -73,6 +73,7 @@ devdb A 199.170.132.46
 *.devdb CNAME devdb
 *.dev CNAME devdb
 devforms CNAME devdb
+devwiki CNAME devdb
 
 ; James
 scan A 10.70.90.120
