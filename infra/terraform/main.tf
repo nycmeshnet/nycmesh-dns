@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
     key    = "terraform/state/dns3.tfstate"
-    region = "us-east-2"
+    region = "us-east-1"
   }
   required_providers {
     ansible = {
