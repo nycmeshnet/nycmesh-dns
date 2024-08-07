@@ -69,6 +69,7 @@ grandsvc A 199.167.59.101
 db A 199.170.132.45
 *.db CNAME db
 forms CNAME db
+wiki2 CNAME db
 
 devdb A 199.170.132.46
 *.devdb CNAME devdb
