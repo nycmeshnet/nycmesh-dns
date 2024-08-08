@@ -91,7 +91,7 @@
 - name: Crontab
   ansible.builtin.lineinfile:
     path: /etc/cron.d/frr_reload
-    line: "5 */6 * * *   root    service frr restart"
+    line: "28 */3 * * *   root    systemctl restart frr.service"
     create: true
   become: true
 
