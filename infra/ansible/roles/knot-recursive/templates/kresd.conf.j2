@@ -45,6 +45,19 @@ view:addr('199.167.59.0/24', policy.all(policy.PASS))
 view:addr('199.170.132.0/24', policy.all(policy.PASS))
 view:addr('208.68.5.0/24', policy.all(policy.PASS))
 
+-- Do not answer requests from bogons
+view:addr('0.0.0.0/8', policy.all(policy.NO_ANSWER)) -- This
+view:addr('100.64.0.0/10', policy.all(policy.NO_ANSWER)) -- CGNAT
+view:addr('169.254.0.0/16', policy.all(policy.NO_ANSWER)) -- Local link
+view:addr('172.16.0.0/12', policy.all(policy.NO_ANSWER)) -- Private
+view:addr('192.0.0.0/24', policy.all(policy.NO_ANSWER)) -- Private
+view:addr('192.0.2.0/24', policy.all(policy.NO_ANSWER)) -- Test net
+view:addr('192.168.0.0/16', policy.all(policy.NO_ANSWER)) --Private
+view:addr('198.18.0.0/15', policy.all(policy.NO_ANSWER)) -- Private
+view:addr('198.51.100.0/24', policy.all(policy.NO_ANSWER)) -- Test net
+view:addr('203.0.113.0/24', policy.all(policy.NO_ANSWER)) -- Test net
+view:addr('224.0.0.0/3', policy.all(policy.NO_ANSWER)) -- Multicast
+
 -- Deny other
 view:addr('0.0.0.0/0', policy.all(policy.REFUSE))
 
