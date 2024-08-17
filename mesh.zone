@@ -73,6 +73,7 @@ wiki2 CNAME db
 adminmap CNAME db
 map CNAME db
 los CNAME db
+los-backend CNAME db
 
 ; k8s-infra dev
 devdb A 199.170.132.46
@@ -83,6 +84,7 @@ devwiki CNAME devdb
 devadminmap CNAME devdb
 devmap CNAME devdb
 devlos CNAME devdb
+devlos-backend CNAME devdb
 
 ; James
 scan A 10.70.90.120
