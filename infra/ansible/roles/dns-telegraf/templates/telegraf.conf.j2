@@ -24,7 +24,7 @@
 # Configuration for telegraf agent
 [agent]
   ## Default data collection interval for all inputs
-  interval = "10s"
+  interval = "30s"
   ## Rounds collection interval to 'interval'
   ## ie, if interval="10s" then always collect on :00, :10, :20, etc.
   round_interval = true
@@ -43,7 +43,7 @@
   ## Each plugin will sleep for a random time within jitter before collecting.
   ## This can be used to avoid many plugins querying things like sysfs at the
   ## same time, which can have a measurable effect on the system.
-  collection_jitter = "0s"
+  collection_jitter = "5s"
 
   ## Collection offset is used to shift the collection by the given amount.
   ## This can be be used to avoid many plugins querying constraint devices
@@ -56,7 +56,7 @@
   ## Jitter the flush interval by a random amount. This is primarily to avoid
   ## large write spikes for users running a large number of telegraf instances.
   ## ie, a jitter of 5s and interval 10s means flushes will happen every 10-15s
-  flush_jitter = "0s"
+  flush_jitter = "5s"
 
   ## Collected metrics are rounded to the precision specified. Precision is
   ## specified as an interval with an integer + unit (e.g. 0s, 10ms, 2us, 4s).
@@ -143,7 +143,7 @@
   command = "sh /usr/bin/telegraf-knot.sh -s /run/knot/knot.sock"
   data_format = "influx"
 
-  interval = "10s"
+  interval = "30s"
 {% endif %}
 
 {% if telegraf_kresd != "" %}
@@ -151,7 +151,7 @@
   urls = ["http://127.0.0.1:9100/metrics"]
   metric_version = 2
 
-  interval = "10s"
+  interval = "30s"
 {% endif %}
 
 ###############################################################################
@@ -164,7 +164,7 @@
   ## Multiple URLs can be specified for a single cluster, only ONE of the
   ## urls will be written to each interval.
   ##   ex: urls = ["https://us-west-2-1.aws.cloud2.influxdata.com"]
-  urls = ["http://10.70.90.82:8086"]
+  urls = ["http://10.70.90.147:30086"]
 
   ## Local address to bind when connecting to the server
   ## If empty or not set, the local address is automatically chosen.
