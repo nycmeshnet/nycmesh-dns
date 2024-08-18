@@ -41,7 +41,7 @@
     state: directory
     owner: root
     group: knot
-    mode: "640"
+    mode: "750"
   become: true
 
 - name: Git checkout
