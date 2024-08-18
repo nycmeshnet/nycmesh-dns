@@ -58,6 +58,9 @@
   ansible.builtin.template:
     src: ../templates/kresd.conf.j2
     dest: /etc/knot-resolver/kresd.conf
+    owner: root
+    group: knot-resolver
+    mode: "640"
   become: true
 
 - name: Enable ospfd

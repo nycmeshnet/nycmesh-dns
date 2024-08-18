@@ -17,12 +17,9 @@
   ansible.builtin.template:
     src: ../templates/knot.conf.j2
     dest: /etc/knot/knot.conf
-  become: true
-
-- name: Make sure file does not exist
-  ansible.builtin.file:
-    path: /var/lib/knot/zones
-    state: absent
+    owner: root
+    group: knot
+    mode: "640"
   become: true
 
 - name: Make sure commit file does not exist
@@ -31,10 +28,20 @@
     state: absent
   become: true
 
+- name: Make sure file does not exist in the directory's place
+  ansible.builtin.file:
+    path: /var/lib/knot/zones
+    state: absent
+  when: "'/var/lib/knot/zones' is not ansible.builtin.directory"
+  become: true
+
 - name: Create a directory if it does not exist
   ansible.builtin.file:
     path: /var/lib/knot/zones
     state: directory
+    owner: root
+    group: knot
+    mode: "640"
   become: true
 
 - name: Git checkout
