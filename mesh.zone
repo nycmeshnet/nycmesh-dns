@@ -21,6 +21,9 @@ donuts A 10.70.73.29
 unifi A 10.70.95.63
 netbox A 10.70.90.135
 
+; micro
+solar A 10.96.63.136
+
 ; Emerson
 gitlab A    10.70.123.5
 em	NS	em-router.members.sn3
