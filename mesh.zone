@@ -27,9 +27,6 @@ gsg-displays A 199.170.132.101
 building A 10.70.187.216
 grafana A 10.70.90.82
 
-; micro
-solar A 10.96.63.136
-
 ; Emerson
 gitlab A    10.70.123.5
 em	NS	em-router.members.sn3
@@ -51,6 +48,7 @@ daniel NS daniel-pallas
 
 ; micro
 crichton A 10.70.90.86
+solar A 10.96.63.136
 
 ; myf, oliver
 petra A 10.70.90.87
