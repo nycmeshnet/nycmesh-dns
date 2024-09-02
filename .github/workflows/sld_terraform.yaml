@@ -18,7 +18,7 @@ defaults:
 
 env:
   # verbosity setting for Terraform logs
-  #TF_LOG: INFO
+  TF_LOG: INFO
   # Credentials for name dot com
   TF_VAR_name_dot_com_user: ${{ secrets.TF_VAR_name_dot_com_user }}
   TF_VAR_name_dot_com_token: ${{ secrets.TF_VAR_name_dot_com_token }}
