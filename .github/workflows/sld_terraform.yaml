@@ -55,7 +55,7 @@ jobs:
         run: terraform validate
       
       - name: Terraform plan
-        if: github.event_name == 'pull_request'
+        if: github.ref == 'refs/heads/james/iac' && github.event_name == 'push'
         run: terraform plan -no-color -input=false
 
       - name: Terraform Apply
