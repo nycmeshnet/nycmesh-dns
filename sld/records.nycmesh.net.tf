@@ -326,3 +326,10 @@ resource "namedotcom_record" "record_status_238885567" {
   record_type = "A"
   answer      = "164.92.117.225"
 }
+
+resource "namedotcom_record" "record__123" {
+  answer      = "127.0.0.1"
+  domain_name = "nycmesh.net"
+  host        = "jamestest"
+  record_type = "A"
+}
