@@ -1,3 +1,4 @@
+# Main website
 resource "namedotcom_record" "record__983532" {
   domain_name = "nycmesh.net"
   host        = ""
@@ -5,6 +6,7 @@ resource "namedotcom_record" "record__983532" {
   answer      = "104.198.14.52"
 }
 
+# Main website
 resource "namedotcom_record" "record_www_983538" {
   domain_name = "nycmesh.net"
   host        = "www"
@@ -12,27 +14,8 @@ resource "namedotcom_record" "record_www_983538" {
   answer      = "clever-shannon-d43dce.netlify.com"
 }
 
-resource "namedotcom_record" "record__983545" {
-  domain_name = "nycmesh.net"
-  host        = ""
-  record_type = "TXT"
-  answer      = "v=spf1 include:mailgun.org include:servers.mcsv.net ~all"
-}
-
-resource "namedotcom_record" "record__983546" {
-  domain_name = "nycmesh.net"
-  host        = ""
-  record_type = "MX"
-  answer      = "mxa.mailgun.org"
-}
-
-resource "namedotcom_record" "record__983547" {
-  domain_name = "nycmesh.net"
-  host        = ""
-  record_type = "MX"
-  answer      = "mxb.mailgun.org"
-}
-
+# Future subdomain for the wiki
+# Offline as of 9/2/24
 resource "namedotcom_record" "record_wiki_1031824" {
   domain_name = "nycmesh.net"
   host        = "wiki"
@@ -40,6 +23,47 @@ resource "namedotcom_record" "record_wiki_1031824" {
   answer      = "104.131.97.63"
 }
 
+# SPF (email)
+resource "namedotcom_record" "record__983545" {
+  domain_name = "nycmesh.net"
+  host        = ""
+  record_type = "TXT"
+  answer      = "v=spf1 include:mailgun.org include:servers.mcsv.net ~all"
+}
+
+# DMARC (email)
+resource "namedotcom_record" "record__dmarc_3745600" {
+  domain_name = "nycmesh.net"
+  host        = "_dmarc"
+  record_type = "TXT"
+  answer      = "v=DMARC1; p=none"
+}
+
+# DKIM (email)
+resource "namedotcom_record" "record_k1_domainkey_3735562" {
+  domain_name = "nycmesh.net"
+  host        = "k1._domainkey"
+  record_type = "CNAME"
+  answer      = "dkim.mcsv.net"
+}
+
+# MX record for email
+resource "namedotcom_record" "record__983546" {
+  domain_name = "nycmesh.net"
+  host        = ""
+  record_type = "MX"
+  answer      = "mxa.mailgun.org"
+}
+
+# MX record for email
+resource "namedotcom_record" "record__983547" {
+  domain_name = "nycmesh.net"
+  host        = ""
+  record_type = "MX"
+  answer      = "mxb.mailgun.org"
+}
+
+# Site verification for mailgun. Only modify if you know what you're doing.
 resource "namedotcom_record" "record_pic_domainkey_1171425" {
   domain_name = "nycmesh.net"
   host        = "pic._domainkey"
@@ -47,18 +71,12 @@ resource "namedotcom_record" "record_pic_domainkey_1171425" {
   answer      = "k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDSJLcgGjVDfFSpXdVnaz0DdvJeRj7yhcuJjXRUV85TeEOCbNgDcVQXrVJeC/J0z8iiwJAl9gDEf8L729r54VJ/y8ml+xxjIp3hDBIm0Pg9TiTVGO9kif9RlW2unIrGKw2CrE7xM7vZcpw2FQt3fJwZtZ8zBOn68sIU9stR9MUG+QIDAQAB"
 }
 
+# Email subdomain
 resource "namedotcom_record" "record_email_1171426" {
   domain_name = "nycmesh.net"
   host        = "email"
   record_type = "CNAME"
   answer      = "mailgun.org"
-}
-
-resource "namedotcom_record" "record_donate_1186425" {
-  domain_name = "nycmesh.net"
-  host        = "donate"
-  record_type = "A"
-  answer      = "104.131.97.63"
 }
 
 resource "namedotcom_record" "record_375pearl_1367535" {
@@ -75,18 +93,12 @@ resource "namedotcom_record" "record_375pearl_1367537" {
   answer      = "2001:504:36::c2ab:0:1"
 }
 
+# Offline as of 9/2/24
 resource "namedotcom_record" "record_matrix_1392093" {
   domain_name = "nycmesh.net"
   host        = "matrix"
   record_type = "A"
   answer      = "104.131.97.63"
-}
-
-resource "namedotcom_record" "record__2193735" {
-  domain_name = "nycmesh.net"
-  host        = ""
-  record_type = "TXT"
-  answer      = "google-site-verification=ZqOjueV-PhiukY-NDTf8CbGOPFwzGqeeIwmDQC-ZdRc"
 }
 
 resource "namedotcom_record" "record__now_3070265" {
@@ -96,6 +108,7 @@ resource "namedotcom_record" "record__now_3070265" {
   answer      = "f12798020e735de0ae0fac869c386d7e676ac3b828953712b0f28bd718848c14"
 }
 
+# Docs site
 resource "namedotcom_record" "record_docs_3526857" {
   domain_name = "nycmesh.net"
   host        = "docs"
@@ -103,6 +116,7 @@ resource "namedotcom_record" "record_docs_3526857" {
   answer      = "quirky-edison-0960a5.netlify.com"
 }
 
+# OS Ticket (IPv4)
 resource "namedotcom_record" "record_support_3588805" {
   domain_name = "nycmesh.net"
   host        = "support"
@@ -110,6 +124,7 @@ resource "namedotcom_record" "record_support_3588805" {
   answer      = "165.227.70.230"
 }
 
+# OS Ticket (IPv6)
 resource "namedotcom_record" "record_support_3588806" {
   domain_name = "nycmesh.net"
   host        = "support"
@@ -117,6 +132,15 @@ resource "namedotcom_record" "record_support_3588806" {
   answer      = "2604:a880:800:10::9f0:3001"
 }
 
+# Dev OS Ticket
+resource "namedotcom_record" "record_devsupport_4727325" {
+  domain_name = "nycmesh.net"
+  host        = "devsupport"
+  record_type = "A"
+  answer      = "157.245.9.130"
+}
+
+# Grafana at SN1
 resource "namedotcom_record" "record_stats_3588970" {
   domain_name = "nycmesh.net"
   host        = "stats"
@@ -124,6 +148,7 @@ resource "namedotcom_record" "record_stats_3588970" {
   answer      = "199.167.59.7"
 }
 
+# rDNS
 resource "namedotcom_record" "record_ipv4_3588972" {
   domain_name = "nycmesh.net"
   host        = "ipv4"
@@ -131,6 +156,7 @@ resource "namedotcom_record" "record_ipv4_3588972" {
   answer      = "ns-518.awsdns-00.net"
 }
 
+# rDNS
 resource "namedotcom_record" "record_ipv4_3588978" {
   domain_name = "nycmesh.net"
   host        = "ipv4"
@@ -138,6 +164,7 @@ resource "namedotcom_record" "record_ipv4_3588978" {
   answer      = "ns-1709.awsdns-21.co.uk"
 }
 
+# rDNS
 resource "namedotcom_record" "record_ipv4_3588980" {
   domain_name = "nycmesh.net"
   host        = "ipv4"
@@ -145,11 +172,20 @@ resource "namedotcom_record" "record_ipv4_3588980" {
   answer      = "ns-432.awsdns-54.com"
 }
 
+# rDNS
 resource "namedotcom_record" "record_ipv4_3588982" {
   domain_name = "nycmesh.net"
   host        = "ipv4"
   record_type = "NS"
   answer      = "ns-1346.awsdns-40.org"
+}
+
+# Offline as of 9/2/24
+resource "namedotcom_record" "record_donate_1186425" {
+  domain_name = "nycmesh.net"
+  host        = "donate"
+  record_type = "A"
+  answer      = "104.131.97.63"
 }
 
 resource "namedotcom_record" "record_donate2_3618629" {
@@ -159,27 +195,6 @@ resource "namedotcom_record" "record_donate2_3618629" {
   answer      = "165.227.181.4"
 }
 
-resource "namedotcom_record" "record__3686691" {
-  domain_name = "nycmesh.net"
-  host        = ""
-  record_type = "TXT"
-  answer      = "google-site-verification=bpTWn9VyMNrKSypwCvf-lWaiuO3IuTay6cqvKVud1po"
-}
-
-resource "namedotcom_record" "record_k1_domainkey_3735562" {
-  domain_name = "nycmesh.net"
-  host        = "k1._domainkey"
-  record_type = "CNAME"
-  answer      = "dkim.mcsv.net"
-}
-
-resource "namedotcom_record" "record__dmarc_3745600" {
-  domain_name = "nycmesh.net"
-  host        = "_dmarc"
-  record_type = "TXT"
-  answer      = "v=DMARC1; p=none"
-}
-
 resource "namedotcom_record" "record_unifi_3862748" {
   domain_name = "nycmesh.net"
   host        = "unifi"
@@ -187,20 +202,7 @@ resource "namedotcom_record" "record_unifi_3862748" {
   answer      = "10.70.90.158"
 }
 
-resource "namedotcom_record" "record_devsupport_4727325" {
-  domain_name = "nycmesh.net"
-  host        = "devsupport"
-  record_type = "A"
-  answer      = "157.245.9.130"
-}
-
-resource "namedotcom_record" "record_mesh_5226462" {
-  domain_name = "nycmesh.net"
-  host        = "mesh"
-  record_type = "NS"
-  answer      = "nycmesh-375p-dns1-authoritative.nycmesh.net"
-}
-
+# Private recursive resolver at SN1
 resource "namedotcom_record" "record_nycmesh-375p-dns1-resolver_5233305" {
   domain_name = "nycmesh.net"
   host        = "nycmesh-375p-dns1-resolver"
@@ -208,6 +210,15 @@ resource "namedotcom_record" "record_nycmesh-375p-dns1-resolver_5233305" {
   answer      = "199.167.59.10"
 }
 
+# NS record for the mesh.nycmesh.net zone
+resource "namedotcom_record" "record_mesh_5226462" {
+  domain_name = "nycmesh.net"
+  host        = "mesh"
+  record_type = "NS"
+  answer      = "nycmesh-375p-dns1-authoritative.nycmesh.net"
+}
+
+# Authoritative DNS server for the mesh.nycmesh.net zone at SN1
 resource "namedotcom_record" "record_nycmesh-375p-dns1-authoritative_5233306" {
   domain_name = "nycmesh.net"
   host        = "nycmesh-375p-dns1-authoritative"
@@ -215,6 +226,7 @@ resource "namedotcom_record" "record_nycmesh-375p-dns1-authoritative_5233306" {
   answer      = "199.167.59.11"
 }
 
+# Slack redirect
 resource "namedotcom_record" "record_slack_5235473" {
   domain_name = "nycmesh.net"
   host        = "slack"
@@ -222,6 +234,7 @@ resource "namedotcom_record" "record_slack_5235473" {
   answer      = "nycmesh-slack-redirect.netlify.com"
 }
 
+# https://configgen.nycmesh.net
 resource "namedotcom_record" "record_configgen_5386032" {
   domain_name = "nycmesh.net"
   host        = "configgen"
@@ -229,6 +242,7 @@ resource "namedotcom_record" "record_configgen_5386032" {
   answer      = "nycmesh-configgen.netlify.com"
 }
 
+# Offline as of 9/2/24
 resource "namedotcom_record" "record_monitoring_6041298" {
   domain_name = "nycmesh.net"
   host        = "monitoring"
@@ -236,6 +250,7 @@ resource "namedotcom_record" "record_monitoring_6041298" {
   answer      = "147.75.67.41"
 }
 
+# Line of Sight tool (DigitalOcean)
 resource "namedotcom_record" "record_los_6530453" {
   domain_name = "nycmesh.net"
   host        = "los"
@@ -243,6 +258,7 @@ resource "namedotcom_record" "record_los_6530453" {
   answer      = "line-of-sight.netlify.com"
 }
 
+# Redirects to https://github.com/meshcenter/mesh-api
 resource "namedotcom_record" "record_api_7081451" {
   domain_name = "nycmesh.net"
   host        = "api"
@@ -250,6 +266,7 @@ resource "namedotcom_record" "record_api_7081451" {
   answer      = "nycmesh-api.netlify.com"
 }
 
+# Dashboard service (DigitalOcean)
 resource "namedotcom_record" "record_dashboard_7092840" {
   domain_name = "nycmesh.net"
   host        = "dashboard"
@@ -257,6 +274,7 @@ resource "namedotcom_record" "record_dashboard_7092840" {
   answer      = "nycmesh-dashboard.netlify.com"
 }
 
+# Offline as of 9/2/24
 resource "namedotcom_record" "record_meet_9880531" {
   domain_name = "nycmesh.net"
   host        = "meet"
@@ -264,13 +282,7 @@ resource "namedotcom_record" "record_meet_9880531" {
   answer      = "199.170.132.33"
 }
 
-resource "namedotcom_record" "record_status-dev_189526708" {
-  domain_name = "nycmesh.net"
-  host        = "status-dev"
-  record_type = "A"
-  answer      = "199.170.132.78"
-}
-
+# Site verification for github. Only modify if you know what you're doing.
 resource "namedotcom_record" "record__github-challenge-nycmeshnet_194338752" {
   domain_name = "nycmesh.net"
   host        = "_github-challenge-nycmeshnet"
@@ -278,6 +290,23 @@ resource "namedotcom_record" "record__github-challenge-nycmeshnet_194338752" {
   answer      = "91a37d19f2"
 }
 
+# Site verification for google. Only modify if you know what you're doing.
+resource "namedotcom_record" "record__2193735" {
+  domain_name = "nycmesh.net"
+  host        = ""
+  record_type = "TXT"
+  answer      = "google-site-verification=ZqOjueV-PhiukY-NDTf8CbGOPFwzGqeeIwmDQC-ZdRc"
+}
+
+# Site verification for google. Only modify if you know what you're doing.
+resource "namedotcom_record" "record__3686691" {
+  domain_name = "nycmesh.net"
+  host        = ""
+  record_type = "TXT"
+  answer      = "google-site-verification=bpTWn9VyMNrKSypwCvf-lWaiuO3IuTay6cqvKVud1po"
+}
+
+# Site verification for google. Only modify if you know what you're doing.
 resource "namedotcom_record" "record__206768814" {
   domain_name = "nycmesh.net"
   host        = ""
@@ -285,6 +314,7 @@ resource "namedotcom_record" "record__206768814" {
   answer      = "google-site-verification=-6nHnrb5t1xNkD9zHiJm9hYTlAP7seIk-WLVaB1OveU"
 }
 
+# Mastodon
 resource "namedotcom_record" "record_mastodon_219371939" {
   domain_name = "nycmesh.net"
   host        = "mastodon"
@@ -292,6 +322,7 @@ resource "namedotcom_record" "record_mastodon_219371939" {
   answer      = "199.170.132.101"
 }
 
+# Alternate domain for for Mastodon
 resource "namedotcom_record" "record_social_219371944" {
   domain_name = "nycmesh.net"
   host        = "social"
@@ -299,6 +330,7 @@ resource "namedotcom_record" "record_social_219371944" {
   answer      = "199.170.132.101"
 }
 
+# Typo helper for Mastodon
 resource "namedotcom_record" "record_mastadon_219988024" {
   domain_name = "nycmesh.net"
   host        = "mastadon"
@@ -306,6 +338,7 @@ resource "namedotcom_record" "record_mastadon_219988024" {
   answer      = "199.170.132.101"
 }
 
+# Stripe redirect
 resource "namedotcom_record" "record_stripeportal_222339638" {
   domain_name = "nycmesh.net"
   host        = "stripeportal"
@@ -313,6 +346,7 @@ resource "namedotcom_record" "record_stripeportal_222339638" {
   answer      = "nycmesh-stripe-redirect.netlify.app"
 }
 
+# Invoice Ninja
 resource "namedotcom_record" "record_ninja_226273090" {
   domain_name = "nycmesh.net"
   host        = "ninja"
@@ -320,6 +354,16 @@ resource "namedotcom_record" "record_ninja_226273090" {
   answer      = "165.227.70.230"
 }
 
+# Dev environment for the status page?
+# Offline as of 9/2/24
+resource "namedotcom_record" "record_status-dev_189526708" {
+  domain_name = "nycmesh.net"
+  host        = "status-dev"
+  record_type = "A"
+  answer      = "199.170.132.78"
+}
+
+# Status page
 resource "namedotcom_record" "record_status_238885567" {
   domain_name = "nycmesh.net"
   host        = "status"
@@ -327,6 +371,7 @@ resource "namedotcom_record" "record_status_238885567" {
   answer      = "164.92.117.225"
 }
 
+# Test record, feel free to remove
 resource "namedotcom_record" "record__123" {
   answer      = "127.0.0.1"
   domain_name = "nycmesh.net"

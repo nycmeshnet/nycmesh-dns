@@ -1,3 +1,6 @@
+# Pointed to github pages
+# https://github.com/nycmeshnet/connect/blob/main/CNAME
+
 resource "namedotcom_record" "record__240356243" {
   domain_name = "nycmeshconnect.net"
   host        = ""

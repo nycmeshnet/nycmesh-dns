@@ -1,3 +1,5 @@
+# Parked with sedo.com
+
 resource "namedotcom_record" "record__4980549" {
   domain_name = "themesh.foundation"
   host        = ""
