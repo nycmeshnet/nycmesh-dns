@@ -5,7 +5,6 @@ on:
   push:
     branches:
       - master
-      - james/iac
   workflow_dispatch:
     branches:
       - master
@@ -17,8 +16,6 @@ defaults:
     working-directory: sld
 
 env:
-  # verbosity setting for Terraform logs
-  #TF_LOG: INFO
   # Credentials for name dot com
   TF_VAR_name_dot_com_user: ${{ secrets.TF_VAR_name_dot_com_user }}
   TF_VAR_name_dot_com_token: ${{ secrets.TF_VAR_name_dot_com_token }}
@@ -55,7 +52,7 @@ jobs:
         run: terraform validate
       
       - name: Terraform plan
-        if: github.ref == 'refs/heads/james/iac' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/master' && github.event_name == 'push'
         run: terraform plan -no-color -input=false -parallelism=1
 
       - name: Terraform Apply
