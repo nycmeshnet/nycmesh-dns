@@ -1,9 +1,27 @@
 NYC Mesh DNS
 ---
 
+This repository manages the DNS zones for the various NYC Mesh domains including `nycmesh.net` and `mesh.nycmesh.net` domains.
+
+# mesh.nycmesh.net
+
 Edit the mesh.zone file to add a record, please format appropriately and place under the proper heading. 
 
 Please fork and make a pull request, don't push directly ( unless you have to )
+
+# Second Level Domains - nycmesh.net
+
+Uses [lexfrei/namedotcom](https://registry.terraform.io/providers/lexfrei/namedotcom/latest/docs) to manage the DNS zones for the following domains.
+
+1. [nycmesh.net](./sld/records.nycmesh.net.tf)
+2. [nycmeshconnect.com](./sld/records.nycmeshconnect.com.tf)
+3. [nycmeshconnect.net](./sld/records.nycmeshconnect.net.tf)
+4. [themesh.foundation](./sld/records.themesh.foundation.tf)
+5. [themesh.nyc](./sld/records.themesh.nyc.tf)
+
+# Hosting
+
+The following applies to the `mesh.nycmesh.net` zone, which is hosted inside of the mesh.
 
 ## Requirements
 

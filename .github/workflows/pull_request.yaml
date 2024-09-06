@@ -1,0 +1,30 @@
+
+name: "Pull Request"
+
+on:
+  pull_request:
+    paths:
+      - 'sld/**'
+
+permissions: read-all
+
+defaults:
+  run:
+    working-directory: sld
+
+jobs:
+  terraform:
+    name: "Terraform"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # @v4
+
+      - name: Setup Terraform with specified version on the runner
+        uses: hashicorp/setup-terraform@651471c36a6092792c552e8b1bef71e592b462d8 # @v3
+        with:
+          terraform_version: 1.8.3
+
+      - name: Terraform format
+        id: fmt
+        run: terraform fmt -check
