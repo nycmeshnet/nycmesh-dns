@@ -75,6 +75,7 @@ adminmap CNAME db
 map CNAME db
 los CNAME db
 los-backend CNAME db
+pgadmin CNAME db
 
 ; k8s-infra dev
 devdb A 199.170.132.46
