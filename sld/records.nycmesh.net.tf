@@ -15,12 +15,11 @@ resource "namedotcom_record" "record_www_983538" {
 }
 
 # Future subdomain for the wiki
-# Offline as of 9/2/24
 resource "namedotcom_record" "record_wiki_1031824" {
   domain_name = "nycmesh.net"
   host        = "wiki"
-  record_type = "A"
-  answer      = "104.131.97.63"
+  record_type = "CNAME"
+  answer      = "db.mesh.nycmesh.net"
 }
 
 # SPF (email)
