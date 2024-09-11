@@ -249,14 +249,6 @@ resource "namedotcom_record" "record_monitoring_6041298" {
   answer      = "147.75.67.41"
 }
 
-# Line of Sight tool (DigitalOcean)
-resource "namedotcom_record" "record_los_6530453" {
-  domain_name = "nycmesh.net"
-  host        = "los"
-  record_type = "CNAME"
-  answer      = "line-of-sight.netlify.com"
-}
-
 # Redirects to https://github.com/meshcenter/mesh-api
 resource "namedotcom_record" "record_api_7081451" {
   domain_name = "nycmesh.net"
@@ -421,7 +413,7 @@ resource "namedotcom_record" "meshdb_prod_los-backend" {
   answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
 }
 
-resource "namedotcom_record" "meshdb_prod_los" {
+resource "namedotcom_record" "record_los_6530453" {
   domain_name = "nycmesh.net"
   host        = "los.db"
   record_type = "CNAME"
