@@ -439,12 +439,12 @@ resource "namedotcom_record" "devdb" {
   domain_name = "nycmesh.net"
   host        = "devdb"
   record_type = "CNAME"
-  answer      = "kubernetes-lb-jon-sn3"
+  answer      = "kubernetes-lb-jon-sn3.nycmesh.net"
 }
 
 resource "namedotcom_record" "devdb_all" {
   domain_name = "nycmesh.net"
   host        = "*.devdb"
   record_type = "CNAME"
-  answer      = "kubernetes-lb-jon-sn3"
+  answer      = "kubernetes-lb-jon-sn3.nycmesh.net"
 }
