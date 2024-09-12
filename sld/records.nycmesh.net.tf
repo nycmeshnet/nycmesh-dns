@@ -179,14 +179,6 @@ resource "namedotcom_record" "record_ipv4_3588982" {
   answer      = "ns-1346.awsdns-40.org"
 }
 
-# Offline as of 9/2/24
-resource "namedotcom_record" "record_donate_1186425" {
-  domain_name = "nycmesh.net"
-  host        = "donate"
-  record_type = "A"
-  answer      = "104.131.97.63"
-}
-
 resource "namedotcom_record" "record_donate2_3618629" {
   domain_name = "nycmesh.net"
   host        = "donate2"
