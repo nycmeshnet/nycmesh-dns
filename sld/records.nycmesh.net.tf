@@ -415,7 +415,7 @@ resource "namedotcom_record" "meshdb_prod_los-backend" {
 
 resource "namedotcom_record" "record_los_6530453" {
   domain_name = "nycmesh.net"
-  host        = "los.db"
+  host        = "los"
   record_type = "CNAME"
   answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
 }
