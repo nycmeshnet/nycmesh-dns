@@ -209,7 +209,7 @@ resource "namedotcom_record" "record_nycmesh-375p-dns1-resolver_5233305" {
   answer      = "199.167.59.10"
 }
 
-# NS record for the mesh.nycmesh.net zone
+# NS record for the authoritative server for mesh.nycmesh.net at SN1
 resource "namedotcom_record" "record_mesh_5226462" {
   domain_name = "nycmesh.net"
   host        = "mesh"
@@ -223,6 +223,14 @@ resource "namedotcom_record" "record_nycmesh-375p-dns1-authoritative_5233306" {
   host        = "nycmesh-375p-dns1-authoritative"
   record_type = "A"
   answer      = "199.167.59.11"
+}
+
+# NS record for the authoritative server for mesh.nycmesh.net at SN3
+resource "namedotcom_record" "mesh_ns_nycmesh-713-dns-auth-3" {
+  domain_name = "nycmesh.net"
+  host        = "mesh"
+  record_type = "NS"
+  answer      = "nycmesh-713-dns-auth-3.nycmesh.net"
 }
 
 # Authoritative DNS server for the mesh.nycmesh.net zone at SN3
