@@ -67,26 +67,18 @@ grandsvc A 199.167.59.101
 *.grandsvc CNAME grandsvc
 
 ; k8s-infra
-db A 199.170.132.45
-*.db CNAME db
-forms CNAME db
-wiki2 CNAME db
-adminmap CNAME db
-map CNAME db
-los CNAME db
-los-backend CNAME db
-pgadmin CNAME db
+db CNAME grandbox
+*.db CNAME grandbox
+forms CNAME grandbox
+adminmap CNAME grandbox
+map CNAME grandbox
+los CNAME grandbox
+los-backend CNAME grandbox
+pgadmin CNAME grandbox
 
 ; k8s-infra dev
 devdb A 199.170.132.46
-*.devdb CNAME devdb
-*.dev CNAME devdb
-devforms CNAME devdb
 devwiki CNAME devdb
-devadminmap CNAME devdb
-devmap CNAME devdb
-devlos CNAME devdb
-devlos-backend CNAME devdb
 
 ; James
 scan A 10.70.90.120
