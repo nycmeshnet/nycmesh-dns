@@ -4,8 +4,7 @@ on:
   push:
     branches:
       - master
-      - james/infra3 # JBOTODO: cleanup
-      #- james/infra4 # JBOTODO: cleanup
+      - james/infra4 # JBOTODO: cleanup
     paths:
       - infra/**
   workflow_dispatch:
@@ -13,20 +12,6 @@ on:
       - master
 
 permissions: read-all
-
-env:
-  # Secrets
-  TF_VAR_PROXMOX_TOKEN_ID: ${{ secrets.TF_VAR_PROXMOX_TOKEN_ID }}
-  TF_VAR_PROXMOX_TOKEN_SECRET: ${{ secrets.TF_VAR_PROXMOX_TOKEN_SECRET }}
-  TF_VAR_PROD_PROXMOX_TOKEN_ID: ${{ secrets.TF_VAR_PROD_PROXMOX_TOKEN_ID }}
-  TF_VAR_PROD_PROXMOX_TOKEN_SECRET: ${{ secrets.TF_VAR_PROD_PROXMOX_TOKEN_SECRET }}
-  TF_VAR_MESH_DNS_LOCAL_PASSWORD: ${{ secrets.TF_VAR_MESH_DNS_LOCAL_PASSWORD }}
-  TF_VAR_INFLUX_DB_TOKEN: ${{ secrets.TF_VAR_INFLUX_DB_TOKEN }}
-  # Credentials for deployment to AWS
-  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-  # S3 bucket for the Terraform state
-  BUCKET_TF_STATE: ${{ secrets.BUCKET_TF_STATE}}
 
 jobs:
   deploy_jon:
