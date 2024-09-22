@@ -15,12 +15,11 @@ resource "namedotcom_record" "record_www_983538" {
 }
 
 # Future subdomain for the wiki
-# Offline as of 9/2/24
 resource "namedotcom_record" "record_wiki_1031824" {
   domain_name = "nycmesh.net"
   host        = "wiki"
-  record_type = "A"
-  answer      = "104.131.97.63"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
 }
 
 # SPF (email)
@@ -250,14 +249,6 @@ resource "namedotcom_record" "record_monitoring_6041298" {
   answer      = "147.75.67.41"
 }
 
-# Line of Sight tool (DigitalOcean)
-resource "namedotcom_record" "record_los_6530453" {
-  domain_name = "nycmesh.net"
-  host        = "los"
-  record_type = "CNAME"
-  answer      = "line-of-sight.netlify.com"
-}
-
 # Redirects to https://github.com/meshcenter/mesh-api
 resource "namedotcom_record" "record_api_7081451" {
   domain_name = "nycmesh.net"
@@ -377,4 +368,83 @@ resource "namedotcom_record" "record__123" {
   domain_name = "nycmesh.net"
   host        = "jamestest"
   record_type = "A"
+}
+
+###### Meshdb Prod ######
+resource "namedotcom_record" "meshdb_prod_k8s_lb" {
+  domain_name = "nycmesh.net"
+  host        = "kubernetes-lb-prod-sn3"
+  record_type = "A"
+  answer      = "199.170.132.45"
+}
+
+resource "namedotcom_record" "meshdb_prod_meshdb" {
+  domain_name = "nycmesh.net"
+  host        = "db"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
+}
+
+resource "namedotcom_record" "meshdb_prod_pgadmin" {
+  domain_name = "nycmesh.net"
+  host        = "pgadmin.db"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
+}
+
+resource "namedotcom_record" "meshdb_prod_map" {
+  domain_name = "nycmesh.net"
+  host        = "map.db"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
+}
+
+resource "namedotcom_record" "meshdb_prod_adminmap" {
+  domain_name = "nycmesh.net"
+  host        = "adminmap.db"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
+}
+
+resource "namedotcom_record" "meshdb_prod_los-backend" {
+  domain_name = "nycmesh.net"
+  host        = "los-backend.db"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
+}
+
+resource "namedotcom_record" "record_los_6530453" {
+  domain_name = "nycmesh.net"
+  host        = "los"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
+}
+
+resource "namedotcom_record" "meshdb_prod_forms" {
+  domain_name = "nycmesh.net"
+  host        = "forms"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
+}
+
+###### Meshdb Dev ######
+resource "namedotcom_record" "meshdb_dev_k8s_lb" {
+  domain_name = "nycmesh.net"
+  host        = "kubernetes-lb-jon-sn3"
+  record_type = "A"
+  answer      = "199.170.132.46"
+}
+
+resource "namedotcom_record" "devdb" {
+  domain_name = "nycmesh.net"
+  host        = "devdb"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-jon-sn3.nycmesh.net"
+}
+
+resource "namedotcom_record" "devdb_all" {
+  domain_name = "nycmesh.net"
+  host        = "*.devdb"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-jon-sn3.nycmesh.net"
 }
