@@ -10,12 +10,12 @@ variable "proxmox_prod_host" {
   default     = "10.70.90.195"
 }
 
-variable "PROXMOX_TOKEN_ID" {
+variable "proxmox_token_id" {
   type        = string
   description = "proxmox server token id"
 }
 
-variable "PROXMOX_TOKEN_SECRET" {
+variable "proxmox_token_secret" {
   type        = string
   description = "proxmox server token secret"
 }

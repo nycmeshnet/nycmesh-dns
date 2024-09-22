@@ -12,8 +12,8 @@ permissions: read-all
 env:
   # Secrets
   TF_VAR_proxmox_host: ${{ secrets.TF_VAR_PROXMOX_HOST }}
-  TF_VAR_PROXMOX_TOKEN_ID: ${{ secrets.TF_VAR_PROXMOX_TOKEN_ID }}
-  TF_VAR_PROXMOX_TOKEN_SECRET: ${{ secrets.TF_VAR_PROXMOX_TOKEN_SECRET }}
+  TF_VAR_proxmox_token_id: ${{ secrets.TF_VAR_PROXMOX_TOKEN_ID }}
+  TF_VAR_proxmox_token_secret: ${{ secrets.TF_VAR_PROXMOX_TOKEN_SECRET }}
   TF_VAR_MESH_DNS_LOCAL_PASSWORD: ${{ secrets.TF_VAR_MESH_DNS_LOCAL_PASSWORD }}
   TF_VAR_INFLUX_DB_TOKEN: ${{ secrets.TF_VAR_INFLUX_DB_TOKEN }}
   # Credentials for deployment to AWS
