@@ -20,16 +20,6 @@ variable "PROXMOX_TOKEN_SECRET" {
   description = "proxmox server token secret"
 }
 
-variable "PROD_PROXMOX_TOKEN_ID" {
-  type        = string
-  description = "proxmox server token id"
-}
-
-variable "PROD_PROXMOX_TOKEN_SECRET" {
-  type        = string
-  description = "proxmox server token secret"
-}
-
 variable "proxmox_node" {
   type        = string
   description = "target node on the proxmox server"
