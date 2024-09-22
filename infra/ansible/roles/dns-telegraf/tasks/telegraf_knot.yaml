@@ -4,11 +4,9 @@
     dest: /usr/bin/telegraf-knot.sh
     checksum: sha256:1d2049100902a7e8ef3aa05a0ab25f5c1841a80bdcca0c2165057c4755ff11d1
     mode: "755"
-  become: true
 
 - name: sudoer entry for telegraf knot
   ansible.builtin.lineinfile:
     path: /etc/sudoers.d/telegraf-knot
     create: true
     line: "telegraf    ALL=(ALL) NOPASSWD: /usr/sbin/knotc -f -s /run/knot/knot.sock stats"
-  become: true

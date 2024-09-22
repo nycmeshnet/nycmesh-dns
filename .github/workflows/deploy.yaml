@@ -1,10 +1,12 @@
 name: Deploy
 
 on:
-  pull_request:
   push:
     branches:
-      - james/infra3
+      - master
+      - james/infra3 # JBOTODO: cleanup
+    paths:
+      - infra/**
   workflow_dispatch:
     branches:
       - master
@@ -68,46 +70,9 @@ jobs:
           sudo wg set wg0 listen-port 48123 private-key privatekey peer ${{ secrets.WIREGUARD_PEER_PUBLIC_KEY }} allowed-ips 0.0.0.0/0 endpoint ${{ secrets.WIREGUARD_ENDPOINT }}
           sudo ip link set up dev wg0
           rm privatekey
-
-      - name: Terraform plan
-        id: plan
-        if: github.event_name == 'pull_request'
-        run: terraform plan -no-color -input=false
-        continue-on-error: true
-        working-directory: ./infra/terraform/
-
-      - uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # @v7
-        if: github.event_name == 'pull_request'
-        env:
-          PLAN: "terraform\n${{ steps.plan.outputs.stdout }}"
-        with:
-          script: |
-            const output = `#### Terraform Format and Style 🖌\`${{ steps.fmt.outcome }}\`
-            #### Terraform Initialization ⚙️\`${{ steps.init.outcome }}\`
-            #### Terraform Validation 🤖\`${{ steps.validate.outcome }}\`
-            #### Terraform Plan 📖\`${{ steps.plan.outcome }}\`
- 
-            <details><summary>Show Plan</summary>
- 
-            \`\`\`\n
-            ${process.env.PLAN}
-            \`\`\`
- 
-            </details>
-            *Pushed by: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*`;
- 
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: output
-            })
-
-      - name: Terraform Plan Status
-        if: steps.plan.outcome == 'failure'
-        run: exit 1
       
       - name: Terraform Apply
+        # JBOTODO: Cleanup
         if: github.ref == 'refs/heads/james/infra3' && github.event_name == 'push'
         run: |
           echo "${{ secrets.TF_VAR_MESH_DNS_SSH_KEY }}" > dns_ed25519
@@ -119,5 +84,5 @@ jobs:
       
       - name: Run playbook
         if: github.ref == 'refs/heads/james/infra3' && github.event_name == 'push'
-        run: sleep 45 && export PATH="$HOME/.local/bin:$PATH" && ansible-playbook -i inventory.yaml dns_server.yaml
+        run: sleep 10 && export PATH="$HOME/.local/bin:$PATH" && ansible-playbook -i inventory.yaml dns_server.yaml
         working-directory: ./infra/ansible/

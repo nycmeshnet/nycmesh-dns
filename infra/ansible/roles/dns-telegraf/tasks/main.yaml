@@ -4,33 +4,28 @@
     update_cache: true
     pkg:
       - gpg
-  become: true
 
 - name: Download influx gpg key
   ansible.builtin.get_url:
     url: https://repos.influxdata.com/influxdata-archive_compat.key
     dest: /root/influxdata-archive_compat.key
-  become: true
 
 - name: Check influx gpg key
   ansible.builtin.command:
     chdir: /root
     cmd: bash -c "echo '393e8779c89ac8d958f81f942f9ad7fb82a25e133faddaf92e15b16e6ac9ce4c influxdata-archive_compat.key' | sha256sum -c"
-  become: true
 
 - name: Add influx gpg key
   ansible.builtin.command:
     chdir: /root
     cmd: bash -c 'cat influxdata-archive_compat.key | gpg --dearmor > /etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg'
     creates: /etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg
-  become: true
 
 - name: Add package source for influxdata
   ansible.builtin.lineinfile:
     path: /etc/apt/sources.list.d/influxdata.list
     line: "deb [signed-by=/etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg] https://repos.influxdata.com/debian stable main"
     create: true
-  become: true
 
 - name: Install telegraf
   ansible.builtin.apt:
@@ -38,7 +33,6 @@
     update_cache: true
     pkg:
       - telegraf
-  become: true
 
 - name: Telegraf knot
   ansible.builtin.include_tasks:
@@ -49,23 +43,16 @@
   ansible.builtin.template:
     src: ../templates/telegraf.conf.j2
     dest: /etc/telegraf/telegraf.conf
-  become: true
 
 - name: Allow restarting of telegraf
   ansible.builtin.lineinfile:
     path: /lib/systemd/system/telegraf.service
     search_string: Restart=
     line: "Restart=always"
-  become: true
-
-- name: Systemd daemon reload
-  ansible.builtin.command:
-    cmd: systemctl daemon-reload
-  become: true
 
 - name: Restart and enable telegraf service
-  ansible.builtin.service:
-    name: telegraf
+  ansible.builtin.systemd_service:
     state: restarted
+    daemon_reload: true
+    name: telegraf
     enabled: true
-  become: true
