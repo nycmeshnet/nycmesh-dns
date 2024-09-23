@@ -8,10 +8,10 @@ dns_rec_mgt_ip = [
   "10.70.90.129",
 ]
 dns_auth_internal_ip = [
-  "10.70.90.168",
+  "10.70.90.132",
 ]
 dns_rec_internal_ip = [
-  "10.70.90.169",
+  "10.70.90.133",
 ]
 dns_auth_external_ip = [
   "199.170.132.47",
