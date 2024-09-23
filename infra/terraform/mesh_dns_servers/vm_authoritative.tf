@@ -13,7 +13,7 @@ resource "proxmox_vm_qemu" "authoritative_dns_vm" {
   agent                   = 1
   cloudinit_cdrom_storage = var.proxmox_storage_location
   ciuser                  = var.dns_local_user
-  cipassword              = var.MESH_DNS_LOCAL_PASSWORD
+  cipassword              = var.mesh_dns_local_password
 
   scsihw = "virtio-scsi-pci"
 

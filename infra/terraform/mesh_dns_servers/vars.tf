@@ -22,7 +22,7 @@ variable "dns_local_user" {
   default     = "debian"
 }
 
-variable "MESH_DNS_LOCAL_PASSWORD" {
+variable "mesh_dns_local_password" {
   type        = string
   description = "password of the local user for the vm"
   sensitive   = true

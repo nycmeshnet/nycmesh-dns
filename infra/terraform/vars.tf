@@ -31,7 +31,7 @@ variable "proxmox_storage_location" {
   default     = "local-lvm"
 }
 
-variable "MESH_DNS_LOCAL_PASSWORD" {
+variable "mesh_dns_local_password" {
   type        = string
   description = "password of the local user for the vm"
   sensitive   = true
