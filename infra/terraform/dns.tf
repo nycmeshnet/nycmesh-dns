@@ -22,4 +22,5 @@ module "some_mesh_dns_servers" {
   recursive_cores                 = var.recursive_cores
   recursive_sockets               = var.recursive_sockets
   recursive_memory                = var.recursive_memory
+  vm_nic                          = var.vm_nic
 }
