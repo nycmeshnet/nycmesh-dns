@@ -136,3 +136,14 @@ variable "authoritative_memory" {
   description = "RAM MB count"
   default     = 2560
 }
+
+variable "datadog_api_key" {
+  type        = string
+  description = "API key for datadog"
+  sensitive   = true
+}
+
+variable "datadog_site" {
+  type        = string
+  description = "URL for datadog"
+}

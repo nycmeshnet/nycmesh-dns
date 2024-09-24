@@ -23,4 +23,6 @@ module "some_mesh_dns_servers" {
   recursive_sockets               = var.recursive_sockets
   recursive_memory                = var.recursive_memory
   vm_nic                          = var.vm_nic
+  datadog_api_key                 = var.datadog_api_key
+  datadog_site                    = var.datadog_site
 }
