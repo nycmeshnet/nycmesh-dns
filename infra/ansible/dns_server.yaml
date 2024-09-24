@@ -5,6 +5,7 @@
     - role: dns-frr
     - role: dns-telegraf
     - role: knot-authoritative
+    - role: support-account
 
 - hosts: knot-recursive
   become: true
@@ -13,3 +14,4 @@
     - role: dns-frr
     - role: dns-telegraf
     - role: knot-recursive
+    - role: support-account
