@@ -47,7 +47,7 @@
 
 - name: Run deploy script
   ansible.builtin.command:
-    cmd: bash -c "cd /root/nycmesh-dns/ && bash /root/nycmesh-dns/deploy_gordian_knot.sh"
+    cmd: bash -c "cd /root/nycmesh-dns/ && bash /root/nycmesh-dns/deploy_knot.sh"
 
 - name: Allow restarting of knot
   ansible.builtin.lineinfile:
@@ -65,7 +65,7 @@
 - name: Crontab
   ansible.builtin.lineinfile:
     path: /etc/cron.d/knot_zone_update
-    line: "*/10 * * * *   root    cd /root/nycmesh-dns && bash /root/nycmesh-dns/deploy_gordian_knot.sh 2>&1 > /dev/null"
+    line: "*/10 * * * *   root    cd /root/nycmesh-dns && bash /root/nycmesh-dns/deploy_knot.sh 2>&1 > /dev/null"
     create: true
 
 - name: Restart and enable cron service

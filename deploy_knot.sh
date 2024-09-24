@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Based on https://github.com/nycmeshnet/nycmesh-dns/blob/master/deploy.sh
-# Modified for gordian-knot
+# Modified for IaC managed servers
 
 cd /root/nycmesh-dns
 git pull
@@ -15,7 +15,6 @@ then
 fi
 
 python3 makereverse.py
-#cp knot.conf /etc/knot/knot.conf
 cp -f *.zone /var/lib/knot/zones
 
 systemctl restart knot
