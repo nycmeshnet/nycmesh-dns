@@ -56,7 +56,7 @@ jobs:
       - name: Setup backend
         run: |
           echo "bucket = \"$BUCKET_TF_STATE\"" > backend.tfvars
-          echo "key    = \"terraform/state/dns-${{ vars.ENV_NAME }}.tfstate\"" >> backend.tfvars
+          echo "key    = \"terraform/state/dns-${{ inputs.environment }}.tfstate\"" >> backend.tfvars
         working-directory: ./infra/terraform/
 
       - name: Terraform init
