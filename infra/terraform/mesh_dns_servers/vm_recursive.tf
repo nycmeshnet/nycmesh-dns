@@ -46,7 +46,7 @@ resource "proxmox_vm_qemu" "recursive_dns_vm" {
     type = "socket"
   }
 
-  tags = "dns"
+  tags = "dns;managed_by_iac"
 
   lifecycle {
     ignore_changes = [
