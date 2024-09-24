@@ -2,7 +2,7 @@ module "some_mesh_dns_servers" {
   source = "./mesh_dns_servers"
 
   mesh_dns_local_password         = var.mesh_dns_local_password
-  INFLUX_DB_TOKEN                 = var.INFLUX_DB_TOKEN
+  INFLUX_DB_TOKEN                 = var.influx_db_token
   proxmox_node                    = var.proxmox_node
   proxmox_template_image          = "debian-cloud"
   proxmox_storage_location        = var.proxmox_storage_location
