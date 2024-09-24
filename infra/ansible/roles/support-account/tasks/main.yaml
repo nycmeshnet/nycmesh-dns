@@ -1,3 +1,10 @@
+- name: Install deps
+  ansible.builtin.apt:
+    lock_timeout: 120
+    update_cache: true
+    pkg:
+      - python3-passlib
+
 - name: Add the user 'support'
   ansible.builtin.user:
     name: support
