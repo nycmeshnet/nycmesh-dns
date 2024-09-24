@@ -84,6 +84,17 @@ variable "INFLUX_DB_TOKEN" {
   sensitive   = true
 }
 
+variable "datadog_api_key" {
+  type        = string
+  description = "API key for datadog"
+  sensitive   = true
+}
+
+variable "datadog_site" {
+  type        = string
+  description = "URL for datadog"
+}
+
 variable "vm_nic" {
   type        = string
   description = "nic for the vms"
@@ -135,15 +146,4 @@ variable "authoritative_memory" {
   type        = string
   description = "RAM MB count"
   default     = 2560
-}
-
-variable "datadog_api_key" {
-  type        = string
-  description = "API key for datadog"
-  sensitive   = true
-}
-
-variable "datadog_site" {
-  type        = string
-  description = "URL for datadog"
 }

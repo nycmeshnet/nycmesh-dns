@@ -43,6 +43,18 @@ variable "INFLUX_DB_TOKEN" {
   sensitive   = true
 }
 
+variable "datadog_api_key" {
+  type        = string
+  description = "API key for datadog"
+  sensitive   = true
+}
+
+variable "datadog_site" {
+  type        = string
+  description = "URL for datadog"
+  default     = "us5.datadoghq.com"
+}
+
 variable "dns_auth_mgt_ip" {
   type        = list(any)
   description = "management IPs for the authoritative dns vm(s)"
@@ -141,14 +153,3 @@ variable "authoritative_memory" {
   default     = 2560
 }
 
-variable "datadog_api_key" {
-  type        = string
-  description = "API key for datadog"
-  sensitive   = true
-}
-
-variable "datadog_site" {
-  type        = string
-  description = "URL for datadog"
-  default     = "us5.datadoghq.com"
-}
