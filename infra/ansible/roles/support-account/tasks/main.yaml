@@ -1,6 +1,6 @@
-- name: Add the user 'support' with a uid and a primary group of 'admin'
+- name: Add the user 'support'
   ansible.builtin.user:
     name: support
     uid: 1001
-    password: '{{ LOCAL_PASSWORD }}'
+    password: "{{ LOCAL_PASSWORD | password_hash('sha512') }}"
     groups: sudo

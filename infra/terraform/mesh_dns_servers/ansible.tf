@@ -36,6 +36,7 @@ resource "ansible_host" "rec-dns-mgt" {
     INTERNAL_MGT_DG                  = var.dns_mgt_gateway
     INFLUX_DB_TOKEN                  = var.INFLUX_DB_TOKEN
     LOCAL_PASSWORD                   = var.mesh_dns_local_password
+    DATADOG_API_KEY                  = var.datadog_api_key
   }
 }
 
@@ -53,5 +54,6 @@ resource "ansible_host" "auth-dns-mgt" {
     INTERNAL_MGT_DG                  = var.dns_mgt_gateway
     INFLUX_DB_TOKEN                  = var.INFLUX_DB_TOKEN
     LOCAL_PASSWORD                   = var.mesh_dns_local_password
+    DATADOG_API_KEY                  = var.datadog_api_key
   }
 }

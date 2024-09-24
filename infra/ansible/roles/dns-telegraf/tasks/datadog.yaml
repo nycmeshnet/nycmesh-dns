@@ -1,0 +1,5 @@
+- name: Import the Datadog Agent role from the Datadog collection
+  ansible.builtin.import_role:
+    name: datadog.dd.agent
+  vars:
+    datadog_api_key: "{{ DATADOG_API_KEY }}"

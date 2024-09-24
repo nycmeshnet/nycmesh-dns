@@ -16,6 +16,7 @@ env:
   TF_VAR_proxmox_token_secret: ${{ secrets.TF_VAR_PROXMOX_TOKEN_SECRET }}
   TF_VAR_mesh_dns_local_password: ${{ secrets.TF_VAR_MESH_DNS_LOCAL_PASSWORD }}
   TF_VAR_INFLUX_DB_TOKEN: ${{ secrets.TF_VAR_INFLUX_DB_TOKEN }}
+  TF_VAR_datadog_api_key: ${{ secrets.TF_VAR_DATADOG_API_KEY }}
   # Credentials for deployment to AWS
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

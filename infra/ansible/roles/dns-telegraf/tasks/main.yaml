@@ -56,3 +56,7 @@
     daemon_reload: true
     name: telegraf
     enabled: true
+
+- name: Datadog
+  ansible.builtin.include_tasks:
+    file: datadog.yaml
