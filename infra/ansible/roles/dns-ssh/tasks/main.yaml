@@ -5,7 +5,7 @@
     line: 'PasswordAuthentication no'
     state: present
 
-- name: Restart and enable iptables service
+- name: Restart and enable sshd service
   ansible.builtin.service:
     name: sshd
     state: reloaded
