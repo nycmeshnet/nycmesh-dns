@@ -4,3 +4,5 @@
   vars:
     datadog_api_key: "{{ DATADOG_API_KEY }}"
     datadog_site: "{{ DATADOG_SITE }}"
+    datadog_config:
+      logs_enabled: true
