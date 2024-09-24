@@ -43,7 +43,9 @@
   ansible.builtin.git:
     repo: "https://github.com/james-otten/nycmesh-dns.git"
     dest: /root/nycmesh-dns
-    version: james/infra
+    version: james/infra4
+    # version: master
+    # JBOTODO cleanup
 
 - name: Run deploy script
   ansible.builtin.command:
