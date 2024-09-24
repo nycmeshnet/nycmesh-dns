@@ -1,7 +1,3 @@
--- SPDX-License-Identifier: CC0-1.0
--- vim:syntax=lua:set ts=4 sw=4:
--- Refer to manual: https://knot-resolver.readthedocs.org/en/stable/
-
 -- Network interface configuration
 net.listen('127.0.0.1', 53, { kind = 'dns' })
 net.listen('127.0.0.1', 853, { kind = 'tls' })
@@ -28,7 +24,11 @@ modules = {
         'http',             -- Stats in metrics format
         'policy',           -- Allow/deny requests
         'view',             -- Consider query sources
+        'nsid',             -- Name Server Identifier (NSID)
 }
+
+-- Set NSID
+nsid.name('{{ SERVER_HOSTNAME }}')
 
 -- Mesh from mesh
 view:addr('10.0.0.0/8', policy.suffix(policy.STUB('10.10.10.11'), policy.todnames({'mesh.', 'mesh.nycmesh.net.'})))
