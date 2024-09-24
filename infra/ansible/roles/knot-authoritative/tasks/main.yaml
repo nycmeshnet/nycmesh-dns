@@ -41,7 +41,7 @@
 
 - name: Git checkout
   ansible.builtin.git:
-    repo: "https://github.com/james-otten/nycmesh-dns.git"
+    repo: "https://github.com/nycmeshnet/nycmesh-dns.git"
     dest: /root/nycmesh-dns
     version: james/infra4
     # version: master
