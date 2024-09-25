@@ -45,6 +45,13 @@
     group: knot-resolver
     mode: "640"
 
+- name: Fix kres-cache-gc.service
+  ansible.builtin.lineinfile:
+    dest: /etc/systemd/system/kresd.target.wants/kres-cache-gc.service
+    regexp: '^ExecStart='
+    line: 'ExecStart=/usr/sbin/kres-cache-gc -c /var/cache/knot-resolver-cache -d 1000'
+    state: present
+
 - name: Enable ospfd
   ansible.builtin.lineinfile:
     path: /lib/systemd/system/kresd@.service
