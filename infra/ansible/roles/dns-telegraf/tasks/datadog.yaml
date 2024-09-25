@@ -6,3 +6,10 @@
     datadog_site: "{{ DATADOG_SITE }}"
     datadog_config:
       logs_enabled: true
+
+- name: Datadog logging config
+  ansible.builtin.copy:
+    src: files/journald.d_conf.yaml
+    dest: /etc/datadog-agent/conf.d/journald.d/conf.yaml
+    owner: dd-agent
+    group: dd-agent
