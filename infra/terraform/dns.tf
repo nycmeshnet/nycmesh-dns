@@ -25,4 +25,5 @@ module "some_mesh_dns_servers" {
   vm_nic                          = var.vm_nic
   datadog_api_key                 = var.datadog_api_key
   datadog_site                    = var.datadog_site
+  dns_cookie_secret               = var.dns_cookie_secret
 }
