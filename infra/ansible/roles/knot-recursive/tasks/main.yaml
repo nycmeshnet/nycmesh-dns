@@ -58,7 +58,7 @@
     line: 'ExecStart=/usr/sbin/kres-cache-gc -c /var/cache/knot-resolver-cache -d 1000'
     state: present
 
-- name: Restart and enable frr service
+- name: Restart and enable kres-cache-gc service
   ansible.builtin.systemd_service:
     name: kres-cache-gc
     state: restarted
