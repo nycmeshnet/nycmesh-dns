@@ -153,3 +153,8 @@ variable "authoritative_memory" {
   default     = 2560
 }
 
+variable "dns_cookie_secret" {
+  type        = string
+  description = "0x{32 hex chars} used for secret for dns cookies"
+  sensitive   = true
+}

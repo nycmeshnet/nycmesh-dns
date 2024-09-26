@@ -9,6 +9,10 @@ log:
   - target: syslog
     any: info
 
+mod-cookies:
+  - id: default
+    secret: {{ DNS_COOKIE_SECRET }}
+
 mod-rrl:
  - id: default
    rate-limit: 200
@@ -16,6 +20,7 @@ mod-rrl:
 
 template:
   - id: default
+    global-module: mod-cookies/default
     global-module: mod-rrl/default
     global-module: mod-stats
     storage: /var/lib/knot/zones

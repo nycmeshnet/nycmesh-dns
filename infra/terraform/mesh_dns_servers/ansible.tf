@@ -38,6 +38,7 @@ resource "ansible_host" "rec-dns-mgt" {
     LOCAL_PASSWORD                   = var.mesh_dns_local_password
     DATADOG_API_KEY                  = var.datadog_api_key
     DATADOG_SITE                     = var.datadog_site
+    DNS_COOKIE_SECRET                = var.dns_cookie_secret
   }
 }
 
