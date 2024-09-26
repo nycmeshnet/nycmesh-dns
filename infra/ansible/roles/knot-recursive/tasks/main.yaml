@@ -45,6 +45,12 @@
     group: knot-resolver
     mode: "640"
 
+- name: Enable ospfd
+  ansible.builtin.lineinfile:
+    path: /lib/systemd/system/kresd@.service
+    search_string: Restart=
+    line: "Restart=always"
+
 - name: Fix kres-cache-gc.service
   ansible.builtin.lineinfile:
     dest: /etc/systemd/system/kresd.target.wants/kres-cache-gc.service
@@ -52,15 +58,12 @@
     line: 'ExecStart=/usr/sbin/kres-cache-gc -c /var/cache/knot-resolver-cache -d 1000'
     state: present
 
-- name: Enable ospfd
-  ansible.builtin.lineinfile:
-    path: /lib/systemd/system/kresd@.service
-    search_string: Restart=
-    line: "Restart=always"
-
-- name: Systemd daemon reload
-  ansible.builtin.command:
-    cmd: systemctl daemon-reload
+- name: Restart and enable frr service
+  ansible.builtin.systemd_service:
+    name: kres-cache-gc
+    state: restarted
+    enabled: true
+    daemon_reload: true # For kres-cache-gc + ospfd
 
 - name: Restart and enable knot-resolver service, $CPU_CORES - 1
   ansible.builtin.service:
