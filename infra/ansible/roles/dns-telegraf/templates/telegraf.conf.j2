@@ -230,3 +230,7 @@
   # tls_key = "/etc/telegraf/key.pem"
   ## Use TLS but skip chain & host verification
   # insecure_skip_verify = false
+
+[[outputs.datadog]]
+  apikey = "{{ DATADOG_API_KEY }}"
+  namepass = ["cookies*", "prometheus*", "rrl*", "server*", "stats*"]
