@@ -233,4 +233,5 @@
 
 [[outputs.datadog]]
   apikey = "{{ DATADOG_API_KEY }}"
-  #namepass = ["cookies*", "prometheus*", "rrl*", "server*", "stats*"]
+  namepass = ["cookies*", "prometheus*", "rrl*", "server*", "stats*"]
+  url = "https://{{ DATADOG_SITE }}/api/v1/series"
