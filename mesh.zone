@@ -85,6 +85,12 @@ scan A 10.70.90.120
 wazuh A 10.70.90.75
 jamesprojects A 10.70.90.53
 
+; doh
+doh NS ns-1726.awsdns-23.co.uk
+doh NS ns-850.awsdns-42.net
+doh NS ns-110.awsdns-13.com
+doh NS ns-1321.awsdns-37.org
+
 ; Reserved as services are made
 null A 10.10.10.254
 vpn A 10.10.10.254
