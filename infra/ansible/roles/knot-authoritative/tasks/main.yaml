@@ -1,0 +1,77 @@
+- name: Install deps
+  ansible.builtin.apt:
+    lock_timeout: 240
+    update_cache: true
+    pkg:
+      - apt-transport-https
+      - ca-certificates
+      - git
+      - cron
+      - python3-pip
+      - python3.11-venv
+      - dnsutils
+      - knot
+
+- name: Knot DNS Config
+  ansible.builtin.template:
+    src: ../templates/knot.conf.j2
+    dest: /etc/knot/knot.conf
+    owner: root
+    group: knot
+    mode: "640"
+
+- name: Make sure commit file does not exist
+  ansible.builtin.file:
+    path: /var/lib/knot/commit
+    state: absent
+
+- name: Make sure file does not exist in the directory's place
+  ansible.builtin.file:
+    path: /var/lib/knot/zones
+    state: absent
+  when: "'/var/lib/knot/zones' is not ansible.builtin.directory"
+
+- name: Create a directory if it does not exist
+  ansible.builtin.file:
+    path: /var/lib/knot/zones
+    state: directory
+    owner: root
+    group: knot
+    mode: "750"
+
+- name: Git checkout
+  ansible.builtin.git:
+    repo: "https://github.com/nycmeshnet/nycmesh-dns.git"
+    dest: /root/nycmesh-dns
+    version: james/infra4
+    # version: master
+    # JBOTODO cleanup
+
+- name: Run deploy script
+  ansible.builtin.command:
+    cmd: bash -c "cd /root/nycmesh-dns/ && bash /root/nycmesh-dns/deploy_knot.sh"
+
+- name: Allow restarting of knot
+  ansible.builtin.lineinfile:
+    path: /lib/systemd/system/knot.service
+    search_string: Restart=
+    line: "Restart=always"
+
+- name: Restart and enable knot service
+  ansible.builtin.systemd_service:
+    name: knot
+    state: restarted
+    enabled: true
+    daemon_reload: true
+
+- name: Crontab
+  ansible.builtin.lineinfile:
+    path: /etc/cron.d/knot_zone_update
+    line: "*/10 * * * *   root    cd /root/nycmesh-dns && bash /root/nycmesh-dns/deploy_knot.sh 2>&1 > /dev/null"
+    create: true
+
+- name: Restart and enable cron service
+  ansible.builtin.service:
+    name: cron
+    state: restarted
+    enabled: true

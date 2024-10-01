@@ -1,0 +1,12 @@
+- name: Disable password auth
+  ansible.builtin.lineinfile:
+    dest: /etc/ssh/sshd_config
+    regexp: '^#?\s*PasswordAuthentication\s'
+    line: 'PasswordAuthentication no'
+    state: present
+
+- name: Restart and enable sshd service
+  ansible.builtin.service:
+    name: sshd
+    state: reloaded
+    enabled: true
