@@ -265,14 +265,6 @@ resource "namedotcom_record" "record_dashboard_7092840" {
   answer      = "nycmesh-dashboard.netlify.com"
 }
 
-# Offline as of 9/2/24
-resource "namedotcom_record" "record_meet_9880531" {
-  domain_name = "nycmesh.net"
-  host        = "meet"
-  record_type = "A"
-  answer      = "199.170.132.33"
-}
-
 # Site verification for github. Only modify if you know what you're doing.
 resource "namedotcom_record" "record__github-challenge-nycmeshnet_194338752" {
   domain_name = "nycmesh.net"
