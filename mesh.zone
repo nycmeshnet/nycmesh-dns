@@ -86,6 +86,7 @@ wazuh A 10.70.90.75
 jamesprojects A 10.70.90.53
 
 ; doh
+; Temporarily to aws for prototyping, will be a separate zone within the mesh later
 doh NS ns-1726.awsdns-23.co.uk
 doh NS ns-850.awsdns-42.net
 doh NS ns-110.awsdns-13.com
