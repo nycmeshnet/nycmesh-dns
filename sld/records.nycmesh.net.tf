@@ -92,14 +92,6 @@ resource "namedotcom_record" "record_375pearl_1367537" {
   answer      = "2001:504:36::c2ab:0:1"
 }
 
-# Offline as of 9/2/24
-resource "namedotcom_record" "record_matrix_1392093" {
-  domain_name = "nycmesh.net"
-  host        = "matrix"
-  record_type = "A"
-  answer      = "104.131.97.63"
-}
-
 resource "namedotcom_record" "record__now_3070265" {
   domain_name = "nycmesh.net"
   host        = "_now"
