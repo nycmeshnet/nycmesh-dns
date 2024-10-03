@@ -28,3 +28,10 @@ resource "namedotcom_record" "record__240356250" {
   record_type = "A"
   answer      = "185.199.111.153"
 }
+
+resource "namedotcom_record" "nycmeshconnect_net_www_cname" {
+  domain_name = "nycmeshconnect.net"
+  host        = "www"
+  record_type = "CNAME"
+  answer      = "nycmeshnet.github.io"
+}
