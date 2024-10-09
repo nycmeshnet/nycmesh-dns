@@ -433,3 +433,10 @@ resource "namedotcom_record" "devdb_all" {
   record_type = "CNAME"
   answer      = "kubernetes-lb-jon-sn3.nycmesh.net"
 }
+
+resource "namedotcom_record" "gsg_displays" {
+  domain_name = "nycmesh.net"
+  host        = "gsg-displays"
+  record_type = "A"
+  answer      = "199.170.132.101"
+}
