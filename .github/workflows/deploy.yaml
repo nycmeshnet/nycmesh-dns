@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-      - james/infra4 # JBOTODO: cleanup
     paths:
       - infra/**
   workflow_dispatch:
@@ -20,8 +19,7 @@ jobs:
     with:
       environment: dev_jon
     secrets: inherit
-    if: github.ref == 'refs/heads/james/infra4' && github.event_name == 'push'
-    #if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
 
   deploy_sn3_prod:
     name: Deploy to sn3 prod
@@ -30,5 +28,4 @@ jobs:
     with:
       environment: prod_sn3
     secrets: inherit
-    if: github.ref == 'refs/heads/james/infra4' && github.event_name == 'push'
-    # if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
