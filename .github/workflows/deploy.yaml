@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-      - james/a_records_other_domains
     paths:
       - infra/**
   workflow_dispatch:
@@ -20,7 +19,7 @@ jobs:
     with:
       environment: dev_jon
     secrets: inherit
-    ##if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
 
   deploy_sn3_prod:
     name: Deploy to sn3 prod
