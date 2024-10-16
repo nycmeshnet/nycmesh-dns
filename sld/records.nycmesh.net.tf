@@ -403,6 +403,14 @@ resource "namedotcom_record" "meshdb_prod_forms" {
   answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
 }
 
+# (New) Grafana at sn3-esxi [hosted on sn3-k8s]
+resource "namedotcom_record" "record_stats_3588970" {
+  domain_name = "nycmesh.net"
+  host        = "stats-new"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
+}
+
 ###### Meshdb Dev ######
 resource "namedotcom_record" "meshdb_dev_k8s_lb" {
   domain_name = "nycmesh.net"
