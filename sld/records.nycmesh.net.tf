@@ -404,7 +404,7 @@ resource "namedotcom_record" "meshdb_prod_forms" {
 }
 
 # (New) Grafana at sn3-esxi [hosted on sn3-k8s]
-resource "namedotcom_record" "record_stats_3588970" {
+resource "namedotcom_record" "record_stats_new" {
   domain_name = "nycmesh.net"
   host        = "stats-new"
   record_type = "CNAME"
