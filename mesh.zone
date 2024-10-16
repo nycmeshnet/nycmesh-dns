@@ -24,7 +24,6 @@ netbox A 10.70.90.135
 alerts A 10.70.178.21
 wiki A 18.213.129.204
 mastodon A 199.170.132.101
-gsg-displays A 199.170.132.101
 building A 10.70.187.216
 grafana A 10.70.90.82
 
@@ -68,31 +67,30 @@ grandsvc A 199.167.59.101
 *.grandsvc CNAME grandsvc
 
 ; k8s-infra
-db A 199.170.132.45
-*.db CNAME db
-forms CNAME db
-wiki2 CNAME db
-adminmap CNAME db
-map CNAME db
-los CNAME db
-los-backend CNAME db
-pgadmin CNAME db
+db CNAME grandsvc
+*.db CNAME grandsvc
+forms CNAME grandsvc
+adminmap CNAME grandsvc
+map CNAME grandsvc
+los CNAME grandsvc
+los-backend CNAME grandsvc
+pgadmin CNAME grandsvc
 
 ; k8s-infra dev
 devdb A 199.170.132.46
-*.devdb CNAME devdb
-*.dev CNAME devdb
-devforms CNAME devdb
 devwiki CNAME devdb
-devadminmap CNAME devdb
-devmap CNAME devdb
-devlos CNAME devdb
-devlos-backend CNAME devdb
 
 ; James
 scan A 10.70.90.120
 wazuh A 10.70.90.75
 jamesprojects A 10.70.90.53
+
+; doh
+; Temporarily to aws for prototyping, will be a separate zone within the mesh later
+doh NS ns-1726.awsdns-23.co.uk
+doh NS ns-850.awsdns-42.net
+doh NS ns-110.awsdns-13.com
+doh NS ns-1321.awsdns-37.org
 
 ; Reserved as services are made
 null A 10.10.10.254
@@ -106,7 +104,7 @@ scuttle A 10.70.73.4
 l2tpvpn.sn3 A 199.170.132.6
 
 ; Supernode10
-l2tpvpn.sn10 A 23.158.16.17
+l2tpvpn.sn10 A 23.158.16.21
 
 ; Supernode1
 l2tpvpn.sn1 A 199.167.59.6

@@ -92,14 +92,6 @@ resource "namedotcom_record" "record_375pearl_1367537" {
   answer      = "2001:504:36::c2ab:0:1"
 }
 
-# Offline as of 9/2/24
-resource "namedotcom_record" "record_matrix_1392093" {
-  domain_name = "nycmesh.net"
-  host        = "matrix"
-  record_type = "A"
-  answer      = "104.131.97.63"
-}
-
 resource "namedotcom_record" "record__now_3070265" {
   domain_name = "nycmesh.net"
   host        = "_now"
@@ -273,14 +265,6 @@ resource "namedotcom_record" "record_dashboard_7092840" {
   answer      = "nycmesh-dashboard.netlify.com"
 }
 
-# Offline as of 9/2/24
-resource "namedotcom_record" "record_meet_9880531" {
-  domain_name = "nycmesh.net"
-  host        = "meet"
-  record_type = "A"
-  answer      = "199.170.132.33"
-}
-
 # Site verification for github. Only modify if you know what you're doing.
 resource "namedotcom_record" "record__github-challenge-nycmeshnet_194338752" {
   domain_name = "nycmesh.net"
@@ -393,13 +377,6 @@ resource "namedotcom_record" "meshdb_prod_meshdb" {
   answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
 }
 
-resource "namedotcom_record" "meshdb_prod_pgadmin" {
-  domain_name = "nycmesh.net"
-  host        = "pgadmin.db"
-  record_type = "CNAME"
-  answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
-}
-
 resource "namedotcom_record" "meshdb_prod_map" {
   domain_name = "nycmesh.net"
   host        = "map.db"
@@ -455,4 +432,11 @@ resource "namedotcom_record" "devdb_all" {
   host        = "*.devdb"
   record_type = "CNAME"
   answer      = "kubernetes-lb-jon-sn3.nycmesh.net"
+}
+
+resource "namedotcom_record" "gsg_displays" {
+  domain_name = "nycmesh.net"
+  host        = "gsg-displays"
+  record_type = "A"
+  answer      = "199.170.132.101"
 }

@@ -1,0 +1,17 @@
+- hosts: knot-authoritative
+  become: true
+  roles:
+    - role: dns-ssh
+    - role: dns-frr
+    - role: dns-telegraf
+    - role: knot-authoritative
+    - role: support-account
+
+- hosts: knot-recursive
+  become: true
+  roles:
+    - role: dns-ssh
+    - role: dns-frr
+    - role: dns-telegraf
+    - role: knot-recursive
+    - role: support-account
