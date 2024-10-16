@@ -1,0 +1,75 @@
+- name: Install deps
+  ansible.builtin.apt:
+    lock_timeout: 120
+    update_cache: true
+    pkg:
+      - apt-transport-https
+      - ca-certificates
+      - dnsutils
+
+- name: Download gpg key
+  ansible.builtin.get_url:
+    url: https://pkg.labs.nic.cz/gpg
+    dest: /usr/share/keyrings/cznic-labs-pkg.gpg
+
+- name: Add package source
+  ansible.builtin.lineinfile:
+    path: /etc/apt/sources.list.d/cznic-labs-knot-dns.list
+    line: "deb [signed-by=/usr/share/keyrings/cznic-labs-pkg.gpg] https://pkg.labs.nic.cz/knot-resolver bookworm main"
+    create: true
+
+- name: Install knot
+  ansible.builtin.apt:
+    lock_timeout: 120
+    update_cache: true
+    pkg:
+      - knot-resolver
+      - knot-dnsutils
+      - knot-resolver-module-http
+
+- name: Mount knot cache as tmpfs
+  ansible.posix.mount:
+    path: /var/cache/knot-resolver-cache
+    src: tmpfs
+    fstype: tmpfs
+    opts: rw,size=2G,uid=knot-resolver,gid=knot-resolver,nosuid,nodev,noexec,mode=0700
+    dump: 0
+    passno: 0
+    state: mounted
+
+- name: Knot Resolver Config
+  ansible.builtin.template:
+    src: ../templates/kresd.conf.j2
+    dest: /etc/knot-resolver/kresd.conf
+    owner: root
+    group: knot-resolver
+    mode: "640"
+
+- name: Enable ospfd
+  ansible.builtin.lineinfile:
+    path: /lib/systemd/system/kresd@.service
+    search_string: Restart=
+    line: "Restart=always"
+
+- name: Fix kres-cache-gc.service
+  ansible.builtin.lineinfile:
+    dest: /etc/systemd/system/kresd.target.wants/kres-cache-gc.service
+    regexp: '^ExecStart='
+    line: 'ExecStart=/usr/sbin/kres-cache-gc -c /var/cache/knot-resolver-cache -d 1000'
+    state: present
+
+- name: Restart and enable kres-cache-gc service
+  ansible.builtin.systemd_service:
+    name: kres-cache-gc
+    state: restarted
+    enabled: true
+    daemon_reload: true # For kres-cache-gc + ospfd
+
+- name: Restart and enable knot-resolver service, $CPU_CORES - 1
+  ansible.builtin.service:
+    name: kresd@{{ item }}
+    state: restarted
+    enabled: true
+  loop: "{{ range(1, ansible_processor_cores) | list}}"
+  loop_control:
+    pause: 5
