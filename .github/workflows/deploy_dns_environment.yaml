@@ -79,6 +79,5 @@ jobs:
         working-directory: ./infra/terraform/
       
       - name: Run playbook
-        if: github.ref == 'refs/heads/james/infra4' && github.event_name == 'push'
         run: sleep 45 && export PATH="$HOME/.local/bin:$PATH" && ansible-playbook -i inventory.yaml dns_server.yaml
         working-directory: ./infra/ansible/
