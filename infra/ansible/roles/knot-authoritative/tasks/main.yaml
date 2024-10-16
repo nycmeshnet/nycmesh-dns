@@ -45,7 +45,7 @@
     dest: /root/nycmesh-dns
     version: james/a_records_other_domains
     # version: master
-    # JBOTODO cleanup
+    ## JBOTODO cleanup
 
 - name: Run deploy script
   ansible.builtin.command:
