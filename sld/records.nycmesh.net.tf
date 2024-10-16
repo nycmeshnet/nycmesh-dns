@@ -337,15 +337,6 @@ resource "namedotcom_record" "record_ninja_226273090" {
   answer      = "165.227.70.230"
 }
 
-# Dev environment for the status page?
-# Offline as of 9/2/24
-resource "namedotcom_record" "record_status-dev_189526708" {
-  domain_name = "nycmesh.net"
-  host        = "status-dev"
-  record_type = "A"
-  answer      = "199.170.132.78"
-}
-
 # Status page
 resource "namedotcom_record" "record_status_238885567" {
   domain_name = "nycmesh.net"
