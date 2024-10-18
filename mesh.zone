@@ -1,6 +1,6 @@
 ; $ORIGIN mesh.
 $TTL 3600
-@  SOA   10.10.10.11. noc.nycmesh.net. ( 2019090700 1d 2h 4w 1h )
+@  SOA   10.10.10.11. hostmaster.nycmesh.net. ( 2019090700 1d 2h 4w 1h )
 @  NS    ns
 @  A     10.10.10.11             ; IPv4 address for example.com
 
