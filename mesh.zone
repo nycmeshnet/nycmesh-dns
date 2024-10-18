@@ -66,16 +66,6 @@ grandbox A 10.69.19.233
 grandsvc A 199.167.59.101
 *.grandsvc CNAME grandsvc
 
-; k8s-infra
-db CNAME grandsvc
-*.db CNAME grandsvc
-forms CNAME grandsvc
-adminmap CNAME grandsvc
-map CNAME grandsvc
-los CNAME grandsvc
-los-backend CNAME grandsvc
-pgadmin CNAME grandsvc
-
 ; k8s-infra dev
 devdb A 199.170.132.46
 devwiki CNAME devdb
