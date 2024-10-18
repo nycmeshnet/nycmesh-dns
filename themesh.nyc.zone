@@ -1,5 +1,5 @@
 $TTL 3600
-@  SOA   ( nycmesh-713-dns-auth-4.themesh.nyc hostmaster.nycmesh.net. 2024101000 1d 2h 4w 1h )
+@  SOA   ( nycmesh-713-dns-auth-4 hostmaster.nycmesh.net. 2024101000 1d 2h 4w 1h )
 @  NS    nycmesh-713-dns-auth-4
 
 ; GitHub Pages - https://github.com/nycmeshnet/themesh.nyc/blob/main/CNAME
