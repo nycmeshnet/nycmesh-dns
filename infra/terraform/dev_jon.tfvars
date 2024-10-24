@@ -26,3 +26,4 @@ hostname_count_offset           = 0
 recursive_cores                 = 4
 recursive_sockets               = 1
 recursive_memory                = 4096
+enable_doh                      = "enable" # Temp

@@ -6,7 +6,9 @@ resource "ansible_group" "knot-recursive" {
     ansible_ssh_common_args      = "-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
     telegraf_knot                = ""
     telegraf_kresd               = "enable"
-    DOH_SERVER                   = "enable"
+    DOH_SERVER                   = var.enable_doh
+    MAIN_AUTH_SERVER_DOH         = var.dns_auth_internal_ip[0]
+    TSIG_KEY_DOH                 = var.tsig_key_doh
   }
 }
 
@@ -20,6 +22,7 @@ resource "ansible_group" "knot-authoritative" {
     telegraf_kresd               = ""
     DOH_SERVER                   = ""
     DNS_COOKIE_SECRET            = var.dns_cookie_secret
+    TSIG_KEY_DOH                 = var.tsig_key_doh
   }
 }
 

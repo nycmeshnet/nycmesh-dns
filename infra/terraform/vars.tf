@@ -164,3 +164,9 @@ variable "tsig_key_doh" {
   description = "TSIG key for the doh.mesh.nycmesh.net zone"
   sensitive   = true
 }
+
+variable "enable_doh" {
+  type        = string
+  description = "Enable doh server on recursive resolver"
+  default     = ""
+}

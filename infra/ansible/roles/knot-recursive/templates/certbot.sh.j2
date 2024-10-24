@@ -1,0 +1,10 @@
+
+DOMAIN="doh.mesh.nycmesh.net"
+
+certbot certonly \
+  --dns-rfc2136 \
+  --dns-rfc2136-credentials /root/tsig.ini \
+  -d $DOMAIN
+
+cat /etc/letsencrypt/live/$DOMAIN/fullchain.pem > /etc/knot-resolver/server-cert.pem
+cat /etc/letsencrypt/live/$DOMAIN/privkey.pem > /etc/knot-resolver/server-key.pem
