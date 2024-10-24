@@ -9,4 +9,4 @@ nycmesh-713-dns-auth-4 A 199.170.132.47
 nycmesh-713-dns-rec-4 A 10.70.90.133
 
 ; doh.mesh.nycmesh.net
-@   CNAME nycmesh-713-dns-rec-4
+@ A 10.70.90.133
