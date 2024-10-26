@@ -3,8 +3,7 @@
 1. [nycmesh.net](./records.nycmesh.net.tf)
 2. [nycmeshconnect.com](./records.nycmeshconnect.com.tf)
 3. [nycmeshconnect.net](./records.nycmeshconnect.net.tf)
-4. [themesh.foundation](./records.themesh.foundation.tf)
-5. [themesh.nyc](./records.themesh.nyc.tf)
+4. [themesh.nyc](./records.themesh.nyc.tf)
 
 ## Add DNS Record(s)
 
