@@ -11,6 +11,7 @@ $TTL 3600
 dns   A     10.10.10.10
 ns    A     10.10.10.11
 nycmesh-713-dns-auth-4 A 199.170.132.47
+nycmesh-713-jon-dns-auth-1 A 199.170.132.48
 ebook A     10.70.129.51
 something A 1.1.1.1
 unms	CNAME uisp
@@ -95,6 +96,10 @@ core A 10.10.10.254
 user A 10.10.10.254
 nms A 10.70.118.10
 scuttle A 10.70.73.4
+
+; Grand
+room A 10.69.19.134
+meshroom CNAME room
 
 ; Supernode3
 l2tpvpn.sn3 A 199.170.132.6
