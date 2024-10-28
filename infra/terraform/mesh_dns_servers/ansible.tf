@@ -27,7 +27,7 @@ resource "ansible_group" "knot-authoritative" {
 }
 
 resource "ansible_host" "rec-dns-mgt" {
-  count  = 1
+  count  = length(var.dns_rec_mgt_ip)
   name   = var.dns_rec_mgt_ip[count.index]
   groups = [ansible_group.knot-recursive.name]
   variables = {
@@ -47,7 +47,7 @@ resource "ansible_host" "rec-dns-mgt" {
 }
 
 resource "ansible_host" "auth-dns-mgt" {
-  count  = 1
+  count  = length(var.dns_auth_mgt_ip)
   name   = var.dns_auth_mgt_ip[count.index]
   groups = [ansible_group.knot-authoritative.name]
   variables = {
