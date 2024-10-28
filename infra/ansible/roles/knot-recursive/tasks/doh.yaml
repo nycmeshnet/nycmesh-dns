@@ -30,12 +30,13 @@
 - name: Get cert
   ansible.builtin.shell:
     cmd: /root/certbot.sh
+    creates: /etc/knot-resolver/server-cert.pem
 
 - name: Crontab
-  ansible.builtin.lineinfile:
-    path: /etc/cron.d/certbot_update_cert
-    line: "2 1 * * 1   root    bash /root/certbot.sh 2>&1 > /dev/null"
-    create: true
+  ansible.builtin.template:
+    src: ../templates/certbot_update_cert.j2
+    dest: /etc/cron.d/certbot_update_cert
+    mode: "700"
 
 - name: Restart and enable cron service
   ansible.builtin.service:
