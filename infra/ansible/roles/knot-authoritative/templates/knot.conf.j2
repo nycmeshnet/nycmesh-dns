@@ -26,8 +26,8 @@ template:
     storage: /var/lib/knot/zones
 
 key:
-  - id: doh.mesh.nycmesh.net
-    algorithm: hmac-sha384
+  - id: doh.mesh.nycmesh.net.
+    algorithm: hmac-sha512
     secret: {{ TSIG_KEY_DOH }}
 
 acl:
@@ -36,7 +36,7 @@ acl:
     update-type: [TXT]
     update-owner-match: equal
     update-owner-name: acme-challenge.doh.mesh.nycmesh.net.
-    key: doh.mesh.nycmesh.net
+    key: doh.mesh.nycmesh.net.
 
 zone:
   - domain: mesh
