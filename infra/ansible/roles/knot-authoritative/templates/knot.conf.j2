@@ -33,6 +33,9 @@ key:
 acl:
   - id: acl-update-doh
     action: update
+    update-type: [TXT]
+    update-owner-match: equal
+    update-owner-name: acme-challenge.doh.mesh.nycmesh.net.
     key: doh.mesh.nycmesh.net
 
 zone:
