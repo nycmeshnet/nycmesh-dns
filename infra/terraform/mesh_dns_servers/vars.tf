@@ -153,3 +153,15 @@ variable "dns_cookie_secret" {
   description = "0x{32 hex chars} used for secret for dns cookies"
   sensitive   = true
 }
+
+variable "tsig_key_doh" {
+  type        = string
+  description = "TSIG key for the doh.mesh.nycmesh.net zone"
+  sensitive   = true
+}
+
+variable "enable_doh" {
+  type        = string
+  description = "Enable doh server on recursive resolver"
+  default     = ""
+}

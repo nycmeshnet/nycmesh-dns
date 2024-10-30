@@ -27,6 +27,10 @@ modules = {
 -- Set NSID
 nsid.name('{{ SERVER_HOSTNAME }}')
 
+{% if DOH_SERVER != "" %}
+net.tls("/etc/knot-resolver/server-cert.pem", "/etc/knot-resolver/server-key.pem")
+{% endif %}
+
 -- Mesh from mesh
 view:addr('10.0.0.0/8', policy.suffix(policy.STUB('10.10.10.11'), policy.todnames({'mesh.', 'mesh.nycmesh.net.'})))
 view:addr('23.158.16.0/24', policy.suffix(policy.STUB('10.10.10.11'), policy.todnames({'mesh.', 'mesh.nycmesh.net.'})))

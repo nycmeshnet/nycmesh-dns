@@ -87,8 +87,7 @@ wazuh A 10.70.90.75
 jamesprojects A 10.70.90.53
 
 ; doh
-; Temporarily to jon for prototyping
-doh NS nycmesh-713-jon-dns-auth-1
+doh NS nycmesh-713-dns-auth-4
 
 ; Reserved as services are made
 null A 10.10.10.254

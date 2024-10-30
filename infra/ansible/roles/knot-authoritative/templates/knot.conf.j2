@@ -25,10 +25,26 @@ template:
     global-module: mod-stats
     storage: /var/lib/knot/zones
 
+key:
+  - id: doh.mesh.nycmesh.net.
+    algorithm: hmac-sha512
+    secret: {{ TSIG_KEY_DOH }}
+
+acl:
+  - id: acl-update-doh
+    action: update
+    update-type: [TXT]
+    update-owner-match: equal
+    update-owner-name: acme-challenge.doh.mesh.nycmesh.net.
+    key: doh.mesh.nycmesh.net.
+
 zone:
   - domain: mesh
   - domain: mesh.nycmesh.net
     file: mesh.zone
+  - domain: doh.mesh.nycmesh.net
+    file: doh.mesh.nycmesh.net.zone
+    acl: acl-update-doh
   - domain: nycmeshconnect.com
     file: nycmeshconnect.com.zone
   - domain: nycmeshconnect.net
