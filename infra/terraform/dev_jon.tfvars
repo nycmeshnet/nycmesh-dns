@@ -24,6 +24,9 @@ dns_auth_external_ip = [
 dns_rec_external_ip = [
   "", # Blank so it is not created
 ]
+dns_rec_outgoing_ip = [
+  "", # Blank so it is not created
+]
 dns_mgt_network_prefix          = "10.70.90.0"
 dns_mgt_network_host_identifier = "24"
 dns_mgt_gateway                 = "10.70.90.1"

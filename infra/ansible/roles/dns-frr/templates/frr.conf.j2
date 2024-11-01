@@ -15,6 +15,7 @@ router ospf
  network {{ INTERNAL_NETWORK_RANGE }} area 0
  network {{ INTERNAL_LISTEN_IP }}/32 area 0
 {% if EXTERNAL_LISTEN_IP != "" %} network {{ EXTERNAL_LISTEN_IP }}/32 area 0
+{% if EXTERNAL_OUTGOING_IP != "" %} network {{ EXTERNAL_OUTGOING_IP }}/32 area 0
 {% endif %}
 exit
 !

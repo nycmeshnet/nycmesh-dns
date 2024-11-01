@@ -26,6 +26,13 @@
     dest: /etc/netplan/dummy2.yaml
     mode: "640"
 
+- name: dummy3 interface
+  ansible.builtin.template:
+    src: ../templates/netplan_dummy3.yaml.j2
+    dest: /etc/netplan/dummy3.yaml
+    mode: "640"
+  when: EXTERNAL_OUTGOING_IP != ""
+
 - name: eth0 interface
   ansible.builtin.template:
     src: ../templates/netplan_50_cloud_init.yaml.j2
