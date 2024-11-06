@@ -27,6 +27,11 @@ wiki A 18.213.129.204
 mastodon A 199.170.132.101
 building A 10.70.187.216
 grafana A 10.70.90.82
+jon A 10.70.90.52
+nycmesh-10-r630-01 A 10.70.103.186
+nycmesh-10-r630-01-mgmt A 10.70.103.187
+nycmesh-713-r630-01 A 10.70.103.188
+nycmesh-713-r630-01-mgmt A 10.70.103.189
 
 ; Emerson
 gitlab A    10.70.123.5
