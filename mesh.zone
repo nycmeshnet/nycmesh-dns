@@ -93,6 +93,7 @@ devwiki CNAME devdb
 scan A 10.70.90.120
 wazuh A 10.70.90.75
 jamesprojects A 10.70.90.53
+jmstemp A 199.170.132.45
 
 ; doh
 doh NS nycmesh-713-dns-auth-4
