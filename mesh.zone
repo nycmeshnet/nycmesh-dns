@@ -64,14 +64,6 @@ ipmi.petra A 10.70.90.89
 andrew-vpn-endpoint-router A 54.161.165.190
 andrew NS andrew-vpn-endpoint-router
 
-; GH Pages
-gh-pages-test A 185.199.108.153
-gh-pages-test A 185.199.109.153
-gh-pages-test A 185.199.110.153
-gh-pages-test A 185.199.111.153
-_github-pages-challenge-nycmeshnet.gh-pages-test TXT eb245ecc24cba5c7cf81b241c693ff
-www.gh-pages-test CNAME nycmeshnet.github.io
-
 ; Willard
 zabbix A 10.70.90.40
 status A 164.92.117.225
