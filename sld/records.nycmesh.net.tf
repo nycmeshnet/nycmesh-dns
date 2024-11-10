@@ -431,3 +431,18 @@ resource "namedotcom_record" "gsg_displays" {
   record_type = "A"
   answer      = "199.170.132.101"
 }
+
+###### Website Map ######
+resource "namedotcom_record" "website_map" {
+  domain_name = "nycmesh.net"
+  host        = "map"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
+}
+
+resource "namedotcom_record" "website_map_dev" {
+  domain_name = "nycmesh.net"
+  host        = "devmap"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-jon-sn3.nycmesh.net"
+}
