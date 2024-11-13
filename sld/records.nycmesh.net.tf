@@ -131,14 +131,6 @@ resource "namedotcom_record" "record_devsupport_4727325" {
   answer      = "157.245.9.130"
 }
 
-# Grafana at SN1
-resource "namedotcom_record" "record_stats_3588970" {
-  domain_name = "nycmesh.net"
-  host        = "stats"
-  record_type = "A"
-  answer      = "199.167.59.7"
-}
-
 # rDNS
 resource "namedotcom_record" "record_ipv4_3588972" {
   domain_name = "nycmesh.net"
@@ -399,6 +391,14 @@ resource "namedotcom_record" "meshdb_prod_forms" {
 resource "namedotcom_record" "record_stats_new" {
   domain_name = "nycmesh.net"
   host        = "stats-new"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
+}
+
+# Public grafana
+resource "namedotcom_record" "record_stats_cname" {
+  domain_name = "nycmesh.net"
+  host        = "stats"
   record_type = "CNAME"
   answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
 }
