@@ -96,7 +96,7 @@ jmstemp A 199.170.132.45
 doh NS nycmesh-713-dns-auth-4
 
 ; David K
-emergency-dev A 10.70.90.161
+emergency-dev 10.70.90.161
 
 ; Reserved as services are made
 null A 10.10.10.254
