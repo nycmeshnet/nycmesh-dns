@@ -27,7 +27,7 @@ jobs:
         run: terraform fmt -check
       
       - name: Setup kzonecheck
-        run: apt-get update && apt-get install -y knot-dnsutils
+        run: sudo apt-get update && sudo apt-get install -y knot-dnsutils
       
       - name: Run kzonecheck on each zone file
         run: find . -type f -name "*.zone" -exec kzonecheck {} ';'
