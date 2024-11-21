@@ -337,6 +337,21 @@ resource "namedotcom_record" "record__123" {
   record_type = "A"
 }
 
+###### k8s stateless services ######
+resource "namedotcom_record" "k8s_stateless_services_prod" {
+  domain_name = "nycmesh.net"
+  host        = "k8s-stateless-prod"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
+}
+
+resource "namedotcom_record" "k8s_stateless_services_dev" {
+  domain_name = "nycmesh.net"
+  host        = "k8s-stateless-dev"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-jon-sn3.nycmesh.net"
+}
+
 ###### Meshdb Prod ######
 resource "namedotcom_record" "meshdb_prod_k8s_lb" {
   domain_name = "nycmesh.net"
