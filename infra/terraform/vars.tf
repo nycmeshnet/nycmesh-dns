@@ -4,12 +4,6 @@ variable "proxmox_host" {
   default     = "10.70.90.52"
 }
 
-variable "proxmox_prod_host" {
-  type        = string
-  description = "ip/domain of the proxmox server"
-  default     = "10.70.90.195"
-}
-
 variable "proxmox_token_id" {
   type        = string
   description = "proxmox server token id"
