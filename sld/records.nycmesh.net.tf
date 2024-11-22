@@ -345,6 +345,20 @@ resource "namedotcom_record" "meshdb_prod_k8s_lb" {
   answer      = "199.170.132.45"
 }
 
+resource "namedotcom_record" "meshdb_prod_sn10_k8s_lb" {
+  domain_name = "nycmesh.net"
+  host        = "kubernetes-lb-prod-sn10"
+  record_type = "A"
+  answer      = "199.167.59.103"
+}
+
+resource "namedotcom_record" "meshdb_prod_sn10_meshdb" {
+  domain_name = "nycmesh.net"
+  host        = "sn10temp"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-prod-sn10.nycmesh.net"
+}
+
 resource "namedotcom_record" "meshdb_prod_meshdb" {
   domain_name = "nycmesh.net"
   host        = "db"
