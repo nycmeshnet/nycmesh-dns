@@ -385,7 +385,7 @@ resource "namedotcom_record" "meshdb_prod_meshdb" {
   domain_name = "nycmesh.net"
   host        = "db"
   record_type = "CNAME"
-  answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
+  answer      = "kubernetes-lb-prod-sn10.nycmesh.net"
 }
 
 resource "namedotcom_record" "meshdb_prod_map" {
