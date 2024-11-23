@@ -209,6 +209,14 @@ resource "namedotcom_record" "nycmesh-713-dns-auth-4" {
   answer      = "199.170.132.47"
 }
 
+# Authoritative DNS server for the mesh.nycmesh.net zone at SN10
+resource "namedotcom_record" "nycmesh-10-dns-auth-5" {
+  domain_name = "nycmesh.net"
+  host        = "nycmesh-10-dns-auth-5"
+  record_type = "A"
+  answer      = "23.158.16.23"
+}
+
 # Slack redirect
 resource "namedotcom_record" "record_slack_5235473" {
   domain_name = "nycmesh.net"
@@ -297,6 +305,13 @@ resource "namedotcom_record" "record_social_219371944" {
   answer      = "199.170.132.101"
 }
 
+resource "namedotcom_record" "gsg_displays" {
+  domain_name = "nycmesh.net"
+  host        = "gsg-displays"
+  record_type = "A"
+  answer      = "199.170.132.101"
+}
+
 # Typo helper for Mastodon
 resource "namedotcom_record" "record_mastadon_219988024" {
   domain_name = "nycmesh.net"
@@ -337,6 +352,21 @@ resource "namedotcom_record" "record__123" {
   record_type = "A"
 }
 
+###### k8s stateless services ######
+resource "namedotcom_record" "k8s_stateless_services_prod" {
+  domain_name = "nycmesh.net"
+  host        = "k8s-stateless-prod"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-prod-sn10.nycmesh.net"
+}
+
+resource "namedotcom_record" "k8s_stateless_services_dev" {
+  domain_name = "nycmesh.net"
+  host        = "k8s-stateless-dev"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-jon-sn3.nycmesh.net"
+}
+
 ###### Meshdb Prod ######
 resource "namedotcom_record" "meshdb_prod_k8s_lb" {
   domain_name = "nycmesh.net"
@@ -345,25 +375,39 @@ resource "namedotcom_record" "meshdb_prod_k8s_lb" {
   answer      = "199.170.132.45"
 }
 
+resource "namedotcom_record" "meshdb_prod_sn10_k8s_lb" {
+  domain_name = "nycmesh.net"
+  host        = "kubernetes-lb-prod-sn10"
+  record_type = "A"
+  answer      = "23.158.16.22"
+}
+
+resource "namedotcom_record" "meshdb_prod_sn10_meshdb" {
+  domain_name = "nycmesh.net"
+  host        = "sn10temp"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-prod-sn10.nycmesh.net"
+}
+
 resource "namedotcom_record" "meshdb_prod_meshdb" {
   domain_name = "nycmesh.net"
   host        = "db"
   record_type = "CNAME"
-  answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
+  answer      = "kubernetes-lb-prod-sn10.nycmesh.net"
 }
 
 resource "namedotcom_record" "meshdb_prod_map" {
   domain_name = "nycmesh.net"
   host        = "map.db"
   record_type = "CNAME"
-  answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
+  answer      = "k8s-stateless-prod.nycmesh.net"
 }
 
 resource "namedotcom_record" "meshdb_prod_adminmap" {
   domain_name = "nycmesh.net"
   host        = "adminmap.db"
   record_type = "CNAME"
-  answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
+  answer      = "k8s-stateless-prod.nycmesh.net"
 }
 
 resource "namedotcom_record" "meshdb_prod_los-backend" {
@@ -377,14 +421,14 @@ resource "namedotcom_record" "record_los_6530453" {
   domain_name = "nycmesh.net"
   host        = "los"
   record_type = "CNAME"
-  answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
+  answer      = "k8s-stateless-prod.nycmesh.net"
 }
 
 resource "namedotcom_record" "meshdb_prod_forms" {
   domain_name = "nycmesh.net"
   host        = "forms"
   record_type = "CNAME"
-  answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
+  answer      = "k8s-stateless-prod.nycmesh.net"
 }
 
 # (New) Grafana at sn3-esxi [hosted on sn3-k8s]
@@ -392,7 +436,7 @@ resource "namedotcom_record" "record_stats_new" {
   domain_name = "nycmesh.net"
   host        = "stats-new"
   record_type = "CNAME"
-  answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
+  answer      = "k8s-stateless-prod.nycmesh.net"
 }
 
 # Public grafana
@@ -400,7 +444,7 @@ resource "namedotcom_record" "record_stats_cname" {
   domain_name = "nycmesh.net"
   host        = "stats"
   record_type = "CNAME"
-  answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
+  answer      = "k8s-stateless-prod.nycmesh.net"
 }
 
 ###### Meshdb Dev ######
@@ -425,24 +469,17 @@ resource "namedotcom_record" "devdb_all" {
   answer      = "kubernetes-lb-jon-sn3.nycmesh.net"
 }
 
-resource "namedotcom_record" "gsg_displays" {
-  domain_name = "nycmesh.net"
-  host        = "gsg-displays"
-  record_type = "A"
-  answer      = "199.170.132.101"
-}
-
 ###### Website Map ######
 resource "namedotcom_record" "website_map" {
   domain_name = "nycmesh.net"
   host        = "map"
   record_type = "CNAME"
-  answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
+  answer      = "k8s-stateless-prod.nycmesh.net"
 }
 
 resource "namedotcom_record" "website_map_dev" {
   domain_name = "nycmesh.net"
   host        = "devmap"
   record_type = "CNAME"
-  answer      = "kubernetes-lb-jon-sn3.nycmesh.net"
+  answer      = "k8s-stateless-dev.nycmesh.net"
 }
