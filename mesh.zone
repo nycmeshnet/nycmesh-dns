@@ -10,6 +10,7 @@ $TTL 3600
 ; Allocated domains
 dns   A     10.10.10.10
 ns    A     10.10.10.11
+nycmesh-10-dns-auth-5 A 23.158.16.23
 nycmesh-713-dns-auth-4 A 199.170.132.47
 nycmesh-713-jon-dns-auth-1 A 199.170.132.48
 ebook A     10.70.129.51
