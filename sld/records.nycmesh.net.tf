@@ -209,6 +209,14 @@ resource "namedotcom_record" "nycmesh-713-dns-auth-4" {
   answer      = "199.170.132.47"
 }
 
+# Authoritative DNS server for the mesh.nycmesh.net zone at SN10
+resource "namedotcom_record" "nycmesh-10-dns-auth-5" {
+  domain_name = "nycmesh.net"
+  host        = "nycmesh-10-dns-auth-5"
+  record_type = "A"
+  answer      = "23.158.16.23"
+}
+
 # Slack redirect
 resource "namedotcom_record" "record_slack_5235473" {
   domain_name = "nycmesh.net"
@@ -371,7 +379,7 @@ resource "namedotcom_record" "meshdb_prod_sn10_k8s_lb" {
   domain_name = "nycmesh.net"
   host        = "kubernetes-lb-prod-sn10"
   record_type = "A"
-  answer      = "199.167.59.103"
+  answer      = "23.158.16.22"
 }
 
 resource "namedotcom_record" "meshdb_prod_sn10_meshdb" {
