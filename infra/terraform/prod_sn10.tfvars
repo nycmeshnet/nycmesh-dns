@@ -14,7 +14,7 @@ dns_rec_internal_ip = [
   "10.70.100.46",
 ]
 dns_auth_external_ip = [
-  "199.167.59.102",
+  "23.158.16.23",
 ]
 dns_rec_external_ip = [
   "", # Blank so it is not created
