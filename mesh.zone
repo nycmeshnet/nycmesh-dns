@@ -3,6 +3,7 @@ $TTL 3600
 @  SOA   10.10.10.11. hostmaster.nycmesh.net. ( 2019090700 1d 2h 4w 1h )
 @  NS    ns
 @  NS    nycmesh-713-dns-auth-4
+@  NS    nycmesh-10-dns-auth-5
 @  A     10.10.10.11             ; IPv4 address for example.com
 
 @ MX 10 mail

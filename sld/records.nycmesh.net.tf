@@ -217,6 +217,14 @@ resource "namedotcom_record" "nycmesh-713-dns-auth-4" {
   answer      = "199.170.132.47"
 }
 
+# NS record for the authoritative server for mesh.nycmesh.net at SN10
+resource "namedotcom_record" "mesh_ns_nycmesh-10-dns-auth-5" {
+  domain_name = "nycmesh.net"
+  host        = "mesh"
+  record_type = "NS"
+  answer      = "nycmesh-10-dns-auth-5.nycmesh.net"
+}
+
 # Authoritative DNS server for the mesh.nycmesh.net zone at SN10
 resource "namedotcom_record" "nycmesh-10-dns-auth-5" {
   domain_name = "nycmesh.net"
