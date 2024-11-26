@@ -7,7 +7,7 @@ resource "ansible_group" "knot-recursive" {
     telegraf_knot                = ""
     telegraf_kresd               = "enable"
     DOH_SERVER                   = var.enable_doh
-    MAIN_AUTH_SERVER_DOH         = var.dns_auth_internal_ip[0]
+    MAIN_AUTH_SERVER_DOH         = var.main_auth_server_ip
     TSIG_KEY_DOH                 = var.tsig_key_doh
   }
 }
@@ -42,7 +42,7 @@ resource "ansible_host" "rec-dns-mgt" {
     LOCAL_PASSWORD                   = var.mesh_dns_local_password
     DATADOG_API_KEY                  = var.datadog_api_key
     DATADOG_SITE                     = var.datadog_site
-    CERTBOT_UPDATE_HOUR              = tostring(count.index)
+    CERTBOT_UPDATE_HOUR              = tostring(sum([1, count.index, var.hostname_count_offset]))
   }
 }
 

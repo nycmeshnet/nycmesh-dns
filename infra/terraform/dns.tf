@@ -28,4 +28,5 @@ module "some_mesh_dns_servers" {
   dns_cookie_secret               = var.dns_cookie_secret
   tsig_key_doh                    = var.tsig_key_doh
   enable_doh                      = var.enable_doh
+  main_auth_server_ip             = var.main_auth_server_ip
 }

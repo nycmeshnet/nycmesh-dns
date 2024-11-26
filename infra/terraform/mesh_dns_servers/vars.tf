@@ -165,3 +165,8 @@ variable "enable_doh" {
   description = "Enable doh server on recursive resolver"
   default     = ""
 }
+
+variable "main_auth_server_ip" {
+  type        = string
+  description = "authoritative server IP to use for DoH certs"
+}
