@@ -1,0 +1,68 @@
+-- Network interface configuration
+net.listen('127.0.0.1', 53, { kind = 'dns' })
+net.listen('127.0.0.1', 853, { kind = 'tls' })
+--net.listen('127.0.0.1', 443, { kind = 'doh2' })
+net.listen('127.0.0.1', 9100, {kind = 'webmgmt'})
+
+-- INTERNAL_LISTEN_IP
+net.listen('{{ INTERNAL_LISTEN_IP }}', 53, { kind = 'dns' })
+net.listen('{{ INTERNAL_LISTEN_IP }}', 443, { kind = 'doh2' })
+
+{% if EXTERNAL_LISTEN_IP != "" %}
+-- EXTERNAL_LISTEN_IP
+net.listen('{{ EXTERNAL_LISTEN_IP }}', 53, { kind = 'dns' })
+net.listen('{{ EXTERNAL_LISTEN_IP }}', 443, { kind = 'doh2' })
+{% endif %}
+
+-- Load useful modules
+modules = {
+        'hints > iterate',  -- Allow loading /etc/hosts or custom root hints
+        'stats',            -- Track internal statistics
+        'http',             -- Stats in metrics format
+        'policy',           -- Allow/deny requests
+        'view',             -- Consider query sources
+        'nsid',             -- Name Server Identifier (NSID)
+}
+
+-- Set NSID
+nsid.name('{{ SERVER_HOSTNAME }}')
+
+{% if DOH_SERVER != "" %}
+net.tls("/etc/knot-resolver/server-cert.pem", "/etc/knot-resolver/server-key.pem")
+{% endif %}
+
+-- Mesh from mesh
+view:addr('10.0.0.0/8', policy.suffix(policy.STUB('10.10.10.11'), policy.todnames({'mesh.', 'mesh.nycmesh.net.'})))
+view:addr('23.158.16.0/24', policy.suffix(policy.STUB('10.10.10.11'), policy.todnames({'mesh.', 'mesh.nycmesh.net.'})))
+view:addr('199.167.59.0/24', policy.suffix(policy.STUB('10.10.10.11'), policy.todnames({'mesh.', 'mesh.nycmesh.net.'})))
+view:addr('199.170.132.0/24', policy.suffix(policy.STUB('10.10.10.11'), policy.todnames({'mesh.', 'mesh.nycmesh.net.'})))
+view:addr('208.68.5.0/24', policy.suffix(policy.STUB('10.10.10.11'), policy.todnames({'mesh.', 'mesh.nycmesh.net.'})))
+
+-- Allow all from mesh
+view:addr('127.0.0.0/8', policy.all(policy.PASS))
+view:addr('10.0.0.0/8', policy.all(policy.PASS))
+view:addr('23.158.16.0/24', policy.all(policy.PASS))
+view:addr('199.167.59.0/24', policy.all(policy.PASS))
+view:addr('199.170.132.0/24', policy.all(policy.PASS))
+view:addr('208.68.5.0/24', policy.all(policy.PASS))
+
+-- Do not answer requests from bogons
+view:addr('0.0.0.0/8', policy.all(policy.NO_ANSWER)) -- This
+view:addr('100.64.0.0/10', policy.all(policy.NO_ANSWER)) -- CGNAT
+view:addr('169.254.0.0/16', policy.all(policy.NO_ANSWER)) -- Local link
+view:addr('172.16.0.0/12', policy.all(policy.NO_ANSWER)) -- Private
+view:addr('192.0.0.0/24', policy.all(policy.NO_ANSWER)) -- Private
+view:addr('192.0.2.0/24', policy.all(policy.NO_ANSWER)) -- Test net
+view:addr('192.168.0.0/16', policy.all(policy.NO_ANSWER)) --Private
+view:addr('198.18.0.0/15', policy.all(policy.NO_ANSWER)) -- Private
+view:addr('198.51.100.0/24', policy.all(policy.NO_ANSWER)) -- Test net
+view:addr('203.0.113.0/24', policy.all(policy.NO_ANSWER)) -- Test net
+view:addr('224.0.0.0/3', policy.all(policy.NO_ANSWER)) -- Multicast
+
+-- Deny other
+view:addr('0.0.0.0/0', policy.all(policy.REFUSE))
+
+
+-- Cache size
+cache.storage = 'lmdb:///var/cache/knot-resolver-cache'
+cache.size = cache.fssize() - 1000*MB - 10*MB

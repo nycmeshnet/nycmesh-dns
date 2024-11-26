@@ -1,0 +1,13 @@
+
+DOMAIN="doh.mesh.nycmesh.net"
+
+/root/certbot_venv/bin/certbot certonly \
+  --dns-rfc2136 \
+  --dns-rfc2136-credentials /root/tsig.ini \
+  --non-interactive \
+  --agree-tos \
+  -m jameso@nycmesh.net \
+  -d $DOMAIN
+
+cat /etc/letsencrypt/live/$DOMAIN/fullchain.pem > /etc/knot-resolver/server-cert.pem
+cat /etc/letsencrypt/live/$DOMAIN/privkey.pem > /etc/knot-resolver/server-key.pem

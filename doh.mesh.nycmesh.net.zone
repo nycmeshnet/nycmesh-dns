@@ -1,0 +1,13 @@
+$TTL 3600
+@  SOA   ( nycmesh-713-dns-auth-4 hostmaster.nycmesh.net. 2024101000 1d 2h 4w 1h )
+@  NS    nycmesh-713-dns-auth-4
+
+; Authoritative DNS servers
+nycmesh-713-dns-auth-4 A 199.170.132.47
+
+; Recursive resolvers
+nycmesh-713-dns-rec-4 A 10.70.90.133
+nycmesh-713-jon-dns-rec-1 A 10.70.90.137
+
+; doh.mesh.nycmesh.net
+@ A 10.70.90.133
