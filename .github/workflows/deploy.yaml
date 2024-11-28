@@ -25,7 +25,7 @@ jobs:
   deploy_sn10_prod:
     name: Deploy to sn10 prod
     uses: ./.github/workflows/deploy_dns_environment.yaml
-    needs: deploy_jon
+    #needs: deploy_jon
     with:
       environment: prod_sn10
     secrets: inherit
@@ -34,7 +34,7 @@ jobs:
   deploy_sn3_prod:
     name: Deploy to sn3 prod
     uses: ./.github/workflows/deploy_dns_environment.yaml
-    needs: deploy_jon
+    #needs: deploy_sn10_prod
     with:
       environment: prod_sn3
     secrets: inherit
