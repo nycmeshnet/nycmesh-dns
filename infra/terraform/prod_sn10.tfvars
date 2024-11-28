@@ -3,20 +3,26 @@ proxmox_storage_location = "local-lvm"
 vm_nic                   = "vmbr1"
 dns_auth_mgt_ip = [
   "10.70.100.43",
+  "10.70.100.52",
 ]
 dns_rec_mgt_ip = [
   "10.70.100.44",
+  "10.70.100.53",
 ]
 dns_auth_internal_ip = [
+  "10.70.100.45",
   "10.70.100.45",
 ]
 dns_rec_internal_ip = [
   "10.70.90.133",
+  "10.70.90.133",
 ]
 dns_auth_external_ip = [
   "23.158.16.23",
+  "23.158.16.23",
 ]
 dns_rec_external_ip = [
+  "", # Blank so it is not created
   "", # Blank so it is not created
 ]
 dns_mgt_network_prefix          = "10.70.100.0"

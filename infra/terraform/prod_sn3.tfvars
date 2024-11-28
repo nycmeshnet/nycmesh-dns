@@ -33,4 +33,4 @@ hostname_count_offset           = 2
 recursive_cores                 = 5
 recursive_sockets               = 1
 recursive_memory                = 4096
-enable_doh                      = ""
+enable_doh                      = "enable"
