@@ -38,6 +38,16 @@ variable "dns_rec_mgt_ip" {
   description = "management IPs for the recursive dns vm(s)"
 }
 
+variable "dns_auth_router_ip" {
+  type        = list(string)
+  description = "ospf router IDs for the authoritative dns vm(s)"
+}
+
+variable "dns_rec_router_ip" {
+  type        = list(string)
+  description = "ospf router IDs for the recursive dns vm(s)"
+}
+
 variable "dns_auth_internal_ip" {
   type        = list(any)
   description = "internal listen IPs for the authoritative dns vm(s)"
