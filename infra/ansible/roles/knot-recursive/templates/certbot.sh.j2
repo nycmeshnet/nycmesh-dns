@@ -17,4 +17,10 @@ if [ ! -f "$full_chain_path" ] || [ ! -f "$priv_key_path" ]; then
 else
   cat $full_chain_path > /etc/knot-resolver/server-cert.pem
   cat $priv_key_path > /etc/knot-resolver/server-key.pem
+
+  proc_count="$(grep processor /proc/cpuinfo | wc -l)"
+  for ((i = 1; i < $proc_count; ++i)); do
+    systemctl restart kresd@$i.service
+    sleep 5
+  done
 fi
