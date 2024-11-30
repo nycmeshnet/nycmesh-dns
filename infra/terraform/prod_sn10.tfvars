@@ -27,7 +27,7 @@ dns_rec_internal_ip = [
 ]
 dns_auth_external_ip = [
   "23.158.16.23",
-  "23.158.16.23",
+  "199.170.132.47",
 ]
 dns_rec_external_ip = [
   "", # Blank so it is not created
