@@ -9,6 +9,8 @@ module "some_mesh_dns_servers" {
   dns_local_user                  = "debian"
   dns_auth_mgt_ip                 = var.dns_auth_mgt_ip
   dns_rec_mgt_ip                  = var.dns_rec_mgt_ip
+  dns_auth_router_ip              = var.dns_auth_router_ip
+  dns_rec_router_ip               = var.dns_rec_router_ip
   dns_auth_internal_ip            = var.dns_auth_internal_ip
   dns_rec_internal_ip             = var.dns_rec_internal_ip
   dns_auth_external_ip            = var.dns_auth_external_ip
