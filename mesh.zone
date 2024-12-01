@@ -1,6 +1,6 @@
 ; $ORIGIN mesh.
 $TTL 3600
-@  SOA   10.10.10.11. hostmaster.nycmesh.net. ( 2019090700 1d 2h 4w 1h )
+@  SOA   nycmesh-10-dns-auth-5 hostmaster.nycmesh.net. ( 2024120100 1d 2h 4w 1h )
 @  NS    ns
 @  NS    nycmesh-713-dns-auth-3
 @  NS    nycmesh-10-dns-auth-5
