@@ -6,6 +6,12 @@ dns_auth_mgt_ip = [
 dns_rec_mgt_ip = [
   "10.70.90.135",
 ]
+dns_auth_router_ip = [
+  "10.70.90.183",
+]
+dns_rec_router_ip = [
+  "10.70.90.184",
+]
 dns_auth_internal_ip = [
   "10.70.90.136",
 ]

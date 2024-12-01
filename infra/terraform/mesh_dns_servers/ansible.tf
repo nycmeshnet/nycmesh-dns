@@ -7,7 +7,7 @@ resource "ansible_group" "knot-recursive" {
     telegraf_knot                = ""
     telegraf_kresd               = "enable"
     DOH_SERVER                   = var.enable_doh
-    MAIN_AUTH_SERVER_DOH         = var.dns_auth_internal_ip[0]
+    MAIN_AUTH_SERVER_DOH         = var.main_auth_server_ip
     TSIG_KEY_DOH                 = var.tsig_key_doh
   }
 }
@@ -32,6 +32,7 @@ resource "ansible_host" "rec-dns-mgt" {
   groups = [ansible_group.knot-recursive.name]
   variables = {
     SERVER_HOSTNAME                  = "${var.hostname_prefix}-dns-rec-${sum([1, count.index, var.hostname_count_offset])}"
+    ROUTER_IP                        = var.dns_rec_router_ip[count.index]
     EXTERNAL_LISTEN_IP               = var.dns_rec_external_ip[count.index]
     INTERNAL_NETWORK_RANGE           = format("%s/%s", var.dns_mgt_network_prefix, var.dns_mgt_network_host_identifier)
     INTERNAL_NETWORK_HOST_IDENTIFIER = var.dns_mgt_network_host_identifier
@@ -42,7 +43,7 @@ resource "ansible_host" "rec-dns-mgt" {
     LOCAL_PASSWORD                   = var.mesh_dns_local_password
     DATADOG_API_KEY                  = var.datadog_api_key
     DATADOG_SITE                     = var.datadog_site
-    CERTBOT_UPDATE_HOUR              = tostring(count.index)
+    CERTBOT_UPDATE_HOUR              = tostring(sum([1, count.index, var.hostname_count_offset]))
   }
 }
 
@@ -52,6 +53,7 @@ resource "ansible_host" "auth-dns-mgt" {
   groups = [ansible_group.knot-authoritative.name]
   variables = {
     SERVER_HOSTNAME                  = "${var.hostname_prefix}-dns-auth-${sum([1, count.index, var.hostname_count_offset])}"
+    ROUTER_IP                        = var.dns_auth_router_ip[count.index]
     EXTERNAL_LISTEN_IP               = var.dns_auth_external_ip[count.index]
     INTERNAL_NETWORK_RANGE           = format("%s/%s", var.dns_mgt_network_prefix, var.dns_mgt_network_host_identifier)
     INTERNAL_NETWORK_HOST_IDENTIFIER = var.dns_mgt_network_host_identifier

@@ -20,6 +20,12 @@
     mode: "640"
   when: EXTERNAL_LISTEN_IP != ""
 
+- name: dummy2 interface
+  ansible.builtin.template:
+    src: ../templates/netplan_dummy2.yaml.j2
+    dest: /etc/netplan/dummy2.yaml
+    mode: "640"
+
 - name: eth0 interface
   ansible.builtin.template:
     src: ../templates/netplan_50_cloud_init.yaml.j2
