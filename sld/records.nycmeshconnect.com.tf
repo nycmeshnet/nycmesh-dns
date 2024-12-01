@@ -43,3 +43,11 @@ resource "namedotcom_record" "nycmesh-713-dns-auth-3-nycmeshconnect-com" {
   record_type = "A"
   answer      = "199.170.132.47"
 }
+
+# Authoritative DNS server at SN10
+resource "namedotcom_record" "nycmesh-10-dns-auth-5-nycmeshconnect-com" {
+  domain_name = "nycmeshconnect.com"
+  host        = "nycmesh-10-dns-auth-5"
+  record_type = "A"
+  answer      = "23.158.16.23"
+}
