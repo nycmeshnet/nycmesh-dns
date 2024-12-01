@@ -202,17 +202,17 @@ resource "namedotcom_record" "record_nycmesh-375p-dns1-authoritative_5233306" {
 }
 
 # NS record for the authoritative server for mesh.nycmesh.net at SN3
-resource "namedotcom_record" "mesh_ns_nycmesh-713-dns-auth-4" {
+resource "namedotcom_record" "mesh_ns_nycmesh-713-dns-auth-3" {
   domain_name = "nycmesh.net"
   host        = "mesh"
   record_type = "NS"
-  answer      = "nycmesh-713-dns-auth-4.nycmesh.net"
+  answer      = "nycmesh-713-dns-auth-3.nycmesh.net"
 }
 
 # Authoritative DNS server for the mesh.nycmesh.net zone at SN3
-resource "namedotcom_record" "nycmesh-713-dns-auth-4" {
+resource "namedotcom_record" "nycmesh-713-dns-auth-3" {
   domain_name = "nycmesh.net"
-  host        = "nycmesh-713-dns-auth-4"
+  host        = "nycmesh-713-dns-auth-3"
   record_type = "A"
   answer      = "199.170.132.47"
 }

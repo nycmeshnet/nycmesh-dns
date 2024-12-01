@@ -36,9 +36,9 @@ resource "namedotcom_record" "themesh_nyc_www_cname" {
 }
 
 # Authoritative DNS server at SN3
-resource "namedotcom_record" "nycmesh-713-dns-auth-4-themesh-nyc" {
+resource "namedotcom_record" "nycmesh-713-dns-auth-3-themesh-nyc" {
   domain_name = "themesh.nyc"
-  host        = "nycmesh-713-dns-auth-4"
+  host        = "nycmesh-713-dns-auth-3"
   record_type = "A"
   answer      = "199.170.132.47"
 }

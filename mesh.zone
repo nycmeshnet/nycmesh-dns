@@ -2,7 +2,7 @@
 $TTL 3600
 @  SOA   10.10.10.11. hostmaster.nycmesh.net. ( 2019090700 1d 2h 4w 1h )
 @  NS    ns
-@  NS    nycmesh-713-dns-auth-4
+@  NS    nycmesh-713-dns-auth-3
 @  NS    nycmesh-10-dns-auth-5
 @  A     10.10.10.11             ; IPv4 address for example.com
 
@@ -13,7 +13,7 @@ $TTL 3600
 dns   A     10.10.10.10
 ns    A     10.10.10.11
 nycmesh-10-dns-auth-5 A 23.158.16.23
-nycmesh-713-dns-auth-4 A 199.170.132.47
+nycmesh-713-dns-auth-3 A 199.170.132.47
 nycmesh-713-jon-dns-auth-1 A 199.170.132.48
 ebook A     10.70.129.51
 something A 1.1.1.1
@@ -98,7 +98,7 @@ jamesprojects A 10.70.90.53
 jmstemp A 199.170.132.45
 
 ; doh
-doh NS nycmesh-713-dns-auth-4
+doh NS nycmesh-713-dns-auth-3
 
 ; David K
 emergency-dev A 10.70.90.161
