@@ -185,7 +185,7 @@ resource "namedotcom_record" "record_nycmesh-375p-dns1-resolver_5233305" {
   answer      = "199.167.59.10"
 }
 
-# NS record for the mesh.nycmesh.net zone
+# NS record for the authoritative server for mesh.nycmesh.net at SN1
 resource "namedotcom_record" "record_mesh_5226462" {
   domain_name = "nycmesh.net"
   host        = "mesh"
@@ -201,12 +201,48 @@ resource "namedotcom_record" "record_nycmesh-375p-dns1-authoritative_5233306" {
   answer      = "199.167.59.11"
 }
 
+# NS record for the authoritative servers for mesh.nycmesh.net at SN3 + SN10
+# nycmesh-713-dns-auth-3
+# nycmesh-10-dns-auth-6
+resource "namedotcom_record" "mesh_ns_nycmesh-713-dns-auth-3" {
+  domain_name = "nycmesh.net"
+  host        = "mesh"
+  record_type = "NS"
+  answer      = "nycmesh-713-dns-auth-3.nycmesh.net"
+}
+
+# Authoritative DNS server for the mesh.nycmesh.net zone at SN3
+resource "namedotcom_record" "nycmesh-713-dns-auth-3" {
+  domain_name = "nycmesh.net"
+  host        = "nycmesh-713-dns-auth-3"
+  record_type = "A"
+  answer      = "199.170.132.47"
+}
+
+# Authoritative DNS server for the mesh.nycmesh.net zone at SN10
+resource "namedotcom_record" "nycmesh-10-dns-auth-6" {
+  domain_name = "nycmesh.net"
+  host        = "nycmesh-10-dns-auth-6"
+  record_type = "A"
+  answer      = "199.170.132.47"
+}
+
+# NS record for the authoritative servers for mesh.nycmesh.net at SN10 + SN3
+# nycmesh-713-dns-auth-4
+# nycmesh-10-dns-auth-5
+resource "namedotcom_record" "mesh_ns_nycmesh-10-dns-auth-5" {
+  domain_name = "nycmesh.net"
+  host        = "mesh"
+  record_type = "NS"
+  answer      = "nycmesh-10-dns-auth-5.nycmesh.net"
+}
+
 # Authoritative DNS server for the mesh.nycmesh.net zone at SN3
 resource "namedotcom_record" "nycmesh-713-dns-auth-4" {
   domain_name = "nycmesh.net"
   host        = "nycmesh-713-dns-auth-4"
   record_type = "A"
-  answer      = "199.170.132.47"
+  answer      = "23.158.16.23"
 }
 
 # Authoritative DNS server for the mesh.nycmesh.net zone at SN10
