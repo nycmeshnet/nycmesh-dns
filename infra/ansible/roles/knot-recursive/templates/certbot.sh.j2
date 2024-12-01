@@ -9,5 +9,18 @@ DOMAIN="doh.mesh.nycmesh.net"
   -m jameso@nycmesh.net \
   -d $DOMAIN
 
-cat /etc/letsencrypt/live/$DOMAIN/fullchain.pem > /etc/knot-resolver/server-cert.pem
-cat /etc/letsencrypt/live/$DOMAIN/privkey.pem > /etc/knot-resolver/server-key.pem
+full_chain_path="/etc/letsencrypt/live/$DOMAIN/fullchain.pem"
+priv_key_path="/etc/letsencrypt/live/$DOMAIN/privkey.pem"
+
+if [ ! -f "$full_chain_path" ] || [ ! -f "$priv_key_path" ]; then
+  exit 1
+else
+  cat $full_chain_path > /etc/knot-resolver/server-cert.pem
+  cat $priv_key_path > /etc/knot-resolver/server-key.pem
+
+  proc_count="$(grep processor /proc/cpuinfo | wc -l)"
+  for ((i = 1; i < $proc_count; ++i)); do
+    systemctl restart kresd@$i.service
+    sleep 5
+  done
+fi

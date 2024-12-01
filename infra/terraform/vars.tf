@@ -4,12 +4,6 @@ variable "proxmox_host" {
   default     = "10.70.90.52"
 }
 
-variable "proxmox_prod_host" {
-  type        = string
-  description = "ip/domain of the proxmox server"
-  default     = "10.70.90.195"
-}
-
 variable "proxmox_token_id" {
   type        = string
   description = "proxmox server token id"
@@ -63,6 +57,16 @@ variable "dns_auth_mgt_ip" {
 variable "dns_rec_mgt_ip" {
   type        = list(any)
   description = "management IPs for the recursive dns vm(s)"
+}
+
+variable "dns_auth_router_ip" {
+  type        = list(string)
+  description = "ospf router IDs for the authoritative dns vm(s)"
+}
+
+variable "dns_rec_router_ip" {
+  type        = list(string)
+  description = "ospf router IDs for the recursive dns vm(s)"
 }
 
 variable "dns_auth_internal_ip" {
@@ -169,4 +173,10 @@ variable "enable_doh" {
   type        = string
   description = "Enable doh server on recursive resolver"
   default     = ""
+}
+
+variable "main_auth_server_ip" {
+  type        = string
+  description = "authoritative server IP to use for DoH certs"
+  default     = "199.170.132.47"
 }

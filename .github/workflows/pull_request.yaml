@@ -3,18 +3,12 @@ name: "Pull Request"
 
 on:
   pull_request:
-    paths:
-      - 'sld/**'
 
 permissions: read-all
 
-defaults:
-  run:
-    working-directory: sld
-
 jobs:
-  terraform:
-    name: "Terraform"
+  validations:
+    name: "Validate"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -26,5 +20,11 @@ jobs:
           terraform_version: 1.8.3
 
       - name: Terraform format
-        id: fmt
         run: terraform fmt -check
+        working-directory: sld
+      
+      - name: Setup kzonecheck
+        run: sudo apt-get update && sudo apt-get install -y knot-dnsutils
+      
+      - name: Run kzonecheck on each zone file
+        run: find . -type f -name "*.zone" -print0 | xargs -0L1 kzonecheck -v

@@ -412,13 +412,6 @@ resource "namedotcom_record" "meshdb_prod_meshdb" {
   answer      = "kubernetes-lb-prod-sn10.nycmesh.net"
 }
 
-resource "namedotcom_record" "meshdb_prod_map" {
-  domain_name = "nycmesh.net"
-  host        = "map.db"
-  record_type = "CNAME"
-  answer      = "k8s-stateless-prod.nycmesh.net"
-}
-
 resource "namedotcom_record" "meshdb_prod_adminmap" {
   domain_name = "nycmesh.net"
   host        = "adminmap.db"

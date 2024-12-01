@@ -1,7 +1,7 @@
 resource "proxmox_vm_qemu" "recursive_dns_vm" {
-  count       = 1
+  count       = length(var.dns_rec_mgt_ip)
   name        = "${var.hostname_prefix}-dns-rec-${sum([1, count.index, var.hostname_count_offset])}"
-  desc        = "authoritative knot ${count.index}"
+  desc        = "Recursive knot ${count.index}"
   target_node = var.proxmox_node
 
   clone = var.proxmox_template_image
@@ -46,7 +46,7 @@ resource "proxmox_vm_qemu" "recursive_dns_vm" {
     type = "socket"
   }
 
-  tags = "dns;managed_by_iac"
+  tags = "dns,managed_by_iac"
 
   lifecycle {
     ignore_changes = [
