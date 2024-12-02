@@ -26,6 +26,7 @@ wiki A 18.213.129.204
 mastodon A 199.170.132.101
 building A 10.70.187.216
 grafana A 10.70.90.82
+devwiki A 199.170.132.46
 
 ; Emerson
 gitlab A    10.70.123.5
@@ -75,7 +76,6 @@ map CNAME grandsvc
 los CNAME grandsvc
 los-backend CNAME grandsvc
 pgadmin CNAME grandsvc
-
 
 ; James
 scan A 10.70.90.120
