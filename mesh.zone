@@ -37,6 +37,7 @@ nycmesh-713-r630-01 A 10.70.103.188
 nycmesh-713-r630-01-mgmt A 10.70.103.189
 grafana-dev A 10.70.90.146
 grafana-new A 10.70.90.152
+devwiki A 199.170.132.46
 
 ; Emerson
 gitlab A    10.70.123.5
@@ -86,10 +87,6 @@ map CNAME grandsvc
 los CNAME grandsvc
 los-backend CNAME grandsvc
 pgadmin CNAME grandsvc
-
-; k8s-infra dev
-devdb A 199.170.132.46
-devwiki CNAME devdb
 
 ; James
 scan A 10.70.90.120
