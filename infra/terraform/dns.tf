@@ -9,6 +9,8 @@ module "some_mesh_dns_servers" {
   dns_local_user                  = "debian"
   dns_auth_mgt_ip                 = var.dns_auth_mgt_ip
   dns_rec_mgt_ip                  = var.dns_rec_mgt_ip
+  dns_auth_router_ip              = var.dns_auth_router_ip
+  dns_rec_router_ip               = var.dns_rec_router_ip
   dns_auth_internal_ip            = var.dns_auth_internal_ip
   dns_rec_internal_ip             = var.dns_rec_internal_ip
   dns_auth_external_ip            = var.dns_auth_external_ip
@@ -26,4 +28,7 @@ module "some_mesh_dns_servers" {
   datadog_api_key                 = var.datadog_api_key
   datadog_site                    = var.datadog_site
   dns_cookie_secret               = var.dns_cookie_secret
+  tsig_key_doh                    = var.tsig_key_doh
+  enable_doh                      = var.enable_doh
+  main_auth_server_ip             = var.main_auth_server_ip
 }

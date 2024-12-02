@@ -6,6 +6,12 @@ dns_auth_mgt_ip = [
 dns_rec_mgt_ip = [
   "10.70.90.135",
 ]
+dns_auth_router_ip = [
+  "10.70.90.183",
+]
+dns_rec_router_ip = [
+  "10.70.90.184",
+]
 dns_auth_internal_ip = [
   "10.70.90.136",
 ]
@@ -26,3 +32,4 @@ hostname_count_offset           = 0
 recursive_cores                 = 4
 recursive_sockets               = 1
 recursive_memory                = 4096
+enable_doh                      = ""

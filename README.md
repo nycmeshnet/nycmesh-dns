@@ -16,8 +16,7 @@ Uses [lexfrei/namedotcom](https://registry.terraform.io/providers/lexfrei/namedo
 1. [nycmesh.net](./sld/records.nycmesh.net.tf)
 2. [nycmeshconnect.com](./sld/records.nycmeshconnect.com.tf)
 3. [nycmeshconnect.net](./sld/records.nycmeshconnect.net.tf)
-4. [themesh.foundation](./sld/records.themesh.foundation.tf)
-5. [themesh.nyc](./sld/records.themesh.nyc.tf)
+4. [themesh.nyc](./sld/records.themesh.nyc.tf)
 
 # Hosting
 

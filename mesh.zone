@@ -1,7 +1,9 @@
 ; $ORIGIN mesh.
 $TTL 3600
-@  SOA   10.10.10.11. noc.nycmesh.net. ( 2019090700 1d 2h 4w 1h )
+@  SOA   10.10.10.11. hostmaster.nycmesh.net. ( 2019090700 1d 2h 4w 1h )
 @  NS    ns
+@  NS    nycmesh-713-dns-auth-3
+@  NS    nycmesh-10-dns-auth-5
 @  A     10.10.10.11             ; IPv4 address for example.com
 
 @ MX 10 mail
@@ -10,7 +12,9 @@ $TTL 3600
 ; Allocated domains
 dns   A     10.10.10.10
 ns    A     10.10.10.11
-nycmesh-713-dns-auth-4 A 199.170.132.47
+nycmesh-10-dns-auth-5 A 23.158.16.23
+nycmesh-713-dns-auth-3 A 199.170.132.47
+nycmesh-713-jon-dns-auth-1 A 199.170.132.48
 ebook A     10.70.129.51
 something A 1.1.1.1
 unms	CNAME uisp
@@ -22,10 +26,17 @@ donuts A 10.70.73.29
 unifi A 10.70.90.158
 netbox A 10.70.90.135
 alerts A 10.70.178.21
-wiki A 18.213.129.204
+wiki A 199.170.132.45
 mastodon A 199.170.132.101
 building A 10.70.187.216
 grafana A 10.70.90.82
+jon A 10.70.90.52
+nycmesh-10-r630-01 A 10.70.103.186
+nycmesh-10-r630-01-mgmt A 10.70.103.187
+nycmesh-713-r630-01 A 10.70.103.188
+nycmesh-713-r630-01-mgmt A 10.70.103.189
+grafana-dev A 10.70.90.146
+grafana-new A 10.70.90.152
 devwiki A 199.170.132.46
 
 ; Emerson
@@ -81,13 +92,13 @@ pgadmin CNAME grandsvc
 scan A 10.70.90.120
 wazuh A 10.70.90.75
 jamesprojects A 10.70.90.53
+jmstemp A 199.170.132.45
 
 ; doh
-; Temporarily to aws for prototyping, will be a separate zone within the mesh later
-doh NS ns-1726.awsdns-23.co.uk
-doh NS ns-850.awsdns-42.net
-doh NS ns-110.awsdns-13.com
-doh NS ns-1321.awsdns-37.org
+doh NS nycmesh-713-dns-auth-3
+
+; David K
+emergency-dev A 10.70.90.161
 
 ; Reserved as services are made
 null A 10.10.10.254
@@ -96,6 +107,11 @@ core A 10.10.10.254
 user A 10.10.10.254
 nms A 10.70.118.10
 scuttle A 10.70.73.4
+lte A 10.70.90.170
+
+; Grand
+room A 10.69.19.134
+meshroom CNAME room
 
 ; Supernode3
 l2tpvpn.sn3 A 199.170.132.6
