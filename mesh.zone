@@ -36,6 +36,7 @@ nycmesh-10-r630-01-mgmt A 10.70.103.187
 nycmesh-713-r630-01 A 10.70.103.188
 nycmesh-713-r630-01-mgmt A 10.70.103.189
 grafana-new A 10.70.90.146
+rsyslog A 10.70.90.198
 
 ; Emerson
 gitlab A    10.70.123.5
