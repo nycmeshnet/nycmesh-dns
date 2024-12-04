@@ -498,6 +498,28 @@ resource "namedotcom_record" "devdb_all" {
   answer      = "kubernetes-lb-jon-sn3.nycmesh.net"
 }
 
+###### Meshdb Gamma ######
+resource "namedotcom_record" "meshdb_gamma_k8s_lb" {
+  domain_name = "nycmesh.net"
+  host        = "kubernetes-lb-gamma-jon-sn3"
+  record_type = "A"
+  answer      = "199.170.132.42"
+}
+
+resource "namedotcom_record" "gammadb" {
+  domain_name = "nycmesh.net"
+  host        = "gammadb"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-gamma-jon-sn3.nycmesh.net"
+}
+
+resource "namedotcom_record" "gammadb_all" {
+  domain_name = "nycmesh.net"
+  host        = "*.gammadb"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-gamma-jon-sn3.nycmesh.net"
+}
+
 ###### Website Map ######
 resource "namedotcom_record" "website_map" {
   domain_name = "nycmesh.net"
