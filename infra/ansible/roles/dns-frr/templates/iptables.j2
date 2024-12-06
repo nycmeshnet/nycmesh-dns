@@ -6,7 +6,6 @@
 -A INPUT -s 10.70.90.53/32 -d {{ INTERNAL_MGT_IP }}/32 -j ACCEPT
 -A INPUT -s 10.70.73.66/32 -d {{ INTERNAL_MGT_IP }}/32 -j ACCEPT
 -A INPUT -s 10.70.0.0/16 -d {{ INTERNAL_MGT_IP }}/32 -j ACCEPT
--A INPUT -s 10.70.0.0/16 -d 10.0.0.0/8 -p tcp --dport 22 -j ACCEPT
 
 {% if INTERNAL_LISTEN_IP != "" %}
 -A INPUT -d {{ INTERNAL_LISTEN_IP }}/32 -p tcp -m tcp --dport 53 -j ACCEPT
