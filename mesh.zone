@@ -1,9 +1,8 @@
 ; $ORIGIN mesh.
 $TTL 3600
-@  SOA   nycmesh-10-dns-auth-5 hostmaster.nycmesh.net. ( 2024120100 1d 2h 4w 1h )
-@  NS    ns
+@  SOA   nycmesh-713-dns-auth-3 hostmaster.nycmesh.net. ( 2024120100 1d 2h 4w 1h )
 @  NS    nycmesh-713-dns-auth-3
-@  NS    nycmesh-10-dns-auth-5
+;@  NS    nycmesh-10-dns-auth-5
 @  A     10.10.10.11             ; IPv4 address for example.com
 
 @ MX 10 mail
@@ -35,8 +34,8 @@ nycmesh-10-r630-01 A 10.70.103.186
 nycmesh-10-r630-01-mgmt A 10.70.103.187
 nycmesh-713-r630-01 A 10.70.103.188
 nycmesh-713-r630-01-mgmt A 10.70.103.189
-grafana-dev A 10.70.90.146
-grafana-new A 10.70.90.152
+grafana-new A 10.70.90.146
+rsyslog A 10.70.90.198
 
 ; Emerson
 gitlab A    10.70.123.5

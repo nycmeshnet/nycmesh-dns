@@ -185,15 +185,7 @@ resource "namedotcom_record" "record_nycmesh-375p-dns1-resolver_5233305" {
   answer      = "199.167.59.10"
 }
 
-# NS record for the authoritative server for mesh.nycmesh.net at SN1
-resource "namedotcom_record" "record_mesh_5226462" {
-  domain_name = "nycmesh.net"
-  host        = "mesh"
-  record_type = "NS"
-  answer      = "nycmesh-375p-dns1-authoritative.nycmesh.net"
-}
-
-# Authoritative DNS server for the mesh.nycmesh.net zone at SN1
+# Former authoritative DNS server for the mesh.nycmesh.net zone at SN1
 resource "namedotcom_record" "record_nycmesh-375p-dns1-authoritative_5233306" {
   domain_name = "nycmesh.net"
   host        = "nycmesh-375p-dns1-authoritative"
@@ -230,12 +222,12 @@ resource "namedotcom_record" "nycmesh-10-dns-auth-6" {
 # NS record for the authoritative servers for mesh.nycmesh.net at SN10 + SN3
 # nycmesh-713-dns-auth-4
 # nycmesh-10-dns-auth-5
-resource "namedotcom_record" "mesh_ns_nycmesh-10-dns-auth-5" {
-  domain_name = "nycmesh.net"
-  host        = "mesh"
-  record_type = "NS"
-  answer      = "nycmesh-10-dns-auth-5.nycmesh.net"
-}
+#resource "namedotcom_record" "mesh_ns_nycmesh-10-dns-auth-5" {
+#  domain_name = "nycmesh.net"
+#  host        = "mesh"
+#  record_type = "NS"
+#  answer      = "nycmesh-10-dns-auth-5.nycmesh.net"
+#}
 
 # Authoritative DNS server for the mesh.nycmesh.net zone at SN3
 resource "namedotcom_record" "nycmesh-713-dns-auth-4" {
@@ -393,7 +385,7 @@ resource "namedotcom_record" "k8s_stateless_services_prod" {
   domain_name = "nycmesh.net"
   host        = "k8s-stateless-prod"
   record_type = "CNAME"
-  answer      = "kubernetes-lb-prod-sn10.nycmesh.net"
+  answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
 }
 
 resource "namedotcom_record" "k8s_stateless_services_dev" {
@@ -457,7 +449,7 @@ resource "namedotcom_record" "meshdb_prod_forms" {
   domain_name = "nycmesh.net"
   host        = "forms"
   record_type = "CNAME"
-  answer      = "k8s-stateless-prod.nycmesh.net"
+  answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
 }
 
 # (New) Grafana at sn3-esxi [hosted on sn3-k8s]
@@ -496,6 +488,28 @@ resource "namedotcom_record" "devdb_all" {
   host        = "*.devdb"
   record_type = "CNAME"
   answer      = "kubernetes-lb-jon-sn3.nycmesh.net"
+}
+
+###### Meshdb Gamma ######
+resource "namedotcom_record" "meshdb_gamma_k8s_lb" {
+  domain_name = "nycmesh.net"
+  host        = "kubernetes-lb-gamma-jon-sn3"
+  record_type = "A"
+  answer      = "199.170.132.42"
+}
+
+resource "namedotcom_record" "gammadb" {
+  domain_name = "nycmesh.net"
+  host        = "gammadb"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-gamma-jon-sn3.nycmesh.net"
+}
+
+resource "namedotcom_record" "gammadb_all" {
+  domain_name = "nycmesh.net"
+  host        = "*.gammadb"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-gamma-jon-sn3.nycmesh.net"
 }
 
 ###### Website Map ######
