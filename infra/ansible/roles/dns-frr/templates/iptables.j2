@@ -6,6 +6,7 @@
 -A INPUT -s 10.70.90.53/32 -d {{ INTERNAL_MGT_IP }}/32 -j ACCEPT
 -A INPUT -s 10.70.73.66/32 -d {{ INTERNAL_MGT_IP }}/32 -j ACCEPT
 -A INPUT -s 10.70.0.0/16 -d {{ INTERNAL_MGT_IP }}/32 -j ACCEPT
+-A INPUT -s 10.70.0.0/16 -d 10.0.0.0/8 -p tcp --dport 22 -j ACCEPT
 
 {% if INTERNAL_LISTEN_IP != "" %}
 -A INPUT -d {{ INTERNAL_LISTEN_IP }}/32 -p tcp -m tcp --dport 53 -j ACCEPT
@@ -25,13 +26,14 @@
 -A INPUT -d {{ EXTERNAL_LISTEN_IP }}/32 -j DROP
 {% endif %}
 
-{% if EXTERNAL_OUTGOING_IP != "" %}
--A INPUT -d {{ EXTERNAL_OUTGOING_IP }}/32 --dport 5355 -j DROP
--A INPUT -d {{ EXTERNAL_OUTGOING_IP }}/32 --dport 53 -j DROP
--A INPUT -d {{ EXTERNAL_OUTGOING_IP }}/32 -p tcp -m tcp --dport 443 -j DROP
--A INPUT -d {{ EXTERNAL_OUTGOING_IP }}/32 -p tcp -m tcp --dport 22 -j DROP
--A INPUT -d {{ EXTERNAL_OUTGOING_IP }}/32 -p tcp -m tcp --dport 25 -j DROP
-{% endif %}
+# Catch all
+-A INPUT -p tcp --dport 5355 -j DROP
+-A INPUT -p udp --dport 5355 -j DROP
+-A INPUT -p tcp --dport 53   -j DROP
+-A INPUT -p udp --dport 53   -j DROP
+-A INPUT -p tcp --dport 443  -j DROP
+-A INPUT -p tcp --dport 22   -j DROP
+-A INPUT -p tcp --dport 25   -j DROP
 
 -A FORWARD -s 10.70.90.53/32 -d {{ INTERNAL_MGT_IP }}/32 -j ACCEPT
 
