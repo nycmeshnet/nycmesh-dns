@@ -385,7 +385,7 @@ resource "namedotcom_record" "k8s_stateless_services_prod" {
   domain_name = "nycmesh.net"
   host        = "k8s-stateless-prod"
   record_type = "CNAME"
-  answer      = "kubernetes-lb-prod-sn10.nycmesh.net"
+  answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
 }
 
 resource "namedotcom_record" "k8s_stateless_services_dev" {
