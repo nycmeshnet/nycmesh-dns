@@ -30,7 +30,6 @@
 -A INPUT -d {{ EXTERNAL_OUTGOING_IP }}/32 -p udp -m udp --dport 53 -j DROP
 -A INPUT -d {{ EXTERNAL_OUTGOING_IP }}/32 -p tcp -m udp --dport 443 -j DROP
 -A INPUT -d {{ EXTERNAL_OUTGOING_IP }}/32 -p tcp -m udp --dport 22 -j DROP
-#-A INPUT -d {{ EXTERNAL_LISTEN_IP }}/32 -j DROP
 {% endif %}
 
 -A FORWARD -s 10.70.90.53/32 -d {{ INTERNAL_MGT_IP }}/32 -j ACCEPT

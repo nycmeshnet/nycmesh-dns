@@ -35,6 +35,7 @@ dns_rec_external_ip = [
 ]
 dns_rec_outgoing_ip = [
   "", # Blank so it is not created
+  "", # Blank so it is not created
 ]
 dns_mgt_network_prefix          = "10.70.90.0"
 dns_mgt_network_host_identifier = "24"
