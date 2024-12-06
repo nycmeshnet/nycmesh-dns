@@ -222,12 +222,12 @@ resource "namedotcom_record" "nycmesh-10-dns-auth-6" {
 # NS record for the authoritative servers for mesh.nycmesh.net at SN10 + SN3
 # nycmesh-713-dns-auth-4
 # nycmesh-10-dns-auth-5
-resource "namedotcom_record" "mesh_ns_nycmesh-10-dns-auth-5" {
-  domain_name = "nycmesh.net"
-  host        = "mesh"
-  record_type = "NS"
-  answer      = "nycmesh-10-dns-auth-5.nycmesh.net"
-}
+#resource "namedotcom_record" "mesh_ns_nycmesh-10-dns-auth-5" {
+#  domain_name = "nycmesh.net"
+#  host        = "mesh"
+#  record_type = "NS"
+#  answer      = "nycmesh-10-dns-auth-5.nycmesh.net"
+#}
 
 # Authoritative DNS server for the mesh.nycmesh.net zone at SN3
 resource "namedotcom_record" "nycmesh-713-dns-auth-4" {
