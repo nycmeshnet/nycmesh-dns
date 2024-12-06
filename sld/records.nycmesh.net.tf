@@ -457,7 +457,7 @@ resource "namedotcom_record" "meshdb_prod_forms" {
   domain_name = "nycmesh.net"
   host        = "forms"
   record_type = "CNAME"
-  answer      = "k8s-stateless-prod.nycmesh.net"
+  answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
 }
 
 # (New) Grafana at sn3-esxi [hosted on sn3-k8s]
