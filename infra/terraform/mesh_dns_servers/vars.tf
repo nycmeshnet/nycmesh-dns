@@ -180,3 +180,8 @@ variable "main_auth_server_ip" {
   type        = string
   description = "authoritative server IP to use for DoH certs"
 }
+
+variable "mesh_stub_resolver" {
+  type        = string
+  description = "resolver for mesh bound queries"
+}
