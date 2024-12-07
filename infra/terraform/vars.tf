@@ -180,3 +180,9 @@ variable "main_auth_server_ip" {
   description = "authoritative server IP to use for DoH certs"
   default     = "199.170.132.47"
 }
+
+variable "mesh_stub_resolver" {
+  type        = string
+  description = "resolver for mesh bound queries"
+  default     = "10.10.10.11"
+}
