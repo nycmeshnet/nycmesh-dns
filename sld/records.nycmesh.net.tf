@@ -385,7 +385,7 @@ resource "namedotcom_record" "k8s_stateless_services_prod" {
   domain_name = "nycmesh.net"
   host        = "k8s-stateless-prod"
   record_type = "CNAME"
-  answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
+  answer      = "kubernetes-lb-prod-sn10.nycmesh.net"
 }
 
 resource "namedotcom_record" "k8s_stateless_services_dev" {
@@ -449,7 +449,7 @@ resource "namedotcom_record" "meshdb_prod_forms" {
   domain_name = "nycmesh.net"
   host        = "forms"
   record_type = "CNAME"
-  answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
+  answer      = "k8s-stateless-prod.nycmesh.net"
 }
 
 # (New) Grafana at sn3-esxi [hosted on sn3-k8s]
