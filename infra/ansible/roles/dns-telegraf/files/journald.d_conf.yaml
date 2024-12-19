@@ -1,3 +1,0 @@
-logs:
-  - type: journald
-    path: /var/log/journal/
