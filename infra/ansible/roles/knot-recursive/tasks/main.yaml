@@ -45,7 +45,7 @@
     group: knot-resolver
     mode: "640"
 
-- name: Enable ospfd
+- name: Enable restarts for kresd
   ansible.builtin.lineinfile:
     path: /lib/systemd/system/kresd@.service
     search_string: Restart=
