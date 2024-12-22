@@ -261,14 +261,6 @@ resource "namedotcom_record" "record_configgen_5386032" {
   answer      = "nycmesh-configgen.netlify.com"
 }
 
-# Offline as of 9/2/24
-resource "namedotcom_record" "record_monitoring_6041298" {
-  domain_name = "nycmesh.net"
-  host        = "monitoring"
-  record_type = "A"
-  answer      = "147.75.67.41"
-}
-
 # Redirects to https://github.com/meshcenter/mesh-api
 resource "namedotcom_record" "record_api_7081451" {
   domain_name = "nycmesh.net"
