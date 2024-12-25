@@ -6,8 +6,9 @@ $TTL 3600
 nycmesh-713-dns-auth-3 A 199.170.132.47
 
 ; Recursive resolvers
-nycmesh-713-dns-rec-4 A 10.70.90.133
-nycmesh-713-jon-dns-rec-1 A 10.70.90.137
+nycmesh-713-dns-rec-4 A 10.10.10.10
+nycmesh-713-dns-rec-5 A 10.10.10.11
 
 ; doh.mesh.nycmesh.net
-@ A 10.70.90.133
+@ A 10.10.10.10
+@ A 10.10.10.11
