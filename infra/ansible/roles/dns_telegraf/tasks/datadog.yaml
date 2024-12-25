@@ -7,7 +7,7 @@
     datadog_config:
       logs_enabled: true
 
-- name: Adding dd-agent to systemd-journal 
+- name: Adding dd-agent to systemd-journal
   ansible.builtin.user:
     name: dd-agent
     groups: systemd-journal
