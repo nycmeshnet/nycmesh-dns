@@ -1,0 +1,5 @@
+collections:
+  - name: datadog.dd
+    version: 5.8.0
+  - name: cloud.terraform
+    version: 3.0.0

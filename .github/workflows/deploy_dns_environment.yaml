@@ -38,7 +38,7 @@ jobs:
           python-version: '3.11'
       
       - name: Setup ansible
-        run: pip install ansible passlib==1.7.4 && export PATH="$HOME/.local/bin:$PATH" && ansible-galaxy collection install cloud.terraform && ansible-galaxy collection install datadog.dd
+        run: pip install ansible passlib==1.7.4 && export PATH="$HOME/.local/bin:$PATH" && ansible-galaxy collection install -r infra/ansible/roles/requiremetns.yml
 
       - name: Setup Terraform with specified version on the runner
         uses: hashicorp/setup-terraform@651471c36a6092792c552e8b1bef71e592b462d8 # @v3
