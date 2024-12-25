@@ -14,7 +14,7 @@
 
 - name: Knot DNS Config
   ansible.builtin.template:
-    src: ../templates/knot.conf.j2
+    src: knot.conf.j2
     dest: /etc/knot/knot.conf
     owner: root
     group: knot
@@ -67,6 +67,7 @@
     path: /etc/cron.d/knot_zone_update
     line: "*/10 * * * *   root    cd /root/nycmesh-dns && bash /root/nycmesh-dns/deploy_knot.sh 2>&1 > /dev/null"
     create: true
+    mode: "644"
 
 - name: Restart and enable cron service
   ansible.builtin.service:
