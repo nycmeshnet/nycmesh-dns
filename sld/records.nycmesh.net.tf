@@ -322,7 +322,7 @@ resource "namedotcom_record" "record_mastodon_219371939" {
   domain_name = "nycmesh.net"
   host        = "mastodon"
   record_type = "CNAME"
-  answer      = "kubernetes-lb-prod-sn3"
+  answer      = "kubernetes-lb-prod-sn3.ncmesh.net"
 }
 
 # Alternate domain for for Mastodon
