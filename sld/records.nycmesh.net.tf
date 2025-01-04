@@ -336,8 +336,8 @@ resource "namedotcom_record" "record_social_219371944" {
 resource "namedotcom_record" "gsg_displays" {
   domain_name = "nycmesh.net"
   host        = "gsg-displays"
-  record_type = "A"
-  answer      = "199.170.132.101"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
 }
 
 # Typo helper for Mastodon
