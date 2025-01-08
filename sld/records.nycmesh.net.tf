@@ -261,14 +261,6 @@ resource "namedotcom_record" "record_configgen_5386032" {
   answer      = "nycmesh-configgen.netlify.com"
 }
 
-# Offline as of 9/2/24
-resource "namedotcom_record" "record_monitoring_6041298" {
-  domain_name = "nycmesh.net"
-  host        = "monitoring"
-  record_type = "A"
-  answer      = "147.75.67.41"
-}
-
 # Redirects to https://github.com/meshcenter/mesh-api
 resource "namedotcom_record" "record_api_7081451" {
   domain_name = "nycmesh.net"
@@ -321,8 +313,8 @@ resource "namedotcom_record" "record__206768814" {
 resource "namedotcom_record" "record_mastodon_219371939" {
   domain_name = "nycmesh.net"
   host        = "mastodon"
-  record_type = "A"
-  answer      = "199.170.132.101"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
 }
 
 # Alternate domain for for Mastodon
@@ -336,8 +328,8 @@ resource "namedotcom_record" "record_social_219371944" {
 resource "namedotcom_record" "gsg_displays" {
   domain_name = "nycmesh.net"
   host        = "gsg-displays"
-  record_type = "A"
-  answer      = "199.170.132.101"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
 }
 
 # Typo helper for Mastodon
