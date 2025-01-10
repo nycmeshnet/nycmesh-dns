@@ -3,3 +3,5 @@ collections:
     version: 5.8.0
   - name: cloud.terraform
     version: 3.0.0
+  - name: ansible.posix
+    version: 1.6.2
