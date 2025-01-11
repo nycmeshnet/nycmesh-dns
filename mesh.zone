@@ -33,6 +33,7 @@ nycmesh-10-r630-01 A 10.70.103.186
 nycmesh-10-r630-01-mgmt A 10.70.103.187
 nycmesh-713-r630-01 A 10.70.103.188
 nycmesh-713-r630-01-mgmt A 10.70.103.189
+devwiki A 199.170.132.46
 grafana-new A 10.70.90.146
 rsyslog A 10.70.90.198
 
@@ -74,10 +75,6 @@ grandbox A 10.69.19.233
 *.grandbox CNAME grandbox
 grandsvc A 199.167.59.101
 *.grandsvc CNAME grandsvc
-
-; k8s-infra dev
-devdb A 199.170.132.46
-devwiki CNAME devdb
 
 ; James
 scan A 10.70.90.120
