@@ -22,7 +22,7 @@ dns_auth_internal_ip = [
   "10.70.90.132",
 ]
 dns_rec_internal_ip = [
-  "10.70.90.133",
+  "10.10.10.10",
   "10.70.90.133",
 ]
 dns_auth_external_ip = [
@@ -32,6 +32,10 @@ dns_auth_external_ip = [
 dns_rec_external_ip = [
   "", # Blank so it is not created
   "", # Blank so it is not created
+]
+dns_rec_outgoing_ip = [
+  "199.170.132.109",
+  "199.170.132.110",
 ]
 dns_mgt_network_prefix          = "10.70.90.0"
 dns_mgt_network_host_identifier = "24"

@@ -185,15 +185,7 @@ resource "namedotcom_record" "record_nycmesh-375p-dns1-resolver_5233305" {
   answer      = "199.167.59.10"
 }
 
-# NS record for the authoritative server for mesh.nycmesh.net at SN1
-resource "namedotcom_record" "record_mesh_5226462" {
-  domain_name = "nycmesh.net"
-  host        = "mesh"
-  record_type = "NS"
-  answer      = "nycmesh-375p-dns1-authoritative.nycmesh.net"
-}
-
-# Authoritative DNS server for the mesh.nycmesh.net zone at SN1
+# Former authoritative DNS server for the mesh.nycmesh.net zone at SN1
 resource "namedotcom_record" "record_nycmesh-375p-dns1-authoritative_5233306" {
   domain_name = "nycmesh.net"
   host        = "nycmesh-375p-dns1-authoritative"
@@ -269,14 +261,6 @@ resource "namedotcom_record" "record_configgen_5386032" {
   answer      = "nycmesh-configgen.netlify.com"
 }
 
-# Offline as of 9/2/24
-resource "namedotcom_record" "record_monitoring_6041298" {
-  domain_name = "nycmesh.net"
-  host        = "monitoring"
-  record_type = "A"
-  answer      = "147.75.67.41"
-}
-
 # Redirects to https://github.com/meshcenter/mesh-api
 resource "namedotcom_record" "record_api_7081451" {
   domain_name = "nycmesh.net"
@@ -329,8 +313,8 @@ resource "namedotcom_record" "record__206768814" {
 resource "namedotcom_record" "record_mastodon_219371939" {
   domain_name = "nycmesh.net"
   host        = "mastodon"
-  record_type = "A"
-  answer      = "199.170.132.101"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
 }
 
 # Alternate domain for for Mastodon
@@ -344,8 +328,8 @@ resource "namedotcom_record" "record_social_219371944" {
 resource "namedotcom_record" "gsg_displays" {
   domain_name = "nycmesh.net"
   host        = "gsg-displays"
-  record_type = "A"
-  answer      = "199.170.132.101"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
 }
 
 # Typo helper for Mastodon
@@ -496,6 +480,28 @@ resource "namedotcom_record" "devdb_all" {
   host        = "*.devdb"
   record_type = "CNAME"
   answer      = "kubernetes-lb-jon-sn3.nycmesh.net"
+}
+
+###### Meshdb Gamma ######
+resource "namedotcom_record" "meshdb_gamma_k8s_lb" {
+  domain_name = "nycmesh.net"
+  host        = "kubernetes-lb-gamma-jon-sn3"
+  record_type = "A"
+  answer      = "199.170.132.42"
+}
+
+resource "namedotcom_record" "gammadb" {
+  domain_name = "nycmesh.net"
+  host        = "gammadb"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-gamma-jon-sn3.nycmesh.net"
+}
+
+resource "namedotcom_record" "gammadb_all" {
+  domain_name = "nycmesh.net"
+  host        = "*.gammadb"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-gamma-jon-sn3.nycmesh.net"
 }
 
 ###### Website Map ######

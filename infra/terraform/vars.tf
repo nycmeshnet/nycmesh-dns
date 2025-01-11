@@ -89,6 +89,11 @@ variable "dns_rec_external_ip" {
   description = "external listen IPs for the recursive dns vm(s), empty string for none"
 }
 
+variable "dns_rec_outgoing_ip" {
+  type        = list(any)
+  description = "external IPs used to resolve recursive dns queries, empty string for none"
+}
+
 variable "dns_mgt_network_prefix" {
   type        = string
   description = "network range to use for intneral networking"
@@ -179,4 +184,10 @@ variable "main_auth_server_ip" {
   type        = string
   description = "authoritative server IP to use for DoH certs"
   default     = "199.170.132.47"
+}
+
+variable "mesh_stub_resolver" {
+  type        = string
+  description = "resolver for mesh bound queries"
+  default     = "10.10.10.11"
 }
