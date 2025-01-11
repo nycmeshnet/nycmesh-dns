@@ -7,35 +7,35 @@
       - frr
       - cron
 
-- name: dummy0 interface
+- name: Netplan dummy0 interface
   ansible.builtin.template:
-    src: ../templates/netplan_dummy0.yaml.j2
+    src: netplan_dummy0.yaml.j2
     dest: /etc/netplan/dummy0.yaml
     mode: "640"
 
-- name: dummy1 interface
+- name: Netplan dummy1 interface
   ansible.builtin.template:
-    src: ../templates/netplan_dummy1.yaml.j2
+    src: netplan_dummy1.yaml.j2
     dest: /etc/netplan/dummy1.yaml
     mode: "640"
   when: EXTERNAL_LISTEN_IP != ""
 
-- name: dummy2 interface
+- name: Netplan dummy2 interface
   ansible.builtin.template:
-    src: ../templates/netplan_dummy2.yaml.j2
+    src: netplan_dummy2.yaml.j2
     dest: /etc/netplan/dummy2.yaml
     mode: "640"
 
-- name: dummy3 interface
+- name: Netplan dummy3 interface
   ansible.builtin.template:
-    src: ../templates/netplan_dummy3.yaml.j2
+    src: netplan_dummy3.yaml.j2
     dest: /etc/netplan/dummy3.yaml
     mode: "640"
   when: EXTERNAL_OUTGOING_IP != ""
 
-- name: eth0 interface
+- name: Netplan eth0 interface
   ansible.builtin.template:
-    src: ../templates/netplan_50_cloud_init.yaml.j2
+    src: netplan_50_cloud_init.yaml.j2
     dest: /etc/netplan/50-cloud-init.yaml
     mode: "640"
 
@@ -47,13 +47,15 @@
 
 - name: Config template frr
   ansible.builtin.template:
-    src: ../templates/frr.conf.j2
+    src: frr.conf.j2
     dest: /etc/frr/frr.conf
+    mode: "640"
 
 - name: Iptables rules
   ansible.builtin.template:
-    src: ../templates/iptables.j2
+    src: iptables.j2
     dest: /etc/iptables/rules.v4
+    mode: "600"
 
 - name: Restore iptables rules
   ansible.builtin.command:
@@ -70,7 +72,7 @@
     state: restarted
     enabled: true
 
-- name: net.ipv4.ip_forward
+- name: Set net.ipv4.ip_forward
   ansible.posix.sysctl:
     name: net.ipv4.ip_forward
     value: '1'
@@ -78,11 +80,11 @@
     state: present
     reload: true
 
-- name: Allow restarting of frr
-  ansible.builtin.lineinfile:
-    path: /lib/systemd/system/frr.service
-    search_string: Restart=
-    line: "Restart=always"
+- name: Set frr service config
+  ansible.builtin.copy:
+    src: frr.service
+    dest: /lib/systemd/system/frr.service
+    mode: "644"
 
 - name: Restart and enable frr service
   ansible.builtin.systemd_service:
@@ -91,11 +93,10 @@
     enabled: true
     daemon_reload: true
 
-- name: Crontab
-  ansible.builtin.lineinfile:
+- name: Remove file
+  ansible.builtin.file:
     path: /etc/cron.d/frr_reload
-    line: "28 */3 * * *   root    systemctl restart frr.service"
-    create: true
+    state: absent
 
 - name: Restart and enable cron service
   ansible.builtin.systemd_service:
@@ -103,6 +104,10 @@
     name: cron
     enabled: true
 
-- name: apply net.ipv4.ip_forward
-  ansible.builtin.command:
-    cmd: sysctl -w net.ipv4.ip_forward=1
+- name: Set net.ipv4.ip_forward again
+  ansible.posix.sysctl:
+    name: net.ipv4.ip_forward
+    value: '1'
+    sysctl_set: true
+    state: present
+    reload: true
