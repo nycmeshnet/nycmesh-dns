@@ -80,11 +80,11 @@
     state: present
     reload: true
 
-- name: Allow restarting of frr
-  ansible.builtin.lineinfile:
-    path: /lib/systemd/system/frr.service
-    search_string: Restart=
-    line: "Restart=always"
+- name: Set frr service config
+  ansible.builtin.copy:
+    src: frr.service
+    dest: /lib/systemd/system/frr.service
+    mode: "644"
 
 - name: Restart and enable frr service
   ansible.builtin.systemd_service:
@@ -93,12 +93,10 @@
     enabled: true
     daemon_reload: true
 
-- name: Crontab
-  ansible.builtin.lineinfile:
+- name: Remove file
+  ansible.builtin.file:
     path: /etc/cron.d/frr_reload
-    line: "28 */3 * * *   root    systemctl restart frr.service"
-    create: true
-    mode: "600"
+    state: absent
 
 - name: Restart and enable cron service
   ansible.builtin.systemd_service:
