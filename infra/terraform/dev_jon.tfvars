@@ -16,7 +16,7 @@ dns_auth_internal_ip = [
   "10.70.90.136",
 ]
 dns_rec_internal_ip = [
-  "10.70.90.137",
+  "10.70.90.133",
 ]
 dns_auth_external_ip = [
   "199.170.132.48",
