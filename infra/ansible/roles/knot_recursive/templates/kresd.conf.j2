@@ -36,6 +36,27 @@ nsid.name('{{ SERVER_HOSTNAME }}')
 net.tls("/etc/knot-resolver/server-cert.pem", "/etc/knot-resolver/server-key.pem")
 {% endif %}
 
+-- VIP delegated subdomains
+delegated_mesh_subdomains = policy.todnames({
+        'em.mesh.',
+        'em.mesh.nycmesh.net.',
+        'zrg.mesh.',
+        'zrg.mesh.nycmesh.net.',
+        'n363.mesh.',
+        'n363.mesh.nycmesh.net.',
+        'daniel.mesh.',
+        'daniel.mesh.nycmesh.net.',
+        'andrew.mesh.',
+        'andrew.mesh.nycmesh.net.',
+        'doh.mesh.',
+        'doh.mesh.nycmesh.net.'
+})
+view:addr('10.0.0.0/8', policy.PASS, delegated_mesh_subdomains)
+view:addr('23.158.16.0/24', policy.PASS, delegated_mesh_subdomains)
+view:addr('199.167.59.0/24', policy.PASS, delegated_mesh_subdomains)
+view:addr('199.170.132.0/24', policy.PASS, delegated_mesh_subdomains)
+view:addr('208.68.5.0/24', policy.PASS, delegated_mesh_subdomains)
+
 -- Mesh from mesh
 view:addr('10.0.0.0/8', policy.suffix(policy.STUB('{{ MESH_STUB_RESOLVER }}'), policy.todnames({'mesh.', 'mesh.nycmesh.net.'})))
 view:addr('23.158.16.0/24', policy.suffix(policy.STUB('{{ MESH_STUB_RESOLVER }}'), policy.todnames({'mesh.', 'mesh.nycmesh.net.'})))
