@@ -61,7 +61,7 @@ resource "ansible_host" "auth-dns-mgt" {
   variables = {
     SERVER_HOSTNAME                  = "${var.hostname_prefix}-dns-auth-${sum([1, count.index, var.hostname_count_offset])}"
     ROUTER_IP                        = var.dns_auth_router_ip[count.index]
-    BIRD_ROUTER_ID                   = var.dns_auth_bird_router_ip[count.index]
+    BIRD_ROUTER_ID                   = var.dns_auth_bird_router_id[count.index]
     BIRD_NETWORK                     = var.bird_network
     BIRD_NEIGHBOR                    = var.bird_neighbor
     BIRD_OSPF_COST                   = var.bird_ospf_cost
