@@ -10,7 +10,9 @@ module "some_mesh_dns_servers" {
   dns_auth_mgt_ip                 = var.dns_auth_mgt_ip
   dns_rec_mgt_ip                  = var.dns_rec_mgt_ip
   dns_auth_router_ip              = var.dns_auth_router_ip
+  dns_auth_bird_router_id         = var.dns_auth_bird_router_id
   dns_rec_router_ip               = var.dns_rec_router_ip
+  dns_rec_bird_router_id          = var.dns_rec_bird_router_id
   dns_auth_internal_ip            = var.dns_auth_internal_ip
   dns_rec_internal_ip             = var.dns_rec_internal_ip
   dns_auth_external_ip            = var.dns_auth_external_ip
@@ -33,4 +35,6 @@ module "some_mesh_dns_servers" {
   enable_doh                      = var.enable_doh
   main_auth_server_ip             = var.main_auth_server_ip
   mesh_stub_resolver              = var.mesh_stub_resolver
+  bird_network                    = var.bird_network
+  bird_neighbor                   = var.bird_neighbor
 }
