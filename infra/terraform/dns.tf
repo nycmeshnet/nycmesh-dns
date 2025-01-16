@@ -10,15 +10,12 @@ module "some_mesh_dns_servers" {
   dns_auth_mgt_ip                 = var.dns_auth_mgt_ip
   dns_rec_mgt_ip                  = var.dns_rec_mgt_ip
   dns_auth_router_ip              = var.dns_auth_router_ip
-  dns_auth_bird_router_id         = var.dns_auth_bird_router_id
   dns_rec_router_ip               = var.dns_rec_router_ip
-  dns_rec_bird_router_id          = var.dns_rec_bird_router_id
   dns_auth_internal_ip            = var.dns_auth_internal_ip
   dns_rec_internal_ip             = var.dns_rec_internal_ip
   dns_auth_external_ip            = var.dns_auth_external_ip
   dns_rec_external_ip             = var.dns_rec_external_ip
   dns_rec_outgoing_ip             = var.dns_rec_outgoing_ip
-  dns_mgt_network_prefix          = var.dns_mgt_network_prefix
   dns_mgt_network_host_identifier = var.dns_mgt_network_host_identifier
   dns_mgt_gateway                 = var.dns_mgt_gateway
   dns_ssh_key_name                = "dns_ed25519"

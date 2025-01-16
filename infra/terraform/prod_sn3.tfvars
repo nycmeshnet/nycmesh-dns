@@ -37,7 +37,6 @@ dns_rec_outgoing_ip = [
   "199.170.132.109",
   "199.170.132.110",
 ]
-dns_mgt_network_prefix          = "10.70.90.0"
 dns_mgt_network_host_identifier = "24"
 dns_mgt_gateway                 = "10.70.90.1"
 hostname_prefix                 = "nycmesh-713"

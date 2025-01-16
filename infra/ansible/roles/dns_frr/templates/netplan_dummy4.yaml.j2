@@ -1,9 +1,0 @@
-network:
-  version: 2
-  renderer: networkd
-  ethernets:
-    lo:
-      dhcp4: no
-      dhcp6: no
-      addresses:
-        - {{ BIRD_ROUTER_ID }}/32

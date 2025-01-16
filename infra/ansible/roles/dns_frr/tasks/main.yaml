@@ -4,7 +4,6 @@
     update_cache: true
     pkg:
       - iptables-persistent
-      - frr
       - cron
       - bird2
 
@@ -34,29 +33,15 @@
     mode: "640"
   when: EXTERNAL_OUTGOING_IP != ""
 
-- name: Netplan dummy4 interface
-  ansible.builtin.template:
-    src: netplan_dummy4.yaml.j2
-    dest: /etc/netplan/dummy4.yaml
-    mode: "640"
-  when: BIRD_ROUTER_ID != ""
+- name: Remove file
+  ansible.builtin.file:
+    path: /etc/netplan/dummy4.yaml 
+    state: absent
 
 - name: Netplan eth0 interface
   ansible.builtin.template:
     src: netplan_50_cloud_init.yaml.j2
     dest: /etc/netplan/50-cloud-init.yaml
-    mode: "640"
-
-- name: Enable ospfd
-  ansible.builtin.lineinfile:
-    path: /etc/frr/daemons
-    search_string: ospfd=no
-    line: "ospfd=yes"
-
-- name: Config template frr
-  ansible.builtin.template:
-    src: frr.conf.j2
-    dest: /etc/frr/frr.conf
     mode: "640"
 
 - name: Iptables rules
@@ -88,19 +73,6 @@
     state: present
     reload: true
 
-- name: Set frr service config
-  ansible.builtin.copy:
-    src: frr.service
-    dest: /lib/systemd/system/frr.service
-    mode: "644"
-
-- name: Restart and enable frr service
-  ansible.builtin.systemd_service:
-    name: frr
-    state: restarted
-    enabled: true
-    daemon_reload: true
-
 - name: Bird config
   ansible.builtin.template:
     src: bird.conf.j2
@@ -108,6 +80,12 @@
     mode: "640"
     owner: "bird"
     group: "bird"
+
+- name: Stop and disable frr service
+  ansible.builtin.systemd_service:
+    name: frr
+    state: stopped
+    enabled: false
 
 - name: Reload bird
   ansible.builtin.systemd_service:
@@ -133,3 +111,8 @@
     sysctl_set: true
     state: present
     reload: true
+
+- name: Remove frr
+  ansible.builtin.apt:
+    name: frr
+    state: absent
