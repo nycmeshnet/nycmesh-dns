@@ -7,7 +7,7 @@ no ipv6 forwarding
 service integrated-vtysh-config
 !
 interface eth0
- ip ospf cost 10
+ ip ospf cost {{ FRR_OSPF_COST }}
 exit
 !
 router ospf

@@ -1,0 +1,119 @@
+# Managed by ansible
+
+# This is a basic configuration file, which contains boilerplate options and
+# some basic examples. It allows the BIRD daemon to start but will not cause
+# anything else to happen.
+#
+# Please refer to the BIRD User's Guide documentation, which is also available
+# online at http://bird.network.cz/ in HTML format, for more information on
+# configuring BIRD and adding routing protocols.
+
+# Configure logging
+log syslog all;
+# log "/var/log/bird.log" { debug, trace, info, remote, warning, error, auth, fatal, bug };
+
+# Set router ID. It is a unique identification of your router, usually one of
+# IPv4 addresses of the router. It is recommended to configure it explicitly.
+router id {{ BIRD_ROUTER_ID }};
+
+# Turn on global debugging of all protocols (all messages or just selected classes)
+# debug protocols all;
+# debug protocols { events, states };
+
+# Turn on internal watchdog
+# watchdog warning 5 s;
+# watchdog timeout 30 s;
+
+# Tables master4 and master6 are defined by default
+# ipv4 table master4;
+# ipv6 table master6;
+
+# The Device protocol is not a real routing protocol. It does not generate any
+# routes and it only serves as a module for getting information about network
+# interfaces from the kernel. It is necessary in almost any configuration.
+protocol device {
+    scan time 10;
+}
+
+# The direct protocol is not a real routing protocol. It automatically generates
+# direct routes to all network interfaces. Can exist in as many instances as you
+# wish if you want to populate multiple routing tables with direct routes.
+protocol direct {
+	#disabled;		# Disable by default
+	ipv4;			# Connect to default IPv4 table
+	ipv6;			# ... and to default IPv6 table
+}
+
+# The Kernel protocol is not a real routing protocol. Instead of communicating
+# with other routers in the network, it performs synchronization of BIRD
+# routing tables with the OS kernel. One instance per table.
+protocol kernel {
+    persist;
+    scan time 10;
+	ipv4 {			# Connect protocol to IPv4 table by channel
+#	      table master4;	# Default IPv4 table is master4
+          import all;	# Import to table, default is import all
+          export all;	# Export to protocol. default is export none
+	};
+	learn;			# Learn alien routes from the kernel
+#	kernel table 10;	# Kernel table to synchronize with (default: main)
+}
+
+# Static routes (Again, there can be multiple instances, for different address
+# families and to disable/enable various groups of static routes on the fly).
+protocol static {
+	ipv4;			# Again, IPv4 channel with default options
+}
+
+# Pipe protocol connects two routing tables. Beware of loops.
+# protocol pipe {
+#	table master4;		# No ipv4/ipv6 channel definition like in other protocols
+#	peer table mrib4;
+#	import all;		# Direction peer table -> table
+#	export all;		# Direction table -> peer table
+# }
+
+# OSPF example, both OSPFv2 and OSPFv3 are supported
+# protocol ospf v3 {
+#  	ipv6 {
+#		import all;
+#		export where source = RTS_STATIC;
+#	};
+#	area 0 {
+#		interface "eth*" {
+#			type broadcast;		# Detected by default
+#			cost 10;		# Interface metric
+#			hello 5;		# Default hello perid 10 is too long
+#		};
+#		interface "tun*" {
+#			type ptp;		# PtP mode, avoids DR selection
+#			cost 100;		# Interface metric
+#			hello 5;		# Default hello perid 10 is too long
+#		};
+#		interface "dummy0" {
+#			stub;			# Stub interface, just propagate it
+#		};
+#	};
+#}
+
+protocol ospf v2 {
+  	ipv4 {
+		import none;
+	};
+	area 0 {
+        default cost 10;
+        networks {
+            {{ BIRD_NETWORK }};
+        };
+		interface "eth*" {
+			type broadcast;	# Detected by default
+			cost 10;		# Interface metric
+            neighbors {
+                {{ BIRD_NEIGHBOR }};
+            };
+		};
+        interface "lo" {
+            cost {{ BIRD_OSPF_COST }};
+        };
+	};
+}

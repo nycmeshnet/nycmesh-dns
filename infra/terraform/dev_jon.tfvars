@@ -9,8 +9,14 @@ dns_rec_mgt_ip = [
 dns_auth_router_ip = [
   "10.70.90.183",
 ]
+dns_auth_bird_router_id = [
+  "10.70.90.203",
+]
 dns_rec_router_ip = [
   "10.70.90.184",
+]
+dns_rec_bird_router_id = [
+  "10.70.90.204",
 ]
 dns_auth_internal_ip = [
   "10.70.90.136",
@@ -37,3 +43,5 @@ recursive_sockets               = 1
 recursive_memory                = 4096
 enable_doh                      = ""
 mesh_stub_resolver              = "23.158.16.23"
+bird_neighbor                   = "10.69.7.13"
+bird_network                    = "10.69.0.0/16"

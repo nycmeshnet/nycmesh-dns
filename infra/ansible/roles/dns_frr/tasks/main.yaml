@@ -6,6 +6,7 @@
       - iptables-persistent
       - frr
       - cron
+      - bird2
 
 - name: Netplan dummy0 interface
   ansible.builtin.template:
@@ -92,6 +93,20 @@
     state: restarted
     enabled: true
     daemon_reload: true
+
+- name: Bird config
+  ansible.builtin.template:
+    src: bird.conf.j2
+    dest: /etc/bird/bird.conf
+    mode: "640"
+    owner: "bird"
+    group: "bird"
+
+- name: Reload bird
+  ansible.builtin.systemd_service:
+    name: bird
+    state: reloaded
+    enabled: true
 
 - name: Remove file
   ansible.builtin.file:

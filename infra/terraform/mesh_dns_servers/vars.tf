@@ -43,9 +43,29 @@ variable "dns_auth_router_ip" {
   description = "ospf router IDs for the authoritative dns vm(s)"
 }
 
+variable "dns_auth_bird_router_id" {
+  type        = list(string)
+  description = "bird ospf router IDs for the authoritative dns vm(s)"
+}
+
+variable "bird_network" {
+  type        = string
+  description = "bird ospf network for the authoritative dns vm(s)"
+}
+
+variable "bird_neighbor" {
+  type        = string
+  description = "bird ospf neighbor for the authoritative dns vm(s)"
+}
+
 variable "dns_rec_router_ip" {
   type        = list(string)
   description = "ospf router IDs for the recursive dns vm(s)"
+}
+
+variable "dns_rec_bird_router_id" {
+  type        = list(string)
+  description = "bird ospf router IDs for the recursive dns vm(s)"
 }
 
 variable "dns_auth_internal_ip" {
@@ -189,4 +209,16 @@ variable "main_auth_server_ip" {
 variable "mesh_stub_resolver" {
   type        = string
   description = "resolver for mesh bound queries"
+}
+
+variable "bird_ospf_cost" {
+  type        = string
+  description = "OSPF cost for only bird"
+  default     = "20"
+}
+
+variable "frr_ospf_cost" {
+  type        = string
+  description = "OSPF cost for only frr"
+  default     = "10"
 }
