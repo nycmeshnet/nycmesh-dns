@@ -34,6 +34,13 @@
     mode: "640"
   when: EXTERNAL_OUTGOING_IP != ""
 
+- name: Netplan dummy4 interface
+  ansible.builtin.template:
+    src: netplan_dummy4.yaml.j2
+    dest: /etc/netplan/dummy4.yaml
+    mode: "640"
+  when: BIRD_ROUTER_ID != ""
+
 - name: Netplan eth0 interface
   ansible.builtin.template:
     src: netplan_50_cloud_init.yaml.j2
