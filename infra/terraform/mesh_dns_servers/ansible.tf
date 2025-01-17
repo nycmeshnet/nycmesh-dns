@@ -33,7 +33,7 @@ resource "ansible_host" "rec-dns-mgt" {
   groups = [ansible_group.knot-recursive.name]
   variables = {
     SERVER_HOSTNAME                  = "${var.hostname_prefix}-dns-rec-${sum([1, count.index, var.hostname_count_offset])}"
-    BIRD_ROUTER_ID                        = var.dns_rec_router_ip[count.index]
+    BIRD_ROUTER_ID                   = var.dns_rec_router_ip[count.index]
     BIRD_NETWORK                     = var.bird_network
     BIRD_NEIGHBOR                    = var.bird_neighbor
     BIRD_OSPF_COST                   = var.bird_ospf_cost

@@ -33,11 +33,6 @@
     mode: "640"
   when: EXTERNAL_OUTGOING_IP != ""
 
-- name: Remove file
-  ansible.builtin.file:
-    path: /etc/netplan/dummy4.yaml 
-    state: absent
-
 - name: Netplan eth0 interface
   ansible.builtin.template:
     src: netplan_50_cloud_init.yaml.j2
@@ -92,6 +87,7 @@
     name: bird
     state: reloaded
     enabled: true
+    daemon_reload: true
 
 - name: Remove file
   ansible.builtin.file:

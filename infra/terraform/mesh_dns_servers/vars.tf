@@ -45,12 +45,13 @@ variable "dns_auth_router_ip" {
 
 variable "bird_network" {
   type        = string
-  description = "bird ospf network for the authoritative dns vm(s)"
+  description = "bird ospf network for dns vm(s)"
+  default     = "10.69.0.0/16"
 }
 
 variable "bird_neighbor" {
   type        = string
-  description = "bird ospf neighbor for the authoritative dns vm(s)"
+  description = "bird ospf neighbor for dns vm(s)"
 }
 
 variable "dns_rec_router_ip" {
@@ -199,5 +200,5 @@ variable "mesh_stub_resolver" {
 variable "bird_ospf_cost" {
   type        = string
   description = "OSPF cost for only bird"
-  default     = "20"
+  default     = "10"
 }

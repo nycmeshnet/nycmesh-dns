@@ -37,4 +37,3 @@ recursive_memory                = 4096
 enable_doh                      = ""
 mesh_stub_resolver              = "23.158.16.23"
 bird_neighbor                   = "10.69.7.13"
-bird_network                    = "10.69.0.0/16"
