@@ -5,9 +5,6 @@ $TTL 3600
 @  NS    nycmesh-10-dns-auth-5
 @  A     10.10.10.11             ; IPv4 address for example.com
 
-@ MX 10 mail
-
-
 ; Allocated domains
 dns   A     10.10.10.10
 ns    A     10.10.10.11
@@ -18,9 +15,6 @@ ebook A     10.70.129.51
 something A 1.1.1.1
 unms	CNAME uisp
 uisp	A 10.70.76.21
-jimsblog A 10.70.140.70
-jim	A 10.70.140.70
-mail	A 10.70.140.70
 donuts A 10.70.73.29
 unifi A 10.70.90.158
 alerts A 10.70.178.21
