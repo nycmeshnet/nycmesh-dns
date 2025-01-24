@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - james/prox_tsig
     paths:
       - infra/**
   workflow_dispatch:
@@ -17,7 +18,7 @@ jobs:
     with:
       environment: dev_jon
     secrets: inherit
-    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+    # if: github.ref == 'refs/heads/master' && github.event_name == 'push'
 
   deploy_sn10_prod:
     name: Deploy to sn10 prod

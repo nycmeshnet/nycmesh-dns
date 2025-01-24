@@ -168,6 +168,30 @@ variable "dns_cookie_secret" {
   sensitive   = true
 }
 
+variable "tsig_key_grandmox" {
+  type        = string
+  description = "TSIG key for the grandmox.mesh.nycmesh.net zone"
+  sensitive   = true
+}
+
+variable "tsig_key_jon" {
+  type        = string
+  description = "TSIG key for the jon.mesh.nycmesh.net zone"
+  sensitive   = true
+}
+
+variable "tsig_key_10_r630_01" {
+  type        = string
+  description = "TSIG key for the nycmesh-10-r630-01.mesh.nycmesh.net zone"
+  sensitive   = true
+}
+
+variable "tsig_key_713_r640_01" {
+  type        = string
+  description = "TSIG key for the nycmesh-713-r640-01.mesh.nycmesh.net zone"
+  sensitive   = true
+}
+
 variable "tsig_key_doh" {
   type        = string
   description = "TSIG key for the doh.mesh.nycmesh.net zone"
