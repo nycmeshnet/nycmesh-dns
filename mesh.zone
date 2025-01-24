@@ -33,6 +33,8 @@ nycmesh-10-r630-01 A 10.70.103.186
 nycmesh-10-r630-01-mgmt A 10.70.103.187
 nycmesh-713-r630-01 A 10.70.103.188
 nycmesh-713-r630-01-mgmt A 10.70.103.189
+nycmesh-713-r640-01 A 10.70.90.195
+nycmesh-713-r640-02 A 10.70.90.196
 grafana-new A 10.70.90.146
 rsyslog A 10.70.90.198
 
@@ -103,6 +105,7 @@ lte A 10.70.90.170
 ; Grand
 room A 10.69.19.134
 meshroom CNAME room
+grandmox A 10.70.188.196
 
 ; Supernode3
 l2tpvpn.sn3 A 199.170.132.6
