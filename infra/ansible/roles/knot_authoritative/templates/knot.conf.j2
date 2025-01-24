@@ -26,16 +26,16 @@ template:
     storage: /var/lib/knot/zones
 
 key:
-  - id: grandmox.mesh.nycmesh.net.
+  - id: grandmox.prox.mesh.nycmesh.net.
     algorithm: hmac-sha512
     secret: {{ TSIG_KEY_GRANDMOX }}
-  - id: jon.mesh.nycmesh.net.
+  - id: jon.prox.mesh.nycmesh.net.
     algorithm: hmac-sha512
     secret: {{ TSIG_KEY_JON }}
-  - id: nycmesh-10-r630-01.mesh.nycmesh.net.
+  - id: nycmesh-10-r630-01.prox.mesh.nycmesh.net.
     algorithm: hmac-sha512
     secret: {{ TSIG_KEY_10_R630_01 }}
-  - id: nycmesh-713-r640-01.mesh.nycmesh.net.
+  - id: nycmesh-713-r640-01.prox.mesh.nycmesh.net.
     algorithm: hmac-sha512
     secret: {{ TSIG_KEY_713_R640_01 }}
   - id: doh.mesh.nycmesh.net.
@@ -43,14 +43,20 @@ key:
     secret: {{ TSIG_KEY_DOH }}
 
 acl:
-{% for subdomain in "grandmox;jon;nycmesh-10-r630-01;nycmesh-713-r640-01;doh".split(';') %}
+{% for subdomain in "grandmox;jon;nycmesh-10-r630-01;nycmesh-713-r640-01".split(';') %}
   - id: acl-update-{{ subdomain }}
     action: update
     update-type: [TXT]
     update-owner-match: equal
-    update-owner-name: acme-challenge.{{ subdomain }}.mesh.nycmesh.net.
-    key: {{ subdomain }}.mesh.nycmesh.net.
+    update-owner-name: acme-challenge.{{ subdomain }}.prox.mesh.nycmesh.net.
+    key: {{ subdomain }}.prox.mesh.nycmesh.net.
 {% endfor %}
+  - id: acl-update-doh
+    action: update
+    update-type: [TXT]
+    update-owner-match: equal
+    update-owner-name: acme-challenge.doh.mesh.nycmesh.net.
+    key: doh.mesh.nycmesh.net.
 
 zone:
   - domain: mesh

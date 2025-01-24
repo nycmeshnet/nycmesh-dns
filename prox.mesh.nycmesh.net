@@ -1,0 +1,11 @@
+$TTL 3600
+@  SOA   ( nycmesh-713-dns-auth-3 hostmaster.nycmesh.net. 2024120100 1d 2h 4w 1h )
+@  NS    nycmesh-713-dns-auth-3
+
+; Authoritative DNS servers
+nycmesh-713-dns-auth-3 A 199.170.132.47
+
+grandmox A 10.70.188.196
+jon A 10.70.90.52
+nycmesh-10-r630-01 A 10.70.103.186
+nycmesh-713-r640-01 A 10.70.90.195
