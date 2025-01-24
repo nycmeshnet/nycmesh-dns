@@ -70,11 +70,6 @@ variable "bird_network" {
   default     = "10.69.0.0/16"
 }
 
-variable "bird_neighbor" {
-  type        = string
-  description = "bird ospf neighbor for dns vm(s)"
-}
-
 variable "dns_rec_router_ip" {
   type        = list(string)
   description = "ospf router IDs for the recursive dns vm(s)"

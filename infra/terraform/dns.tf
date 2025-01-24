@@ -33,5 +33,4 @@ module "some_mesh_dns_servers" {
   main_auth_server_ip             = var.main_auth_server_ip
   mesh_stub_resolver              = var.mesh_stub_resolver
   bird_network                    = var.bird_network
-  bird_neighbor                   = var.bird_neighbor
 }

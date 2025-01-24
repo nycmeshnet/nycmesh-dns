@@ -5,3 +5,7 @@ collections:
     version: 3.0.0
   - name: ansible.posix
     version: 1.6.2
+  - name: nycmesh.common
+    source: git+https://github.com/nycmeshnet/nycmesh-ansible.git
+    type: git
+    version: main

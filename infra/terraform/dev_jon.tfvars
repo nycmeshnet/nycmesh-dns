@@ -35,5 +35,4 @@ recursive_cores                 = 4
 recursive_sockets               = 1
 recursive_memory                = 4096
 enable_doh                      = ""
-bird_neighbor                   = "10.69.7.13"
 #mesh_stub_resolver              = "23.158.16.23"

@@ -3,7 +3,7 @@
   become: true
   roles:
     - role: dns_ssh
-    - role: dns_frr
+    - role: dns_ospf
     - role: dns_telegraf
     - role: knot_authoritative
     - role: support_account
@@ -14,6 +14,6 @@
   roles:
     - role: dns_ssh
     - role: knot_recursive
-    - role: dns_frr
+    - role: dns_ospf
     - role: dns_telegraf
     - role: support_account
