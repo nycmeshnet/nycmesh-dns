@@ -82,6 +82,8 @@ jmstemp A 199.170.132.45
 
 ; doh
 doh NS nycmesh-713-dns-auth-3
+
+; Proxmox
 prox NS nycmesh-713-dns-auth-3
 
 ; David K
