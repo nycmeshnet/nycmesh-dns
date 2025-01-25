@@ -37,7 +37,6 @@ dns_rec_outgoing_ip = [
   "23.158.16.25",
   "23.158.16.26",
 ]
-dns_mgt_network_prefix          = "10.70.100.0"
 dns_mgt_network_host_identifier = "24"
 dns_mgt_gateway                 = "10.70.100.1"
 hostname_prefix                 = "nycmesh-10"
@@ -46,4 +45,4 @@ recursive_cores                 = 5
 recursive_sockets               = 1
 recursive_memory                = 4096
 enable_doh                      = "enable"
-mesh_stub_resolver              = "199.170.132.47"
+#mesh_stub_resolver              = "199.170.132.47"

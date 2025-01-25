@@ -27,7 +27,6 @@ dns_rec_external_ip = [
 dns_rec_outgoing_ip = [
   "199.170.132.41", # Blank so it is not created
 ]
-dns_mgt_network_prefix          = "10.70.90.0"
 dns_mgt_network_host_identifier = "24"
 dns_mgt_gateway                 = "10.70.90.1"
 hostname_prefix                 = "nycmesh-713-jon"
@@ -36,4 +35,4 @@ recursive_cores                 = 4
 recursive_sockets               = 1
 recursive_memory                = 4096
 enable_doh                      = ""
-mesh_stub_resolver              = "23.158.16.23"
+#mesh_stub_resolver              = "23.158.16.23"

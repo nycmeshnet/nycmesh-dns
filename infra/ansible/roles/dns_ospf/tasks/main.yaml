@@ -4,7 +4,6 @@
     update_cache: true
     pkg:
       - iptables-persistent
-      - frr
       - cron
 
 - name: Netplan dummy0 interface
@@ -39,18 +38,6 @@
     dest: /etc/netplan/50-cloud-init.yaml
     mode: "640"
 
-- name: Enable ospfd
-  ansible.builtin.lineinfile:
-    path: /etc/frr/daemons
-    search_string: ospfd=no
-    line: "ospfd=yes"
-
-- name: Config template frr
-  ansible.builtin.template:
-    src: frr.conf.j2
-    dest: /etc/frr/frr.conf
-    mode: "640"
-
 - name: Iptables rules
   ansible.builtin.template:
     src: iptables.j2
@@ -80,18 +67,15 @@
     state: present
     reload: true
 
-- name: Set frr service config
-  ansible.builtin.copy:
-    src: frr.service
-    dest: /lib/systemd/system/frr.service
-    mode: "644"
-
-- name: Restart and enable frr service
+- name: Stop and disable frr service
   ansible.builtin.systemd_service:
     name: frr
-    state: restarted
-    enabled: true
-    daemon_reload: true
+    state: stopped
+    enabled: false
+
+- name: Import the bird_basic role from the nycmesh.common collection
+  ansible.builtin.import_role:
+    name: nycmesh.common.bird2_basic
 
 - name: Remove file
   ansible.builtin.file:
@@ -111,3 +95,8 @@
     sysctl_set: true
     state: present
     reload: true
+
+- name: Remove frr
+  ansible.builtin.apt:
+    name: frr
+    state: absent

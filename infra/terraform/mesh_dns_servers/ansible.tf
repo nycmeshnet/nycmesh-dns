@@ -33,10 +33,11 @@ resource "ansible_host" "rec-dns-mgt" {
   groups = [ansible_group.knot-recursive.name]
   variables = {
     SERVER_HOSTNAME                  = "${var.hostname_prefix}-dns-rec-${sum([1, count.index, var.hostname_count_offset])}"
-    ROUTER_IP                        = var.dns_rec_router_ip[count.index]
+    bird_router_id                   = var.dns_rec_router_ip[count.index]
+    bird_network                     = var.bird_network
+    BIRD_OSPF_COST                   = var.bird_ospf_cost
     EXTERNAL_LISTEN_IP               = var.dns_rec_external_ip[count.index]
     EXTERNAL_OUTGOING_IP             = var.dns_rec_outgoing_ip[count.index]
-    INTERNAL_NETWORK_RANGE           = format("%s/%s", var.dns_mgt_network_prefix, var.dns_mgt_network_host_identifier)
     INTERNAL_NETWORK_HOST_IDENTIFIER = var.dns_mgt_network_host_identifier
     INTERNAL_LISTEN_IP               = var.dns_rec_internal_ip[count.index]
     INTERNAL_MGT_IP                  = var.dns_rec_mgt_ip[count.index]
@@ -55,10 +56,11 @@ resource "ansible_host" "auth-dns-mgt" {
   groups = [ansible_group.knot-authoritative.name]
   variables = {
     SERVER_HOSTNAME                  = "${var.hostname_prefix}-dns-auth-${sum([1, count.index, var.hostname_count_offset])}"
-    ROUTER_IP                        = var.dns_auth_router_ip[count.index]
+    bird_router_id                   = var.dns_auth_router_ip[count.index]
+    bird_network                     = var.bird_network
+    BIRD_OSPF_COST                   = var.bird_ospf_cost
     EXTERNAL_LISTEN_IP               = var.dns_auth_external_ip[count.index]
     EXTERNAL_OUTGOING_IP             = ""
-    INTERNAL_NETWORK_RANGE           = format("%s/%s", var.dns_mgt_network_prefix, var.dns_mgt_network_host_identifier)
     INTERNAL_NETWORK_HOST_IDENTIFIER = var.dns_mgt_network_host_identifier
     INTERNAL_LISTEN_IP               = var.dns_auth_internal_ip[count.index]
     INTERNAL_MGT_IP                  = var.dns_auth_mgt_ip[count.index]

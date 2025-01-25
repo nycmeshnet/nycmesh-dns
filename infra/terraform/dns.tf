@@ -16,7 +16,6 @@ module "some_mesh_dns_servers" {
   dns_auth_external_ip            = var.dns_auth_external_ip
   dns_rec_external_ip             = var.dns_rec_external_ip
   dns_rec_outgoing_ip             = var.dns_rec_outgoing_ip
-  dns_mgt_network_prefix          = var.dns_mgt_network_prefix
   dns_mgt_network_host_identifier = var.dns_mgt_network_host_identifier
   dns_mgt_gateway                 = var.dns_mgt_gateway
   dns_ssh_key_name                = "dns_ed25519"
@@ -33,4 +32,5 @@ module "some_mesh_dns_servers" {
   enable_doh                      = var.enable_doh
   main_auth_server_ip             = var.main_auth_server_ip
   mesh_stub_resolver              = var.mesh_stub_resolver
+  bird_network                    = var.bird_network
 }
