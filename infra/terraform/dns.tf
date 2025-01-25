@@ -29,6 +29,10 @@ module "some_mesh_dns_servers" {
   datadog_api_key                 = var.datadog_api_key
   datadog_site                    = var.datadog_site
   dns_cookie_secret               = var.dns_cookie_secret
+  tsig_key_grandmox               = var.tsig_key_grandmox
+  tsig_key_jon                    = var.tsig_key_jon
+  tsig_key_10_r630_01             = var.tsig_key_10_r630_01
+  tsig_key_713_r640_01            = var.tsig_key_713_r640_01
   tsig_key_doh                    = var.tsig_key_doh
   enable_doh                      = var.enable_doh
   main_auth_server_ip             = var.main_auth_server_ip
