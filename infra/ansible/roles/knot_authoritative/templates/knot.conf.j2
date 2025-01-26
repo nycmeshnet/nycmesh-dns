@@ -43,14 +43,30 @@ key:
     secret: {{ TSIG_KEY_DOH }}
 
 acl:
-{% for subdomain in "grandmox;jon;nycmesh-10-r630-01;nycmesh-713-r640-01".split(';') %}
-  - id: acl-update-{{ subdomain }}
+  - id: acl-update-grandmox
     action: update
     update-type: [TXT]
     update-owner-match: equal
-    update-owner-name: acme-challenge.{{ subdomain }}.prox.mesh.nycmesh.net.
-    key: {{ subdomain }}.prox.mesh.nycmesh.net.
-{% endfor %}
+    update-owner-name: acme-challenge.grandmox.prox.mesh.nycmesh.net.
+    key: grandmox.prox.mesh.nycmesh.net.
+  - id: acl-update-jon
+    action: update
+    update-type: [TXT]
+    update-owner-match: equal
+    update-owner-name: acme-challenge.jon.prox.mesh.nycmesh.net.
+    key: jon.prox.mesh.nycmesh.net.
+  - id: acl-update-nycmesh-10-r630-01
+    action: update
+    update-type: [TXT]
+    update-owner-match: equal
+    update-owner-name: acme-challenge.nycmesh-10-r630-01.prox.mesh.nycmesh.net.
+    key: nycmesh-10-r630-01.prox.mesh.nycmesh.net.
+  - id: acl-update-nycmesh-713-r640-01
+    action: update
+    update-type: [TXT]
+    update-owner-match: equal
+    update-owner-name: acme-challenge.nycmesh-713-r640-01.prox.mesh.nycmesh.net.
+    key: nycmesh-713-r640-01.prox.mesh.nycmesh.net.
   - id: acl-update-doh
     action: update
     update-type: [TXT]
