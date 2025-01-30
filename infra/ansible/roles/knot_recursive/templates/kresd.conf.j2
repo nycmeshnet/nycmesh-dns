@@ -16,7 +16,8 @@ net.listen('{{ EXTERNAL_LISTEN_IP }}', 443, { kind = 'doh2' })
 
 {% if EXTERNAL_OUTGOING_IP != "" %}
 -- EXTERNAL_OUTGOING_IP
-net.outgoing_v4('{{ EXTERNAL_OUTGOING_IP }}')
+-- Not until things are sorted out with the delegated subdomains, but keep the IPs
+--net.outgoing_v4('{{ EXTERNAL_OUTGOING_IP }}')
 {% endif %}
 
 -- Load useful modules
