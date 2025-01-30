@@ -14,6 +14,9 @@ net.listen('{{ EXTERNAL_LISTEN_IP }}', 53, { kind = 'dns' })
 net.listen('{{ EXTERNAL_LISTEN_IP }}', 443, { kind = 'doh2' })
 {% endif %}
 
+-- No ipv6
+net.ipv6 = false
+
 {% if EXTERNAL_OUTGOING_IP != "" %}
 -- EXTERNAL_OUTGOING_IP
 -- Not until things are sorted out with the delegated subdomains, but keep the IPs
