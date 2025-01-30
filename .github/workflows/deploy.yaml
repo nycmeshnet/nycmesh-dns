@@ -5,8 +5,8 @@ on:
     branches:
       - master
       - james/delegation
-    paths:
-      - infra/**
+    # paths:
+    #   - infra/**
   workflow_dispatch:
 
 permissions: read-all
