@@ -10,10 +10,12 @@ output = { r: [] for r in validreverse }
 
 header = """$ORIGIN {}
 $TTL 3600
-@  SOA   10.10.10.11. noc.nycmesh.net. ( 2018042700 1d 2h 4w 1h )
-@  NS    ns
+@  SOA   nycmesh-713-dns-auth-3 hostmaster.nycmesh.net. ( 2024120100 1d 2h 4w 1h )
+@  NS    nycmesh-713-dns-auth-3
+@  NS    nycmesh-10-dns-auth-5
 @  A     10.10.10.11
-ns A     10.10.10.11
+nycmesh-10-dns-auth-5 A 23.158.16.23
+nycmesh-713-dns-auth-3 A 199.170.132.47
 """
 
 def inaddrarpa(x):
