@@ -189,5 +189,4 @@ variable "main_auth_server_ip" {
 variable "mesh_stub_resolver" {
   type        = string
   description = "resolver for mesh bound queries"
-  default     = "10.10.10.11"
 }

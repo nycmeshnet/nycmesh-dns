@@ -54,7 +54,6 @@
 - name: Setup DoH
   ansible.builtin.include_tasks:
     file: doh.yaml
-  when: DOH_SERVER != ""
 
 - name: Fix kres-cache-gc.service
   ansible.builtin.lineinfile:
