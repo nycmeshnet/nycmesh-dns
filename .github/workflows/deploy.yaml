@@ -17,7 +17,7 @@ jobs:
     with:
       environment: dev_jon
     secrets: inherit
-    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+    if: github.ref == 'refs/heads/master'
 
   deploy_sn10_prod:
     name: Deploy to sn10 prod
@@ -26,7 +26,7 @@ jobs:
     with:
       environment: prod_sn10
     secrets: inherit
-    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+    if: github.ref == 'refs/heads/master'
 
   deploy_sn3_prod:
     name: Deploy to sn3 prod
@@ -35,4 +35,4 @@ jobs:
     with:
       environment: prod_sn3
     secrets: inherit
-    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+    if: github.ref == 'refs/heads/master'
