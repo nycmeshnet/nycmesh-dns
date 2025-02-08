@@ -49,6 +49,8 @@ n265 A 10.69.2.65
 ; Daniel
 daniel-pallas A 199.170.132.101
 daniel NS daniel-pallas
+nyckml A 199.170.132.45
+nyckmldev A 199.170.132.46
 
 ; micro
 crichton A 10.70.90.86
