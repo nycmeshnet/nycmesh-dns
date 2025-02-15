@@ -20,24 +20,24 @@
 
     - name: Certbot script
       ansible.builtin.template:
-        src: ../templates/certbot.sh.j2
+        src: certbot.sh.j2
         dest: /root/certbot.sh
         mode: "700"
 
-    - name: tsig.ini
+    - name: Create tsig.ini
       ansible.builtin.template:
-        src: ../templates/tsig.ini.j2
+        src: tsig.ini.j2
         dest: /root/tsig.ini
         mode: "700"
 
     - name: Get cert
-      ansible.builtin.shell:
+      ansible.builtin.command:
         cmd: /root/certbot.sh
         creates: /etc/knot-resolver/server-cert.pem
 
     - name: Crontab
       ansible.builtin.template:
-        src: ../templates/certbot_update_cert.j2
+        src: certbot_update_cert.j2
         dest: /etc/cron.d/certbot_update_cert
         mode: "700"
 
