@@ -1,45 +1,66 @@
-- name: Install deps
-  ansible.builtin.apt:
-    lock_timeout: 120
-    update_cache: true
-    pkg:
-      - python3-pip
-      - python3.11-venv
-      - cron
+- name: Setup doh
+  when: DOH_SERVER != ""
+  block:
+    - name: Install deps
+      ansible.builtin.apt:
+        lock_timeout: 120
+        update_cache: true
+        pkg:
+          - python3-pip
+          - python3.11-venv
+          - cron
 
-- name: Install certbot
-  ansible.builtin.pip:
-    name:
-      - certbot==2.11.0
-      - certbot-dns-rfc2136==2.11.0
-    virtualenv: /root/certbot_venv
-    virtualenv_command: python3 -m venv
+    - name: Install certbot
+      ansible.builtin.pip:
+        name:
+          - certbot==2.11.0
+          - certbot-dns-rfc2136==2.11.0
+        virtualenv: /root/certbot_venv
+        virtualenv_command: python3 -m venv
 
-- name: Certbot script
-  ansible.builtin.template:
-    src: certbot.sh.j2
-    dest: /root/certbot.sh
-    mode: "700"
+    - name: Certbot script
+      ansible.builtin.template:
+        src: certbot.sh.j2
+        dest: /root/certbot.sh
+        mode: "700"
 
-- name: Create tsig.ini
-  ansible.builtin.template:
-    src: tsig.ini.j2
-    dest: /root/tsig.ini
-    mode: "700"
+    - name: Create tsig.ini
+      ansible.builtin.template:
+        src: tsig.ini.j2
+        dest: /root/tsig.ini
+        mode: "700"
 
-- name: Get cert
-  ansible.builtin.command:
-    cmd: /root/certbot.sh
-    creates: /etc/knot-resolver/server-cert.pem
+    - name: Get cert
+      ansible.builtin.command:
+        cmd: /root/certbot.sh
+        creates: /etc/knot-resolver/server-cert.pem
 
-- name: Crontab
-  ansible.builtin.template:
-    src: certbot_update_cert.j2
-    dest: /etc/cron.d/certbot_update_cert
-    mode: "700"
+    - name: Crontab
+      ansible.builtin.template:
+        src: certbot_update_cert.j2
+        dest: /etc/cron.d/certbot_update_cert
+        mode: "700"
 
-- name: Restart and enable cron service
-  ansible.builtin.service:
-    name: cron
-    state: restarted
-    enabled: true
+    - name: Restart and enable cron service
+      ansible.builtin.service:
+        name: cron
+        state: restarted
+        enabled: true
+
+- name: Setup doh
+  when: DOH_SERVER == ""
+  block:
+    - name: Cleanup crontab
+      ansible.builtin.file:
+        path: /etc/cron.d/certbot_update_cert
+        state: absent
+
+    - name: Cleanup tsig
+      ansible.builtin.file:
+        path: /root/tsig.ini
+        state: absent
+
+    - name: Cleanup certbot
+      ansible.builtin.file:
+        path: /root/certbot.sh
+        state: absent
