@@ -101,9 +101,12 @@ scuttle A 10.70.73.4
 lte A 10.70.90.170
 
 ; Grand
-room A 10.69.19.134
-meshroom CNAME room
 grandmox A 10.70.188.196
+
+; The Room
+room A 10.69.30.65
+meshroom CNAME room
+cave CNAME room
 
 ; Supernode3
 l2tpvpn.sn3 A 199.170.132.6
