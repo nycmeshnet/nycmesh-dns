@@ -321,8 +321,8 @@ resource "namedotcom_record" "record_mastodon_219371939" {
 resource "namedotcom_record" "record_social_219371944" {
   domain_name = "nycmesh.net"
   host        = "social"
-  record_type = "A"
-  answer      = "199.170.132.101"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
 }
 
 resource "namedotcom_record" "gsg_displays" {
@@ -336,8 +336,8 @@ resource "namedotcom_record" "gsg_displays" {
 resource "namedotcom_record" "record_mastadon_219988024" {
   domain_name = "nycmesh.net"
   host        = "mastadon"
-  record_type = "A"
-  answer      = "199.170.132.101"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
 }
 
 # Stripe redirect
