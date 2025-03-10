@@ -10,6 +10,7 @@
 {% if INTERNAL_LISTEN_IP != "" %}
 -A INPUT -d {{ INTERNAL_LISTEN_IP }}/32 -p tcp -m tcp --dport 53 -j ACCEPT
 -A INPUT -d {{ INTERNAL_LISTEN_IP }}/32 -p udp -m udp --dport 53 -j ACCEPT
+-A INPUT -d {{ INTERNAL_LISTEN_IP }}/32 -p icmp --icmp-type echo-request -j ACCEPT
 {% if DOH_SERVER != "" %}
 -A INPUT -d {{ INTERNAL_LISTEN_IP }}/32 -p tcp -m tcp --dport 443 -j ACCEPT
 {% endif %}
