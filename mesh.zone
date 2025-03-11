@@ -5,27 +5,20 @@ $TTL 3600
 @  NS    nycmesh-10-dns-auth-5
 @  A     10.10.10.11             ; IPv4 address for example.com
 
-@ MX 10 mail
-
-
 ; Allocated domains
 dns   A     10.10.10.10
 ns    A     10.10.10.11
 nycmesh-10-dns-auth-5 A 23.158.16.23
 nycmesh-713-dns-auth-3 A 199.170.132.47
 nycmesh-713-jon-dns-auth-1 A 199.170.132.48
-ebook A     10.70.129.51
 something A 1.1.1.1
 unms	CNAME uisp
 uisp	A 10.70.76.21
-jimsblog A 10.70.140.70
-jim	A 10.70.140.70
-mail	A 10.70.140.70
 donuts A 10.70.73.29
 unifi A 10.70.90.158
 alerts A 10.70.178.21
 wiki A 199.170.132.45
-mastodon A 199.170.132.101
+mastodon A 199.170.132.45
 building A 10.70.187.216
 grafana A 10.70.90.82
 jon A 10.70.90.52
@@ -34,8 +27,11 @@ nycmesh-10-r630-01-mgmt A 10.70.103.187
 nycmesh-713-r630-01 A 10.70.103.188
 nycmesh-713-r630-01-mgmt A 10.70.103.189
 devwiki A 199.170.132.46
+nycmesh-713-r640-01 A 10.70.90.195
+nycmesh-713-r640-02 A 10.70.90.196
 grafana-new A 10.70.90.146
-rsyslog A 10.70.90.198
+rsyslog A 10.10.5.14
+freepbx A 10.70.187.202
 
 ; Emerson
 gitlab A    10.70.123.5
@@ -55,6 +51,8 @@ n265 A 10.69.2.65
 ; Daniel
 daniel-pallas A 199.170.132.101
 daniel NS daniel-pallas
+nyckml A 199.170.132.45
+nyckmldev A 199.170.132.46
 
 ; micro
 crichton A 10.70.90.86
@@ -85,6 +83,9 @@ jmstemp A 199.170.132.45
 ; doh
 doh NS nycmesh-713-dns-auth-3
 
+; Proxmox
+prox NS nycmesh-713-dns-auth-3
+
 ; David K
 emergency-dev A 10.70.90.161
 
@@ -98,8 +99,12 @@ scuttle A 10.70.73.4
 lte A 10.70.90.170
 
 ; Grand
-room A 10.69.19.134
+grandmox A 10.70.188.196
+
+; The Room
+room A 10.69.30.65
 meshroom CNAME room
+cave CNAME room
 
 ; Supernode3
 l2tpvpn.sn3 A 199.170.132.6

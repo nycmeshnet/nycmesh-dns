@@ -23,7 +23,7 @@ dns_auth_internal_ip = [
 ]
 dns_rec_internal_ip = [
   "10.10.10.10",
-  "10.70.90.133",
+  "10.10.10.11",
 ]
 dns_auth_external_ip = [
   "199.170.132.47",
@@ -37,7 +37,6 @@ dns_rec_outgoing_ip = [
   "199.170.132.109",
   "199.170.132.110",
 ]
-dns_mgt_network_prefix          = "10.70.90.0"
 dns_mgt_network_host_identifier = "24"
 dns_mgt_gateway                 = "10.70.90.1"
 hostname_prefix                 = "nycmesh-713"
@@ -46,3 +45,4 @@ recursive_cores                 = 5
 recursive_sockets               = 1
 recursive_memory                = 4096
 enable_doh                      = "enable"
+mesh_stub_resolver              = "23.158.16.23"

@@ -1,0 +1,94 @@
+
+server:
+{% if INTERNAL_LISTEN_IP != "" %}    listen: {{ INTERNAL_LISTEN_IP }}@53
+{% endif %}
+{% if EXTERNAL_LISTEN_IP != "" %}    listen: {{ EXTERNAL_LISTEN_IP }}@53
+{% endif %}
+
+log:
+  - target: syslog
+    any: info
+
+mod-cookies:
+  - id: default
+    secret: {{ DNS_COOKIE_SECRET }}
+
+mod-rrl:
+ - id: default
+   rate-limit: 200
+   slip: 2
+
+template:
+  - id: default
+    global-module: mod-cookies/default
+    global-module: mod-rrl/default
+    global-module: mod-stats
+    storage: /var/lib/knot/zones
+
+key:
+  - id: grandmox.prox.mesh.nycmesh.net.
+    algorithm: hmac-sha512
+    secret: {{ TSIG_KEY_GRANDMOX }}
+  - id: jon.prox.mesh.nycmesh.net.
+    algorithm: hmac-sha512
+    secret: {{ TSIG_KEY_JON }}
+  - id: nycmesh-10-r630-01.prox.mesh.nycmesh.net.
+    algorithm: hmac-sha512
+    secret: {{ TSIG_KEY_10_R630_01 }}
+  - id: nycmesh-713-r640-01.prox.mesh.nycmesh.net.
+    algorithm: hmac-sha512
+    secret: {{ TSIG_KEY_713_R640_01 }}
+  - id: doh.mesh.nycmesh.net.
+    algorithm: hmac-sha512
+    secret: {{ TSIG_KEY_DOH }}
+
+acl:
+  - id: acl-update-grandmox
+    action: update
+    update-type: [TXT]
+    update-owner-match: equal
+    update-owner-name: acme-challenge.grandmox.prox.mesh.nycmesh.net.
+    key: grandmox.prox.mesh.nycmesh.net.
+  - id: acl-update-jon
+    action: update
+    update-type: [TXT]
+    update-owner-match: equal
+    update-owner-name: acme-challenge.jon.prox.mesh.nycmesh.net.
+    key: jon.prox.mesh.nycmesh.net.
+  - id: acl-update-nycmesh-10-r630-01
+    action: update
+    update-type: [TXT]
+    update-owner-match: equal
+    update-owner-name: acme-challenge.nycmesh-10-r630-01.prox.mesh.nycmesh.net.
+    key: nycmesh-10-r630-01.prox.mesh.nycmesh.net.
+  - id: acl-update-nycmesh-713-r640-01
+    action: update
+    update-type: [TXT]
+    update-owner-match: equal
+    update-owner-name: acme-challenge.nycmesh-713-r640-01.prox.mesh.nycmesh.net.
+    key: nycmesh-713-r640-01.prox.mesh.nycmesh.net.
+  - id: acl-update-doh
+    action: update
+    update-type: [TXT]
+    update-owner-match: equal
+    update-owner-name: acme-challenge.doh.mesh.nycmesh.net.
+    key: doh.mesh.nycmesh.net.
+
+zone:
+  - domain: mesh
+  - domain: mesh.nycmesh.net
+    file: mesh.zone
+  - domain: doh.mesh.nycmesh.net
+    file: doh.mesh.nycmesh.net.zone
+    acl: acl-update-doh
+  - domain: prox.mesh.nycmesh.net
+    file: prox.mesh.nycmesh.net.zone
+    acl: [acl-update-grandmox, acl-update-jon, acl-update-nycmesh-10-r630-01, acl-update-nycmesh-713-r640-01]
+  - domain: nycmeshconnect.com
+    file: nycmeshconnect.com.zone
+  - domain: nycmeshconnect.net
+    file: nycmeshconnect.net.zone
+  - domain: themesh.nyc
+    file: themesh.nyc.zone
+  - domain: 10.in-addr.arpa
+  - domain: 59.167.199.in-addr.arpa
