@@ -29,6 +29,7 @@ nycmesh-713-r630-01-mgmt A 10.70.103.189
 devwiki A 199.170.132.46
 nycmesh-713-r640-01 A 10.70.90.195
 nycmesh-713-r640-02 A 10.70.90.196
+nycmesh-11 A 10.70.104.12
 grafana-new A 10.70.90.146
 rsyslog A 10.10.5.14
 freepbx A 10.70.187.202
