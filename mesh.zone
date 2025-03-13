@@ -32,7 +32,7 @@ nycmesh-713-r640-02 A 10.70.90.196
 nycmesh-11 A 10.70.104.12
 grafana-new A 10.70.90.146
 rsyslog A 10.10.5.14
-freepbx A 10.70.187.202
+freepbx A 10.70.90.62
 
 ; Emerson
 gitlab A    10.70.123.5
