@@ -18,7 +18,7 @@ donuts A 10.70.73.29
 unifi A 10.70.90.158
 alerts A 10.70.178.21
 wiki A 199.170.132.45
-mastodon A 199.170.132.101
+mastodon A 199.170.132.45
 building A 10.70.187.216
 grafana A 10.70.90.82
 jon A 10.70.90.52
@@ -26,10 +26,13 @@ nycmesh-10-r630-01 A 10.70.103.186
 nycmesh-10-r630-01-mgmt A 10.70.103.187
 nycmesh-713-r630-01 A 10.70.103.188
 nycmesh-713-r630-01-mgmt A 10.70.103.189
+devwiki A 199.170.132.46
 nycmesh-713-r640-01 A 10.70.90.195
 nycmesh-713-r640-02 A 10.70.90.196
+nycmesh-11 A 10.70.104.12
 grafana-new A 10.70.90.146
 rsyslog A 10.10.5.14
+freepbx A 10.70.187.202
 
 ; Emerson
 gitlab A    10.70.123.5
@@ -72,10 +75,6 @@ grandbox A 10.69.19.233
 grandsvc A 199.167.59.101
 *.grandsvc CNAME grandsvc
 
-; k8s-infra dev
-devdb A 199.170.132.46
-devwiki CNAME devdb
-
 ; James
 scan A 10.70.90.120
 wazuh A 10.70.90.75
@@ -101,9 +100,12 @@ scuttle A 10.70.73.4
 lte A 10.70.90.170
 
 ; Grand
-room A 10.69.19.134
-meshroom CNAME room
 grandmox A 10.70.188.196
+
+; The Room
+room A 10.69.30.65
+meshroom CNAME room
+cave CNAME room
 
 ; Supernode3
 l2tpvpn.sn3 A 199.170.132.6
