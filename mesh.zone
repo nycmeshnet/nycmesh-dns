@@ -115,7 +115,7 @@ wgvpn.sn3 A 199.170.132.4
 
 ; Supernode10
 l2tpvpn.sn10 A 23.158.16.21
-wgvpn.sn10 A 23.158.16.21
+wgvpn.sn10 A 23.158.16.28
 
 ; Supernode1
 ; all SN1 services decom'd Feb24
