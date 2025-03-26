@@ -106,6 +106,7 @@ grandmox A 10.70.188.196
 room A 10.69.30.65
 meshroom CNAME room
 cave CNAME room
+ha A 10.70.147.86
 
 ; Supernode3
 l2tpvpn.sn3 A 199.170.132.6
