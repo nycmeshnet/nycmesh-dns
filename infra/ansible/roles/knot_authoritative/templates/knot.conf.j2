@@ -26,6 +26,15 @@ template:
     storage: /var/lib/knot/zones
 
 key:
+  - id: building.mesh.nycmesh.net.
+    algorithm: hmac-sha512
+    secret: {{ TSIG_KEY_BUILDING }}
+  - id: jamesinternaldev3.mesh.nycmesh.net.
+    algorithm: hmac-sha512
+    secret: {{ TSIG_KEY_JAMESINTERNALDEV3 }}
+  - id: jamesinternalprod2.mesh.nycmesh.net.
+    algorithm: hmac-sha512
+    secret: {{ TSIG_KEY_JAMESINTERNALPROD2 }}
   - id: grandmox.prox.mesh.nycmesh.net.
     algorithm: hmac-sha512
     secret: {{ TSIG_KEY_GRANDMOX }}
@@ -43,6 +52,24 @@ key:
     secret: {{ TSIG_KEY_DOH }}
 
 acl:
+  - id: acl-update-building
+    action: update
+    update-type: [TXT]
+    update-owner-match: equal
+    update-owner-name: acme-challenge.building.mesh.nycmesh.net.
+    key: building.mesh.nycmesh.net.
+  - id: acl-update-jamesinternaldev3
+    action: update
+    update-type: [TXT]
+    update-owner-match: equal
+    update-owner-name: acme-challenge.building.mesh.nycmesh.net.
+    key: jamesinternaldev3.mesh.nycmesh.net.
+  - id: acl-update-jamesinternalprod2
+    action: update
+    update-type: [TXT]
+    update-owner-match: equal
+    update-owner-name: acme-challenge.jamesinternalprod2.mesh.nycmesh.net.
+    key: jamesinternalprod2.mesh.nycmesh.net.
   - id: acl-update-grandmox
     action: update
     update-type: [TXT]
