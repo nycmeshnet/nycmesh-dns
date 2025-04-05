@@ -170,6 +170,24 @@ variable "dns_cookie_secret" {
   sensitive   = true
 }
 
+variable "tsig_key_building" {
+  type        = string
+  description = "TSIG key for the building.mesh.nycmesh.net zone"
+  sensitive   = true
+}
+
+variable "tsig_key_jamesinternaldev3" {
+  type        = string
+  description = "TSIG key for the jamesinternaldev3.mesh.nycmesh.net zone"
+  sensitive   = true
+}
+
+variable "tsig_key_jamesinternalprod2" {
+  type        = string
+  description = "TSIG key for the jamesinternalprod2.mesh.nycmesh.net zone"
+  sensitive   = true
+}
+
 variable "tsig_key_grandmox" {
   type        = string
   description = "TSIG key for the grandmox.mesh.nycmesh.net zone"
