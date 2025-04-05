@@ -19,8 +19,8 @@ unifi A 10.70.90.158
 alerts A 10.70.178.21
 wiki A 199.170.132.45
 mastodon A 199.170.132.45
-building A 10.70.90.209
-building-dev A 10.70.90.210
+building NS nycmesh-713-dns-auth-3
+building-dev NS nycmesh-713-dns-auth-3
 grafana A 10.70.90.82
 jon A 10.70.90.52
 nycmesh-10-r630-01 A 10.70.103.186
@@ -82,9 +82,7 @@ wazuh A 10.70.90.75
 jamesprojects A 10.70.90.53
 jmstemp A 199.170.132.45
 jamesinternaldev3 NS nycmesh-713-dns-auth-3
-jamesinternaldev3 A 10.70.90.210
 jamesinternalprod2 NS nycmesh-713-dns-auth-3
-jamesinternalprod2 A 10.70.100.63
 
 ; doh
 doh NS nycmesh-713-dns-auth-3
