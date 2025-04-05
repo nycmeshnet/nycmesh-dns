@@ -5,8 +5,8 @@ on:
     branches:
       - master
       - james/tsig_keys
-    paths:
-      - infra/**
+    # paths:
+    #   - infra/**
   workflow_dispatch:
 
 permissions: read-all
