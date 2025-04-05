@@ -19,8 +19,8 @@ unifi A 10.70.90.158
 alerts A 10.70.178.21
 wiki A 199.170.132.45
 mastodon A 199.170.132.45
-building A 199.170.132.45
-building-dev A 199.170.132.46
+building A 10.70.90.209
+building-dev A 10.70.90.210
 grafana A 10.70.90.82
 jon A 10.70.90.52
 nycmesh-10-r630-01 A 10.70.103.186
