@@ -4,9 +4,8 @@ on:
   push:
     branches:
       - master
-      - james/tsig_keys
-    # paths:
-    #   - infra/**
+    paths:
+      - infra/**
   workflow_dispatch:
 
 permissions: read-all
@@ -32,8 +31,8 @@ jobs:
   deploy_sn3_prod:
     name: Deploy to sn3 prod
     uses: ./.github/workflows/deploy_dns_environment.yaml
-    #needs: deploy_sn10_prod
+    needs: deploy_sn10_prod
     with:
       environment: prod_sn3
     secrets: inherit
-    #if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/master'
