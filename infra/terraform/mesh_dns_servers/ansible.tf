@@ -31,6 +31,7 @@ resource "ansible_group" "knot-authoritative" {
     TSIG_KEY_10_R630_01          = var.tsig_key_10_r630_01
     TSIG_KEY_713_R640_01         = var.tsig_key_713_r640_01
     TSIG_KEY_DOH                 = var.tsig_key_doh
+    TSIG_KEY_HOMEASSISTANT       = var.tsig_key_ha
   }
 }
 
