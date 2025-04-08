@@ -169,6 +169,24 @@ variable "dns_cookie_secret" {
   sensitive   = true
 }
 
+variable "tsig_key_k8s_prod1" {
+  type        = string
+  description = "TSIG key for the zone updates from prod1 k8s lb"
+  sensitive   = true
+}
+
+variable "tsig_key_k8s_prod2" {
+  type        = string
+  description = "TSIG key for the zone updates from prod2 k8s lb"
+  sensitive   = true
+}
+
+variable "tsig_key_k8s_dev3" {
+  type        = string
+  description = "TSIG key for the zone updates from dev3 k8s lb"
+  sensitive   = true
+}
+
 variable "tsig_key_grandmox" {
   type        = string
   description = "TSIG key for the grandmox.mesh.nycmesh.net zone"
@@ -196,6 +214,12 @@ variable "tsig_key_713_r640_01" {
 variable "tsig_key_doh" {
   type        = string
   description = "TSIG key for the doh.mesh.nycmesh.net zone"
+  sensitive   = true
+}
+
+variable "tsig_key_ha" {
+  type        = string
+  description = "TSIG key for the ha.mesh.nycmesh.net zone"
   sensitive   = true
 }
 

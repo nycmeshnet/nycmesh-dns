@@ -19,8 +19,8 @@ unifi A 10.70.90.158
 alerts A 10.70.178.21
 wiki A 199.170.132.45
 mastodon A 199.170.132.45
-building A 199.170.132.45
-building-dev A 199.170.132.46
+building NS nycmesh-713-dns-auth-3
+building-dev NS nycmesh-713-dns-auth-3
 grafana A 10.70.90.82
 jon A 10.70.90.52
 nycmesh-10-r630-01 A 10.70.103.186
@@ -81,6 +81,8 @@ scan A 10.70.90.120
 wazuh A 10.70.90.75
 jamesprojects A 10.70.90.53
 jmstemp A 199.170.132.45
+jamesinternaldev3 NS nycmesh-713-dns-auth-3
+jamesinternalprod2 NS nycmesh-713-dns-auth-3
 
 ; doh
 doh NS nycmesh-713-dns-auth-3
@@ -107,8 +109,8 @@ grandmox A 10.70.188.196
 room A 10.69.30.65
 meshroom CNAME room
 cave CNAME room
-ha A 10.70.147.86
-ha.room CNAME ha
+ha NS nycmesh-713-dns-auth-3
+;ha.room CNAME ha
 
 ; Supernode3
 l2tpvpn.sn3 A 199.170.132.6

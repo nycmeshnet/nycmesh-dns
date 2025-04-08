@@ -26,6 +26,15 @@ template:
     storage: /var/lib/knot/zones
 
 key:
+  - id: k8s.lb.prod1
+    algorithm: hmac-sha512
+    secret: {{ TSIG_KEY_K8S_PROD1 }}
+  - id: k8s.lb.prod2
+    algorithm: hmac-sha512
+    secret: {{ TSIG_KEY_K8S_PROD2 }}
+  - id: k8s.lb.dev3
+    algorithm: hmac-sha512
+    secret: {{ TSIG_KEY_K8S_DEV3 }}
   - id: grandmox.prox.mesh.nycmesh.net.
     algorithm: hmac-sha512
     secret: {{ TSIG_KEY_GRANDMOX }}
@@ -41,8 +50,35 @@ key:
   - id: doh.mesh.nycmesh.net.
     algorithm: hmac-sha512
     secret: {{ TSIG_KEY_DOH }}
+  - id: ha.mesh.nycmesh.net.
+    algorithm: hmac-sha512
+    secret: {{ TSIG_KEY_HOMEASSISTANT }}
 
 acl:
+  - id: acl-update-building
+    action: update
+    update-type: [TXT]
+    update-owner-match: equal
+    update-owner-name: acme-challenge.building.mesh.nycmesh.net.
+    key: k8s.lb.prod1
+  - id: acl-update-buildingdev
+    action: update
+    update-type: [TXT]
+    update-owner-match: equal
+    update-owner-name: acme-challenge.building-dev.mesh.nycmesh.net.
+    key: k8s.lb.dev3
+  - id: acl-update-jamesinternaldev3
+    action: update
+    update-type: [TXT]
+    update-owner-match: equal
+    update-owner-name: acme-challenge.building.mesh.nycmesh.net.
+    key: k8s.lb.dev3
+  - id: acl-update-jamesinternalprod2
+    action: update
+    update-type: [TXT]
+    update-owner-match: equal
+    update-owner-name: acme-challenge.jamesinternalprod2.mesh.nycmesh.net.
+    key: k8s.lb.prod2
   - id: acl-update-grandmox
     action: update
     update-type: [TXT]
@@ -73,6 +109,12 @@ acl:
     update-owner-match: equal
     update-owner-name: acme-challenge.doh.mesh.nycmesh.net.
     key: doh.mesh.nycmesh.net.
+  - id: acl-update-ha
+    action: update
+    update-type: [TXT]
+    update-owner-match: equal
+    update-owner-name: acme-challenge.ha.mesh.nycmesh.net.
+    key: ha.mesh.nycmesh.net.
 
 zone:
   - domain: mesh
@@ -81,9 +123,24 @@ zone:
   - domain: doh.mesh.nycmesh.net
     file: doh.mesh.nycmesh.net.zone
     acl: acl-update-doh
+  - domain: ha.mesh.nycmesh.net
+    file: ha.mesh.nycmesh.net.zone
+    acl: acl-update-ha
   - domain: prox.mesh.nycmesh.net
     file: prox.mesh.nycmesh.net.zone
     acl: [acl-update-grandmox, acl-update-jon, acl-update-nycmesh-10-r630-01, acl-update-nycmesh-713-r640-01]
+  - domain: building.mesh.nycmesh.net
+    file: building.mesh.nycmesh.net.zone
+    acl: acl-update-building
+  - domain: building-dev.mesh.nycmesh.net
+    file: building-dev.mesh.nycmesh.net.zone
+    acl: acl-update-buildingdev
+  - domain: jamesinternaldev3.mesh.nycmesh.net
+    file: jamesinternaldev3.mesh.nycmesh.net.zone
+    acl: acl-update-jamesinternaldev3
+  - domain: jamesinternalprod2.mesh.nycmesh.net
+    file: jamesinternalprod2.mesh.nycmesh.net.zone
+    acl: acl-update-jamesinternalprod2
   - domain: nycmeshconnect.com
     file: nycmeshconnect.com.zone
   - domain: nycmeshconnect.net
