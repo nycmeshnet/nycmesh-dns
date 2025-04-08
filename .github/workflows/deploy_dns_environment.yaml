@@ -18,9 +18,9 @@ env:
   TF_VAR_influx_db_token: ${{ secrets.TF_VAR_INFLUX_DB_TOKEN }}
   TF_VAR_datadog_api_key: ${{ secrets.TF_VAR_DATADOG_API_KEY }}
   TF_VAR_dns_cookie_secret: "${{ secrets.TF_VAR_DNS_COOKIE_SECRET }}"
-  TF_VAR_tsig_key_building: "${{ secrets.TF_VAR_TSIG_KEY_BUILDING }}"
-  TF_VAR_tsig_key_jamesinternaldev3: "${{ secrets.TF_VAR_TSIG_KEY_JAMESINTERNALDEV3 }}"
-  TF_VAR_tsig_key_jamesinternalprod2: "${{ secrets.TF_VAR_TSIG_KEY_JAMESINTERNALPROD2 }}"
+  TF_VAR_tsig_key_k8s_prod1: "${{ secrets.TF_VAR_TSIG_KEY_K8S_PROD1 }}"
+  TF_VAR_tsig_key_k8s_prod2: "${{ secrets.TF_VAR_TSIG_KEY_K8S_PROD2 }}"
+  TF_VAR_tsig_key_k8s_dev3: "${{ secrets.TF_VAR_TSIG_KEY_K8S_DEV3 }}"
   TF_VAR_tsig_key_ha: "${{ secrets.TF_VAR_TSIG_KEY_HOMEASSISTANT }}"
   TF_VAR_tsig_key_grandmox: "${{ secrets.TF_VAR_TSIG_KEY_GRANDMOX }}"
   TF_VAR_tsig_key_jon: "${{ secrets.TF_VAR_TSIG_KEY_JON }}"

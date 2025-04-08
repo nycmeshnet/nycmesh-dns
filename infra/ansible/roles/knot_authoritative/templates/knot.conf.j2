@@ -26,15 +26,15 @@ template:
     storage: /var/lib/knot/zones
 
 key:
-  - id: building.mesh.nycmesh.net.
+  - id: k8s.lb.prod1
     algorithm: hmac-sha512
-    secret: {{ TSIG_KEY_BUILDING }}
-  - id: jamesinternaldev3.mesh.nycmesh.net.
+    secret: {{ TSIG_KEY_K8S_PROD1 }}
+  - id: k8s.lb.prod2
     algorithm: hmac-sha512
-    secret: {{ TSIG_KEY_JAMESINTERNALDEV3 }}
-  - id: jamesinternalprod2.mesh.nycmesh.net.
+    secret: {{ TSIG_KEY_K8S_PROD2 }}
+  - id: k8s.lb.dev3
     algorithm: hmac-sha512
-    secret: {{ TSIG_KEY_JAMESINTERNALPROD2 }}
+    secret: {{ TSIG_KEY_K8S_DEV3 }}
   - id: grandmox.prox.mesh.nycmesh.net.
     algorithm: hmac-sha512
     secret: {{ TSIG_KEY_GRANDMOX }}
@@ -60,19 +60,25 @@ acl:
     update-type: [TXT]
     update-owner-match: equal
     update-owner-name: acme-challenge.building.mesh.nycmesh.net.
-    key: building.mesh.nycmesh.net.
+    key: k8s.lb.prod1
+  - id: acl-update-buildingdev
+    action: update
+    update-type: [TXT]
+    update-owner-match: equal
+    update-owner-name: acme-challenge.building-dev.mesh.nycmesh.net.
+    key: k8s.lb.dev3
   - id: acl-update-jamesinternaldev3
     action: update
     update-type: [TXT]
     update-owner-match: equal
     update-owner-name: acme-challenge.building.mesh.nycmesh.net.
-    key: jamesinternaldev3.mesh.nycmesh.net.
+    key: k8s.lb.dev3
   - id: acl-update-jamesinternalprod2
     action: update
     update-type: [TXT]
     update-owner-match: equal
     update-owner-name: acme-challenge.jamesinternalprod2.mesh.nycmesh.net.
-    key: jamesinternalprod2.mesh.nycmesh.net.
+    key: k8s.lb.prod2
   - id: acl-update-grandmox
     action: update
     update-type: [TXT]
@@ -126,6 +132,9 @@ zone:
   - domain: building.mesh.nycmesh.net
     file: building.mesh.nycmesh.net.zone
     acl: acl-update-building
+  - domain: building-dev.mesh.nycmesh.net
+    file: building-dev.mesh.nycmesh.net.zone
+    acl: acl-update-buildingdev
   - domain: jamesinternaldev3.mesh.nycmesh.net
     file: jamesinternaldev3.mesh.nycmesh.net.zone
     acl: acl-update-jamesinternaldev3

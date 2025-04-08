@@ -23,9 +23,9 @@ resource "ansible_group" "knot-authoritative" {
     telegraf_kresd               = ""
     DOH_SERVER                   = ""
     DNS_COOKIE_SECRET            = var.dns_cookie_secret
-    TSIG_KEY_BUILDING            = var.tsig_key_building
-    TSIG_KEY_JAMESINTERNALDEV3   = var.tsig_key_jamesinternaldev3
-    TSIG_KEY_JAMESINTERNALPROD2  = var.tsig_key_jamesinternalprod2
+    TSIG_KEY_K8S_PROD1           = var.tsig_key_k8s_prod1
+    TSIG_KEY_K8S_PROD2           = var.tsig_key_k8s_prod2
+    TSIG_KEY_K8S_DEV3            = var.tsig_key_k8s_dev3
     TSIG_KEY_GRANDMOX            = var.tsig_key_grandmox
     TSIG_KEY_JON                 = var.tsig_key_jon
     TSIG_KEY_10_R630_01          = var.tsig_key_10_r630_01
