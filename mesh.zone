@@ -82,7 +82,7 @@ wazuh A 10.70.90.75
 jamesprojects A 10.70.90.53
 jmstemp A 199.170.132.45
 jamesinternaldev3 NS nycmesh-713-dns-auth-3
-jamesinternalprod2 NS nycmesh-713-dns-auth-3
+jamesinternalprod2 NS nycmesh-10-dns-auth-5
 
 ; doh
 doh NS nycmesh-713-dns-auth-3
