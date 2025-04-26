@@ -73,11 +73,11 @@ acl:
     update-owner-match: equal
     update-owner-name: acme-challenge.building.mesh.nycmesh.net.
     key: k8s.lb.dev3
-  - id: acl-update-jamesinternalprod2
+  - id: acl-update-jamesinternalprodtwo
     action: update
     update-type: [TXT]
     update-owner-match: equal
-    update-owner-name: acme-challenge.jamesinternalprod2.mesh.nycmesh.net.
+    update-owner-name: acme-challenge.jamesinternalprodtwo.mesh.nycmesh.net.
     key: k8s.lb.prod2
   - id: acl-update-grandmox
     action: update
@@ -135,12 +135,9 @@ zone:
   - domain: building-dev.mesh.nycmesh.net
     file: building-dev.mesh.nycmesh.net.zone
     acl: acl-update-buildingdev
-  - domain: jamesinternaldev3.mesh.nycmesh.net
-    file: jamesinternaldev3.mesh.nycmesh.net.zone
-    acl: acl-update-jamesinternaldev3
-  - domain: jamesinternalprod2.mesh.nycmesh.net
-    file: jamesinternalprod2.mesh.nycmesh.net.zone
-    acl: acl-update-jamesinternalprod2
+  - domain: jamesinternalprodtwo.mesh.nycmesh.net
+    file: jamesinternalprodtwo.mesh.nycmesh.net.zone
+    acl: acl-update-jamesinternalprodtwo
   - domain: nycmeshconnect.com
     file: nycmeshconnect.com.zone
   - domain: nycmeshconnect.net
