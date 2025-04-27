@@ -482,6 +482,13 @@ resource "namedotcom_record" "devpano" {
   answer      = "kubernetes-lb-jon-sn3.nycmesh.net"
 }
 
+resource "namedotcom_record" "devimg" {
+  domain_name = "nycmesh.net"
+  host        = "devimg"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-jon-sn3.nycmesh.net"
+}
+
 resource "namedotcom_record" "devdb_all" {
   domain_name = "nycmesh.net"
   host        = "*.devdb"
