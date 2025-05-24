@@ -9,8 +9,8 @@ header = """$TTL 3600
 
 def get_nn_ip(nn_s):
     third_octet = 0 if len(nn_s) <3 else nn_s[0:len(nn_s)-2]
-    forth_octent = nn_s[len(nn_s)-2:] if len(nn_s) <3 else nn_s[-2:]
-    return f"10.69.{third_octet}.{forth_octent}"
+    fourth_octet = nn_s[len(nn_s)-2:] if len(nn_s) <3 else nn_s[-2:]
+    return f"10.69.{third_octet}.{fourth_octet}"
 
 with open("nn.zone", "w") as fd:
     fd.write(header)
