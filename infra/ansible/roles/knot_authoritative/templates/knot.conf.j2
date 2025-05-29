@@ -50,6 +50,9 @@ key:
   - id: doh.mesh.nycmesh.net.
     algorithm: hmac-sha512
     secret: {{ TSIG_KEY_DOH }}
+  - id: nn.mesh.nycmesh.net.
+    algorithm: hmac-sha512
+    secret: {{ TSIG_KEY_NN }}
   - id: ha.mesh.nycmesh.net.
     algorithm: hmac-sha512
     secret: {{ TSIG_KEY_HOMEASSISTANT }}
@@ -109,6 +112,12 @@ acl:
     update-owner-match: equal
     update-owner-name: acme-challenge.doh.mesh.nycmesh.net.
     key: doh.mesh.nycmesh.net.
+  - id: acl-update-nn
+    action: update
+    update-type: [TXT]
+    update-owner-match: pattern
+    update-owner-name: acme-challenge.*.nn.mesh.nycmesh.net.
+    key: nn.mesh.nycmesh.net.
   - id: acl-update-ha
     action: update
     update-type: [TXT]
@@ -125,6 +134,7 @@ zone:
     acl: acl-update-doh
   - domain: nn.mesh.nycmesh.net
     file: nn.zone
+    acl: acl-update-nn
   - domain: ha.mesh.nycmesh.net
     file: ha.mesh.nycmesh.net.zone
     acl: acl-update-ha

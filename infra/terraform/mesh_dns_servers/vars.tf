@@ -218,6 +218,12 @@ variable "tsig_key_doh" {
   sensitive   = true
 }
 
+variable "tsig_key_nn" {
+  type        = string
+  description = "TSIG key for the nn.mesh.nycmesh.net zone"
+  sensitive   = true
+}
+
 variable "tsig_key_ha" {
   type        = string
   description = "TSIG key for the ha.mesh.nycmesh.net zone"
