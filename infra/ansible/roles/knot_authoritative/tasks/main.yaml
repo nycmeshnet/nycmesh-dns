@@ -7,7 +7,7 @@
     group: root
 
 - name: Setup knot apt repo
-  ansible.builtin.file:
+  ansible.builtin.copy:
     src: cznic-labs-knot-dns.list
     dest: /etc/apt/sources.list.d/cznic-labs-knot-dns.lists
     mode: "644"
@@ -15,7 +15,7 @@
     group: root
 
 - name: Pin knot package
-  ansible.builtin.file:
+  ansible.builtin.copy:
     src: knot.apt.preferences.txt
     dest: /etc/apt/preferences.d/knot
     mode: "644"
