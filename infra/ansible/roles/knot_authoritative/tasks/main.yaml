@@ -34,7 +34,7 @@
       - python3-pip
       - python3.11-venv
       - dnsutils
-      - knot==3.3.10
+      - knot=3.3.10
 
 - name: Knot DNS Config
   ansible.builtin.template:
