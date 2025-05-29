@@ -9,7 +9,7 @@
 - name: Setup knot apt repo
   ansible.builtin.copy:
     src: cznic-labs-knot-dns.list
-    dest: /etc/apt/sources.list.d/cznic-labs-knot-dns.lists
+    dest: /etc/apt/sources.list.d/cznic-labs-knot-dns.list
     mode: "644"
     owner: root
     group: root
