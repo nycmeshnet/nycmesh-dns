@@ -1,3 +1,4 @@
 Package: knot knot-* libdnssec* libzscanner* libknot* python3-libknot*
 Pin-Priority: 1001
-Pin: version 3.3.10
+Pin: version 3.4.6
+libdnssec
