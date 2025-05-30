@@ -451,14 +451,6 @@ resource "namedotcom_record" "meshdb_prod_forms" {
   answer      = "k8s-stateless-prod.nycmesh.net"
 }
 
-# (New) Grafana at sn3-esxi [hosted on sn3-k8s]
-resource "namedotcom_record" "record_stats_new" {
-  domain_name = "nycmesh.net"
-  host        = "stats-new"
-  record_type = "CNAME"
-  answer      = "k8s-stateless-prod.nycmesh.net"
-}
-
 # Public grafana
 resource "namedotcom_record" "record_stats_cname" {
   domain_name = "nycmesh.net"
