@@ -364,6 +364,13 @@ resource "namedotcom_record" "record_status_238885567" {
   answer      = "164.92.117.225"
 }
 
+resource "namedotcom_record" "record_status_www" {
+  domain_name = "nycmesh.net"
+  host        = "www.status"
+  record_type = "CNAME"
+  answer      = "status.nycmesh.net"
+}
+
 # Test record, feel free to remove
 resource "namedotcom_record" "record__123" {
   answer      = "127.0.0.1"
@@ -413,7 +420,7 @@ resource "namedotcom_record" "meshdb_prod_meshdb" {
   domain_name = "nycmesh.net"
   host        = "db"
   record_type = "CNAME"
-  answer      = "kubernetes-lb-prod-sn10.nycmesh.net"
+  answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
 }
 
 resource "namedotcom_record" "meshdb_prod_adminmap" {
@@ -440,14 +447,6 @@ resource "namedotcom_record" "record_los_6530453" {
 resource "namedotcom_record" "meshdb_prod_forms" {
   domain_name = "nycmesh.net"
   host        = "forms"
-  record_type = "CNAME"
-  answer      = "k8s-stateless-prod.nycmesh.net"
-}
-
-# (New) Grafana at sn3-esxi [hosted on sn3-k8s]
-resource "namedotcom_record" "record_stats_new" {
-  domain_name = "nycmesh.net"
-  host        = "stats-new"
   record_type = "CNAME"
   answer      = "k8s-stateless-prod.nycmesh.net"
 }

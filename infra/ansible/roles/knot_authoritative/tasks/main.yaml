@@ -1,3 +1,27 @@
+- name: Download knot gpg key
+  ansible.builtin.get_url:
+    url: https://pkg.labs.nic.cz/gpg
+    dest: /usr/share/keyrings/cznic-labs-pkg.gpg
+    mode: "0644"
+    owner: root
+    group: root
+
+- name: Setup knot apt repo
+  ansible.builtin.copy:
+    src: cznic-labs-knot-dns.list
+    dest: /etc/apt/sources.list.d/cznic-labs-knot-dns.list
+    mode: "644"
+    owner: root
+    group: root
+
+- name: Pin knot package
+  ansible.builtin.copy:
+    src: knot.apt.preferences.txt
+    dest: /etc/apt/preferences.d/knot
+    mode: "644"
+    owner: root
+    group: root
+
 - name: Install deps
   ansible.builtin.apt:
     lock_timeout: 240
@@ -10,7 +34,7 @@
       - python3-pip
       - python3.11-venv
       - dnsutils
-      - knot
+      - knot=3.4.6-cznic.1~bookworm
 
 - name: Knot DNS Config
   ansible.builtin.template:
