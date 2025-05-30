@@ -364,6 +364,13 @@ resource "namedotcom_record" "record_status_238885567" {
   answer      = "164.92.117.225"
 }
 
+resource "namedotcom_record" "record_status_www" {
+  domain_name = "nycmesh.net"
+  host        = "www.status"
+  record_type = "CNAME"
+  answer      = "status.nycmesh.net"
+}
+
 # Test record, feel free to remove
 resource "namedotcom_record" "record__123" {
   answer      = "127.0.0.1"
