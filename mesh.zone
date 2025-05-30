@@ -111,7 +111,7 @@ cave CNAME room
 
 ; Supernode3
 l2tpvpn.sn3 A 199.170.132.6
-wgvpn.sn3 A 199.170.132.4
+wgvpn.sn3 A 199.170.132.43
 
 ; Supernode10
 l2tpvpn.sn10 A 23.158.16.21
