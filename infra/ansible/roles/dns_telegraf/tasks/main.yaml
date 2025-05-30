@@ -1,0 +1,66 @@
+- name: Install deps
+  ansible.builtin.apt:
+    lock_timeout: 120
+    update_cache: true
+    pkg:
+      - gpg
+
+- name: Download influx gpg key
+  ansible.builtin.get_url:
+    url: https://repos.influxdata.com/influxdata-archive_compat.key
+    dest: /root/influxdata-archive_compat.key
+    mode: "600"
+
+- name: Check influx gpg key
+  ansible.builtin.command:
+    chdir: /root
+    cmd: bash -c "echo '393e8779c89ac8d958f81f942f9ad7fb82a25e133faddaf92e15b16e6ac9ce4c influxdata-archive_compat.key' | sha256sum -c"
+    creates: /tmp/fake_for_linter
+
+- name: Add influx gpg key
+  ansible.builtin.command:
+    chdir: /root
+    cmd: bash -c 'cat influxdata-archive_compat.key | gpg --dearmor > /etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg'
+    creates: /etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg
+
+- name: Add package source for influxdata
+  ansible.builtin.lineinfile:
+    path: /etc/apt/sources.list.d/influxdata.list
+    line: "deb [signed-by=/etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg] https://repos.influxdata.com/debian stable main"
+    create: true
+    mode: "644"
+
+- name: Install telegraf
+  ansible.builtin.apt:
+    lock_timeout: 120
+    update_cache: true
+    pkg:
+      - telegraf
+
+- name: Telegraf knot
+  ansible.builtin.include_tasks:
+    file: telegraf_knot.yaml
+  when: telegraf_knot != ""
+
+- name: Telegraf Config
+  ansible.builtin.template:
+    src: telegraf.conf.j2
+    dest: /etc/telegraf/telegraf.conf
+    mode: "644"
+
+- name: Allow restarting of telegraf
+  ansible.builtin.lineinfile:
+    path: /lib/systemd/system/telegraf.service
+    search_string: Restart=
+    line: "Restart=always"
+
+- name: Restart and enable telegraf service
+  ansible.builtin.systemd_service:
+    state: restarted
+    daemon_reload: true
+    name: telegraf
+    enabled: true
+
+- name: Datadog
+  ansible.builtin.include_tasks:
+    file: datadog.yaml

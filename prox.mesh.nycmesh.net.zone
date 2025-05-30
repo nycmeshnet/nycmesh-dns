@@ -5,10 +5,8 @@ $TTL 3600
 ; Authoritative DNS servers
 nycmesh-713-dns-auth-3 A 199.170.132.47
 
-; Recursive resolvers
-nycmesh-713-dns-rec-4 A 10.10.10.10
-nycmesh-713-dns-rec-5 A 10.10.10.11
-
-; doh.mesh.nycmesh.net
-@ A 10.10.10.10
-@ A 10.10.10.11
+grandmox A 10.70.188.196
+jon A 10.70.90.52
+nycmesh-10-r630-01 A 10.70.103.186
+nycmesh-713-r640-01 A 10.70.90.195
+nycmesh-11 A 10.70.104.12

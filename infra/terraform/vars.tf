@@ -4,12 +4,6 @@ variable "proxmox_host" {
   default     = "10.70.90.52"
 }
 
-variable "proxmox_prod_host" {
-  type        = string
-  description = "ip/domain of the proxmox server"
-  default     = "10.70.90.195"
-}
-
 variable "proxmox_token_id" {
   type        = string
   description = "proxmox server token id"
@@ -65,6 +59,22 @@ variable "dns_rec_mgt_ip" {
   description = "management IPs for the recursive dns vm(s)"
 }
 
+variable "dns_auth_router_ip" {
+  type        = list(string)
+  description = "ospf router IDs for the authoritative dns vm(s)"
+}
+
+variable "bird_network" {
+  type        = string
+  description = "bird ospf network for dns vm(s)"
+  default     = "10.69.0.0/16"
+}
+
+variable "dns_rec_router_ip" {
+  type        = list(string)
+  description = "ospf router IDs for the recursive dns vm(s)"
+}
+
 variable "dns_auth_internal_ip" {
   type        = list(any)
   description = "internal listen IPs for the authoritative dns vm(s)"
@@ -85,9 +95,9 @@ variable "dns_rec_external_ip" {
   description = "external listen IPs for the recursive dns vm(s), empty string for none"
 }
 
-variable "dns_mgt_network_prefix" {
-  type        = string
-  description = "network range to use for intneral networking"
+variable "dns_rec_outgoing_ip" {
+  type        = list(any)
+  description = "external IPs used to resolve recursive dns queries, empty string for none"
 }
 
 variable "dns_mgt_network_host_identifier" {
@@ -159,9 +169,63 @@ variable "dns_cookie_secret" {
   sensitive   = true
 }
 
+variable "tsig_key_k8s_prod1" {
+  type        = string
+  description = "TSIG key for the zone updates from prod1 k8s lb"
+  sensitive   = true
+}
+
+variable "tsig_key_k8s_prod2" {
+  type        = string
+  description = "TSIG key for the zone updates from prod2 k8s lb"
+  sensitive   = true
+}
+
+variable "tsig_key_k8s_dev3" {
+  type        = string
+  description = "TSIG key for the zone updates from dev3 k8s lb"
+  sensitive   = true
+}
+
+variable "tsig_key_grandmox" {
+  type        = string
+  description = "TSIG key for the grandmox.mesh.nycmesh.net zone"
+  sensitive   = true
+}
+
+variable "tsig_key_jon" {
+  type        = string
+  description = "TSIG key for the jon.mesh.nycmesh.net zone"
+  sensitive   = true
+}
+
+variable "tsig_key_10_r630_01" {
+  type        = string
+  description = "TSIG key for the nycmesh-10-r630-01.mesh.nycmesh.net zone"
+  sensitive   = true
+}
+
+variable "tsig_key_713_r640_01" {
+  type        = string
+  description = "TSIG key for the nycmesh-713-r640-01.mesh.nycmesh.net zone"
+  sensitive   = true
+}
+
 variable "tsig_key_doh" {
   type        = string
   description = "TSIG key for the doh.mesh.nycmesh.net zone"
+  sensitive   = true
+}
+
+variable "tsig_key_nn" {
+  type        = string
+  description = "TSIG key for the nn.mesh.nycmesh.net zone"
+  sensitive   = true
+}
+
+variable "tsig_key_ha" {
+  type        = string
+  description = "TSIG key for the ha.mesh.nycmesh.net zone"
   sensitive   = true
 }
 
@@ -169,4 +233,21 @@ variable "enable_doh" {
   type        = string
   description = "Enable doh server on recursive resolver"
   default     = ""
+}
+
+variable "main_auth_server_ip" {
+  type        = string
+  description = "authoritative server IP to use for DoH certs"
+  default     = "199.170.132.47"
+}
+
+variable "mesh_stub_resolver" {
+  type        = string
+  description = "resolver for mesh bound queries"
+}
+
+variable "bird_ospf_cost" {
+  type        = string
+  description = "OSPF cost for only bird"
+  default     = "10"
 }

@@ -1,0 +1,2 @@
+roles/dns_ospf/tasks/main.yaml no-changed-when
+roles/knot_authoritative/tasks/main.yaml no-changed-when

@@ -14,6 +14,7 @@ then
   exit 0
 fi
 
+python3 generate_nn.py
 python3 makereverse.py
 cp -f *.zone /var/lib/knot/zones
 

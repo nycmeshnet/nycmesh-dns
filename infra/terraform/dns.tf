@@ -9,11 +9,13 @@ module "some_mesh_dns_servers" {
   dns_local_user                  = "debian"
   dns_auth_mgt_ip                 = var.dns_auth_mgt_ip
   dns_rec_mgt_ip                  = var.dns_rec_mgt_ip
+  dns_auth_router_ip              = var.dns_auth_router_ip
+  dns_rec_router_ip               = var.dns_rec_router_ip
   dns_auth_internal_ip            = var.dns_auth_internal_ip
   dns_rec_internal_ip             = var.dns_rec_internal_ip
   dns_auth_external_ip            = var.dns_auth_external_ip
   dns_rec_external_ip             = var.dns_rec_external_ip
-  dns_mgt_network_prefix          = var.dns_mgt_network_prefix
+  dns_rec_outgoing_ip             = var.dns_rec_outgoing_ip
   dns_mgt_network_host_identifier = var.dns_mgt_network_host_identifier
   dns_mgt_gateway                 = var.dns_mgt_gateway
   dns_ssh_key_name                = "dns_ed25519"
@@ -26,6 +28,18 @@ module "some_mesh_dns_servers" {
   datadog_api_key                 = var.datadog_api_key
   datadog_site                    = var.datadog_site
   dns_cookie_secret               = var.dns_cookie_secret
+  tsig_key_k8s_prod1              = var.tsig_key_k8s_prod1
+  tsig_key_k8s_prod2              = var.tsig_key_k8s_prod2
+  tsig_key_k8s_dev3               = var.tsig_key_k8s_dev3
+  tsig_key_grandmox               = var.tsig_key_grandmox
+  tsig_key_jon                    = var.tsig_key_jon
+  tsig_key_10_r630_01             = var.tsig_key_10_r630_01
+  tsig_key_713_r640_01            = var.tsig_key_713_r640_01
+  tsig_key_ha                     = var.tsig_key_ha
   tsig_key_doh                    = var.tsig_key_doh
+  tsig_key_nn                     = var.tsig_key_nn
   enable_doh                      = var.enable_doh
+  main_auth_server_ip             = var.main_auth_server_ip
+  mesh_stub_resolver              = var.mesh_stub_resolver
+  bird_network                    = var.bird_network
 }

@@ -1,0 +1,102 @@
+- name: Install deps
+  ansible.builtin.apt:
+    lock_timeout: 120
+    update_cache: true
+    pkg:
+      - iptables-persistent
+      - cron
+
+- name: Netplan dummy0 interface
+  ansible.builtin.template:
+    src: netplan_dummy0.yaml.j2
+    dest: /etc/netplan/dummy0.yaml
+    mode: "640"
+
+- name: Netplan dummy1 interface
+  ansible.builtin.template:
+    src: netplan_dummy1.yaml.j2
+    dest: /etc/netplan/dummy1.yaml
+    mode: "640"
+  when: EXTERNAL_LISTEN_IP != ""
+
+- name: Netplan dummy2 interface
+  ansible.builtin.template:
+    src: netplan_dummy2.yaml.j2
+    dest: /etc/netplan/dummy2.yaml
+    mode: "640"
+
+- name: Netplan dummy3 interface
+  ansible.builtin.template:
+    src: netplan_dummy3.yaml.j2
+    dest: /etc/netplan/dummy3.yaml
+    mode: "640"
+  when: EXTERNAL_OUTGOING_IP != ""
+
+- name: Netplan eth0 interface
+  ansible.builtin.template:
+    src: netplan_50_cloud_init.yaml.j2
+    dest: /etc/netplan/50-cloud-init.yaml
+    mode: "640"
+
+- name: Iptables rules
+  ansible.builtin.template:
+    src: iptables.j2
+    dest: /etc/iptables/rules.v4
+    mode: "600"
+
+- name: Restore iptables rules
+  ansible.builtin.command:
+    cmd: "bash -c '/sbin/iptables-restore < /etc/iptables/rules.v4'"
+
+- name: Netplan apply
+  ansible.builtin.command:
+    cmd: "bash -c 'netplan apply && touch /tmp/netplan_applied'"
+    creates: /tmp/netplan_applied
+
+- name: Restart and enable iptables service
+  ansible.builtin.service:
+    name: netfilter-persistent
+    state: restarted
+    enabled: true
+
+- name: Set net.ipv4.ip_forward
+  ansible.posix.sysctl:
+    name: net.ipv4.ip_forward
+    value: '1'
+    sysctl_set: true
+    state: present
+    reload: true
+
+- name: Stop and disable frr service
+  ansible.builtin.systemd_service:
+    name: frr
+    state: stopped
+    enabled: false
+
+- name: Import the bird_basic role from the nycmesh.common collection
+  ansible.builtin.import_role:
+    name: nycmesh.common.bird2_basic
+
+- name: Remove file
+  ansible.builtin.file:
+    path: /etc/cron.d/frr_reload
+    state: absent
+
+- name: Restart and enable cron service
+  ansible.builtin.systemd_service:
+    state: restarted
+    name: cron
+    enabled: true
+
+- name: Set net.ipv4.ip_forward again
+  ansible.posix.sysctl:
+    name: net.ipv4.ip_forward
+    value: '1'
+    sysctl_set: true
+    state: present
+    reload: true
+
+- name: Remove frr
+  ansible.builtin.apt:
+    name: frr
+    state: absent

@@ -1,0 +1,17 @@
+network:
+    version: 2
+    ethernets:
+        eth0:
+            dhcp4: false
+            dhcp6: false
+            addresses:
+            - {{ INTERNAL_MGT_IP }}/{{ INTERNAL_NETWORK_HOST_IDENTIFIER }}
+            gateway4: {{ INTERNAL_MGT_DG }}
+            match:
+                macaddress: {{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }}
+            nameservers:
+                addresses:
+                - 10.10.10.10
+                - 1.1.1.1
+                search: []
+            set-name: eth0

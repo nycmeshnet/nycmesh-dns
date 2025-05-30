@@ -1,0 +1,9 @@
+$TTL 3600
+@  SOA   ( nycmesh-10-dns-auth-5 hostmaster.nycmesh.net. 2024120100 1d 2h 4w 1h )
+@  NS    nycmesh-10-dns-auth-5
+
+; Authoritative DNS servers
+nycmesh-10-dns-auth-5 A 23.158.16.23
+
+; jamesinternalprodtwo.mesh.nycmesh.net
+@ A 10.70.100.63
