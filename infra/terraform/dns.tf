@@ -37,6 +37,7 @@ module "some_mesh_dns_servers" {
   tsig_key_713_r640_01            = var.tsig_key_713_r640_01
   tsig_key_ha                     = var.tsig_key_ha
   tsig_key_doh                    = var.tsig_key_doh
+  tsig_key_nn                     = var.tsig_key_nn
   enable_doh                      = var.enable_doh
   main_auth_server_ip             = var.main_auth_server_ip
   mesh_stub_resolver              = var.mesh_stub_resolver
