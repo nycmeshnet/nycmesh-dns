@@ -4,10 +4,10 @@ name: "SLD Terraform"
 on:
   push:
     branches:
-      - master
+      - main
   workflow_dispatch:
     branches:
-      - master
+      - main
 
 permissions: read-all
 
@@ -52,9 +52,9 @@ jobs:
         run: terraform validate
       
       - name: Terraform plan
-        if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: terraform plan -no-color -input=false -parallelism=1
 
       - name: Terraform Apply
-        if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: terraform apply -auto-approve -input=false -parallelism=1
