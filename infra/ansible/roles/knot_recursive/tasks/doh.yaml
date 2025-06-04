@@ -13,8 +13,8 @@
     - name: Install certbot
       ansible.builtin.pip:
         name:
-          - certbot==4.1.0
-          - certbot-dns-rfc2136==4.1.0
+          - certbot==4.0.0
+          - certbot-dns-rfc2136==4.0.0
         virtualenv: /root/certbot_venv
         virtualenv_command: python3 -m venv
 
