@@ -14,9 +14,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # @v4
 
-      - name: Setup ansible
-        run: pip install --require-hashes -r requirements.txt
-
       - name: Setup Terraform with specified version on the runner
         uses: hashicorp/setup-terraform@651471c36a6092792c552e8b1bef71e592b462d8 # @v3
         with:
