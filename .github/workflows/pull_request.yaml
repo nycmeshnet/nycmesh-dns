@@ -19,6 +19,9 @@ jobs:
         with:
           terraform_version: 1.8.3
 
+      - name: Setup ansible
+        run: pip install --require-hashes -r requirements.txt
+
       - name: Terraform format
         run: terraform fmt -check
         working-directory: sld
