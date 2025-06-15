@@ -78,20 +78,6 @@ resource "namedotcom_record" "record_email_1171426" {
   answer      = "mailgun.org"
 }
 
-resource "namedotcom_record" "record_375pearl_1367535" {
-  domain_name = "nycmesh.net"
-  host        = "375pearl"
-  record_type = "A"
-  answer      = "206.130.10.151"
-}
-
-resource "namedotcom_record" "record_375pearl_1367537" {
-  domain_name = "nycmesh.net"
-  host        = "375pearl"
-  record_type = "AAAA"
-  answer      = "2001:504:36::c2ab:0:1"
-}
-
 resource "namedotcom_record" "record__now_3070265" {
   domain_name = "nycmesh.net"
   host        = "_now"
