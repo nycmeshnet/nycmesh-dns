@@ -163,22 +163,6 @@ resource "namedotcom_record" "record_unifi_3862748" {
   answer      = "10.70.90.158"
 }
 
-# Private recursive resolver at SN1
-resource "namedotcom_record" "record_nycmesh-375p-dns1-resolver_5233305" {
-  domain_name = "nycmesh.net"
-  host        = "nycmesh-375p-dns1-resolver"
-  record_type = "A"
-  answer      = "199.167.59.10"
-}
-
-# Former authoritative DNS server for the mesh.nycmesh.net zone at SN1
-resource "namedotcom_record" "record_nycmesh-375p-dns1-authoritative_5233306" {
-  domain_name = "nycmesh.net"
-  host        = "nycmesh-375p-dns1-authoritative"
-  record_type = "A"
-  answer      = "199.167.59.11"
-}
-
 # NS record for the authoritative servers for mesh.nycmesh.net at SN3 + SN10
 # nycmesh-713-dns-auth-3
 # nycmesh-10-dns-auth-6
