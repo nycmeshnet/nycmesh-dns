@@ -163,13 +163,6 @@ resource "namedotcom_record" "record_ipv4_3588982" {
   answer      = "ns-1346.awsdns-40.org"
 }
 
-resource "namedotcom_record" "record_donate2_3618629" {
-  domain_name = "nycmesh.net"
-  host        = "donate2"
-  record_type = "A"
-  answer      = "165.227.181.4"
-}
-
 resource "namedotcom_record" "record_unifi_3862748" {
   domain_name = "nycmesh.net"
   host        = "unifi"
