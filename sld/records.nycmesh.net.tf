@@ -253,12 +253,36 @@ resource "namedotcom_record" "record_slack_5235473" {
   answer      = "nycmesh-slack-redirect.netlify.com"
 }
 
-# https://configgen.nycmesh.net
-resource "namedotcom_record" "record_configgen_5386032" {
+# https://configgen.nycmesh.net to github pages 1/4
+resource "namedotcom_record" "stripeportal_108" {
   domain_name = "nycmesh.net"
   host        = "configgen"
-  record_type = "CNAME"
-  answer      = "nycmesh-configgen.netlify.com"
+  record_type = "A"
+  answer      = "185.199.108.153"
+}
+
+# https://configgen.nycmesh.net to github pages 2/4
+resource "namedotcom_record" "stripeportal_109" {
+  domain_name = "nycmesh.net"
+  host        = "configgen"
+  record_type = "A"
+  answer      = "185.199.109.153"
+}
+
+# https://configgen.nycmesh.net to github pages 3/4
+resource "namedotcom_record" "stripeportal_110" {
+  domain_name = "nycmesh.net"
+  host        = "configgen"
+  record_type = "A"
+  answer      = "185.199.110.153"
+}
+
+# https://configgen.nycmesh.net to github pages 4/4
+resource "namedotcom_record" "stripeportal_111" {
+  domain_name = "nycmesh.net"
+  host        = "configgen"
+  record_type = "A"
+  answer      = "185.199.111.153"
 }
 
 # Redirects to https://github.com/meshcenter/mesh-api
