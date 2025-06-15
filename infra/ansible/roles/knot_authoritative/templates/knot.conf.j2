@@ -124,6 +124,18 @@ acl:
     update-owner-match: equal
     update-owner-name: acme-challenge.ha.mesh.nycmesh.net.
     key: ha.mesh.nycmesh.net.
+  - id: acl-update-devairflow
+    action: update
+    update-type: [TXT]
+    update-owner-match: equal
+    update-owner-name: acme-challenge.devairflow.mesh.nycmesh.net.
+    key: k8s.lb.dev3
+  - id: acl-update-airflow
+    action: update
+    update-type: [TXT]
+    update-owner-match: equal
+    update-owner-name: acme-challenge.airflow.mesh.nycmesh.net.
+    key: k8s.lb.prod1
 
 zone:
   - domain: mesh
@@ -138,6 +150,12 @@ zone:
   - domain: ha.mesh.nycmesh.net
     file: ha.mesh.nycmesh.net.zone
     acl: acl-update-ha
+  - domain: devairflow.mesh.nycmesh.net
+    file: devairflow.mesh.nycmesh.net.zone
+    acl: acl-update-devairflow
+  - domain: airflow.mesh.nycmesh.net
+    file: airflow.mesh.nycmesh.net.zone
+    acl: acl-update-airflow
   - domain: prox.mesh.nycmesh.net
     file: prox.mesh.nycmesh.net.zone
     acl: [acl-update-grandmox, acl-update-jon, acl-update-nycmesh-10-r630-01, acl-update-nycmesh-713-r640-01]
