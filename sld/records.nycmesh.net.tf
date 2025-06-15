@@ -216,11 +216,37 @@ resource "namedotcom_record" "nycmesh-10-dns-auth-5" {
 }
 
 # Slack redirect
-resource "namedotcom_record" "record_slack_5235473" {
+# https://github.com/nycmeshnet/slack-redirect
+# https://slack.nycmesh.net to github pages 1/4
+resource "namedotcom_record" "slack_108" {
   domain_name = "nycmesh.net"
   host        = "slack"
-  record_type = "CNAME"
-  answer      = "nycmesh-slack-redirect.netlify.com"
+  record_type = "A"
+  answer      = "185.199.108.153"
+}
+
+# https://slack.nycmesh.net to github pages 2/4
+resource "namedotcom_record" "slack_109" {
+  domain_name = "nycmesh.net"
+  host        = "slack"
+  record_type = "A"
+  answer      = "185.199.109.153"
+}
+
+# https://slack.nycmesh.net to github pages 3/4
+resource "namedotcom_record" "slack_110" {
+  domain_name = "nycmesh.net"
+  host        = "slack"
+  record_type = "A"
+  answer      = "185.199.110.153"
+}
+
+# https://slack.nycmesh.net to github pages 4/4
+resource "namedotcom_record" "slack_111" {
+  domain_name = "nycmesh.net"
+  host        = "slack"
+  record_type = "A"
+  answer      = "185.199.111.153"
 }
 
 # https://configgen.nycmesh.net
