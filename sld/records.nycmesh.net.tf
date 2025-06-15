@@ -340,12 +340,36 @@ resource "namedotcom_record" "record_mastadon_219988024" {
   answer      = "kubernetes-lb-prod-sn3.nycmesh.net"
 }
 
-# Stripe redirect
-resource "namedotcom_record" "record_stripeportal_222339638" {
-  domain_name = "nycmesh.net"
+# Stripe redirect to github pages 1/4
+resource "namedotcom_record" "stripeportal_108" {
+  domain_name = "nycmeshconnect.net"
   host        = "stripeportal"
-  record_type = "CNAME"
-  answer      = "nycmesh-stripe-redirect.netlify.app"
+  record_type = "A"
+  answer      = "185.199.108.153"
+}
+
+# Stripe redirect to github pages 2/4
+resource "namedotcom_record" "stripeportal_109" {
+  domain_name = "nycmeshconnect.net"
+  host        = "stripeportal"
+  record_type = "A"
+  answer      = "185.199.109.153"
+}
+
+# Stripe redirect to github pages 3/4
+resource "namedotcom_record" "stripeportal_110" {
+  domain_name = "nycmeshconnect.net"
+  host        = "stripeportal"
+  record_type = "A"
+  answer      = "185.199.110.153"
+}
+
+# Stripe redirect to github pages 4/4
+resource "namedotcom_record" "stripeportal_111" {
+  domain_name = "nycmeshconnect.net"
+  host        = "stripeportal"
+  record_type = "A"
+  answer      = "185.199.111.153"
 }
 
 # Invoice Ninja
