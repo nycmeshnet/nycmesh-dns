@@ -71,10 +71,6 @@ andrew NS andrew-vpn-endpoint-router
 ; Willard
 zabbix A 10.70.90.40
 status A 164.92.117.225
-grandbox A 10.69.19.233
-*.grandbox CNAME grandbox
-grandsvc A 199.167.59.101
-*.grandsvc CNAME grandsvc
 
 ; James
 scan A 10.70.90.120
@@ -108,9 +104,6 @@ user A 10.10.10.254
 nms A 10.70.118.10
 scuttle A 10.70.73.4
 lte A 10.70.90.170
-
-; Grand
-grandmox A 10.70.188.196
 
 ; The Room
 room A 10.69.30.65

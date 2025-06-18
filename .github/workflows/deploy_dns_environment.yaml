@@ -22,7 +22,6 @@ env:
   TF_VAR_tsig_key_k8s_prod2: "${{ secrets.TF_VAR_TSIG_KEY_K8S_PROD2 }}"
   TF_VAR_tsig_key_k8s_dev3: "${{ secrets.TF_VAR_TSIG_KEY_K8S_DEV3 }}"
   TF_VAR_tsig_key_ha: "${{ secrets.TF_VAR_TSIG_KEY_HOMEASSISTANT }}"
-  TF_VAR_tsig_key_grandmox: "${{ secrets.TF_VAR_TSIG_KEY_GRANDMOX }}"
   TF_VAR_tsig_key_jon: "${{ secrets.TF_VAR_TSIG_KEY_JON }}"
   TF_VAR_tsig_key_10_r630_01: "${{ secrets.TF_VAR_TSIG_KEY_10_R630_01 }}"
   TF_VAR_tsig_key_713_r640_01: "${{ secrets.TF_VAR_TSIG_KEY_713_R640_01 }}"
