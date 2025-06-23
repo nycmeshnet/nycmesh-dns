@@ -100,6 +100,12 @@ prox NS nycmesh-713-dns-auth-3
 ; David K
 emergency-dev A 10.70.90.161
 
+; Scott145
+johnb-grafana-lxc          A         10.70.90.42
+grafjohna                  CNAME     johnb-grafana-lxc
+nycmesh-10-gpubuntu-01     A         10.70.100.42
+ospf-scilloscope-backend   CNAME     nycmesh-10-gpubuntu-01
+
 ; Reserved as services are made
 null A 10.10.10.254
 vpn A 10.10.10.254
