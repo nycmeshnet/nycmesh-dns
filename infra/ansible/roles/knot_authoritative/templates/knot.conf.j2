@@ -35,9 +35,6 @@ key:
   - id: k8s.lb.dev3
     algorithm: hmac-sha512
     secret: {{ TSIG_KEY_K8S_DEV3 }}
-  - id: grandmox.prox.mesh.nycmesh.net.
-    algorithm: hmac-sha512
-    secret: {{ TSIG_KEY_GRANDMOX }}
   - id: jon.prox.mesh.nycmesh.net.
     algorithm: hmac-sha512
     secret: {{ TSIG_KEY_JON }}
@@ -82,12 +79,6 @@ acl:
     update-owner-match: equal
     update-owner-name: acme-challenge.jamesinternalprodtwo.mesh.nycmesh.net.
     key: k8s.lb.prod2
-  - id: acl-update-grandmox
-    action: update
-    update-type: [TXT]
-    update-owner-match: equal
-    update-owner-name: acme-challenge.grandmox.prox.mesh.nycmesh.net.
-    key: grandmox.prox.mesh.nycmesh.net.
   - id: acl-update-jon
     action: update
     update-type: [TXT]
@@ -158,7 +149,7 @@ zone:
     acl: acl-update-airflow
   - domain: prox.mesh.nycmesh.net
     file: prox.mesh.nycmesh.net.zone
-    acl: [acl-update-grandmox, acl-update-jon, acl-update-nycmesh-10-r630-01, acl-update-nycmesh-713-r640-01]
+    acl: [acl-update-jon, acl-update-nycmesh-10-r630-01, acl-update-nycmesh-713-r640-01]
   - domain: building.mesh.nycmesh.net
     file: building.mesh.nycmesh.net.zone
     acl: acl-update-building

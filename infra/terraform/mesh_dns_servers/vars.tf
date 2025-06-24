@@ -188,12 +188,6 @@ variable "tsig_key_k8s_dev3" {
   sensitive   = true
 }
 
-variable "tsig_key_grandmox" {
-  type        = string
-  description = "TSIG key for the grandmox.mesh.nycmesh.net zone"
-  sensitive   = true
-}
-
 variable "tsig_key_jon" {
   type        = string
   description = "TSIG key for the jon.mesh.nycmesh.net zone"
