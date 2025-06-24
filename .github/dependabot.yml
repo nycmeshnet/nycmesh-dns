@@ -1,0 +1,18 @@
+version: 2
+updates:
+- package-ecosystem: "pip"
+  directory: "/"
+  schedule:
+    interval: "cron"
+    cronjob: "41 6 * * *"
+  assignees:
+   - "james-otten"
+- package-ecosystem: "terraform"
+  directories:
+   - "/infra/terraform/"
+   - "/sld/"
+  schedule:
+    interval: "cron"
+    cronjob: "4 6 * * *"
+  assignees:
+   - "james-otten"
