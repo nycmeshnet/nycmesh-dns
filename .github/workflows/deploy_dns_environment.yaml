@@ -49,7 +49,7 @@ jobs:
         run: pip install --require-hashes -r requirements.txt && export PATH="$HOME/.local/bin:$PATH" && ansible-galaxy collection install --force -r infra/ansible/roles/requirements.yml
 
       - name: Setup Terraform with specified version on the runner
-        uses: hashicorp/setup-terraform@651471c36a6092792c552e8b1bef71e592b462d8 # @v3
+        uses: hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd # @v3
         with:
           terraform_version: 1.8.3
 
