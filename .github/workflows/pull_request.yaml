@@ -30,7 +30,7 @@ jobs:
         run: find . -type f -name "*.zone" -print0 | xargs -0L1 kzonecheck -v
 
       - name: Run ansible-lint
-        uses: ansible/ansible-lint@3942375d7253d3152167c6c7ff117dfd1172c4ff
+        uses: ansible/ansible-lint@06f616d6e86e9ce4c74393318d1cbb2d016af413 # v25
         with:
           args: ""
           setup_python: "true"
