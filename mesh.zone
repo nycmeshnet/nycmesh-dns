@@ -88,7 +88,6 @@ doh NS nycmesh-713-dns-auth-3
 
 ; nn
 nn NS nycmesh-713-dns-auth-3
-nn NS nycmesh-10-dns-auth-5
 
 ; Proxmox
 prox NS nycmesh-713-dns-auth-3
