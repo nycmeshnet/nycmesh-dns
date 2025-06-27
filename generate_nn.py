@@ -3,7 +3,6 @@
 header = """$TTL 3600
 @  SOA   nycmesh-713-dns-auth-3 hostmaster.nycmesh.net. ( 2025052100 1d 2h 4w 1h )
 @  NS    nycmesh-713-dns-auth-3
-@  NS    nycmesh-10-dns-auth-5
 
 nycmesh-10-dns-auth-5 A 23.158.16.23
 nycmesh-713-dns-auth-3 A 199.170.132.47
