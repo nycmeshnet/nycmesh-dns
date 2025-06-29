@@ -59,7 +59,7 @@
   ansible.builtin.file:
     path: /var/lib/knot/zones
     state: directory
-    owner: root
+    owner: knot
     group: knot
     mode: "760"
 
