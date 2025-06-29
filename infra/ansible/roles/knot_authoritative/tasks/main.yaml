@@ -61,7 +61,7 @@
     state: directory
     owner: root
     group: knot
-    mode: "750"
+    mode: "760"
 
 - name: Git checkout
   ansible.builtin.git:
