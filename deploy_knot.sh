@@ -16,8 +16,9 @@ fi
 
 python3 generate_nn.py
 python3 makereverse.py
-chown root:knot *.zone
 cp -f *.zone /var/lib/knot/zones
+chown knot:knot /var/lib/knot/zones/*.zone
+chmod 664 /var/lib/knot/zones/*.zone
 
 systemctl restart knot
 sleep 2
