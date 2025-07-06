@@ -53,6 +53,7 @@ n265 A 10.69.2.65
 ; Daniel
 daniel-pallas A 10.70.90.50
 daniel NS daniel-pallas
+ns.daniel A 10.70.90.50
 nyckml A 199.170.132.45
 nyckmldev A 199.170.132.46
 
