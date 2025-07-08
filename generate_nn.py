@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-header = """$TTL 3600
+header = """$TTL 300
 @  SOA   nycmesh-713-dns-auth-3 hostmaster.nycmesh.net. ( 2025052100 1d 2h 4w 1h )
 @  NS    nycmesh-713-dns-auth-3
 
