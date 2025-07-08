@@ -1,4 +1,4 @@
-$TTL 3600
+$TTL 300
 @  SOA   ( nycmesh-713-dns-auth-3 hostmaster.nycmesh.net. 2024120100 1d 2h 4w 1h )
 @  NS    nycmesh-713-dns-auth-3
 
