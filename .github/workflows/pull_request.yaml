@@ -22,10 +22,17 @@ jobs:
       - name: Terraform format
         run: terraform fmt -check
         working-directory: sld
-      
+
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 #@v5
+        with:
+          python-version: '3.11'
+
+      - name: Setup libraries
+        run: pip install --require-hashes -r requirements.txt
+
       - name: Setup kzonecheck
         run: sudo apt-get update && sudo apt-get install -y knot-dnssecutils
-      
+
       - name: Run kzonecheck on each zone file
         run: find . -type f -name "*.zone" -print0 | xargs -0L1 kzonecheck -v
 
