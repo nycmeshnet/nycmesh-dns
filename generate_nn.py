@@ -18,5 +18,5 @@ def get_nn_ip(nn_s):
 with open("nn.zone", "w") as fd:
     fd.write(header)
     for nn in range(1, 8001):
-        fd.write(f"nn{nn} A {get_nn_ip(str(nn))}\n")
-        fd.write(f"{nn} CNAME nn{nn}\n")
+        fd.write(f"{nn} A {get_nn_ip(str(nn))}\n")
+        fd.write(f"nn{nn} CNAME {nn}\n")
