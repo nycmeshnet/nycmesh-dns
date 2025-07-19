@@ -28,6 +28,8 @@ dns_rec_external_ip = [
   "", # Blank so it is not created
 ]
 dns_rec_outgoing_ip = [
+  "", # Blank so it is not created
+  "", # Blank so it is not created
 ]
 dns_mgt_network_host_identifier = "24"
 dns_mgt_gateway                 = "10.70.104.1"
