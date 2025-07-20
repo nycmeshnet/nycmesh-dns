@@ -67,12 +67,6 @@
     state: present
     reload: true
 
-- name: Stop and disable frr service
-  ansible.builtin.systemd_service:
-    name: frr
-    state: stopped
-    enabled: false
-
 - name: Import the bird_basic role from the nycmesh.common collection
   ansible.builtin.import_role:
     name: nycmesh.common.bird2_basic
