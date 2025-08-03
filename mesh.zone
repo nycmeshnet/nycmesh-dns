@@ -116,7 +116,7 @@ meshroom CNAME room
 cave CNAME room
 ha NS nycmesh-713-dns-auth-3
 ;ha.room CNAME ha
-octopi.room A 10.70.147.50
+octopi.room A 10.70.147.150
 
 ; Supernode3
 l2tpvpn.sn3 A 199.170.132.6
