@@ -224,33 +224,33 @@ resource "namedotcom_record" "record_slack_5235473" {
 }
 
 # https://configgen.nycmesh.net to github pages 1/4
-resource "namedotcom_record" "stripeportal_108" {
+resource "namedotcom_record" "record__configgen108" {
   domain_name = "nycmesh.net"
-  host        = "configgen"
+  host        = "configgentest"
   record_type = "A"
   answer      = "185.199.108.153"
 }
 
 # https://configgen.nycmesh.net to github pages 2/4
-resource "namedotcom_record" "stripeportal_109" {
+resource "namedotcom_record" "record__configgen109" {
   domain_name = "nycmesh.net"
-  host        = "configgen"
+  host        = "configgentest"
   record_type = "A"
   answer      = "185.199.109.153"
 }
 
 # https://configgen.nycmesh.net to github pages 3/4
-resource "namedotcom_record" "stripeportal_110" {
+resource "namedotcom_record" "record__configgen110" {
   domain_name = "nycmesh.net"
-  host        = "configgen"
+  host        = "configgentest"
   record_type = "A"
   answer      = "185.199.110.153"
 }
 
 # https://configgen.nycmesh.net to github pages 4/4
-resource "namedotcom_record" "stripeportal_111" {
+resource "namedotcom_record" "record__configgen111" {
   domain_name = "nycmesh.net"
-  host        = "configgen"
+  host        = "configgentest"
   record_type = "A"
   answer      = "185.199.111.153"
 }
@@ -531,33 +531,4 @@ resource "namedotcom_record" "website_map_dev" {
   host        = "devmap"
   record_type = "CNAME"
   answer      = "k8s-stateless-dev.nycmesh.net"
-}
-
-# Temp configgen test
-resource "namedotcom_record" "record__configgentest108" {
-  domain_name = "nycmesh.net"
-  host        = "configgentest"
-  record_type = "A"
-  answer      = "185.199.108.153"
-}
-
-resource "namedotcom_record" "record__configgentest109" {
-  domain_name = "nycmesh.net"
-  host        = "configgentest"
-  record_type = "A"
-  answer      = "185.199.109.153"
-}
-
-resource "namedotcom_record" "record__configgentest110" {
-  domain_name = "nycmesh.net"
-  host        = "configgentest"
-  record_type = "A"
-  answer      = "185.199.110.153"
-}
-
-resource "namedotcom_record" "record__configgentest111" {
-  domain_name = "nycmesh.net"
-  host        = "configgentest"
-  record_type = "A"
-  answer      = "185.199.111.153"
 }
