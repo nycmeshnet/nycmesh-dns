@@ -12,25 +12,32 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # @v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # @v4
 
       - name: Setup Terraform with specified version on the runner
-        uses: hashicorp/setup-terraform@651471c36a6092792c552e8b1bef71e592b462d8 # @v3
+        uses: hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd # @v3
         with:
           terraform_version: 1.8.3
 
       - name: Terraform format
         run: terraform fmt -check
         working-directory: sld
-      
+
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 #@v5
+        with:
+          python-version: '3.11'
+
+      - name: Setup libraries
+        run: pip install --require-hashes -r requirements.txt
+
       - name: Setup kzonecheck
         run: sudo apt-get update && sudo apt-get install -y knot-dnssecutils
-      
+
       - name: Run kzonecheck on each zone file
         run: find . -type f -name "*.zone" -print0 | xargs -0L1 kzonecheck -v
 
       - name: Run ansible-lint
-        uses: ansible/ansible-lint@c629b235398065e24ff44b5f1138028642c74a03
+        uses: ansible/ansible-lint@9765b8704b2c3f4ab782815b528e0393662e1c04 # v25
         with:
           args: ""
           setup_python: "true"

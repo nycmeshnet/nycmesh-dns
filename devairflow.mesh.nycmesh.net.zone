@@ -5,5 +5,5 @@ $TTL 300
 ; Authoritative DNS servers
 nycmesh-713-dns-auth-3 A 199.170.132.47
 
-; ha.mesh.nycmesh.net
-@ A 10.70.147.86
+; devairflow.mesh.nycmesh.net
+@ A 10.70.90.210

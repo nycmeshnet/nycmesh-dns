@@ -22,7 +22,6 @@ env:
   TF_VAR_tsig_key_k8s_prod2: "${{ secrets.TF_VAR_TSIG_KEY_K8S_PROD2 }}"
   TF_VAR_tsig_key_k8s_dev3: "${{ secrets.TF_VAR_TSIG_KEY_K8S_DEV3 }}"
   TF_VAR_tsig_key_ha: "${{ secrets.TF_VAR_TSIG_KEY_HOMEASSISTANT }}"
-  TF_VAR_tsig_key_grandmox: "${{ secrets.TF_VAR_TSIG_KEY_GRANDMOX }}"
   TF_VAR_tsig_key_jon: "${{ secrets.TF_VAR_TSIG_KEY_JON }}"
   TF_VAR_tsig_key_10_r630_01: "${{ secrets.TF_VAR_TSIG_KEY_10_R630_01 }}"
   TF_VAR_tsig_key_713_r640_01: "${{ secrets.TF_VAR_TSIG_KEY_713_R640_01 }}"
@@ -40,9 +39,9 @@ jobs:
     environment: ${{ inputs.environment }}
     steps:
       - name: Checkout
-        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # @v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # @v4
       
-      - uses: actions/setup-python@82c7e631bb3cdc910f68e0081d67478d79c6982d #@v5
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 #@v5
         with:
           python-version: '3.11'
       
@@ -50,7 +49,7 @@ jobs:
         run: pip install --require-hashes -r requirements.txt && export PATH="$HOME/.local/bin:$PATH" && ansible-galaxy collection install --force -r infra/ansible/roles/requirements.yml
 
       - name: Setup Terraform with specified version on the runner
-        uses: hashicorp/setup-terraform@651471c36a6092792c552e8b1bef71e592b462d8 # @v3
+        uses: hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd # @v3
         with:
           terraform_version: 1.8.3
 

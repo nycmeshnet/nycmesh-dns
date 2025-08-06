@@ -59,9 +59,9 @@
   ansible.builtin.file:
     path: /var/lib/knot/zones
     state: directory
-    owner: root
+    owner: knot
     group: knot
-    mode: "750"
+    mode: "760"
 
 - name: Git checkout
   ansible.builtin.git:

@@ -78,20 +78,6 @@ resource "namedotcom_record" "record_email_1171426" {
   answer      = "mailgun.org"
 }
 
-resource "namedotcom_record" "record_375pearl_1367535" {
-  domain_name = "nycmesh.net"
-  host        = "375pearl"
-  record_type = "A"
-  answer      = "206.130.10.151"
-}
-
-resource "namedotcom_record" "record_375pearl_1367537" {
-  domain_name = "nycmesh.net"
-  host        = "375pearl"
-  record_type = "AAAA"
-  answer      = "2001:504:36::c2ab:0:1"
-}
-
 resource "namedotcom_record" "record__now_3070265" {
   domain_name = "nycmesh.net"
   host        = "_now"
@@ -175,22 +161,6 @@ resource "namedotcom_record" "record_unifi_3862748" {
   host        = "unifi"
   record_type = "A"
   answer      = "10.70.90.158"
-}
-
-# Private recursive resolver at SN1
-resource "namedotcom_record" "record_nycmesh-375p-dns1-resolver_5233305" {
-  domain_name = "nycmesh.net"
-  host        = "nycmesh-375p-dns1-resolver"
-  record_type = "A"
-  answer      = "199.167.59.10"
-}
-
-# Former authoritative DNS server for the mesh.nycmesh.net zone at SN1
-resource "namedotcom_record" "record_nycmesh-375p-dns1-authoritative_5233306" {
-  domain_name = "nycmesh.net"
-  host        = "nycmesh-375p-dns1-authoritative"
-  record_type = "A"
-  answer      = "199.167.59.11"
 }
 
 # NS record for the authoritative servers for mesh.nycmesh.net at SN3 + SN10
@@ -561,4 +531,33 @@ resource "namedotcom_record" "website_map_dev" {
   host        = "devmap"
   record_type = "CNAME"
   answer      = "k8s-stateless-dev.nycmesh.net"
+}
+
+# Temp configgen test
+resource "namedotcom_record" "record__configgentest108" {
+  domain_name = "nycmesh.net"
+  host        = "configgentest"
+  record_type = "A"
+  answer      = "185.199.108.153"
+}
+
+resource "namedotcom_record" "record__configgentest109" {
+  domain_name = "nycmesh.net"
+  host        = "configgentest"
+  record_type = "A"
+  answer      = "185.199.109.153"
+}
+
+resource "namedotcom_record" "record__configgentest110" {
+  domain_name = "nycmesh.net"
+  host        = "configgentest"
+  record_type = "A"
+  answer      = "185.199.110.153"
+}
+
+resource "namedotcom_record" "record__configgentest111" {
+  domain_name = "nycmesh.net"
+  host        = "configgentest"
+  record_type = "A"
+  answer      = "185.199.111.153"
 }
