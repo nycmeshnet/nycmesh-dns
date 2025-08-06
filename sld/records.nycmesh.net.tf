@@ -510,28 +510,28 @@ resource "namedotcom_record" "website_map_dev" {
 }
 
 # Temp configgen test
-resource "namedotcom_record" "record__240356243" {
+resource "namedotcom_record" "record__configgentest108" {
   domain_name = "nycmesh.net"
   host        = "configgentest"
   record_type = "A"
   answer      = "185.199.108.153"
 }
 
-resource "namedotcom_record" "record__240356247" {
+resource "namedotcom_record" "record__configgentest109" {
   domain_name = "nycmesh.net"
   host        = "configgentest"
   record_type = "A"
   answer      = "185.199.109.153"
 }
 
-resource "namedotcom_record" "record__240356249" {
+resource "namedotcom_record" "record__configgentest110" {
   domain_name = "nycmesh.net"
   host        = "configgentest"
   record_type = "A"
   answer      = "185.199.110.153"
 }
 
-resource "namedotcom_record" "record__240356250" {
+resource "namedotcom_record" "record__configgentest111" {
   domain_name = "nycmesh.net"
   host        = "configgentest"
   record_type = "A"
