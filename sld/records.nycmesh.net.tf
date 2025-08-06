@@ -223,12 +223,36 @@ resource "namedotcom_record" "record_slack_5235473" {
   answer      = "nycmesh-slack-redirect.netlify.com"
 }
 
-# https://configgen.nycmesh.net
-resource "namedotcom_record" "record_configgen_5386032" {
+# https://configgen.nycmesh.net to github pages 1/4
+resource "namedotcom_record" "record__configgen108" {
   domain_name = "nycmesh.net"
   host        = "configgen"
-  record_type = "CNAME"
-  answer      = "nycmesh-configgen.netlify.com"
+  record_type = "A"
+  answer      = "185.199.108.153"
+}
+
+# https://configgen.nycmesh.net to github pages 2/4
+resource "namedotcom_record" "record__configgen109" {
+  domain_name = "nycmesh.net"
+  host        = "configgen"
+  record_type = "A"
+  answer      = "185.199.109.153"
+}
+
+# https://configgen.nycmesh.net to github pages 3/4
+resource "namedotcom_record" "record__configgen110" {
+  domain_name = "nycmesh.net"
+  host        = "configgen"
+  record_type = "A"
+  answer      = "185.199.110.153"
+}
+
+# https://configgen.nycmesh.net to github pages 4/4
+resource "namedotcom_record" "record__configgen111" {
+  domain_name = "nycmesh.net"
+  host        = "configgen"
+  record_type = "A"
+  answer      = "185.199.111.153"
 }
 
 # Redirects to https://github.com/meshcenter/mesh-api
@@ -507,33 +531,4 @@ resource "namedotcom_record" "website_map_dev" {
   host        = "devmap"
   record_type = "CNAME"
   answer      = "k8s-stateless-dev.nycmesh.net"
-}
-
-# Temp configgen test
-resource "namedotcom_record" "record__configgentest108" {
-  domain_name = "nycmesh.net"
-  host        = "configgentest"
-  record_type = "A"
-  answer      = "185.199.108.153"
-}
-
-resource "namedotcom_record" "record__configgentest109" {
-  domain_name = "nycmesh.net"
-  host        = "configgentest"
-  record_type = "A"
-  answer      = "185.199.109.153"
-}
-
-resource "namedotcom_record" "record__configgentest110" {
-  domain_name = "nycmesh.net"
-  host        = "configgentest"
-  record_type = "A"
-  answer      = "185.199.110.153"
-}
-
-resource "namedotcom_record" "record__configgentest111" {
-  domain_name = "nycmesh.net"
-  host        = "configgentest"
-  record_type = "A"
-  answer      = "185.199.111.153"
 }
