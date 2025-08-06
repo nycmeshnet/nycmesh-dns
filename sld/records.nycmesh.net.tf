@@ -508,3 +508,32 @@ resource "namedotcom_record" "website_map_dev" {
   record_type = "CNAME"
   answer      = "k8s-stateless-dev.nycmesh.net"
 }
+
+# Temp configgen test
+resource "namedotcom_record" "record__240356243" {
+  domain_name = "nycmesh.net"
+  host        = "configgentest"
+  record_type = "A"
+  answer      = "185.199.108.153"
+}
+
+resource "namedotcom_record" "record__240356247" {
+  domain_name = "nycmesh.net"
+  host        = "configgentest"
+  record_type = "A"
+  answer      = "185.199.109.153"
+}
+
+resource "namedotcom_record" "record__240356249" {
+  domain_name = "nycmesh.net"
+  host        = "configgentest"
+  record_type = "A"
+  answer      = "185.199.110.153"
+}
+
+resource "namedotcom_record" "record__240356250" {
+  domain_name = "nycmesh.net"
+  host        = "configgentest"
+  record_type = "A"
+  answer      = "185.199.111.153"
+}
