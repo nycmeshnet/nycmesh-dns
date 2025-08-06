@@ -226,7 +226,7 @@ resource "namedotcom_record" "record_slack_5235473" {
 # https://configgen.nycmesh.net to github pages 1/4
 resource "namedotcom_record" "record__configgen108" {
   domain_name = "nycmesh.net"
-  host        = "configgentest"
+  host        = "configgen"
   record_type = "A"
   answer      = "185.199.108.153"
 }
@@ -234,7 +234,7 @@ resource "namedotcom_record" "record__configgen108" {
 # https://configgen.nycmesh.net to github pages 2/4
 resource "namedotcom_record" "record__configgen109" {
   domain_name = "nycmesh.net"
-  host        = "configgentest"
+  host        = "configgen"
   record_type = "A"
   answer      = "185.199.109.153"
 }
@@ -242,7 +242,7 @@ resource "namedotcom_record" "record__configgen109" {
 # https://configgen.nycmesh.net to github pages 3/4
 resource "namedotcom_record" "record__configgen110" {
   domain_name = "nycmesh.net"
-  host        = "configgentest"
+  host        = "configgen"
   record_type = "A"
   answer      = "185.199.110.153"
 }
@@ -250,7 +250,7 @@ resource "namedotcom_record" "record__configgen110" {
 # https://configgen.nycmesh.net to github pages 4/4
 resource "namedotcom_record" "record__configgen111" {
   domain_name = "nycmesh.net"
-  host        = "configgentest"
+  host        = "configgen"
   record_type = "A"
   answer      = "185.199.111.153"
 }
