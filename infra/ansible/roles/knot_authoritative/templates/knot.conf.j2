@@ -127,6 +127,12 @@ acl:
     update-owner-match: equal
     update-owner-name: acme-challenge.airflow.mesh.nycmesh.net.
     key: k8s.lb.prod1
+- id: acl-update-jenkins
+    action: update
+    update-type: [TXT]
+    update-owner-match: equal
+    update-owner-name: acme-challenge.jenkins.mesh.nycmesh.net.
+    key: k8s.lb.prod1
 
 zone:
   - domain: mesh
@@ -167,3 +173,6 @@ zone:
     file: themesh.nyc.zone
   - domain: 10.in-addr.arpa
   - domain: 59.167.199.in-addr.arpa
+  - domain: jenkins.mesh.nycmesh.net
+    file: jenkins.mesh.nycmesh.net.zone
+    acl: acl-update-jenkins
