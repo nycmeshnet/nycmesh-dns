@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - wdn/no-jon
     paths:
       - infra/**
   workflow_dispatch:
@@ -11,12 +12,12 @@ on:
 permissions: read-all
 
 jobs:
-  #deploy_jon:
-  #  name: Deploy to jon
-  #  uses: ./.github/workflows/deploy_dns_environment.yaml
-  #  with:
-  #    environment: dev_jon
-  #  secrets: inherit
+  deploy_jon:
+    name: Deploy to jon
+    uses: ./.github/workflows/deploy_dns_environment.yaml
+    with:
+      environment: dev_jon
+    secrets: inherit
   #  if: github.ref == 'refs/heads/main'
 
   deploy_sn11_prod:
