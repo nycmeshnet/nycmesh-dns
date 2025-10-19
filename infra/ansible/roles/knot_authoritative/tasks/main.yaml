@@ -26,6 +26,7 @@
   ansible.builtin.apt:
     lock_timeout: 240
     update_cache: true
+    allow_downgrade: true
     pkg:
       - apt-transport-https
       - ca-certificates
@@ -34,7 +35,7 @@
       - python3-pip
       - python3.11-venv
       - dnsutils
-      - knot=3.4.8-cznic.1~bookworm
+      - knot #=3.4.8-cznic.1~bookworm
 
 - name: Knot DNS Config
   ansible.builtin.template:
