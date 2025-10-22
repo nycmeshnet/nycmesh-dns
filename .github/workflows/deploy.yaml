@@ -12,22 +12,22 @@ on:
 permissions: read-all
 
 jobs:
-  #deploy_jon:
-  #  name: Deploy to jon
-  #  uses: ./.github/workflows/deploy_dns_environment.yaml
-  #  with:
-  #    environment: dev_jon
-  #  secrets: inherit
-  #  if: github.ref == 'refs/heads/main'
+  deploy_jon:
+    name: Deploy to jon
+    uses: ./.github/workflows/deploy_dns_environment.yaml
+    with:
+      environment: dev_jon
+    secrets: inherit
+    if: github.ref == 'refs/heads/main'
 
   deploy_sn11_prod:
     name: Deploy to sn11 prod
     uses: ./.github/workflows/deploy_dns_environment.yaml
-    #needs: deploy_jon
+    needs: deploy_jon
     with:
       environment: prod_sn11
     secrets: inherit
-    #if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main'
 
   deploy_sn10_prod:
     name: Deploy to sn10 prod
@@ -36,12 +36,12 @@ jobs:
     with:
       environment: prod_sn10
     secrets: inherit
-    #if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main'
 
   deploy_sn3_prod:
     name: Deploy to sn3 prod
     uses: ./.github/workflows/deploy_dns_environment.yaml
-    needs: deploy_sn10_prod
+    #needs: deploy_sn10_prod
     with:
       environment: prod_sn3
     secrets: inherit
