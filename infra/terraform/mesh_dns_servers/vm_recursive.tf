@@ -30,7 +30,7 @@ resource "proxmox_vm_qemu" "recursive_dns_vm" {
   }
 
   network {
-    id = "net0"
+    id = 0
     bridge = var.vm_nic
     model  = "virtio"
   }
