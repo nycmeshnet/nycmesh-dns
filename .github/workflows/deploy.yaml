@@ -36,7 +36,7 @@ jobs:
     with:
       environment: prod_sn10
     secrets: inherit
-    #if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main'
 
   deploy_sn3_prod:
     name: Deploy to sn3 prod
@@ -45,4 +45,4 @@ jobs:
     with:
       environment: prod_sn3
     secrets: inherit
-  #  if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main'
