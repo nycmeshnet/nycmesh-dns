@@ -30,6 +30,7 @@ resource "proxmox_vm_qemu" "authoritative_dns_vm" {
   }
 
   network {
+    id = "net0"
     bridge = var.vm_nic
     model  = "virtio"
   }
