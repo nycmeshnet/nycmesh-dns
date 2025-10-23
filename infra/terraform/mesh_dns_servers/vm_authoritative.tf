@@ -29,7 +29,7 @@ resource "proxmox_vm_qemu" "authoritative_dns_vm" {
     ide {
       ide3 {
         cloudinit {
-          storage = "local-lvm"
+          storage = var.proxmox_storage_location
         }
       }
     }
