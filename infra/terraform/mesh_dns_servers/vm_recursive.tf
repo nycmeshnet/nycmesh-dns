@@ -6,11 +6,8 @@ resource "proxmox_vm_qemu" "recursive_dns_vm" {
 
   clone = var.proxmox_template_image
 
-  cpu {
-    cores                   = var.recursive_cores
-    sockets                 = var.recursive_sockets
-    type     = "host"
-  }
+  cores                   = var.recursive_cores
+  sockets                 = var.recursive_sockets
   memory                  = var.recursive_memory
   os_type                 = "cloud-init"
   agent                   = 1
