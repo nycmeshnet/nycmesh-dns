@@ -26,6 +26,13 @@ resource "proxmox_vm_qemu" "recursive_dns_vm" {
         }
       }
     }
+    ide {
+      ide3 {
+        cloudinit {
+          storage = "local-lvm"
+        }
+      }
+    }
   }
 
   network {
