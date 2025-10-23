@@ -11,7 +11,6 @@ resource "proxmox_vm_qemu" "recursive_dns_vm" {
   memory                  = var.recursive_memory
   os_type                 = "cloud-init"
   agent                   = 1
-  #cloudinit_cdrom_storage = var.proxmox_storage_location
   ciuser                  = var.dns_local_user
   cipassword              = var.mesh_dns_local_password
 
