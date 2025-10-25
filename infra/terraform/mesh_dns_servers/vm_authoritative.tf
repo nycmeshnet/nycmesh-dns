@@ -6,8 +6,12 @@ resource "proxmox_vm_qemu" "authoritative_dns_vm" {
 
   clone = var.proxmox_template_image
 
-  cores                   = var.authoritative_cores
-  sockets                 = var.authoritative_sockets
+  cpu {
+    cores                   = var.recursive_cores
+    sockets                 = var.recursive_sockets
+    type                    = "host"
+  }
+
   memory                  = var.authoritative_memory
   os_type                 = "cloud-init"
   agent                   = 1
