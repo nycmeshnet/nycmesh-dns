@@ -45,4 +45,4 @@ jobs:
     with:
       environment: prod_sn3
     secrets: inherit
-    if: github.ref == 'refs/heads/main'
+    #if: github.ref == 'refs/heads/main'
