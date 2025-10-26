@@ -13,7 +13,7 @@
   become: true
   roles:
     - role: dns_ssh
-    - role: knot_recursive
     - role: dns_ospf
     - role: dns_telegraf
+    - role: knot_recursive
     - role: support_account
