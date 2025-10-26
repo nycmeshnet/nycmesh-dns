@@ -77,7 +77,7 @@ jobs:
       - name: Terraform validate
         run: terraform validate
         working-directory: ./infra/terraform/
-      
+
       - name: Terraform Apply
         run: |
           echo "${{ secrets.TF_VAR_MESH_DNS_SSH_KEY }}" > dns_ed25519

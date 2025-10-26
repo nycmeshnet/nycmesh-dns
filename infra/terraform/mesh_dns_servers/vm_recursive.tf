@@ -6,12 +6,15 @@ resource "proxmox_vm_qemu" "recursive_dns_vm" {
 
   clone = var.proxmox_template_image
 
-  cores                   = var.recursive_cores
-  sockets                 = var.recursive_sockets
+  cpu {
+    cores                   = var.recursive_cores
+    sockets                 = var.recursive_sockets
+    type                    = "host"
+  }
+
   memory                  = var.recursive_memory
   os_type                 = "cloud-init"
   agent                   = 1
-  cloudinit_cdrom_storage = var.proxmox_storage_location
   ciuser                  = var.dns_local_user
   cipassword              = var.mesh_dns_local_password
 
@@ -27,9 +30,17 @@ resource "proxmox_vm_qemu" "recursive_dns_vm" {
         }
       }
     }
+    ide {
+      ide3 {
+        cloudinit {
+          storage = var.proxmox_storage_location
+        }
+      }
+    }
   }
 
   network {
+    id = 0
     bridge = var.vm_nic
     model  = "virtio"
   }
