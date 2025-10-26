@@ -1,3 +1,15 @@
+- name: Add WN
+  ansible.posix.authorized_key:
+    user: debian
+    state: present
+    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBTf39rln9Gn4+xAq55izTsHaLrvwxe0KxdLdqN8AHV5 wilnil@willardpad"
+
+- name: Add AD
+  ansible.posix.authorized_key:
+    user: debian
+    state: present
+    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINqMvlwLFwGENT5WMjytI2iwVlHPV2TX+gOgBXj9kw4k andrew@localhost"
+
 - name: Install deps
   ansible.builtin.apt:
     lock_timeout: 120
