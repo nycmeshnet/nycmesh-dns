@@ -34,7 +34,7 @@
       - python3-pip
       - python3.11-venv
       - dnsutils
-      - knot=3.4.6-cznic.1~bookworm
+      - knot
 
 # - name: Add WN
 #   ansible.posix.authorized_key:
