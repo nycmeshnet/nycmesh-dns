@@ -72,6 +72,18 @@ view:addr('199.167.59.0/24', policy.suffix(policy.STUB('{{ MESH_STUB_RESOLVER }}
 view:addr('199.170.132.0/24', policy.suffix(policy.STUB('{{ MESH_STUB_RESOLVER }}'), policy.todnames({'mesh.', 'mesh.nycmesh.net.'})))
 view:addr('208.68.5.0/24', policy.suffix(policy.STUB('{{ MESH_STUB_RESOLVER }}'), policy.todnames({'mesh.', 'mesh.nycmesh.net.'})))
 
+-- Reverse lookups for 10.0.0.0/8 and 199.167.59.0/24 from within mesh
+view:addr('10.0.0.0/8', policy.suffix(policy.STUB('{{ MESH_STUB_RESOLVER }}'), policy.todnames({'10.in-addr.arpa.', '59.167.199.in-addr.arpa.'}))
+view:addr('23.158.16.0/24', policy.suffix(policy.STUB('{{ MESH_STUB_RESOLVER }}'), policy.todnames({'10.in-addr.arpa.', '59.167.199.in-addr.arpa.'}))
+view:addr('199.167.59.0/24', policy.suffix(policy.STUB('{{ MESH_STUB_RESOLVER }}'), policy.todnames({'10.in-addr.arpa.', '59.167.199.in-addr.arpa.'}))
+view:addr('199.170.132.0/24', policy.suffix(policy.STUB('{{ MESH_STUB_RESOLVER }}'), policy.todnames({'10.in-addr.arpa.', '59.167.199.in-addr.arpa.'}))
+view:addr('208.68.5.0/24', policy.suffix(policy.STUB('{{ MESH_STUB_RESOLVER }}'), policy.todnames({'10.in-addr.arpa.', '59.167.199.in-addr.arpa.'}))
+
+-- Override the block-by-default of queries in 10.in-addr.arpa as mandated by RFC 6303 (and so implemented by knot-res):
+-- "These sites will need to override the default configuration expressed in this document to allow resolution to continue"
+policy.add(policy.suffix(policy.STUB('{{ MESH_STUB_RESOLVER }}'), policy.todnames({'10.in-addr.arpa.'})))
+
+
 -- Allow all from mesh
 view:addr('127.0.0.0/8', policy.all(policy.PASS))
 view:addr('10.0.0.0/8', policy.all(policy.PASS))
