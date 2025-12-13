@@ -1,8 +1,7 @@
 ; $ORIGIN mesh.
 $TTL 3600
-@  SOA   nycmesh-713-dns-auth-3 hostmaster.nycmesh.net. ( 2024120100 1d 2h 4w 1h )
-@  NS    nycmesh-713-dns-auth-3
-@  NS    nycmesh-10-dns-auth-5
+@  SOA   nycmesh-713-jon-dns-auth-1 hostmaster.nycmesh.net. ( 2024120100 1d 2h 4w 1h )
+@  NS    nycmesh-713-jon-dns-auth-1
 @  A     10.10.10.11             ; IPv4 address for example.com
 
 ; Allocated domains
@@ -10,7 +9,7 @@ dns   A     10.10.10.10
 ns    A     10.10.10.11
 nycmesh-10-dns-auth-5 A 23.158.16.23
 nycmesh-713-dns-auth-3 A 199.170.132.47
-nycmesh-713-jon-dns-auth-1 A 199.170.132.48
+nycmesh-713-jon-dns-auth-1 A 10.70.90.136
 something A 1.1.1.1
 unms	CNAME uisp
 uisp	A 10.70.76.21
@@ -127,145 +126,126 @@ wgvpn.sn3 A 199.170.132.43
 l2tpvpn.sn10 A 23.158.16.21
 wgvpn.sn10 A 23.158.16.28
 
-; Supernode1
-; all SN1 services decom'd Feb24
-
-; nycmesh-375p-router1.oob.sn1 A 10.42.43.1
-; nycmesh-375p-ep1.oob.sn1 A 10.42.43.2
-; nycmesh-375p-routera.oob.sn1 A 10.42.43.3
-; nycmesh-375p-cisco1.oob.sn1 A 10.42.43.9
-; nycmesh-375p-a1s1.oob.sn1 A 10.42.43.11
-; nycmesh-375p-a1s2.oob.sn1 A 10.42.43.12
-; nycmesh-375p-a1s3.oob.sn1 A 10.42.43.13
-; nycmesh-375p-a3.oob.sn1 A 10.42.43.14
-; nycmesh-375p-a4.oob.sn1 A 10.42.43.15
-; nycmesh-375p-a2a1.oob.sn1 A 10.42.43.21
-; nycmesh-375p-af24-firehouse.oob.sn1 A 10.42.43.25
-; nycmesh-375p-esxi1.oob.sn1 A 10.42.43.31
-; nycmesh-375p-core1.oob.sn1 A 10.42.43.41
-; nycmesh-375p-vpn1.oob.sn1 A 10.42.43.42
-; nycmesh-375p-dns1.oob.sn1 A 10.42.43.43
-; nycmesh-375p-border2.oob.sn1 A 10.42.43.44
-; nycmesh-375p-speed1.oob.sn1 A 10.42.43.45
-; nycmesh-375p-vpn2.oob.sn1 A 10.42.43.46
-
-; nycmesh-375p-core1.v46.sn1 A 10.70.74.1
-
-; nycmesh-375p-core1.internalpeer.sn1 A 10.70.71.129
-; nycmesh-375p-core2.internalpeer.sn1 A 10.70.71.130
-; nycmesh-375p-vpn1.internalpeer.sn1 A 10.70.71.131
-; nycmesh-375p-vpn2.internalpeer.sn1 A 10.70.71.132
-; nycmesh-375p-dns1.internalpeer.sn1 A 10.70.71.133
-; nycmesh-375p-dns2.sn1 A 10.70.76.99
-; nycmesh-375p-svc1.internalpeer.sn1 A 10.70.71.135
-; nycmesh-375p-svc2.internalpeer.sn1 A 10.70.71.136
-; nycmesh-375p-maint1.internalpeer.sn1 A 10.70.71.158
-
-; nycmesh-375p-core2.ipsec.sn1 A 10.70.72.1
-; nycmesh-n3-sxtsq-n3.ipsec.sn1 A 10.70.72.130
-
-; nycmesh-375p-core1.lo.sn1 A 10.70.254.1
-; nycmesh-375p-vpn1.lo.sn1 A 10.70.254.7
-; nycmesh-375p-dns1.lo.sn1 A 10.70.254.9
-
-; nycmesh-375p-routera.public.sn1 A 199.167.59.1
-; nycmesh-375p-oob-router1.public.sn1 A 199.167.59.2
-; nycmesh-375p-core1.public.sn1 A 199.167.59.3
-; nycmesh-375p-vpn1.public.sn1 A 199.167.59.4
-; nycmesh-375p-border2.public.sn1 A 199.167.59.5
-; nycmesh-375p-vpn2.public.sn1 A 199.167.59.6
-; nycmesh-375p-dns1.public.sn1 A 199.167.59.10
-
-; gnycmesh-375p-core1.intpeer.sn1 A 10.70.252.1
-; gnycmesh-375p-routera.intpeer.sn1 A 10.70.252.3
-; gnycmesh-375p-vpn1.intpeer.sn1 A 10.70.252.7
-; gnycmesh-375p-vpn2.intpeer.sn1 A 10.70.252.8
-; gnycmesh-375p-dns1.intpeer.sn1 A 10.70.252.9
 
 
-; records for rDNS 10.70.253.0/24  (./31)
-sn3.af24-ph A 10.70.253.0
-ph.af24-sn3 A 10.70.253.1
-vernon.east A 10.70.253.2
-jefferson.lbe A 10.70.253.3
-sn3.af60xr A 10.70.253.4
-vernon.af60xr A 10.70.253.5
-ph.northwest A 10.70.253.6
-spencer.lbelr A 10.70.253.7
-ph.southeast A 10.70.253.8
-brownsville.lbelr A 10.70.253.9
-ph.af60lr A 10.70.253.10
-nostrand.af60lr A 10.70.253.11
-vernon.sector A 10.70.253.12
-nn265.lbe2 A 10.70.253.13
-sn3.vpn-andrew A 10.70.253.14
-vpn-andrew.sn3 A 10.70.253.15
-sn3.vpn-nn383 A 10.70.253.16
-vpn-nn383.sn3 A 10.70.253.17
-rivington.gbep A 10.70.253.18
-100ava.gbep A 10.70.253.19
-twobridge.lbe A 10.70.253.20
-sn1.prism2 A 10.70.253.21
-saratoga.af24 A 10.70.253.22
-softsurplus.af24 A 10.70.253.23
-saratoga.sector A 10.70.253.24
-browsville.lbelr A 10.70.253.25
-vernon.af60lr-1 A 10.70.253.26
-saratoga.af60lr A 10.70.253.27
-sn3.vpn-nn136 A 10.70.253.28
-svpn-nn136.sn3 A 10.70.253.29
-vernon.af60lr.ph A 10.70.253.30
-ph.af60lr.vernon A 10.70.253.31
-Vernon.sector A 10.70.253.32
-1779.lbe.Vernon A 10.70.253.33
-saratoga.lbe A 10.70.253.34
-cypress.lbe A 10.70.253.35
-Vernon.sector A 10.70.253.36 
-nn436.lbe A 10.70.253.37
-sn10.fiber A 10.70.253.38
-grand34.fiber A 10.70.253.39
-ph.sector A 10.70.253.40
-nn3607.lbelr A 10.70.253.41
-sn10.vpn A 10.70.253.42
-sn3.vpn A 10.70.253.43
-rivington.lbe A 10.70.253.44
-guernsey.lbe A 10.70.253.45
-sn10.vpn1.sn3 A 10.70.253.46
-sn3.vpn1.sn10 A 10.70.253.47
-Robj135.WG A 10.70.253.48
-sn3.Robj135.WG A 10.70.253.49
-100ava.nsl.731 A 10.70.253.50
-7thstreet.nsl.2274 A 10.70.253.51
-sn3.af24.2282 A 10.70.253.52
-degraw.af24.sn3 A 10.70.253.53
-nn219.lbe.ph A 10.70.253.54
-ph.sector.nn219 A 10.70.253.55
-vlado.lbelr.ph-sector A 10.70.253.56
-ph-sector.lbelr.vlado A 10.70.253.57
-Thames.lbe A 10.70.253.58
-Softsurplus.sector A 10.70.253.59
-nn4126.Lbe A 10.70.253.60 
-Vernon.sector A 10.70.253.61
-FLo.lbe2 A 10.70.253.62 
-Vernon.sector A 10.70.253.63
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;  vVv  _RECORDS TO BE CONVERTED TO PTRs_  vVv
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-; records for rDNS 10.70.251.0/24  (./30)
-grand34.af60lr.prallel A 10.70.251.1
-parallel.af60lr.grand34 A 10.70.251.2
-grand34.lhg60.rivington A 10.70.251.5
-rivington.lhg60.grand34 A 10.70.251.6
-grand34.af60lr.navyyard A 10.70.251.9
-navyyard.af60lr.grand34 A 10.70.251.10
-grand34.eh8010.vernon A 10.70.251.13
-vernon.eh8010.grand34 A 10.70.251.14
-sn1.af24.grand32 A 10.70.251.17
-grand32.af24.sn1 A 10.70.251.18
-grand34.lblr.guernsey A 10.70.251.45
-guernsey.lblr.grand34 A 10.70.251.46
 
 ; record for rDNS others
 sn10edge2-sn10core1.internal A 10.70.102.1
 sn10core1-sn10edge2.internal A 10.70.102.2
 nycmesh-10-nat A 10.70.102.6
 nycmesh-sn10-edge1-temp A 10.70.102.132
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;  WITH JUST ONE SIDE OF LINK LABELED  ;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+; records for rDNS 10.70.251.0/24  (./30)
+grand-lhg60        A 10.70.251.5
+rivington-lhg60    A 10.70.251.6
+grand-af24         A 10.70.251.9
+clinton-af24       A 10.70.251.10
+grand-eh8010       A 10.70.251.13
+vernon-eh8010      A 10.70.251.14
+sn1-af24           A 10.70.251.17
+grand-af24         A 10.70.251.18
+belmontcore-fiber  A 10.70.251.69
+belmontroof-fiber  A 10.70.251.70
+olmsteadedge-fiber A 10.70.251.73
+sn11-fiber         A 10.70.251.74
+olmsteadedge-fiber A 10.70.251.77
+olmsteadcore-fiber A 10.70.251.78
+grand-af60lr       A 10.70.251.89
+freeman-af60lr     A 10.70.251.90
+sn3-wg             A 10.70.251.93
+lily-wg            A 10.70.251.94
+
+
+; records for rDNS 10.70.252A(./31)
+vernon-wavenano    A 10.70.252.10
+884-wavenano       A 10.70.252.11
+ph-liteap          A 10.70.252.12
+884-lbe            A 10.70.252.13
+sunsetpark-lhg60   A 10.70.252.14
+531-lhg60          A 10.70.252.15
+sunsetpark-cubepro A 10.70.252.16
+245-cubepro        A 10.70.252.17
+sn3-liteap         A 10.70.252.18
+7925-lbe           A 10.70.252.19
+president-wavenano A 10.70.252.20
+889-wavenano       A 10.70.252.21
+
+
+; records for rDNS 10.70.253A(./31)
+sn3-af24hd         A 10.70.253.0
+ph-af24hd          A 10.70.253.1
+vernon-liteap      A 10.70.253.2
+jefferson-lbe      A 10.70.253.3
+sslope-eh8010      A 10.70.253.4
+vernon-eh8010      A 10.70.253.5
+854-lbe            A 10.70.253.6
+329-lbe            A 10.70.253.7
+ph-liteap          A 10.70.253.8
+7489-lbe           A 10.70.253.9
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;  WITH BOTH SIDES OF LINK LABELED  ;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+; ; records for rDNS 10.70.251.0/24  (./30)
+; grand-lhg60-rivington           A 10.70.251.5
+; rivington-lhg60-grand           A 10.70.251.6
+; grand-af24-clinton              A 10.70.251.9
+; clinton-af24-grand              A 10.70.251.10
+; grand-eh8010-vernon             A 10.70.251.13
+; vernon-eh8010-grand             A 10.70.251.14
+; sn1-af24-grand                  A 10.70.251.17
+; grand-af24-sn1                  A 10.70.251.18
+; belmontcore-fiber-belmontroof   A 10.70.251.69
+; belmontroof-fiber-belmontcore   A 10.70.251.70
+; olmsteadedge-fiber-sn11         A 10.70.251.73
+; sn11-fiber-olmsteadedge         A 10.70.251.74
+; olmsteadedge-fiber-olmsteadcore A 10.70.251.77
+; olmsteadcore-fiber-olmsteadedge A 10.70.251.78
+; grand-af60lr-freeman            A 10.70.251.89
+; freeman-af60lr-grand            A 10.70.251.90
+; sn3-wg-lily                     A 10.70.251.93
+; lily-wg-sn3                     A 10.70.251.94
+
+
+; ; records for rDNS 10.70.252.0/24  (./31)
+; vernon-wavenano-884             A 10.70.252.10
+; 884-wavenano-vernon             A 10.70.252.11
+; ph-liteap-884-lbe               A 10.70.252.12
+; 884-lbe-ph-liteap               A 10.70.252.13
+; sunsetpark-lhg60-531            A 10.70.252.14
+; 531-lhg60-sunsetpark            A 10.70.252.15
+; sunsetpark-cubepro-245          A 10.70.252.15
+; 245-cubepro-sunsetpark          A 10.70.252.16
+; sn3-liteap-7925-lbe             A 10.70.252.18
+; 7925-lbe-sn3-liteap             A 10.70.252.19
+; president-wavenano-889          A 10.70.252.20
+; 889-wavenano-president          A 10.70.252.21
+
+
+; ; records for rDNS 10.70.253.0/24  (./31)
+; sn3-af24hd-ph                   A 10.70.253.0
+; ph-af24hd-sn3                   A 10.70.253.1
+; vernon-liteap-jefferson-lbe     A 10.70.253.2
+; jefferson-lbe-vernon-liteap     A 10.70.253.3
+; sslope-eh8010-vernon            A 10.70.253.4
+; vernon-eh8010-sslope            A 10.70.253.5
+; 854-lbe-329                     A 10.70.253.6
+; 329-lbe-854                     A 10.70.253.7
+; ph-liteap-7489-lbe              A 10.70.253.8
+; 7489-lbe-ph-liteap              A 10.70.253.9
