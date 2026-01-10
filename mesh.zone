@@ -166,35 +166,330 @@ grand-af60lr       A 10.70.251.89
 freeman-af60lr     A 10.70.251.90
 sn3-wg             A 10.70.251.93
 lily-wg            A 10.70.251.94
+grand-wg           A 10.70.251.97
+elizabeth-wg       A 10.70.251.98
+grand-wg           A 10.70.251.101
+guernsey-wg-grand  A 10.70.251.102
+grand-wg           A 10.70.251.105
+mohammed-wg        A 10.70.251.106
+sn1-wavemicro      A 10.70.251.109
+grand-wavenano     A 10.70.251.110
+sn3-wg             A 10.70.251.113
+yayb-wg            A 10.70.251.114
+sn3-wg             A 10.70.251.117
+8201-wg            A 10.70.251.118
+sn3-wg             A 10.70.251.121
+666-wg             A 10.70.251.122
+grand-af60lr       A 10.70.251.125
+humboldt-af60lr    A 10.70.251.126
+sn3-wg             A 10.70.251.129
+683-wg             A 10.70.251.130
+sn3-wg             A 10.70.251.137
+777-wg             A 10.70.251.138
+sn10-eoip          A 10.70.251.145
+544-eoip           A 10.70.251.146
+grand-wavenano     A 10.70.251.157
+7thst-gbelr        A 10.70.251.158
+grand-liteap       A 10.70.251.161
+168-lbelr          A 10.70.251.162
+bmont-wg           A 10.70.251.189
+sn10-wg            A 10.70.251.190
 
 
 ; records for rDNS 10.70.252A(./31)
-vernon-wavenano    A 10.70.252.10
-884-wavenano       A 10.70.252.11
-ph-liteap          A 10.70.252.12
-884-lbe            A 10.70.252.13
-sunsetpark-lhg60   A 10.70.252.14
-531-lhg60          A 10.70.252.15
-sunsetpark-cubepro A 10.70.252.16
-245-cubepro        A 10.70.252.17
-sn3-liteap         A 10.70.252.18
-7925-lbe           A 10.70.252.19
-president-wavenano A 10.70.252.20
-889-wavenano       A 10.70.252.21
+vernon-wavenano      A 10.70.252.10
+884-wavenano         A 10.70.252.11
+ph-liteap            A 10.70.252.12
+884-lbe              A 10.70.252.13
+sunsetpark-lhg60     A 10.70.252.14
+531-lhg60            A 10.70.252.15
+sunsetpark-cubepro   A 10.70.252.16
+245-cubepro          A 10.70.252.17
+sn3-liteap           A 10.70.252.18
+7925-lbe             A 10.70.252.19
+president-wavenano   A 10.70.252.20
+889-wavenano         A 10.70.252.21
+7thst-cube60         A 10.70.252.22
+141-cube60           A 10.70.252.23
+sslopecore-ethernet  A 10.70.252.24
+sslopevpn-ethernet   A 10.70.252.25
+clay-gbep            A 10.70.252.26
+green-gbep           A 10.70.252.27
+belmont-af60xr       A 10.70.252.28
+columbia-af60xr      A 10.70.252.29
+belmont-af24         A 10.70.252.30
+columbia-af24        A 10.70.252.31
+columbia-eh8010      A 10.70.252.32
+sugarhill-eh8010     A 10.70.252.33
+columbia-af24        A 10.70.252.34
+lily-af24            A 10.70.252.35
+columbia-liteap      A 10.70.252.36
+yayb-ltulr           A 10.70.252.37
+vernon-af60lr        A 10.70.252.38
+maspeth-af60lr       A 10.70.252.39
+7thst-wap60g-595     A 10.70.252.40
+595-lhg60-7thst      A 10.70.252.41
+jefferson-liteap     A 10.70.252.42
+921-maspeth          A 10.70.252.43
+595-omni             A 10.70.252.44
+3578-sxt             A 10.70.252.45
+sn3-waveap           A 10.70.252.46
+nash-wavenano        A 10.70.252.47
+nash-waveap          A 10.70.252.48
+2481-lhg60           A 10.70.252.49
+ph-waveap            A 10.70.252.50
+76-wavepico          A 10.70.252.51
 
 
 ; records for rDNS 10.70.253A(./31)
-sn3-af24hd         A 10.70.253.0
-ph-af24hd          A 10.70.253.1
-vernon-liteap      A 10.70.253.2
-jefferson-lbe      A 10.70.253.3
-sslope-eh8010      A 10.70.253.4
-vernon-eh8010      A 10.70.253.5
-854-lbe            A 10.70.253.6
-329-lbe            A 10.70.253.7
-ph-liteap          A 10.70.253.8
-7489-lbe           A 10.70.253.9
-
+sn3-af24hd                 A 10.70.253.0
+ph-af24hd                  A 10.70.253.1
+vernon-liteap              A 10.70.253.2
+jefferson-lbe              A 10.70.253.3
+sslope-eh8010              A 10.70.253.4
+vernon-eh8010              A 10.70.253.5
+854-lbe                    A 10.70.253.6
+329-lbe                    A 10.70.253.7
+ph-liteap                  A 10.70.253.8
+7489-lbe                   A 10.70.253.9
+ph                         A 10.70.253.10
+7398                       A 10.70.253.11
+vernon                     A 10.70.253.12
+thames                     A 10.70.253.13
+sn3-wg                     A 10.70.253.14
+ad-wg                      A 10.70.253.15
+sn3-wg                     A 10.70.253.16
+piotr-wg                   A 10.70.253.17
+rivington                  A 10.70.253.18
+100ava                     A 10.70.253.19
+twobridges                 A 10.70.253.20
+sn1                        A 10.70.253.21
+saratoga                   A 10.70.253.22
+softsurplus                A 10.70.253.23
+saratoga                   A 10.70.253.24
+brownsville                A 10.70.253.25
+vernon                     A 10.70.253.26
+saratoga                   A 10.70.253.27
+sn3                        A 10.70.253.28
+136                        A 10.70.253.29
+vernon-waveap              A 10.70.253.30
+ph-wavepro                 A 10.70.253.31
+sn1-waveapa                A 10.70.253.32
+elizabeth-af60lr           A 10.70.253.33
+saratoga                   A 10.70.253.34
+cypress                    A 10.70.253.35
+vernon-waveap              A 10.70.253.36
+quincy-af60lr              A 10.70.253.37
+sn10-fiber                 A 10.70.253.38
+grand-fiber                A 10.70.253.39
+ph                         A 10.70.253.40
+hancock                    A 10.70.253.41
+sn10                       A 10.70.253.42
+sn3                        A 10.70.253.43
+rivington                  A 10.70.253.44
+guernsey                   A 10.70.253.45
+sn10-vpn                   A 10.70.253.46
+sn3-vpn                    A 10.70.253.47
+135                        A 10.70.253.48
+135vpn                     A 10.70.253.49
+avea                       A 10.70.253.50
+7thst                      A 10.70.253.51
+vernon-waveap              A 10.70.253.52
+tomkins-af60lr             A 10.70.253.53
+stmarks                    A 10.70.253.54
+ph                         A 10.70.253.55
+vlado                      A 10.70.253.56
+ph                         A 10.70.253.57
+monroe                     A 10.70.253.58
+7516                       A 10.70.253.59
+4216                       A 10.70.253.60
+vernon                     A 10.70.253.61
+flo                        A 10.70.253.62
+vernon                     A 10.70.253.63
+159omni                    A 10.70.253.64
+159sxt                     A 10.70.253.65
+thames2omni                A 10.70.253.66
+eldert                     A 10.70.253.67
+ph-waveap                  A 10.70.253.68
+parkside-af60lraveap       A 10.70.253.69
+ph-liteap                  A 10.70.253.70
+parkside-lbelr             A 10.70.253.71
+vernon-waveap              A 10.70.253.72
+jefferson3-af60lr          A 10.70.253.73
+ps-gbelr                   A 10.70.253.74
+president-lbe              A 10.70.253.75
+ph-ltulr                   A 10.70.253.76
+president-ltulr            A 10.70.253.77
+sn1                        A 10.70.253.78
+elizabeth-lbe2             A 10.70.253.79
+sn3                        A 10.70.253.80
+141                        A 10.70.253.81
+ph                         A 10.70.253.82
+flatnushcats               A 10.70.253.83
+saratoga                   A 10.70.253.84
+fulton                     A 10.70.253.85
+ph-waveap                  A 10.70.253.88
+4402-wavelr                A 10.70.253.89
+stmarks                    A 10.70.253.90
+revere-lbe                 A 10.70.253.91
+jefferson-liteap           A 10.70.253.92
+thames-lbe                 A 10.70.253.93
+vernon                     A 10.70.253.94
+487-lbe                    A 10.70.253.95
+jefferson                  A 10.70.253.98
+wilson-lbe                 A 10.70.253.99
+ph                         A 10.70.253.100
+228                        A 10.70.253.101
+sslope-af24                A 10.70.253.102
+degraw-af24                A 10.70.253.103
+parallel                   A 10.70.253.104
+green-gbep                 A 10.70.253.105
+twobridges                 A 10.70.253.106
+7437                       A 10.70.253.107
+sunsetpark                 A 10.70.253.108
+flatbushcats               A 10.70.253.109
+sslope-eh8010              A 10.70.253.110
+sn3-eh8010                 A 10.70.253.111
+parallel                   A 10.70.253.112
+freeman-lbelr              A 10.70.253.113
+clay                       A 10.70.253.114
+freeman-lbelr              A 10.70.253.115
+sugarhill                  A 10.70.253.116
+lily                       A 10.70.253.117
+vernon-waveap              A 10.70.253.118
+stmarks-af60lr             A 10.70.253.119
+vernon-waveap              A 10.70.253.120
+cypress-af60lr             A 10.70.253.121
+vernon-waveap              A 10.70.253.122
+fulton-af60lr              A 10.70.253.123
+vernon-waveap              A 10.70.253.124
+wilson-af60lrp             A 10.70.253.125
+sn1                        A 10.70.253.126
+645                        A 10.70.253.127
+olmsted-waveap             A 10.70.253.128
+ccny-wavelr                A 10.70.253.129
+vernon                     A 10.70.253.130
+wilson-lbe                 A 10.70.253.131
+ccny-waveap                A 10.70.253.132
+sugarhill-wavelr           A 10.70.253.133
+sugarhill-af24             A 10.70.253.134
+lily-af24                  A 10.70.253.135
+sslope-waveap              A 10.70.253.136
+parkslope-af60lr           A 10.70.253.137
+vernon                     A 10.70.253.138
+430-lbe                    A 10.70.253.139
+vernon-waveap              A 10.70.253.140
+goodwin-af60lr             A 10.70.253.141
+275                        A 10.70.253.142
+603-sxt                    A 10.70.253.143
+rivington                  A 10.70.253.144
+guernsey                   A 10.70.253.145
+freeman                    A 10.70.253.148
+parallel-gbep              A 10.70.253.149
+freeman                    A 10.70.253.150
+clay-gbep                  A 10.70.253.151
+freeman                    A 10.70.253.152
+mohammed-gbep              A 10.70.253.153
+ph-waveap                  A 10.70.253.154
+lincoln-af60lr             A 10.70.253.155
+vernon-waveap              A 10.70.253.156
+430-af60lr                 A 10.70.253.157
+vernon                     A 10.70.253.158
+571-lbe                    A 10.70.253.159
+saratoga-wave              A 10.70.253.160
+eldert-wave                A 10.70.253.161
+ssurplus                   A 10.70.253.162
+jefferson1-gbelr           A 10.70.253.163
+ssurplus                   A 10.70.253.164
+jefferson3-gbelr           A 10.70.253.165
+parkslope                  A 10.70.253.166
+president-gbelr            A 10.70.253.167
+stmarks                    A 10.70.253.168
+revere-cuve60              A 10.70.253.169
+simona                     A 10.70.253.170
+7674-lbe                   A 10.70.253.171
+simona                     A 10.70.253.172
+255-lbe                    A 10.70.253.173
+president                  A 10.70.253.174
+463-lhg60                  A 10.70.253.175
+president                  A 10.70.253.176
+463-lbe                    A 10.70.253.177
+rivington                  A 10.70.253.178
+henry-lhg60                A 10.70.253.179
+henry-lbe                  A 10.70.253.180
+twobridges-lbe             A 10.70.253.181
+boroughpark                A 10.70.253.182
+sunsetpark                 A 10.70.253.183
+boroughpark-force4625      A 10.70.253.184
+flatbushcats-force4625     A 10.70.253.185
+sn3-wave                   A 10.70.253.186
+sunsetpark-wave            A 10.70.253.187
+sn3-wave                   A 10.70.253.188
+parksideassociation-wave   A 10.70.253.189
+boroughpark-wave           A 10.70.253.190
+sunsetpark-wave            A 10.70.253.191
+president                  A 10.70.253.192
+4480-sxt                   A 10.70.253.193
+302-lbe                    A 10.70.253.194
+saratoga                   A 10.70.253.195
+henry-lbe                  A 10.70.253.196
+sn1                        A 10.70.253.197
+stockholm-af60lr           A 10.70.253.198
+vernon                     A 10.70.253.199
+stockholm-af60lr           A 10.70.253.200
+saratoga                   A 10.70.253.201
+saratoga                   A 10.70.253.202
+192-lbe                    A 10.70.253.203
+sn3                        A 10.70.253.204
+217-lbe                    A 10.70.253.205
+sn3                        A 10.70.253.206
+degraw-ltulr               A 10.70.253.207
+vernon-waveap              A 10.70.253.208
+1779-af60lr                A 10.70.253.209
+sn1                        A 10.70.253.210
+3654-powerbeamiso          A 10.70.253.211
+spencer                    A 10.70.253.212
+7325-lhg60                 A 10.70.253.213
+vernon                     A 10.70.253.214
+7325-lbe                   A 10.70.253.215
+boroughpark                A 10.70.253.216
+851-lhg60                  A 10.70.253.217
+belmont                    A 10.70.253.218
+lily-wavepro               A 10.70.253.219
+belmont                    A 10.70.253.220
+lily-lbelr                 A 10.70.253.221
+sunsetpark                 A 10.70.253.222
+841-lbe                    A 10.70.253.223
+saratoga                   A 10.70.253.224
+purgatory-lbe              A 10.70.253.225
+goodwin                    A 10.70.253.226
+502-sxt                    A 10.70.253.227
+leonard-lbe                A 10.70.253.228
+vernon                     A 10.70.253.229
+vernon                     A 10.70.253.230
+864-lbe                    A 10.70.253.231
+ccny                       A 10.70.253.232
+sugarhill-pbe              A 10.70.253.233
+sn1-waveap                 A 10.70.253.234
+168-wavelr                 A 10.70.253.235
+sslope                     A 10.70.253.236
+828-lhg60                  A 10.70.253.237
+ph-waveap                  A 10.70.253.238
+177-af60lr                 A 10.70.253.239
+ph-waveap                  A 10.70.253.240
+316-af60lr                 A 10.70.253.241
+ph-waveap                  A 10.70.253.242
+35134-af60lr               A 10.70.253.243
+leonard                    A 10.70.253.244
+168-lbe                    A 10.70.253.245
+sn3-waveap                 A 10.70.253.246
+7925-wavepico              A 10.70.253.247
+vernon-force4625           A 10.70.253.248
+monroe-force4625           A 10.70.253.249
+monroe-lbelr               A 10.70.253.250
+ph                         A 10.70.253.251
+sn3-waveap                 A 10.70.253.252
+5300-wavenano              A 10.70.253.253
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -221,6 +516,38 @@ ph-liteap          A 10.70.253.8
 ; freeman-af60lr-grand            A 10.70.251.90
 ; sn3-wg-lily                     A 10.70.251.93
 ; lily-wg-sn3                     A 10.70.251.94
+; grand-wg-elizabeth              A 10.70.251.97
+; elizabeth-wg-grand              A 10.70.251.98
+; grand-wg-guernsey               A 10.70.251.101
+; guernsey-wg-grand               A 10.70.251.102
+; grand-wg-mohammed               A 10.70.251.105
+; mohammed-wg-grand               A 10.70.251.106
+; sn1-wavemicro-grand-wavenano    A 10.70.251.109
+; grand-wavenano-sn1-wavemicro    A 10.70.251.110
+; sn3-wg-yayb                     A 10.70.251.113
+; yayb-wg-sn3                     A 10.70.251.114
+; sn3-wg-8201                     A 10.70.251.117
+; 8201-wg-sn3                     A 10.70.251.118
+; sn3-wg-666                      A 10.70.251.121
+; 666-wg-sn3                      A 10.70.251.122
+; grand-af60lr-humboldt           A 10.70.251.125
+; humboldt-af60lr-grand           A 10.70.251.126
+; sn3-wg-683                      A 10.70.251.129
+; 683-wg-sn3                      A 10.70.251.130
+; sn3-wg-777                      A 10.70.251.137
+; 777-wg-sn3                      A 10.70.251.138
+; sn10-eoip-544                   A 10.70.251.145
+; 544-eoip-sn10                   A 10.70.251.146
+; grand-liteap-elizabeth-lbe      A 10.70.251.153
+; elizabeth-lbe-grand-liteap      A 10.70.251.154
+; grand-wavenano-7thst-gbelr      A 10.70.251.157
+; 7thst-gbelr-grand-wavenano      A 10.70.251.158
+; grand-liteap-168-lbelr          A 10.70.251.161
+; 168-lbelr-grand-liteap          A 10.70.251.162
+; sn3-eoip-777                    A 10.70.251.165
+; 777-eoip-sn3                    A 10.70.251.166
+; belmont-wg-sn10                 A 10.70.251.189
+; sn10-wg-belmont                 A 10.70.251.190
 
 
 ; ; records for rDNS 10.70.252.0/24  (./31)
@@ -236,6 +563,36 @@ ph-liteap          A 10.70.253.8
 ; 7925-lbe-sn3-liteap             A 10.70.252.19
 ; president-wavenano-889          A 10.70.252.20
 ; 889-wavenano-president          A 10.70.252.21
+; 7thst-cube60-141                A 10.70.252.22
+; 141-cube60-7thst                A 10.70.252.23
+; sslopecore-ethernet-sslopevpn   A 10.70.252.24
+; sslopevpn-ethernet-sslopecore   A 10.70.252.25
+; clay-gbep-green                 A 10.70.252.26
+; green-gbep-clay                 A 10.70.252.27
+; belmont-af60xr-columbia         A 10.70.252.28
+; columbia-af60xr-belmont         A 10.70.252.29
+; belmont-af24-columbia           A 10.70.252.30
+; columbia-af24-belmont           A 10.70.252.31
+; columbia-eh8010-sugarhill       A 10.70.252.32
+; sugarhill-eh8010-columbia       A 10.70.252.33
+; columbia-af24-lily              A 10.70.252.34
+; lily-af24-columbia              A 10.70.252.35
+; columbia-liteap-yayb-lutlr      A 10.70.252.36
+; yayb-ltulr-columbia-liteap      A 10.70.252.37
+; vernon-af60lr-maspeth           A 10.70.252.38
+; maspeth-af60lr-vernon           A 10.70.252.39
+; 7thst-wap60g-595-lhg60          A 10.70.252.40
+; 595-lhg60-7thst-wap60g          A 10.70.252.41
+; jefferson-liteap-maspeth-lbe    A 10.70.252.42
+; 921-maspeth-jefferson-liteap    A 10.70.252.43
+; 595-omni-3578-sxt               A 10.70.252.44
+; 3578-sxt-595-omni               A 10.70.252.45
+; sn3-waveap-nash-wavenano        A 10.70.252.46
+; nash-wavenano-sn3-waveap        A 10.70.252.47
+; nash-wap60g-2481-lhg60          A 10.70.252.48
+; 2481-lhg60-nash-wap60g          A 10.70.252.49
+; ph-waveap-7986-wavepico         A 10.70.252.50
+; 7986-wavepico-ph-waveap         A 10.70.252.51
 
 
 ; ; records for rDNS 10.70.253.0/24  (./31)
@@ -249,3 +606,241 @@ ph-liteap          A 10.70.253.8
 ; 329-lbe-854                     A 10.70.253.7
 ; ph-liteap-7489-lbe              A 10.70.253.8
 ; 7489-lbe-ph-liteap              A 10.70.253.9
+; ph-7398                         A 10.70.253.10
+; 7398-ph                         A 10.70.253.11
+; vernon-thames                   A 10.70.253.12
+; thames-vernon                   A 10.70.253.13
+; sn3-wg-ad                       A 10.70.253.14
+; ad-wg-713                       A 10.70.253.15
+; sn3-wg-piotr                    A 10.70.253.16
+; piotr-wg-sn3                    A 10.70.253.17
+; rivington-100ava                A 10.70.253.18
+; 100ava-rivington                A 10.70.253.19
+; twobridges-sn1                  A 10.70.253.20
+; sn1-twobridges                  A 10.70.253.21
+; saratoga-softsurplus            A 10.70.253.22
+; softsurplus-saratoga            A 10.70.253.23
+; saratoga-brownsville            A 10.70.253.24
+; brownsville-saratoga            A 10.70.253.25
+; vernon-saratoga                 A 10.70.253.26
+; saratoga-vernon                 A 10.70.253.27
+; sn3-136                         A 10.70.253.28
+; 136-sn3                         A 10.70.253.29
+; vernon-waveap-ph-wavepro        A 10.70.253.30
+; ph-wavepro-vernon-waveap        A 10.70.253.31
+; sn1-waveapa-elizabeth-af60lr    A 10.70.253.32
+; elizabeth-af60lr-sn1-waveap     A 10.70.253.33
+; saratoga-cypress                A 10.70.253.34
+; cypress-saratoga                A 10.70.253.35
+; vernon-waveap-quincy-af60lr     A 10.70.253.36
+; quincy-af60lr-vernon-waveap     A 10.70.253.37
+; sn10-fiber-grand                A 10.70.253.38
+; grand-fiber-sn10                A 10.70.253.39
+; ph-hancock                      A 10.70.253.40
+; hancock-ph                      A 10.70.253.41
+; sn10-sn3                        A 10.70.253.42
+; sn3-sn10                        A 10.70.253.43
+; rivington-guernsey              A 10.70.253.44
+; guernsey-rivington              A 10.70.253.45
+; sn10-vpn-sn3                    A 10.70.253.46
+; sn3-vpn-sn10                    A 10.70.253.47
+; 135-135vpn                      A 10.70.253.48
+; 135vpn-135                      A 10.70.253.49
+; avea-7thst                      A 10.70.253.50
+; 7thst-avea                      A 10.70.253.51
+; vernon-waveap-tomkins-af60lr    A 10.70.253.52
+; tomkins-af60lr-vernon-waveap    A 10.70.253.53
+; stmarks-ph                      A 10.70.253.54
+; ph-stmarks                      A 10.70.253.55
+; vlado-ph                        A 10.70.253.56
+; ph-vlado                        A 10.70.253.57
+; monroe-7516                     A 10.70.253.58
+; 7516-monroe                     A 10.70.253.59
+; 4216-vernon                     A 10.70.253.60
+; vernon-4216                     A 10.70.253.61
+; flo-vernon                      A 10.70.253.62
+; vernon-flo                      A 10.70.253.63
+; 159omni-159sxt                  A 10.70.253.64
+; 159sxt-159omni                  A 10.70.253.65
+; thames2omni-eldert              A 10.70.253.66
+; eldert-thames2omni              A 10.70.253.67
+; ph-waveap-parkside-af60lr       A 10.70.253.68
+; parkside-af60lr-ph-waveap       A 10.70.253.69
+; ph-liteap-parkside-lbelr        A 10.70.253.70
+; parkside-lbelr-ph-liteap        A 10.70.253.71
+; vernon-waveap-jefferson3-af60lr A 10.70.253.72
+; jefferson3-af60lr-vernon-waveap A 10.70.253.73
+; ps-gbelr-president-lbe          A 10.70.253.74
+; president-lbe-ps-gbelr          A 10.70.253.75
+; ph-ltulr-president-ltulr        A 10.70.253.76
+; president-ltulr-ph-ltulr        A 10.70.253.77
+; sn1-elizabeth-lbe2              A 10.70.253.78
+; elizabeth-lbe2-sn1              A 10.70.253.79
+; sn3-141                         A 10.70.253.80
+; 141-sn3                         A 10.70.253.81
+; ph-flatbushcats                 A 10.70.253.82
+; flatnushcats-ph                 A 10.70.253.83
+; saratoga-fulton                 A 10.70.253.84
+; fulton-saratoga                 A 10.70.253.85
+; ph-waveap-4402-wavelr           A 10.70.253.88
+; 4402-wavelr-ph-waveap           A 10.70.253.89
+; stmarks-revere-lbe              A 10.70.253.90
+; revere-lbe-stmarks              A 10.70.253.91
+; jefferson-liteap-thames-lbe     A 10.70.253.92
+; thames-lbe-jefferson-liteap     A 10.70.253.93
+; vernon-487-lbe                  A 10.70.253.94
+; 487-lbe-vernon                  A 10.70.253.95
+; jefferson-wilson-lbe            A 10.70.253.98
+; wilson-lbe-jefferson            A 10.70.253.99
+; ph-228-lbelr                    A 10.70.253.100
+; 228-lbelr-ph                    A 10.70.253.101
+; sslope-af24-degraw              A 10.70.253.102
+; degraw-af24-sslope              A 10.70.253.103
+; parallel-green-gbep             A 10.70.253.104
+; green-gbep-parallel             A 10.70.253.105
+; twobridges-7437-lbe             A 10.70.253.106
+; 7437-twobridges-lbe             A 10.70.253.107
+; sunsetpark-flatbushcats         A 10.70.253.108
+; flatbushcats-sunsetpark         A 10.70.253.109
+; sslope-eh8010-sn3               A 10.70.253.110
+; sn3-eh8010-sslope               A 10.70.253.111
+; parallel-freeman-lbelr          A 10.70.253.112
+; freeman-lbelr-parallel          A 10.70.253.113
+; clay-freeman-lbelr              A 10.70.253.114
+; freeman-lbelr-clay              A 10.70.253.115
+; sugarhill-lily                  A 10.70.253.116
+; lily-sugarhill                  A 10.70.253.117
+; vernon-waveap-stmarks-af60lr    A 10.70.253.118
+; stmarks-af60lr-vernon-waveap    A 10.70.253.119
+; vernon-waveap-cypress-af60lr    A 10.70.253.120
+; cypress-af60lr-vernon-waveap    A 10.70.253.121
+; vernon-waveap-fulton-af60lr     A 10.70.253.122
+; fulton-af60lr-vernon-waveap     A 10.70.253.123
+; vernon-waveap-wilson-af60lr     A 10.70.253.124
+; wilson-af60lr-vernon-waveap     A 10.70.253.125
+; sn1-645-lbe                     A 10.70.253.126
+; 645-lbe-sn1                     A 10.70.253.127
+; olmsted-waveap-ccny-wavelr      A 10.70.253.128
+; ccny-wavelr-olmsted-waveap      A 10.70.253.129
+; vernon-wilson-lbe               A 10.70.253.130
+; wilson-lbe-vernon               A 10.70.253.131
+; ccny-waveap-sugarhill-wavelr    A 10.70.253.132
+; sugarhill-wavelr-ccny-waveap    A 10.70.253.133
+; sugarhill-af24-lily             A 10.70.253.134
+; lily-af24-sugarhill             A 10.70.253.135
+; sslope-waveap-parkslope-af60lr  A 10.70.253.136
+; parkslope-af60lr-sslope-waveap  A 10.70.253.137
+; vernon-430-lbe                  A 10.70.253.138
+; 430-lbe-vernon                  A 10.70.253.139
+; vernon-waveap-goodwin-af60lr    A 10.70.253.140
+; goodwin-af60lr-vernon-waveap    A 10.70.253.141
+; 275-603-sxt                     A 10.70.253.142
+; 603-sxt-275                     A 10.70.253.143
+; rivington-guernsey              A 10.70.253.144
+; guernsey-rivington              A 10.70.253.145
+; freeman-parallel-gbep           A 10.70.253.148
+; parallel-gbep-freeman           A 10.70.253.149
+; freeman-clay-gbep               A 10.70.253.150
+; clay-gbep-freeman               A 10.70.253.151
+; freeman-mohammed-gbep           A 10.70.253.152
+; mohammed-gbep-freeman           A 10.70.253.153
+; ph-waveap-lincoln-af60lr        A 10.70.253.154
+; lincoln-af60lr-ph-waveap        A 10.70.253.155
+; vernon-waveap-430-af60lr        A 10.70.253.156
+; 430-af60lr-vernon-waveap        A 10.70.253.157
+; vernon-571-lbe                  A 10.70.253.158
+; 571-lbe-vernon                  A 10.70.253.159
+; saratoga-wave-eldert            A 10.70.253.160
+; eldert-wave-saratoga            A 10.70.253.161
+; ssurplus-jefferson1-gbelr       A 10.70.253.162
+; jefferson1-gbelr-ssurplus       A 10.70.253.163
+; ssurplus-jefferson3-gbelr       A 10.70.253.164
+; jefferson3-gbelr-ssurplus       A 10.70.253.165
+; parkslope-president-gbelr       A 10.70.253.166
+; president-gbelr-parkslope       A 10.70.253.167
+; stmarks-revere-cube60           A 10.70.253.168
+; revere-cuve60-stmarks           A 10.70.253.169
+; simona-7674-lbe                 A 10.70.253.170
+; 7674-lbe-simona                 A 10.70.253.171
+; simona-255-lbe                  A 10.70.253.172
+; 255-lbe-simona                  A 10.70.253.173
+; president-463-lhg60             A 10.70.253.174
+; 463-lhg60-president             A 10.70.253.175
+; president-463-lbe               A 10.70.253.176
+; 463-lbe-president               A 10.70.253.177
+; rivington-henry-lhg60           A 10.70.253.178
+; henry-lhg60-rivington           A 10.70.253.179
+; henry-twobridges-lbe            A 10.70.253.180
+; twobridges-henry-lbe            A 10.70.253.181
+; boroughpark-sunsetpark-lbe      A 10.70.253.182
+; sunsetpark-lbe-boroughpark           A 10.70.253.183
+; boroughpark-force4625-flatbushcats   A 10.70.253.184
+; flatbushcats-force4625-boroughpark   A 10.70.253.185
+; sn3-wave-sunsetpark             A 10.70.253.186
+; sunsetpark-wave-sn3             A 10.70.253.187
+; sn3-wave-parksideassociation    A 10.70.253.188
+; parksideassociation-wave-sn3    A 10.70.253.189
+; boroughpark-wave-sunsetpark     A 10.70.253.190
+; sunsetpark-wave-boroughpark     A 10.70.253.191
+; president-4480-sxt              A 10.70.253.192
+; 4480-sxt-president              A 10.70.253.193
+; 302-lbe-saratoga                A 10.70.253.194
+; saratoga-302-lbe                A 10.70.253.195
+; henry-lbe-sn1                   A 10.70.253.196
+; sn1-henry-lbe                   A 10.70.253.197
+; stockholm-af60lr-vernon         A 10.70.253.198
+; vernon-stockholm-af60lr         A 10.70.253.199
+; stockholm-af60lr-saratoga       A 10.70.253.200
+; saratoga-stockholm-af60lr       A 10.70.253.201
+; saratoga-192-lbe                A 10.70.253.202
+; 192-lbe-saratoga                A 10.70.253.203
+; sn3-217-lbe                     A 10.70.253.204
+; 217-lbe-sn3                     A 10.70.253.205
+; sn3-degraw-ltulr                A 10.70.253.206
+; degraw-ltulr-sn3                A 10.70.253.207
+; vernon-waveap-1779-af60lr       A 10.70.253.208
+; 1779-af60lr-vernon-waveap       A 10.70.253.209
+; sn1-3654-powerbeamiso           A 10.70.253.210
+; 3654-powerbeamiso-sn1           A 10.70.253.211
+; spencer-7325-lhg60              A 10.70.253.212
+; 7325-lhg60-spencer              A 10.70.253.213
+; vernon-7325-lbe                 A 10.70.253.214
+; 7325-lbe-vernon                 A 10.70.253.215
+; boroughpark-851-lhg60           A 10.70.253.216
+; 851-lhg60-boroughpark           A 10.70.253.217
+; belmont-lily-wavepro            A 10.70.253.218
+; lily-wavepro-belmont            A 10.70.253.219
+; belmont-lily-lbelr              A 10.70.253.220
+; lily-lbelr-belmont              A 10.70.253.221
+; sunsetpark-851-lbe              A 10.70.253.222
+; 841-lbe-sunsetpark              A 10.70.253.223
+; saratoga-purgatory-lbe          A 10.70.253.224
+; purgatory-lbe-saratoga          A 10.70.253.225
+; goodwin-502-sxt                 A 10.70.253.226
+; 502-sxt-goodwin                 A 10.70.253.227
+; leonard-lbe-vernon              A 10.70.253.228
+; vernon-leonard-lbe              A 10.70.253.229
+; vernon-864-lbe                  A 10.70.253.230
+; 864-lbe-vernon                  A 10.70.253.231
+; ccny-sugarhill-pbe              A 10.70.253.232
+; sugarhill-pbe-ccny              A 10.70.253.233
+; sn1-waveap-168-wavelr           A 10.70.253.234
+; 168-wavelr-sn1-waveap           A 10.70.253.235
+; sslope-828-lhg60                A 10.70.253.236
+; 828-lhg60-sslope                A 10.70.253.237
+; ph-waveap-177-af60lr            A 10.70.253.238
+; 177-af60lr-ph-waveap            A 10.70.253.239
+; ph-waveap-316-af60lr            A 10.70.253.240
+; 316-af60lr-ph-waveap            A 10.70.253.241
+; ph-waveap-35134-af60lr          A 10.70.253.242
+; 35134-af60lr-ph-waveap          A 10.70.253.243
+; leonard-168-lbe                 A 10.70.253.244
+; 168-lbe-leonard                 A 10.70.253.245
+; sn3-waveap-7925-wavepico        A 10.70.253.246
+; 7925-wavepico-sn3-waveap        A 10.70.253.247
+; vernon-force4625-monroe         A 10.70.253.248
+; monroe-force4625-vernon         A 10.70.253.249
+; monroe-lbelr-ph                 A 10.70.253.250
+; ph-monroe-lbelr                 A 10.70.253.251
+; sn3-waveap-5300-wavenano        A 10.70.253.252
+; 5300-wavenano-sn3-waveap        A 10.70.253.253
