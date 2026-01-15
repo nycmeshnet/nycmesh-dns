@@ -7,7 +7,7 @@
 
 - name: Download influx gpg key
   ansible.builtin.get_url:
-    url: https://repos.influxdata.com/influxdata-archive_compat.key
+    url: https://repos.influxdata.com/influxdata-archive_compat-exp2029.key
     dest: /root/influxdata-archive_compat.key
     mode: "600"
 
