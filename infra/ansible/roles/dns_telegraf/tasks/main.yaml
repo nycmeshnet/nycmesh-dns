@@ -14,7 +14,7 @@
 - name: Check influx gpg key
   ansible.builtin.command:
     chdir: /root
-    cmd: bash -c "echo '393e8779c89ac8d958f81f942f9ad7fb82a25e133faddaf92e15b16e6ac9ce4c influxdata-archive_compat.key' | sha256sum -c"
+    cmd: bash -c "echo 'a721ad6e344dc8439df36ecf3e4130aeee4505dc78d83baf17a430231ac121b4 influxdata-archive_compat.key' | sha256sum -c"
     creates: /tmp/fake_for_linter
 
 - name: Add influx gpg key
