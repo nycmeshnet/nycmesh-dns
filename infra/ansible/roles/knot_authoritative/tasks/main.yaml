@@ -41,7 +41,8 @@
     user: debian
     state: present
     key: '{{ item }}'
-  with_file: trusted_ssh_keys
+  with_file:
+    - "trusted_ssh_keys"
 
 - name: Knot DNS Config
   ansible.builtin.template:
