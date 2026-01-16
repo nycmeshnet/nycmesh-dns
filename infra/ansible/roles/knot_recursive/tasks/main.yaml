@@ -7,6 +7,13 @@
       - ca-certificates
       - dnsutils
 
+- name: Add trusted SSH keys
+  ansible.posix.authorized_key:
+    user: debian
+    state: present
+    key: '{{ item }}'
+  with_file: trusted_ssh_keys
+
 - name: Download gpg key
   ansible.builtin.get_url:
     url: https://pkg.labs.nic.cz/gpg
