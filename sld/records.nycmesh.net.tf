@@ -582,3 +582,32 @@ resource "namedotcom_record" "website_map_dev" {
   record_type = "CNAME"
   answer      = "k8s-stateless-dev.nycmesh.net"
 }
+
+###### Element Matrix resourcece Map #####
+resource "namedotcom_record" "ess_account" {
+  domain_name = "nycmesh.net"
+  host        = "account.matrix"
+  record_type = "CNAME"
+  answer      = "k8s-stateless-dev.nycmesh.net"
+}
+
+resource "namedotcom_record" "ess_chat" {
+  domain_name = "nycmesh.net"
+  host        = "chat.matrix"
+  record_type = "CNAME"
+  answer      = "k8s-stateless-dev.nycmesh.net"
+}
+
+resource "namedotcom_record" "ess_mrtc" {
+  domain_name = "nycmesh.net"
+  host        = "mrtc.matrix"
+  record_type = "CNAME"
+  answer      = "k8s-stateless-dev.nycmesh.net"
+}
+
+resource "namedotcom_record" "ess_synapse" {
+  domain_name = "nycmesh.net"
+  host        = "synapse.matrix"
+  record_type = "CNAME"
+  answer      = "k8s-stateless-dev.nycmesh.net"
+}
