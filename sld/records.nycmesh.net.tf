@@ -584,6 +584,21 @@ resource "namedotcom_record" "website_map_dev" {
 }
 
 ###### Element Matrix resourcece Map #####
+
+resource "namedotcom_record" "ess_matrix" {
+  domain_name = "nycmesh.net"
+  host        = "matrix"
+  record_type = "CNAME"
+  answer      = "k8s-stateless-dev.nycmesh.net"
+}
+
+resource "namedotcom_record" "ess_admin" {
+  domain_name = "nycmesh.net"
+  host        = "admin.matrix"
+  record_type = "CNAME"
+  answer      = "k8s-stateless-dev.nycmesh.net"
+}
+
 resource "namedotcom_record" "ess_account" {
   domain_name = "nycmesh.net"
   host        = "account.matrix"
