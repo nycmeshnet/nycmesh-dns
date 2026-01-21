@@ -34,19 +34,15 @@
       - python3-pip
       - python3.11-venv
       - dnsutils
-      - knot=3.4.6-cznic.1~bookworm
+      - knot
 
-- name: Add WN
+- name: Add trusted SSH keys
   ansible.posix.authorized_key:
     user: debian
     state: present
-    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBTf39rln9Gn4+xAq55izTsHaLrvwxe0KxdLdqN8AHV5 wilnil@willardpad"
-
-- name: Add AD
-  ansible.posix.authorized_key:
-    user: debian
-    state: present
-    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINqMvlwLFwGENT5WMjytI2iwVlHPV2TX+gOgBXj9kw4k andrew@localhost"
+    key: '{{ item }}'
+  with_file:
+    - "trusted_ssh_keys"
 
 - name: Knot DNS Config
   ansible.builtin.template:
