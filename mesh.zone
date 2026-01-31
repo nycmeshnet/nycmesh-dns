@@ -34,6 +34,8 @@ nycmesh-11 A 10.70.104.12
 grafana-new A 10.70.90.146
 rsyslog A 10.10.5.14
 freepbx A 10.70.90.62
+paste NS nycmesh-713-dns-auth-3
+paste-dev NS nycmesh-713-dns-auth-3
 
 ; Emerson
 gitlab A    10.70.123.5
