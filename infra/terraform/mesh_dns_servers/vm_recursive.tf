@@ -1,7 +1,7 @@
 resource "proxmox_vm_qemu" "recursive_dns_vm" {
   count       = length(var.dns_rec_mgt_ip)
   name        = "${var.hostname_prefix}-dns-rec-${sum([1, count.index, var.hostname_count_offset])}"
-  desc        = "Recursive knot ${count.index}"
+  description = "Recursive knot ${count.index}"
   target_node = var.proxmox_node
 
   clone = var.proxmox_template_image
