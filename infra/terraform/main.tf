@@ -22,6 +22,7 @@ provider "proxmox" {
   pm_tls_insecure     = true
   pm_debug            = true
   pm_log_enable       = true
+  pm_log_file         = "terraform-plugin-proxmox.log"
   pm_api_token_id     = var.proxmox_token_id
   pm_api_token_secret = var.proxmox_token_secret
 }
