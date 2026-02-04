@@ -36,6 +36,9 @@ jobs:
       - name: Run kzonecheck on each zone file
         run: find . -type f -name "*.zone" -print0 | xargs -0L1 kzonecheck -v
 
+      - name: Setup ansible
+        run: pip install --require-hashes -r requirements.txt && export PATH="$HOME/.local/bin:$PATH" && ansible-galaxy collection install --force -r infra/ansible/roles/requirements.yml
+
       - name: Run ansible-lint
         uses: ansible/ansible-lint@a2bc8b8b13a80802215856c56823d85007d3baf5 # v25
         with:
