@@ -17,7 +17,7 @@ resource "namedotcom_record" "record__269579331" {
   domain_name = "nycmeshops.net"
   host        = ""
   record_type = "A"
-  answer      = "85.199.110.153"
+  answer      = "185.199.110.153"
 }
 
 resource "namedotcom_record" "record__269579332" {
