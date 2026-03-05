@@ -1,0 +1,35 @@
+
+name: "SLD Domain Checks"
+
+on:
+  push:
+    branches:
+      - james/check
+  schedule:
+    - cron: "30 3 * * 2"
+  workflow_dispatch:
+
+permissions: read-all
+
+jobs:
+  terraform:
+    name: "Terraform"
+    environment: prod
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
+        with:
+          python-version: '3.13' 
+      
+      - name: Dependencies
+        run: pip install -r sld/scripts/requirements.txt
+      
+      - name: Run check_domains.py
+        run: python3 sld/scripts/check_domains.py
+        env:
+          TF_VAR_name_dot_com_user: ${{ secrets.TF_VAR_name_dot_com_user }}
+          TF_VAR_name_dot_com_token: ${{ secrets.TF_VAR_name_dot_com_token }}
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
