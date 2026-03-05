@@ -12,8 +12,8 @@ on:
 permissions: read-all
 
 jobs:
-  terraform:
-    name: "Terraform"
+  checks:
+    name: "SLD Domain Checks"
     environment: prod
     runs-on: ubuntu-latest
     steps:

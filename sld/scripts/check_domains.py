@@ -55,8 +55,12 @@ def main():
                     headers={'Content-Type': 'application/json'}
                 )
                 res.raise_for_status()
+            else:
+                print("Warning: Webhook url not provided")
         
         exit(1)
+    else:
+        print("No issues found!")
 
 if __name__ == "__main__":
     main()
