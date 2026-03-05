@@ -36,7 +36,7 @@ resource "namedotcom_record" "nycmeshconnect_com_www_cname" {
   answer      = "nycmeshnet.github.io"
 }
 
- Authoritative DNS server at SN3
+# Authoritative DNS server at SN3
 resource "namedotcom_record" "nycmesh-713-dns-auth-3-nycmeshconnect-com" {
   domain_name = "nycmeshconnect.com"
   host        = "nycmesh-713-dns-auth-3"
@@ -44,7 +44,7 @@ resource "namedotcom_record" "nycmesh-713-dns-auth-3-nycmeshconnect-com" {
   answer      = "199.170.132.47"
 }
 
- Authoritative DNS server at SN10
+# Authoritative DNS server at SN10
 resource "namedotcom_record" "nycmesh-10-dns-auth-5-nycmeshconnect-com" {
   domain_name = "nycmeshconnect.com"
   host        = "nycmesh-10-dns-auth-5"
