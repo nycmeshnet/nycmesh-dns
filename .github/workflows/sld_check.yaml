@@ -2,9 +2,6 @@
 name: "SLD Domain Checks"
 
 on:
-  push:
-    branches:
-      - james/check
   schedule:
     - cron: "30 3 * * 2"
   workflow_dispatch:
