@@ -633,3 +633,11 @@ resource "namedotcom_record" "ess_synapse" {
   record_type = "CNAME"
   answer      = "k8s-stateless-dev.nycmesh.net"
 }
+
+# nyit sensor vm in meshroom. #nyit-sensor-modeling in slack
+resource "namedotcom_record" "nyit-ucm" {
+  domain_name = "nycmesh.net"
+  host        = "nyit-ucm"
+  record_type = "A"
+  answer      = "10.70.147.79"
+}
