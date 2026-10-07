@@ -8,12 +8,17 @@ updates:
   assignees:
    - "james-otten"
 - package-ecosystem: "terraform"
-  directories:
-   - "/infra/terraform/"
-   - "/sld/"
+  directory: "/infra/terraform/"
   schedule:
     interval: "cron"
     cronjob: "4 6 * * *"
+  assignees:
+   - "james-otten"
+- package-ecosystem: "terraform"
+  directory: "/sld/"
+  schedule:
+    interval: "cron"
+    cronjob: "4 7 * * *"
   assignees:
    - "james-otten"
 - package-ecosystem: "github-actions"
