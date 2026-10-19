@@ -32,6 +32,9 @@ key:
   - id: k8s.lb.prod2
     algorithm: hmac-sha512
     secret: {{ TSIG_KEY_K8S_PROD2 }}
+  - id: k8s.lb.prod3
+    algorithm: hmac-sha512
+    secret: {{ TSIG_KEY_K8S_PROD3 }}
   - id: k8s.lb.dev3
     algorithm: hmac-sha512
     secret: {{ TSIG_KEY_K8S_DEV3 }}
