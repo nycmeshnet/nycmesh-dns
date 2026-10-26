@@ -525,6 +525,27 @@ resource "namedotcom_record" "map-v2" {
   answer      = "kubernetes-lb-jon-sn3.nycmesh.net"
 }
 
+resource "namedotcom_record" "pano" {
+  domain_name = "nycmesh.net"
+  host        = "pano"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-prod-sn10.nycmesh.net"
+}
+
+resource "namedotcom_record" "pano_api" {
+  domain_name = "nycmesh.net"
+  host        = "api.pano"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-prod-sn10.nycmesh.net"
+}
+
+resource "namedotcom_record" "img" {
+  domain_name = "nycmesh.net"
+  host        = "img"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-prod-sn10.nycmesh.net"
+}
+
 resource "namedotcom_record" "devpano" {
   domain_name = "nycmesh.net"
   host        = "devpano"
