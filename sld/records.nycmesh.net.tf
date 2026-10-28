@@ -453,6 +453,13 @@ resource "namedotcom_record" "meshdb_prod_sn10_k8s_lb" {
   answer      = "23.158.16.22"
 }
 
+resource "namedotcom_record" "meshdb_prod3_k8s_lb" {
+  domain_name = "nycmesh.net"
+  host        = "kubernetes-lb-prod3"
+  record_type = "A"
+  answer      = "23.158.16.20"
+}
+
 resource "namedotcom_record" "meshdb_prod_sn10_meshdb" {
   domain_name = "nycmesh.net"
   host        = "sn10temp"
@@ -529,21 +536,21 @@ resource "namedotcom_record" "pano" {
   domain_name = "nycmesh.net"
   host        = "pano"
   record_type = "CNAME"
-  answer      = "kubernetes-lb-prod-sn10.nycmesh.net"
+  answer      = "kubernetes-lb-prod3.nycmesh.net"
 }
 
 resource "namedotcom_record" "pano_api" {
   domain_name = "nycmesh.net"
   host        = "api.pano"
   record_type = "CNAME"
-  answer      = "kubernetes-lb-prod-sn10.nycmesh.net"
+  answer      = "kubernetes-lb-prod3.nycmesh.net"
 }
 
 resource "namedotcom_record" "img" {
   domain_name = "nycmesh.net"
   host        = "img"
   record_type = "CNAME"
-  answer      = "kubernetes-lb-prod-sn10.nycmesh.net"
+  answer      = "kubernetes-lb-prod3.nycmesh.net"
 }
 
 resource "namedotcom_record" "devpano" {
