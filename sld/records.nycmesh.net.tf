@@ -553,6 +553,13 @@ resource "namedotcom_record" "img" {
   answer      = "kubernetes-lb-prod3.nycmesh.net"
 }
 
+resource "namedotcom_record" "woodpecker" {
+  domain_name = "nycmesh.net"
+  host        = "woodpecker"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-prod3.nycmesh.net"
+}
+
 resource "namedotcom_record" "devpano" {
   domain_name = "nycmesh.net"
   host        = "devpano"
