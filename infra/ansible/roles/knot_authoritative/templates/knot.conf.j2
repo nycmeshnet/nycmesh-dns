@@ -154,6 +154,12 @@ acl:
     update-owner-match: equal
     update-owner-name: acme-challenge.bao.mesh.nycmesh.net.
     key: k8s.lb.prod3
+  - id: acl-update-keycloak
+    action: update
+    update-type: [TXT]
+    update-owner-match: equal
+    update-owner-name: acme-challenge.keycloak-admin.mesh.nycmesh.net.
+    key: k8s.lb.prod3
 
 zone:
   - domain: mesh
@@ -204,3 +210,6 @@ zone:
   - domain: bao.mesh.nycmesh.net
     file: bao.mesh.nycmesh.net.zone
     acl: acl-update-bao
+  - domain: keycloak-admin.mesh.nycmesh.net
+    file: keycloak-admin.mesh.nycmesh.net.zone
+    acl: acl-update-keycloak
