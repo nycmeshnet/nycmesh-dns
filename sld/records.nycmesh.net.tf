@@ -560,6 +560,13 @@ resource "namedotcom_record" "woodpecker" {
   answer      = "kubernetes-lb-prod3.nycmesh.net"
 }
 
+resource "namedotcom_record" "keycloak" {
+  domain_name = "nycmesh.net"
+  host        = "keycloak"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-prod3.nycmesh.net"
+}
+
 resource "namedotcom_record" "devpano" {
   domain_name = "nycmesh.net"
   host        = "devpano"
