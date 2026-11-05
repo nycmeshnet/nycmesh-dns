@@ -85,6 +85,9 @@ jamesinternalprodtwo NS nycmesh-10-dns-auth-5
 airflow NS nycmesh-713-dns-auth-3
 devairflow NS nycmesh-713-dns-auth-3
 
+; keycloak-admin
+keycloak-admin NS nycmesh-713-dns-auth-3
+
 ; doh
 doh NS nycmesh-713-dns-auth-3
 
