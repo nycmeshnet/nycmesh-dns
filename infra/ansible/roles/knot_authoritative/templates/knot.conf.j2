@@ -148,6 +148,12 @@ acl:
     update-owner-match: equal
     update-owner-name: acme-challenge.jenkins.mesh.nycmesh.net.
     key: k8s.lb.prod1
+  - id: acl-update-bao
+    action: update
+    update-type: [TXT]
+    update-owner-match: equal
+    update-owner-name: acme-challenge.bao.mesh.nycmesh.net.
+    key: k8s.lb.prod3
 
 zone:
   - domain: mesh
@@ -195,3 +201,6 @@ zone:
   - domain: jenkins.mesh.nycmesh.net
     file: jenkins.mesh.nycmesh.net.zone
     acl: acl-update-jenkins
+  - domain: bao.mesh.nycmesh.net
+    file: bao.mesh.nycmesh.net.zone
+    acl: acl-update-bao
