@@ -35,6 +35,9 @@ key:
   - id: k8s.lb.prod3
     algorithm: hmac-sha512
     secret: {{ TSIG_KEY_K8S_PROD3 }}
+  - id: k8s.lb.prod4
+    algorithm: hmac-sha512
+    secret: {{ TSIG_KEY_K8S_PROD4 }}
   - id: k8s.lb.dev3
     algorithm: hmac-sha512
     secret: {{ TSIG_KEY_K8S_DEV3 }}
@@ -160,6 +163,12 @@ acl:
     update-owner-match: equal
     update-owner-name: _acme-challenge.keycloak-admin.mesh.nycmesh.net.
     key: k8s.lb.prod3
+  - id: acl-update-cloud
+    action: update
+    update-type: [TXT]
+    update-owner-match: equal
+    update-owner-name: _acme-challenge.cloud.mesh.nycmesh.net.
+    key: k8s.lb.prod4
 
 zone:
   - domain: mesh
@@ -213,3 +222,6 @@ zone:
   - domain: keycloak-admin.mesh.nycmesh.net
     file: keycloak-admin.mesh.nycmesh.net.zone
     acl: acl-update-keycloak
+  - domain: cloud.mesh.nycmesh.net
+    file: cloud.mesh.nycmesh.net.zone
+    acl: acl-update-cloud

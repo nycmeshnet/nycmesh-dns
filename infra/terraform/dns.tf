@@ -31,6 +31,7 @@ module "some_mesh_dns_servers" {
   tsig_key_k8s_prod1              = var.tsig_key_k8s_prod1
   tsig_key_k8s_prod2              = var.tsig_key_k8s_prod2
   tsig_key_k8s_prod3              = var.tsig_key_k8s_prod3
+  tsig_key_k8s_prod4              = var.tsig_key_k8s_prod4
   tsig_key_k8s_dev3               = var.tsig_key_k8s_dev3
   tsig_key_jon                    = var.tsig_key_jon
   tsig_key_10_r630_01             = var.tsig_key_10_r630_01
