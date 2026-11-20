@@ -188,12 +188,6 @@ variable "tsig_key_k8s_prod3" {
   sensitive   = true
 }
 
-variable "tsig_key_k8s_prod4" {
-  type        = string
-  description = "TSIG key for the zone updates from prod4 k8s lb"
-  sensitive   = true
-}
-
 variable "tsig_key_k8s_dev3" {
   type        = string
   description = "TSIG key for the zone updates from dev3 k8s lb"
