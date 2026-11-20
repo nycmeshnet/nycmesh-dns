@@ -460,6 +460,13 @@ resource "namedotcom_record" "meshdb_prod3_k8s_lb" {
   answer      = "23.158.16.20"
 }
 
+resource "namedotcom_record" "meshdb_prod4_k8s_lb" {
+  domain_name = "nycmesh.net"
+  host        = "kubernetes-lb-prod4"
+  record_type = "A"
+  answer      = "23.158.16.16"
+}
+
 resource "namedotcom_record" "meshdb_prod_sn10_meshdb" {
   domain_name = "nycmesh.net"
   host        = "sn10temp"
@@ -558,6 +565,13 @@ resource "namedotcom_record" "woodpecker" {
   host        = "woodpecker"
   record_type = "CNAME"
   answer      = "kubernetes-lb-prod3.nycmesh.net"
+}
+
+resource "namedotcom_record" "woodpecker-prod4" {
+  domain_name = "nycmesh.net"
+  host        = "woodpecker"
+  record_type = "CNAME"
+  answer      = "kubernetes-lb-prod4.nycmesh.net"
 }
 
 resource "namedotcom_record" "keycloak" {
