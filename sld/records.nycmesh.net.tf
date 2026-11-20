@@ -569,7 +569,7 @@ resource "namedotcom_record" "woodpecker" {
 
 resource "namedotcom_record" "woodpecker-prod4" {
   domain_name = "nycmesh.net"
-  host        = "woodpecker"
+  host        = "woodpecker-prod4"
   record_type = "CNAME"
   answer      = "kubernetes-lb-prod4.nycmesh.net"
 }
