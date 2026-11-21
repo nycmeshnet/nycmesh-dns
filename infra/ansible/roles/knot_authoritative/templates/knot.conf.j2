@@ -166,6 +166,12 @@ acl:
     update-owner-match: equal
     update-owner-name: _acme-challenge.cloud.mesh.nycmesh.net.
     key: k8s.lb.prod3
+  - id: acl-update-registry
+    action: update
+    update-type: [TXT]
+    update-owner-match: equal
+    update-owner-name: _acme-challenge.registry.mesh.nycmesh.net.
+    key: k8s.lb.prod3
 
 zone:
   - domain: mesh
@@ -222,3 +228,6 @@ zone:
   - domain: cloud.mesh.nycmesh.net
     file: cloud.mesh.nycmesh.net.zone
     acl: acl-update-cloud
+  - domain: registry.mesh.nycmesh.net
+    file: registry.mesh.nycmesh.net.zone
+    acl: acl-update-registry
