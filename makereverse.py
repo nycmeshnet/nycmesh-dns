@@ -10,7 +10,7 @@ output = { r: [] for r in validreverse }
 
 header = """$ORIGIN {}
 $TTL 3600
-@  SOA   nycmesh-713-dns-auth-3 hostmaster.nycmesh.net. ( 2024120100 1d 2h 4w 1h )
+@  SOA   nycmesh-713-dns-auth-3 hostmaster.nycmesh.net. ( 2026112100 1d 2h 4w 60 )
 @  NS    nycmesh-713-dns-auth-3
 @  NS    nycmesh-10-dns-auth-5
 @  A     10.10.10.11

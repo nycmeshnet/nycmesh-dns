@@ -241,6 +241,18 @@ variable "main_auth_server_ip" {
   default     = "199.170.132.47"
 }
 
+variable "primary_auth_dns_ip" {
+  type        = string
+  description = "Authoritative DNS server that is primary for dynamically updated (ACME) zones. The other authoritative server mirrors it with NOTIFY/IXFR. Set to an empty string for a standalone authoritative server."
+  default     = "199.170.132.47"
+}
+
+variable "secondary_auth_dns_ip" {
+  type        = string
+  description = "Authoritative DNS server that mirrors the dynamically updated zones from the primary"
+  default     = "23.158.16.23"
+}
+
 variable "mesh_stub_resolver" {
   type        = string
   description = "resolver for mesh bound queries"
