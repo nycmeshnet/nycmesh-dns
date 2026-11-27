@@ -3,10 +3,12 @@
    mirrored on the other. The secondary pulls changes via NOTIFY/IXFR and
    forwards DDNS updates it receives to the primary, so an _acme-challenge TXT
    record written by certbot ends up on both servers. #}
-{% set knot_primary_auth  = KNOT_PRIMARY_AUTH_IP | default("199.170.132.47") %}
+{% set knot_primary_auth = KNOT_PRIMARY_AUTH_IP | default("199.170.132.47") %}
 {% set knot_secondary_auth = KNOT_SECONDARY_AUTH_IP | default("23.158.16.23") %}
-{% macro mirrored() %}{% if knot_secondary_auth != "" %}{% if EXTERNAL_LISTEN_IP == knot_primary_auth %}    notify: dns-auth-secondary
-{% else %}    master: dns-auth-primary
+{% set knot_is_primary = EXTERNAL_LISTEN_IP == knot_primary_auth %}
+{% set knot_peer = knot_secondary_auth if knot_is_primary else knot_primary_auth %}
+{% macro mirrored() %}{% if knot_peer != "" %}{% if knot_is_primary %}    notify: knot-peer
+{% else %}    master: knot-peer
 {% endif %}{% endif %}{% endmacro %}
 
 server:
@@ -29,12 +31,10 @@ mod-rrl:
    rate-limit: 200
    slip: 2
 
+{% if knot_peer != "" %}
 remote:
-{% if knot_primary_auth != "" %}  - id: dns-auth-primary
-    address: {{ knot_primary_auth }}
-{% endif %}
-{% if knot_secondary_auth != "" %}  - id: dns-auth-secondary
-    address: {{ knot_secondary_auth }}
+  - id: knot-peer
+    address: {{ knot_peer }}
 {% endif %}
 
 template:
