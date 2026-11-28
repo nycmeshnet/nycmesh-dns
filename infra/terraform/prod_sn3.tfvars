@@ -1,6 +1,8 @@
 proxmox_node             = "nycmesh-713-r640-02"
 proxmox_storage_location = "local-lvm"
 vm_nic                   = "vmbr0v32"
+primary_auth_dns_ip      = "199.170.132.47"
+secondary_auth_dns_ip    = "23.158.16.23"
 dns_auth_mgt_ip = [
   "10.70.90.148",
   "10.70.90.181",

@@ -1,5 +1,18 @@
 
+{# Dynamically updated (ACME) zones are primary on one authoritative server and
+   mirrored on the other. The secondary pulls changes via NOTIFY/IXFR and
+   forwards DDNS updates it receives to the primary, so an _acme-challenge TXT
+   record written by certbot ends up on both servers. #}
+{% set knot_primary_auth = KNOT_PRIMARY_AUTH_IP | default("199.170.132.47") %}
+{% set knot_secondary_auth = KNOT_SECONDARY_AUTH_IP | default("23.158.16.23") %}
+{% set knot_is_primary = EXTERNAL_LISTEN_IP == knot_primary_auth %}
+{% set knot_peer = knot_secondary_auth if knot_is_primary else knot_primary_auth %}
+{% macro mirrored() %}{% if knot_peer != "" %}{% if knot_is_primary %}    notify: knot-peer
+{% else %}    master: knot-peer
+{% endif %}{% endif %}{% endmacro %}
+
 server:
+    automatic-acl: on
 {% if INTERNAL_LISTEN_IP != "" %}    listen: {{ INTERNAL_LISTEN_IP }}@53
 {% endif %}
 {% if EXTERNAL_LISTEN_IP != "" %}    listen: {{ EXTERNAL_LISTEN_IP }}@53
@@ -17,6 +30,12 @@ mod-rrl:
  - id: default
    rate-limit: 200
    slip: 2
+
+{% if knot_peer != "" %}
+remote:
+  - id: knot-peer
+    address: {{ knot_peer }}
+{% endif %}
 
 template:
   - id: default
@@ -174,36 +193,47 @@ zone:
   - domain: doh.mesh.nycmesh.net
     file: doh.mesh.nycmesh.net.zone
     acl: acl-update-doh
+{{ mirrored() }}
   - domain: nn.mesh.nycmesh.net
     file: nn.zone
     acl: acl-update-nn
+{{ mirrored() }}
   - domain: ha.mesh.nycmesh.net
     file: ha.mesh.nycmesh.net.zone
     acl: acl-update-ha
+{{ mirrored() }}
   - domain: devairflow.mesh.nycmesh.net
     file: devairflow.mesh.nycmesh.net.zone
     acl: acl-update-devairflow
+{{ mirrored() }}
   - domain: airflow.mesh.nycmesh.net
     file: airflow.mesh.nycmesh.net.zone
     acl: acl-update-airflow
+{{ mirrored() }}
   - domain: prox.mesh.nycmesh.net
     file: prox.mesh.nycmesh.net.zone
     acl: [acl-update-jon, acl-update-nycmesh-10-r630-01, acl-update-nycmesh-713-r640-01]
+{{ mirrored() }}
   - domain: building.mesh.nycmesh.net
     file: building.mesh.nycmesh.net.zone
     acl: acl-update-building
+{{ mirrored() }}
   - domain: building-dev.mesh.nycmesh.net
     file: building-dev.mesh.nycmesh.net.zone
     acl: acl-update-buildingdev
+{{ mirrored() }}
   - domain: paste.mesh.nycmesh.net
     file: paste.mesh.nycmesh.net.zone
     acl: acl-update-paste
+{{ mirrored() }}
   - domain: paste-dev.mesh.nycmesh.net
     file: paste-dev.mesh.nycmesh.net.zone
     acl: acl-update-pastedev
+{{ mirrored() }}
   - domain: jamesinternalprodtwo.mesh.nycmesh.net
     file: jamesinternalprodtwo.mesh.nycmesh.net.zone
     acl: acl-update-jamesinternalprodtwo
+{{ mirrored() }}
   - domain: nycmeshconnect.com
     file: nycmeshconnect.com.zone
   - domain: nycmeshconnect.net
@@ -213,12 +243,16 @@ zone:
   - domain: jenkins.mesh.nycmesh.net
     file: jenkins.mesh.nycmesh.net.zone
     acl: acl-update-jenkins
+{{ mirrored() }}
   - domain: bao.mesh.nycmesh.net
     file: bao.mesh.nycmesh.net.zone
     acl: acl-update-bao
+{{ mirrored() }}
   - domain: keycloak-admin.mesh.nycmesh.net
     file: keycloak-admin.mesh.nycmesh.net.zone
     acl: acl-update-keycloak
+{{ mirrored() }}
   - domain: cloud.mesh.nycmesh.net
     file: cloud.mesh.nycmesh.net.zone
     acl: acl-update-cloud
+{{ mirrored() }}

@@ -40,6 +40,8 @@ module "some_mesh_dns_servers" {
   tsig_key_nn                     = var.tsig_key_nn
   enable_doh                      = var.enable_doh
   main_auth_server_ip             = var.main_auth_server_ip
+  primary_auth_dns_ip             = var.primary_auth_dns_ip
+  secondary_auth_dns_ip           = var.secondary_auth_dns_ip
   mesh_stub_resolver              = var.mesh_stub_resolver
   bird_network                    = var.bird_network
 }

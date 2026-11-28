@@ -1,4 +1,6 @@
 proxmox_node             = "jon"
+primary_auth_dns_ip      = "199.170.132.48"
+secondary_auth_dns_ip    = ""
 proxmox_storage_location = "local-lvm"
 dns_auth_mgt_ip = [
   "10.70.90.134",
