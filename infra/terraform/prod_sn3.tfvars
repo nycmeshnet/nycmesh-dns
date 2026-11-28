@@ -1,8 +1,12 @@
 proxmox_node             = "nycmesh-713-r640-02"
 proxmox_storage_location = "local-lvm"
 vm_nic                   = "vmbr0v32"
-primary_auth_dns_ip      = "199.170.132.47"
-secondary_auth_dns_ip    = "23.158.16.23"
+knot_master_mgt_ip       = "10.70.90.148" # nycmesh-713-dns-auth-3
+knot_secondary_mgt_ips = [
+  "10.70.90.181", # nycmesh-713-dns-auth-4
+  "10.70.100.43", # nycmesh-10-dns-auth-5
+  "10.70.100.52", # nycmesh-10-dns-auth-6
+]
 dns_auth_mgt_ip = [
   "10.70.90.148",
   "10.70.90.181",
