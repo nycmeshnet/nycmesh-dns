@@ -1,21 +1,46 @@
+{# Dynamically updated (ACME/DDNS) zones are primary on exactly one authoritative
+   server and mirrored to the others with NOTIFY/IXFR.
 
-{# Dynamically updated (ACME) zones are primary on one authoritative server and
-   mirrored on the other. The secondary pulls changes via NOTIFY/IXFR and
-   forwards DDNS updates it receives to the primary, so an _acme-challenge TXT
-   record written by certbot ends up on both servers. #}
-{% set knot_primary_auth = KNOT_PRIMARY_AUTH_IP | default("199.170.132.47") %}
-{% set knot_secondary_auth = KNOT_SECONDARY_AUTH_IP | default("23.158.16.23") %}
-{% set knot_is_primary = EXTERNAL_LISTEN_IP == knot_primary_auth %}
-{% set knot_peer = knot_secondary_auth if knot_is_primary else knot_primary_auth %}
-{% macro mirrored() %}{% if knot_peer != "" %}{% if knot_is_primary %}    notify: knot-peer
-{% else %}    master: knot-peer
-{% endif %}{% endif %}{% endmacro %}
+   Zone transfers use each server's management IP instead of the shared anycast
+   addresses. 199.170.132.47 and 23.158.16.23 are each served by two VMs (one per
+   site), so a master/notify remote pointing at those IPs splits the fleet into two
+   islands that never see each other's updates. Management IPs are unique per VM
+   and routable across the mesh.
+
+   DDNS updates received by a secondary are forwarded to the master. The forwarded
+   update is not re-signed, so the peer ACL allows keyless `update` from peers. #}
+{% set knot_master_mgt_ip = KNOT_MASTER_MGT_IP | default("") %}
+{% set knot_secondary_mgt_ips = KNOT_SECONDARY_MGT_IPS | default([]) %}
+{% set knot_mirroring = knot_master_mgt_ip != "" and knot_secondary_mgt_ips | length > 0 %}
+{% set knot_is_master = knot_mirroring and INTERNAL_MGT_IP == knot_master_mgt_ip %}
+{% set knot_peers = knot_secondary_mgt_ips if knot_is_master else [knot_master_mgt_ip] %}
+{% set knot_peer_count = knot_secondary_mgt_ips | length %}
+
+{% set mirrored_zones = [
+  {"domain": "doh.mesh.nycmesh.net", "file": "doh.mesh.nycmesh.net.zone", "acl": ["acl-update-doh"]},
+  {"domain": "nn.mesh.nycmesh.net", "file": "nn.zone", "acl": ["acl-update-nn"]},
+  {"domain": "ha.mesh.nycmesh.net", "file": "ha.mesh.nycmesh.net.zone", "acl": ["acl-update-ha"]},
+  {"domain": "devairflow.mesh.nycmesh.net", "file": "devairflow.mesh.nycmesh.net.zone", "acl": ["acl-update-devairflow"]},
+  {"domain": "airflow.mesh.nycmesh.net", "file": "airflow.mesh.nycmesh.net.zone", "acl": ["acl-update-airflow"]},
+  {"domain": "prox.mesh.nycmesh.net", "file": "prox.mesh.nycmesh.net.zone", "acl": ["acl-update-jon", "acl-update-nycmesh-10-r630-01", "acl-update-nycmesh-713-r640-01"]},
+  {"domain": "building.mesh.nycmesh.net", "file": "building.mesh.nycmesh.net.zone", "acl": ["acl-update-building"]},
+  {"domain": "building-dev.mesh.nycmesh.net", "file": "building-dev.mesh.nycmesh.net.zone", "acl": ["acl-update-buildingdev"]},
+  {"domain": "paste.mesh.nycmesh.net", "file": "paste.mesh.nycmesh.net.zone", "acl": ["acl-update-paste"]},
+  {"domain": "paste-dev.mesh.nycmesh.net", "file": "paste-dev.mesh.nycmesh.net.zone", "acl": ["acl-update-pastedev"]},
+  {"domain": "jamesinternalprodtwo.mesh.nycmesh.net", "file": "jamesinternalprodtwo.mesh.nycmesh.net.zone", "acl": ["acl-update-jamesinternalprodtwo"]},
+  {"domain": "jenkins.mesh.nycmesh.net", "file": "jenkins.mesh.nycmesh.net.zone", "acl": ["acl-update-jenkins"]},
+  {"domain": "bao.mesh.nycmesh.net", "file": "bao.mesh.nycmesh.net.zone", "acl": ["acl-update-bao"]},
+  {"domain": "keycloak-admin.mesh.nycmesh.net", "file": "keycloak-admin.mesh.nycmesh.net.zone", "acl": ["acl-update-keycloak"]},
+  {"domain": "cloud.mesh.nycmesh.net", "file": "cloud.mesh.nycmesh.net.zone", "acl": ["acl-update-cloud"]}
+] %}
 
 server:
     automatic-acl: on
 {% if INTERNAL_LISTEN_IP != "" %}    listen: {{ INTERNAL_LISTEN_IP }}@53
 {% endif %}
 {% if EXTERNAL_LISTEN_IP != "" %}    listen: {{ EXTERNAL_LISTEN_IP }}@53
+{% endif %}
+{% if knot_mirroring %}    listen: {{ INTERNAL_MGT_IP }}@53
 {% endif %}
 
 log:
@@ -31,10 +56,19 @@ mod-rrl:
    rate-limit: 200
    slip: 2
 
-{% if knot_peer != "" %}
+{% if knot_mirroring %}
 remote:
-  - id: knot-peer
-    address: {{ knot_peer }}
+{% if knot_is_master %}
+{% for peer in knot_secondary_mgt_ips %}
+  - id: knot-peer-{{ loop.index }}
+    address: {{ peer }}
+    via: {{ INTERNAL_MGT_IP }}
+{% endfor %}
+{% else %}
+  - id: knot-master
+    address: {{ knot_master_mgt_ip }}
+    via: {{ INTERNAL_MGT_IP }}
+{% endif %}
 {% endif %}
 
 template:
@@ -77,6 +111,11 @@ key:
     secret: {{ TSIG_KEY_HOMEASSISTANT }}
 
 acl:
+{% if knot_mirroring %}
+  - id: acl-knot-peer
+    address: [{{ knot_peers | join(', ') }}]
+    action: [transfer, notify, update]
+{% endif %}
   - id: acl-update-building
     action: update
     update-type: [TXT]
@@ -190,69 +229,19 @@ zone:
   - domain: mesh
   - domain: mesh.nycmesh.net
     file: mesh.zone
-  - domain: doh.mesh.nycmesh.net
-    file: doh.mesh.nycmesh.net.zone
-    acl: acl-update-doh
-{{ mirrored() }}
-  - domain: nn.mesh.nycmesh.net
-    file: nn.zone
-    acl: acl-update-nn
-{{ mirrored() }}
-  - domain: ha.mesh.nycmesh.net
-    file: ha.mesh.nycmesh.net.zone
-    acl: acl-update-ha
-{{ mirrored() }}
-  - domain: devairflow.mesh.nycmesh.net
-    file: devairflow.mesh.nycmesh.net.zone
-    acl: acl-update-devairflow
-{{ mirrored() }}
-  - domain: airflow.mesh.nycmesh.net
-    file: airflow.mesh.nycmesh.net.zone
-    acl: acl-update-airflow
-{{ mirrored() }}
-  - domain: prox.mesh.nycmesh.net
-    file: prox.mesh.nycmesh.net.zone
-    acl: [acl-update-jon, acl-update-nycmesh-10-r630-01, acl-update-nycmesh-713-r640-01]
-{{ mirrored() }}
-  - domain: building.mesh.nycmesh.net
-    file: building.mesh.nycmesh.net.zone
-    acl: acl-update-building
-{{ mirrored() }}
-  - domain: building-dev.mesh.nycmesh.net
-    file: building-dev.mesh.nycmesh.net.zone
-    acl: acl-update-buildingdev
-{{ mirrored() }}
-  - domain: paste.mesh.nycmesh.net
-    file: paste.mesh.nycmesh.net.zone
-    acl: acl-update-paste
-{{ mirrored() }}
-  - domain: paste-dev.mesh.nycmesh.net
-    file: paste-dev.mesh.nycmesh.net.zone
-    acl: acl-update-pastedev
-{{ mirrored() }}
-  - domain: jamesinternalprodtwo.mesh.nycmesh.net
-    file: jamesinternalprodtwo.mesh.nycmesh.net.zone
-    acl: acl-update-jamesinternalprodtwo
-{{ mirrored() }}
   - domain: nycmeshconnect.com
     file: nycmeshconnect.com.zone
   - domain: nycmeshconnect.net
     file: nycmeshconnect.net.zone
   - domain: 10.in-addr.arpa
   - domain: 59.167.199.in-addr.arpa
-  - domain: jenkins.mesh.nycmesh.net
-    file: jenkins.mesh.nycmesh.net.zone
-    acl: acl-update-jenkins
-{{ mirrored() }}
-  - domain: bao.mesh.nycmesh.net
-    file: bao.mesh.nycmesh.net.zone
-    acl: acl-update-bao
-{{ mirrored() }}
-  - domain: keycloak-admin.mesh.nycmesh.net
-    file: keycloak-admin.mesh.nycmesh.net.zone
-    acl: acl-update-keycloak
-{{ mirrored() }}
-  - domain: cloud.mesh.nycmesh.net
-    file: cloud.mesh.nycmesh.net.zone
-    acl: acl-update-cloud
-{{ mirrored() }}
+{% for zone in mirrored_zones %}
+  - domain: {{ zone.domain }}
+    file: {{ zone.file }}
+    acl: [{% if knot_mirroring %}{{ zone.acl | join(', ') }}, acl-knot-peer{% else %}{{ zone.acl | join(', ') }}{% endif %}]
+{% if knot_mirroring %}
+{% if knot_is_master %}    notify: [{% for i in range(1, knot_peer_count + 1) %}knot-peer-{{ i }}{% if not loop.last %}, {% endif %}{% endfor %}]
+{% else %}    master: knot-master
+{% endif %}
+{% endif %}
+{% endfor %}

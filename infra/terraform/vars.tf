@@ -241,16 +241,16 @@ variable "main_auth_server_ip" {
   default     = "199.170.132.47"
 }
 
-variable "primary_auth_dns_ip" {
+variable "knot_master_mgt_ip" {
   type        = string
-  description = "Authoritative DNS server that is primary for dynamically updated (ACME) zones. The other authoritative server mirrors it with NOTIFY/IXFR. Set to an empty string for a standalone authoritative server."
-  default     = "199.170.132.47"
+  description = "Management IP of the authoritative DNS server that is primary for the dynamically updated (ACME) zones. Empty for a standalone authoritative server."
+  default     = ""
 }
 
-variable "secondary_auth_dns_ip" {
-  type        = string
-  description = "Authoritative DNS server that mirrors the dynamically updated zones from the primary"
-  default     = "23.158.16.23"
+variable "knot_secondary_mgt_ips" {
+  type        = list(string)
+  description = "Management IPs of the authoritative DNS servers that mirror the dynamically updated zones from the primary. Zone transfers use these addresses because the anycast DNS IPs are shared by more than one VM."
+  default     = []
 }
 
 variable "mesh_stub_resolver" {

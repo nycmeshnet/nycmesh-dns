@@ -33,8 +33,8 @@ resource "ansible_group" "knot-authoritative" {
     TSIG_KEY_DOH                 = var.tsig_key_doh
     TSIG_KEY_NN                  = var.tsig_key_nn
     TSIG_KEY_HOMEASSISTANT       = var.tsig_key_ha
-    KNOT_PRIMARY_AUTH_IP         = var.primary_auth_dns_ip
-    KNOT_SECONDARY_AUTH_IP       = var.secondary_auth_dns_ip
+    KNOT_MASTER_MGT_IP           = var.knot_master_mgt_ip
+    KNOT_SECONDARY_MGT_IPS       = var.knot_secondary_mgt_ips
   }
 }
 
